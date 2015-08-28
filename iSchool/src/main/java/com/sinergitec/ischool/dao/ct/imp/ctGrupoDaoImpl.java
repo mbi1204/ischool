@@ -21,101 +21,95 @@ import com.sinergitec.ischool.util.VectorResultSet;
 
 @Repository
 public class ctGrupoDaoImpl implements ctGrupoDao {
-	
-	@SuppressWarnings("rawtypes")
-	public void add_ctGrupo(ctGrupo obj_Grupo) throws Open4GLException, IOException{
-		
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public void add_ctGrupo(ctGrupo obj_Grupo) throws Open4GLException, IOException {
+
 		List<ctGrupo> Lista = new ArrayList<ctGrupo>();
-		
-		Lista.add(obj_Grupo);		
-				
+
+		Lista.add(obj_Grupo);
+
 		Vector vecTabla1, vecRow1;
-        vecTabla1 = new Vector();
-        
-        BooleanHolder oplResultado = new BooleanHolder();
-        StringHolder opcTexto = new StringHolder();
-        
-        Connection conexion = DBConexion.getConnection();
-        AppServer app = new AppServer(conexion);
-        
-        System.out.println("antes del for");
-        for(ctGrupo obj : Lista){
-        	vecRow1 = obj.getVectorDatos();
-        	vecTabla1.add(vecRow1);
-        }
-        
-        System.out.println("despues del for");
-        
-        ResultSetHolder ttGrupos = new ResultSetHolder(new VectorResultSet(vecTabla1));
-        System.out.println("despues conversion");
-        
-        try 	{
-        	
-        	System.out.println("antes de conexion");
-        	
-        	app.as_ctGrupo_Inserta("SISIMB",  ttGrupos, oplResultado, opcTexto);
-        	
-        	System.out.println("fin de conexion");
+		vecTabla1 = new Vector();
 
-            System.out.println(opcTexto.getValue());
-            
-
-        } catch (Exception ex) {
-            System.err.println(ex);
-
-        } finally {
-            app._release();
-            DBConexion.closeConnection(conexion);
-
-        }
-	}
-	
-	public void editarGrupo(Grupo g) throws Open4GLException, IOException{
-		
-		List<Grupo> valorModificado = new ArrayList<Grupo>();
-		valorModificado.add(g);
-		
 		BooleanHolder oplResultado = new BooleanHolder();
-        StringHolder opcTexto = new StringHolder();
+		StringHolder opcTexto = new StringHolder();
+
 		Connection conexion = DBConexion.getConnection();
-        AppServer app = new AppServer(conexion);
-        
-        Vector vecTabla1, vecRow1;
-        vecTabla1 = new Vector();
-        
-        for(Grupo e : valorModificado){
-        	vecRow1 = e.getVectorDatos();
-        	vecTabla1.add(vecRow1);
-        }
-        
-        ResultSet gruposModificados = new VectorResultSet(vecTabla1); 
-        
-        try {
-        	app.as_ctGrupo_Actualiza("SISIMB", gruposModificados, oplResultado, opcTexto);
-            System.out.print(opcTexto.getValue()+" Y el Resultado "+oplResultado.getValue());
-			
+		AppServer app = new AppServer(conexion);
+
+		System.out.println("antes del for");
+		for (ctGrupo obj : Lista) {
+			vecRow1 = obj.getVectorDatos();
+			vecTabla1.add(vecRow1);
+		}
+
+		ResultSetHolder ttGrupos = new ResultSetHolder(new VectorResultSet(vecTabla1));
+		try {
+
+			app.as_ctGrupo_Inserta("SISIMB", ttGrupos, oplResultado, opcTexto);
+
+			System.out.println(opcTexto.getValue());
+
+		} catch (Exception ex) {
+			System.err.println(ex);
+
+		} finally {
+			app._release();
+			DBConexion.closeConnection(conexion);
+
+		}
+	}
+
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public void update_ctGrupo(ctGrupo obj_Grupo) throws Open4GLException, IOException {
+
+		List<ctGrupo> Lista = new ArrayList<ctGrupo>();
+		Lista.add(obj_Grupo);
+
+		BooleanHolder oplResultado = new BooleanHolder();
+		StringHolder opcTexto = new StringHolder();
+		Connection conexion = DBConexion.getConnection();
+		AppServer app = new AppServer(conexion);
+
+		Vector vecTabla1, vecRow1;
+		vecTabla1 = new Vector();
+
+		for (ctGrupo e : Lista) {
+			vecRow1 = e.getVectorDatos();
+			vecTabla1.add(vecRow1);
+		}
+
+		ResultSet gruposModificados = new VectorResultSet(vecTabla1);
+
+		try {
+			app.as_ctGrupo_Actualiza("SISIMB", gruposModificados, oplResultado, opcTexto);
+			System.out.print(opcTexto.getValue() + " Y el Resultado " + oplResultado.getValue());
+
 		} finally {
 			// TODO: handle finally clause
 			app._release();
 			DBConexion.closeConnection(conexion);
 		}
 	}
-	
-	public void eliminarGrupo(int g) throws Open4GLException, IOException{
-		
+
+	public void remove_ctGrupo(int id) throws Open4GLException, IOException {
+
 		BooleanHolder oplResultado = new BooleanHolder();
 		StringHolder opcTexto = new StringHolder();
 
-		Connection conexion = SeguridadBD.getConnection();
+		Connection conexion = DBConexion.getConnection();
 		AppServer app = new AppServer(conexion);
 
-		try {		
+		try {
 			System.out.println("Entro al metodo eliminar");
-			app.as_ctGrupo_Borra("SISIMB", g , oplResultado, opcTexto);
+			app.as_ctGrupo_Borra("SISIMB", id, oplResultado, opcTexto);
 			System.err.println(opcTexto.getValue());
 		} finally {
 			app._release();
-			SeguridadBD.closeConnection(conexion);
+			DBConexion.closeConnection(conexion);
 		}
 	}
+
+	
 }

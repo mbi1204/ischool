@@ -7,9 +7,9 @@ import com.sinergitec.ischool.model.ct.ctGrupo;
 
 public interface ctGrupoDao {
 	
-	public void agregarGrupo(ctGrupo obj_Grupo) throws Open4GLException, IOException;
+	public void add_ctGrupo(ctGrupo obj_Grupo) throws Open4GLException, IOException;
 	
-	public void editarGrupo(ctGrupo obj_ctGrupo) throws Open4GLException, IOException;
+	public void update_ctGrupo(ctGrupo obj_ctGrupo) throws Open4GLException, IOException;
 	
-	public void eliminarGrupo(int id) throws Open4GLException, IOException;
+	public void remove_ctGrupo(int id) throws Open4GLException, IOException;
 }

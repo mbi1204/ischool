@@ -13,5 +13,5 @@ public interface ctAlumnoDao {
 	
 	public void update_ctAlumno(ctAlumno obj) throws Open4GLException, IOException;
 	
-	public void remove_Alumno(int id) throws RunTime4GLException, SystemErrorException, Open4GLException, IOException;
+	public void remove_ctAlumno(int id) throws RunTime4GLException, SystemErrorException, Open4GLException, IOException;
 }

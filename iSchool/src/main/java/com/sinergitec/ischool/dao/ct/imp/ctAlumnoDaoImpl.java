@@ -95,7 +95,7 @@ public class ctAlumnoDaoImpl implements ctAlumnoDao {
 		}
 	}
 	
-	public void remove_Alumno(int id) throws RunTime4GLException, SystemErrorException, Open4GLException, IOException{
+	public void remove_ctAlumno(int id) throws RunTime4GLException, SystemErrorException, Open4GLException, IOException{
 		
 		BooleanHolder oplResultado = new BooleanHolder();
 		StringHolder opcTexto = new StringHolder();
