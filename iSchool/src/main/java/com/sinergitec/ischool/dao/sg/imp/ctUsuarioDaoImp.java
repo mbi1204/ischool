@@ -1,4 +1,4 @@
-package com.sinergitec.ischool.dao.imp.sg;
+package com.sinergitec.ischool.dao.sg.imp;
 
 import java.io.IOException;
 import java.sql.ResultSet;
@@ -18,30 +18,26 @@ import com.progress.open4gl.RunTime4GLException;
 import com.progress.open4gl.StringHolder;
 import com.progress.open4gl.SystemErrorException;
 import com.progress.open4gl.javaproxy.Connection;
-import com.sinergitec.ischool.dao.sg.ctMenuDao;
-import com.sinergitec.ischool.dao.sg.ctProgramaDao;
 import com.sinergitec.ischool.dao.sg.ctPuestoDao;
-import com.sinergitec.ischool.model.sg.ctMenu;
-import com.sinergitec.ischool.model.sg.ctPrograma;
+import com.sinergitec.ischool.dao.sg.ctUsuarioDao;
 import com.sinergitec.ischool.model.sg.ctPuesto;
+import com.sinergitec.ischool.model.sg.ctUsuario;
 import com.sinergitec.ischool.util.DBConexion;
 import com.sinergitec.ischool.util.VectorResultSet;
-
 @Repository
-public class ctProgramaDaoImp implements ctProgramaDao {
-
+public class ctUsuarioDaoImp implements ctUsuarioDao {
 	@Autowired
-	private ctMenuDao DaoMenu;
-
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+	private ctPuestoDao DaoPuesto;
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	public void add_ctPrograma(ctPrograma obj_ctPrograma)
+	public void add_ctUsuario(ctUsuario obj_ctUsuario)
 			throws RunTime4GLException, SystemErrorException, Open4GLException,
 			IOException {
 		// TODO Auto-generated method stub
+		List<ctUsuario> ListNuevos = new ArrayList<ctUsuario>();
 
-		List<ctPrograma> ListNuevos = new ArrayList<ctPrograma>();
-		ListNuevos.add(obj_ctPrograma);
+		ListNuevos.add(obj_ctUsuario);
 		Vector vecTabla1, vecRow1;
 		vecTabla1 = new Vector();
 
@@ -51,7 +47,7 @@ public class ctProgramaDaoImp implements ctProgramaDao {
 		Connection conexion = DBConexion.getConnection();
 		AppServer app = new AppServer(conexion);
 
-		for (ctPrograma obj : ListNuevos) {
+		for (ctUsuario obj : ListNuevos) {
 			vecRow1 = obj.getVectorDatos();
 			vecTabla1.add(vecRow1);
 		}
@@ -59,7 +55,7 @@ public class ctProgramaDaoImp implements ctProgramaDao {
 				vecTabla1));
 
 		try {
-			app.as_ctPrograma_Inserta("SISIMB", tt_Nuevos, ps_Resultado,
+			app.as_ctUsuario_Inserta("SISIMB", tt_Nuevos, ps_Resultado,
 					ps_Texto);
 			System.out.print(ps_Texto.getStringValue());
 		} catch (Exception ex) {
@@ -73,11 +69,9 @@ public class ctProgramaDaoImp implements ctProgramaDao {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	public void update_ctPrograma(ctPrograma obj) throws RunTime4GLException,
+	public void update_ctUsuario(ctUsuario obj) throws RunTime4GLException,
 			SystemErrorException, Open4GLException, IOException {
 		// TODO Auto-generated method stub
-
-		System.out.println("entro al update");
 		StringHolder ps_Texto = new StringHolder();
 		BooleanHolder ps_Resultado = new BooleanHolder();
 
@@ -89,11 +83,15 @@ public class ctProgramaDaoImp implements ctProgramaDao {
 
 		vecRow1 = obj.getVectorDatos();
 		vecTabla1.add(vecRow1);
+		
+		
+		System.out.println("usuario dao->" + obj.getcUsuario() );
 
 		ResultSet tt_Modificados = new VectorResultSet(vecTabla1);
 
 		try {
-			app.as_ctPrograma_Actualiza("SISIMB", tt_Modificados, ps_Resultado,
+
+			app.as_ctUsuario_Actualiza("SISIMB", tt_Modificados, ps_Resultado,
 					ps_Texto);
 
 			System.out.print(ps_Texto.getStringValue());
@@ -107,55 +105,77 @@ public class ctProgramaDaoImp implements ctProgramaDao {
 	}
 
 	@Override
-	public List<ctPrograma> list_ctPrograma() throws RunTime4GLException,
+	public List<ctUsuario> list_ctUsuario() throws RunTime4GLException,
 			SystemErrorException, Open4GLException, IOException, SQLException {
 		// TODO Auto-generated method stub
-
-		ResultSetHolder tt_ctPrograma = new ResultSetHolder();
+		System.out.print("entro el dao ctUsuaio");
+		ResultSetHolder tt_ctUsuario = new ResultSetHolder();
+		
+		
 		StringHolder opcError = new StringHolder();
 		BooleanHolder oplError = new BooleanHolder();
-		List<ctPrograma> Lista = new ArrayList<ctPrograma>();
+		List<ctUsuario> Lista = new ArrayList<ctUsuario>();
+		
+		List<ctPuesto> Lista_ctPuesto = new ArrayList<ctPuesto>();
+		
+		Lista_ctPuesto = DaoPuesto.list_ctPuesto();
+		
+		
+		System.out.println("lista" + Lista_ctPuesto.size());
 
 		Connection conexion = DBConexion.getConnection();
 		AppServer app = new AppServer(conexion);
-
-		List<ctMenu> Lista_ctMenu = new ArrayList<ctMenu>();
-
-		Lista_ctMenu = DaoMenu.list_ctMenu();
+		
+		
 
 		try {
-			app.as_ctPrograma_Carga(true, tt_ctPrograma, oplError, opcError);
-			ResultSet rs_tt_ctPrograma = tt_ctPrograma.getResultSetValue();
+			
+		
+			app.as_ctUsuario_Carga(true, tt_ctUsuario, oplError, opcError);
+			
+			
+			
+				
+		
+		
+			
+			ResultSet rs_tt_ctUsuario = tt_ctUsuario.getResultSetValue();
+			System.out.println("Registros" + rs_tt_ctUsuario.getRow());
 
-			while (rs_tt_ctPrograma.next()) {
+			while (rs_tt_ctUsuario.next()) {
+				
+				ctUsuario obj = new ctUsuario();
 
-				ctPrograma obj = new ctPrograma();
-				obj.setiIdPrograma(rs_tt_ctPrograma.getInt("iIdPrograma"));
-				obj.setiIdMenu(rs_tt_ctPrograma.getInt("iIdMenu"));
-				obj.setcPrograma(rs_tt_ctPrograma.getString("cPrograma"));
-				obj.setlActivo(rs_tt_ctPrograma.getBoolean("lActivo"));
-				obj.setcNombre(rs_tt_ctPrograma.getString("cNombre"));
-				obj.setId(rs_tt_ctPrograma.getBytes("Id"));
-
-				for (ctMenu obj_ctMenu : Lista_ctMenu) {
-					if (obj_ctMenu.getiIdMenu().equals(obj.getiIdMenu())) {
+				obj.setcUsuario(rs_tt_ctUsuario.getString("cUsuario"));
+				obj.setcNombre(rs_tt_ctUsuario.getString("cNombre"));
+				obj.setcPassword(rs_tt_ctUsuario.getString("cPassword"));
+				obj.setlActivo(rs_tt_ctUsuario.getBoolean("lActivo"));
+				obj.setDtFechaAlta(rs_tt_ctUsuario.getTimestamp("dtFechaAlta"));
+				obj.setiIdPuesto(rs_tt_ctUsuario.getInt("iIdPuesto"));
+				obj.setId(rs_tt_ctUsuario.getBytes("Id"));
+				
+				
+				for (ctPuesto obj_ctPuesto : Lista_ctPuesto){
+					
+					if (obj_ctPuesto.getiIdPuesto().equals(obj.getiIdPuesto())){
 						System.out.print("entro al for");
-						ctMenu obj_nctMenu = new ctMenu();
-						obj_nctMenu.setiIdMenu(obj_ctMenu.getiIdMenu());
-						obj_nctMenu.setcMenu(obj_ctMenu.getcMenu());
-						obj.setMenu(obj_nctMenu);
-
+						ctPuesto obj_nctPuesto = new ctPuesto();
+						obj_nctPuesto.setiIdPuesto(obj_ctPuesto.getiIdPuesto());
+						obj_nctPuesto.setcPuesto(obj_ctPuesto.getcPuesto());
+						obj.setPuesto(obj_nctPuesto);
+						
 					}
+					
 				}
-
+				
+				
 				Lista.add(obj);
-
+				
 			}
-
+			
 		} catch (Exception ex) {
-
 			System.out.print(ex);
-
+			
 			Lista = null;
 		} finally {
 			app._release();
@@ -166,49 +186,33 @@ public class ctProgramaDaoImp implements ctProgramaDao {
 	}
 
 	@Override
-	public ctPrograma get_ctPrograma(int idMenu, int idPrograma)
-			throws RunTime4GLException, SystemErrorException, Open4GLException,
-			IOException, SQLException {
+	public ctUsuario get_ctUsuario(String id) throws RunTime4GLException,
+			SystemErrorException, Open4GLException, IOException, SQLException {
 		// TODO Auto-generated method stub
+
 		BooleanHolder oplResultado = new BooleanHolder();
 		StringHolder opcTexto = new StringHolder();
 
-		ResultSetHolder tt_ctPrograma = new ResultSetHolder();
+		ResultSetHolder tt_ctUsuario = new ResultSetHolder();
 		Connection conexion = DBConexion.getConnection();
 		AppServer app = new AppServer(conexion);
-		ctPrograma obj = new ctPrograma();
-		
-		List<ctMenu> Lista_ctMenu = new ArrayList<ctMenu>();
-
-		Lista_ctMenu = DaoMenu.list_ctMenu();
+		ctUsuario obj = new ctUsuario();
 		try {
 
-			app.as_ctPrograma_get("SISIMB", idMenu, idPrograma, tt_ctPrograma,
-					oplResultado, opcTexto);
+			app.as_ctUsuario_get("SISIMB", id, tt_ctUsuario, oplResultado,
+					opcTexto);
 
-			ResultSet rs_tt_ctPrograma = tt_ctPrograma.getResultSetValue();
+			ResultSet rs_tt_ctUsuario = tt_ctUsuario.getResultSetValue();
 
-			while (rs_tt_ctPrograma.next()) {
+			while (rs_tt_ctUsuario.next()) {
 
-				
-				obj.setiIdPrograma(rs_tt_ctPrograma.getInt("iIdPrograma"));
-				obj.setiIdMenu(rs_tt_ctPrograma.getInt("iIdMenu"));
-				obj.setcPrograma(rs_tt_ctPrograma.getString("cPrograma"));
-				obj.setlActivo(rs_tt_ctPrograma.getBoolean("lActivo"));
-				obj.setcNombre(rs_tt_ctPrograma.getString("cNombre"));
-				obj.setId(rs_tt_ctPrograma.getBytes("Id"));
-				
-
-				for (ctMenu obj_ctMenu : Lista_ctMenu) {
-					if (obj_ctMenu.getiIdMenu().equals(obj.getiIdMenu())) {
-						System.out.print("entro al for");
-						ctMenu obj_nctMenu = new ctMenu();
-						obj_nctMenu.setiIdMenu(obj_ctMenu.getiIdMenu());
-						obj_nctMenu.setcMenu(obj_ctMenu.getcMenu());
-						obj.setMenu(obj_nctMenu);
-
-					}
-				}
+				obj.setcUsuario(rs_tt_ctUsuario.getString("cUsuario"));
+				obj.setcNombre(rs_tt_ctUsuario.getString("cNombre"));
+				obj.setcPassword(rs_tt_ctUsuario.getString("cPassword"));
+				obj.setlActivo(rs_tt_ctUsuario.getBoolean("lActivo"));
+				obj.setDtFechaAlta(rs_tt_ctUsuario.getTimestamp("dtFechaAlta"));
+				obj.setiIdPuesto(rs_tt_ctUsuario.getInt("iIdPuesto"));
+				obj.setId(rs_tt_ctUsuario.getBytes("Id"));
 
 			}
 
@@ -221,15 +225,13 @@ public class ctProgramaDaoImp implements ctProgramaDao {
 		}
 
 		return obj;
-
 	}
 
 	@Override
-	public void remove_ctPrograma(int idMenu, int idPrograma)
-			throws RunTime4GLException, SystemErrorException, Open4GLException,
-			IOException {
+	public void remove_ctUsuario(String  id) throws RunTime4GLException,
+			SystemErrorException, Open4GLException, IOException {
 		// TODO Auto-generated method stub
-
+		
 		BooleanHolder oplResultado = new BooleanHolder();
 		StringHolder opcTexto = new StringHolder();
 
@@ -237,15 +239,16 @@ public class ctProgramaDaoImp implements ctProgramaDao {
 		AppServer app = new AppServer(conexion);
 
 		try {
-
-			app.as_ctPrograma_Borra("SISIMB", idMenu, idPrograma, oplResultado,
-					opcTexto);
+			
+			app.as_ctUsuario_Borra("SISIMB", id, oplResultado, opcTexto);
 
 			System.err.println(opcTexto.getValue());
 		} finally {
 			app._release();
 			DBConexion.closeConnection(conexion);
 		}
+
+
 	}
 
 }

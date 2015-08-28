@@ -1,4 +1,4 @@
-package com.sinergitec.ischool.dao.imp.sg;
+package com.sinergitec.ischool.dao.sg.imp;
 
 import java.io.IOException;
 import java.sql.ResultSet;
