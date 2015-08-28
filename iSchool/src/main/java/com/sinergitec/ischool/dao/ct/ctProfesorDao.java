@@ -4,7 +4,7 @@ import java.io.IOException;
 import com.progress.open4gl.Open4GLException;
 import com.sinergitec.ischool.model.ct.ctProfesor;
 
-public interface ProfesorDAO {
+public interface ctProfesorDao {
 	
 	public void add_ctProfesor(ctProfesor obj_ctProfesor) throws Open4GLException, IOException;
 	
