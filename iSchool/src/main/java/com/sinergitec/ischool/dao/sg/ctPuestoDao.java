@@ -1,4 +1,4 @@
-package com.sinergitec.ischool.dao;
+package com.sinergitec.ischool.dao.sg;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -7,23 +7,23 @@ import java.util.List;
 import com.progress.open4gl.Open4GLException;
 import com.progress.open4gl.RunTime4GLException;
 import com.progress.open4gl.SystemErrorException;
-import com.sinergitec.ischool.model.sg.ctMenu;
+import com.sinergitec.ischool.model.sg.ctPuesto;
 
-public interface ctMenuDao {
+public interface ctPuestoDao {
 
-	public void add_ctMenu(ctMenu obj) throws RunTime4GLException,
+	public void add_ctPuesto(ctPuesto obj) throws RunTime4GLException,
 			SystemErrorException, Open4GLException, IOException;
 
-	public void update_ctMenu(ctMenu obj) throws RunTime4GLException,
+	public void update_ctPuesto(ctPuesto obj) throws RunTime4GLException,
 			SystemErrorException, Open4GLException, IOException;
 
-	public List<ctMenu> list_ctMenu() throws RunTime4GLException,
+	public List<ctPuesto> list_ctPuesto() throws RunTime4GLException,
 			SystemErrorException, Open4GLException, IOException, SQLException;
 
-	public ctMenu get_ctMenu(int id) throws RunTime4GLException,
+	public ctPuesto get_ctPuesto(int id) throws RunTime4GLException,
 			SystemErrorException, Open4GLException, IOException, SQLException;
 
-	public void remove_ctMenu(int id) throws RunTime4GLException,
+	public void remove_ctPuesto(int id) throws RunTime4GLException,
 			SystemErrorException, Open4GLException, IOException;
 
 }

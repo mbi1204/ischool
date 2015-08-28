@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import com.progress.open4gl.Open4GLException;
 import com.progress.open4gl.RunTime4GLException;
 import com.progress.open4gl.SystemErrorException;
-import com.sinergitec.ischool.dao.ctPuestoDao;
+import com.sinergitec.ischool.dao.sg.ctPuestoDao;
 import com.sinergitec.ischool.model.sg.ctPuesto;
 import com.sinergitec.ischool.service.ctPuestoService;
 

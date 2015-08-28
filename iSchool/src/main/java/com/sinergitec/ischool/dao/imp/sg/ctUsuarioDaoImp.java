@@ -1,4 +1,4 @@
-package com.sinergitec.ischool.dao.imp;
+package com.sinergitec.ischool.dao.imp.sg;
 
 import java.io.IOException;
 import java.sql.ResultSet;
@@ -18,8 +18,8 @@ import com.progress.open4gl.RunTime4GLException;
 import com.progress.open4gl.StringHolder;
 import com.progress.open4gl.SystemErrorException;
 import com.progress.open4gl.javaproxy.Connection;
-import com.sinergitec.ischool.dao.ctPuestoDao;
-import com.sinergitec.ischool.dao.ctUsuarioDao;
+import com.sinergitec.ischool.dao.sg.ctPuestoDao;
+import com.sinergitec.ischool.dao.sg.ctUsuarioDao;
 import com.sinergitec.ischool.model.sg.ctPuesto;
 import com.sinergitec.ischool.model.sg.ctUsuario;
 import com.sinergitec.ischool.util.DBConexion;

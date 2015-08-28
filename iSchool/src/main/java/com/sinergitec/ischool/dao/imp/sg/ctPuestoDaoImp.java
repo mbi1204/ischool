@@ -1,4 +1,4 @@
-package com.sinergitec.ischool.dao.imp;
+package com.sinergitec.ischool.dao.imp.sg;
 
 import java.io.IOException;
 import java.sql.ResultSet;
@@ -17,23 +17,23 @@ import com.progress.open4gl.RunTime4GLException;
 import com.progress.open4gl.StringHolder;
 import com.progress.open4gl.SystemErrorException;
 import com.progress.open4gl.javaproxy.Connection;
-import com.sinergitec.ischool.dao.ctMenuDao;
-import com.sinergitec.ischool.model.sg.ctMenu;
+import com.sinergitec.ischool.dao.sg.ctPuestoDao;
+import com.sinergitec.ischool.model.sg.ctPuesto;
 import com.sinergitec.ischool.util.DBConexion;
 import com.sinergitec.ischool.util.VectorResultSet;
 
 @Repository
-public class ctMenuDaoImp implements ctMenuDao {
+public class ctPuestoDaoImp implements ctPuestoDao {
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
-	public void add_ctMenu(ctMenu obj_ctMenu) throws RunTime4GLException,
+	public void add_ctPuesto(ctPuesto obj_ctPuesto) throws RunTime4GLException,
 			SystemErrorException, Open4GLException, IOException {
 		// TODO Auto-generated method stub
 
 		
-		List<ctMenu> ListNuevos = new ArrayList<ctMenu>();
-		ListNuevos.add(obj_ctMenu);
+		List<ctPuesto> ListNuevos = new ArrayList<ctPuesto>();
+		ListNuevos.add(obj_ctPuesto);
 		Vector vecTabla1, vecRow1;
 		vecTabla1 = new Vector();
 
@@ -43,7 +43,7 @@ public class ctMenuDaoImp implements ctMenuDao {
 		Connection conexion = DBConexion.getConnection();
 		AppServer app = new AppServer(conexion);
 
-		for (ctMenu obj : ListNuevos) {
+		for (ctPuesto obj : ListNuevos) {
 			vecRow1 = obj.getVectorDatos();
 			vecTabla1.add(vecRow1);
 		}
@@ -51,7 +51,7 @@ public class ctMenuDaoImp implements ctMenuDao {
 				vecTabla1));
 
 		try {
-			app.as_ctMenu_Inserta("SISIMB", tt_Nuevos, ps_Resultado, ps_Texto);
+			app.as_ctPuesto_Inserta("SISIMB", tt_Nuevos, ps_Resultado, ps_Texto);
 			System.out.print(ps_Texto.getStringValue());
 		} catch (Exception ex) {
 
@@ -64,7 +64,7 @@ public class ctMenuDaoImp implements ctMenuDao {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	public void update_ctMenu(ctMenu obj) throws RunTime4GLException,
+	public void update_ctPuesto(ctPuesto obj) throws RunTime4GLException,
 			SystemErrorException, Open4GLException, IOException {
 		// TODO Auto-generated method stub
 		
@@ -84,7 +84,7 @@ public class ctMenuDaoImp implements ctMenuDao {
 		ResultSet tt_Modificados = new VectorResultSet(vecTabla1);
 
 		try {
-			app.as_ctMenu_Actualiza("SISIMB", tt_Modificados, ps_Resultado,
+			app.as_ctPuesto_Actualiza("SISIMB", tt_Modificados, ps_Resultado,
 					ps_Texto);
 			
 			System.out.print(ps_Texto.getStringValue());
@@ -98,36 +98,36 @@ public class ctMenuDaoImp implements ctMenuDao {
 	}
 
 	@Override
-	public List<ctMenu> list_ctMenu() throws RunTime4GLException,
+	public List<ctPuesto> list_ctPuesto() throws RunTime4GLException,
 			SystemErrorException, Open4GLException, IOException, SQLException {
 		// TODO Auto-generated method stub
 		
-		ResultSetHolder tt_ctMenu = new ResultSetHolder();
+		ResultSetHolder tt_ctPuesto = new ResultSetHolder();
 		StringHolder opcError = new StringHolder();
 		BooleanHolder oplError = new BooleanHolder();
-		List<ctMenu> Lista = new ArrayList<ctMenu>();
+		List<ctPuesto> Lista = new ArrayList<ctPuesto>();
 
 		Connection conexion = DBConexion.getConnection();
 		AppServer app = new AppServer(conexion);
 
 		try {
-			app.as_ctMenu_Carga(true, tt_ctMenu, oplError, opcError);
-			ResultSet rs_tt_ctMenu = tt_ctMenu.getResultSetValue();
+			app.as_ctPuesto_Carga(true, tt_ctPuesto, oplError, opcError);
+			ResultSet rs_tt_ctPuesto = tt_ctPuesto.getResultSetValue();
 			
 		
 
-			while (rs_tt_ctMenu.next()) {
+			while (rs_tt_ctPuesto.next()) {
 				
 				
-				ctMenu obj = new ctMenu();
+				ctPuesto obj = new ctPuesto();
 				
-				obj.setiIdMenu(rs_tt_ctMenu.getInt("iIdMenu"));
-				obj.setcMenu(rs_tt_ctMenu.getString("cMenu"));
-				obj.setlActivo(rs_tt_ctMenu.getBoolean("lActivo"));
-				obj.setId(rs_tt_ctMenu.getBytes("Id"));
+				obj.setiIdPuesto(rs_tt_ctPuesto.getInt("iIdPuesto"));
+				obj.setcPuesto(rs_tt_ctPuesto.getString("cPuesto"));
+				obj.setlActivo(rs_tt_ctPuesto.getBoolean("lActivo"));
+				obj.setId(rs_tt_ctPuesto.getBytes("Id"));
 				Lista.add(obj);
 				
-				
+					System.out.println(obj.getcPuesto());
 
 			}
 
@@ -143,7 +143,7 @@ public class ctMenuDaoImp implements ctMenuDao {
 	}
 
 	@Override
-	public ctMenu get_ctMenu(int id) throws  RunTime4GLException,
+	public ctPuesto get_ctPuesto(int id) throws  RunTime4GLException,
 	SystemErrorException, Open4GLException, IOException, SQLException  {
 		// TODO Auto-generated method stub
 		
@@ -151,27 +151,27 @@ public class ctMenuDaoImp implements ctMenuDao {
 		BooleanHolder oplResultado = new BooleanHolder();
 		StringHolder opcTexto = new StringHolder();
 
-		ResultSetHolder tt_ctMenu = new ResultSetHolder();
+		ResultSetHolder tt_ctPuesto = new ResultSetHolder();
 		Connection conexion = DBConexion.getConnection();
 		AppServer app = new AppServer(conexion);
-		ctMenu obj = new ctMenu();
+		ctPuesto obj = new ctPuesto();
 		try {
 
 			
-			app.as_ctMenu_get("SISIMB", id, tt_ctMenu, oplResultado, opcTexto);
+			app.as_ctPuesto_get("SISIMB", id, tt_ctPuesto, oplResultado, opcTexto);
 			
 						
 			
 			
-			ResultSet rs_tt_ctMenu = tt_ctMenu.getResultSetValue();
+			ResultSet rs_tt_ctPuesto = tt_ctPuesto.getResultSetValue();
 
-			while (rs_tt_ctMenu.next()) {
+			while (rs_tt_ctPuesto.next()) {
 				
 				
-				obj.setiIdMenu(rs_tt_ctMenu.getInt("iIdMenu"));
-				obj.setcMenu(rs_tt_ctMenu.getString("cMenu"));
-				obj.setlActivo(rs_tt_ctMenu.getBoolean("lActivo"));
-				obj.setId(rs_tt_ctMenu.getBytes("Id"));
+				obj.setiIdPuesto(rs_tt_ctPuesto.getInt("iIdPuesto"));
+				obj.setcPuesto(rs_tt_ctPuesto.getString("cPuesto"));
+				obj.setlActivo(rs_tt_ctPuesto.getBoolean("lActivo"));
+				obj.setId(rs_tt_ctPuesto.getBytes("Id"));
 				
 			
 
@@ -193,7 +193,7 @@ public class ctMenuDaoImp implements ctMenuDao {
 	}
 
 	@Override
-	public void remove_ctMenu(int id) throws RunTime4GLException,
+	public void remove_ctPuesto(int id) throws RunTime4GLException,
 			SystemErrorException, Open4GLException, IOException {
 		// TODO Auto-generated method stub
 
@@ -205,7 +205,7 @@ public class ctMenuDaoImp implements ctMenuDao {
 
 		try {
 			
-			app.as_ctMenu_Borra("SISIMB", id, oplResultado, opcTexto);
+			app.as_ctPuesto_Borra("SISIMB", id, oplResultado, opcTexto);
 
 			System.err.println(opcTexto.getValue());
 		} finally {
