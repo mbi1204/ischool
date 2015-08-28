@@ -1,4 +1,4 @@
-package com.sinergitec.ischool.model;
+package com.sinergitec.ischool.model.sg;
 
 import java.util.Vector;
 

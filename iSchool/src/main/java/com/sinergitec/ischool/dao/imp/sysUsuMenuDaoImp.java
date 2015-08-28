@@ -18,8 +18,8 @@ import com.progress.open4gl.StringHolder;
 import com.progress.open4gl.SystemErrorException;
 import com.progress.open4gl.javaproxy.Connection;
 import com.sinergitec.ischool.dao.sysUsuMenuDao;
-import com.sinergitec.ischool.model.ctMenu;
-import com.sinergitec.ischool.model.sysUsuMenu;
+import com.sinergitec.ischool.model.sg.ctMenu;
+import com.sinergitec.ischool.model.sg.sysUsuMenu;
 import com.sinergitec.ischool.util.DBConexion;
 import com.sinergitec.ischool.util.VectorResultSet;
 

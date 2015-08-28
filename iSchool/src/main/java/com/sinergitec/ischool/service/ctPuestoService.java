@@ -2,7 +2,7 @@ package com.sinergitec.ischool.service;
 
 import java.util.List;
 
-import com.sinergitec.ischool.model.ctPuesto;
+import com.sinergitec.ischool.model.sg.ctPuesto;
 
 public interface ctPuestoService {
 	public void add_ctPuesto(ctPuesto obj);

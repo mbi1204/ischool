@@ -18,7 +18,7 @@ import com.progress.open4gl.StringHolder;
 import com.progress.open4gl.SystemErrorException;
 import com.progress.open4gl.javaproxy.Connection;
 import com.sinergitec.ischool.dao.ctPuestoDao;
-import com.sinergitec.ischool.model.ctPuesto;
+import com.sinergitec.ischool.model.sg.ctPuesto;
 import com.sinergitec.ischool.util.DBConexion;
 import com.sinergitec.ischool.util.VectorResultSet;
 

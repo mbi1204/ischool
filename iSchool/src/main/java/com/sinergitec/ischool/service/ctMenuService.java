@@ -2,7 +2,7 @@ package com.sinergitec.ischool.service;
 
 import java.util.List;
 
-import com.sinergitec.ischool.model.ctMenu;
+import com.sinergitec.ischool.model.sg.ctMenu;
 
 public interface ctMenuService {
 	public void add_ctMenu(ctMenu obj);

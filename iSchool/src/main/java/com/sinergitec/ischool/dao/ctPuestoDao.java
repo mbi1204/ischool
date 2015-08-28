@@ -7,7 +7,7 @@ import java.util.List;
 import com.progress.open4gl.Open4GLException;
 import com.progress.open4gl.RunTime4GLException;
 import com.progress.open4gl.SystemErrorException;
-import com.sinergitec.ischool.model.ctPuesto;
+import com.sinergitec.ischool.model.sg.ctPuesto;
 
 public interface ctPuestoDao {
 

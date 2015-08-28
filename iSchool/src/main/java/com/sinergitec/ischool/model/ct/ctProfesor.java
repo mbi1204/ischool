@@ -1,4 +1,4 @@
-package com.sinergitec.ischool.model;
+package com.sinergitec.ischool.model.ct;
 
 import java.sql.Timestamp;
 import java.util.Vector;

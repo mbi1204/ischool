@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.sinergitec.ischool.model.ctPuesto;
+import com.sinergitec.ischool.model.sg.ctPuesto;
 import com.sinergitec.ischool.service.ctPuestoService;
 
 @Controller

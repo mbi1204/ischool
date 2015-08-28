@@ -2,7 +2,7 @@ package com.sinergitec.ischool.service;
 
 import java.util.List;
 
-import com.sinergitec.ischool.model.ctUsuario;
+import com.sinergitec.ischool.model.sg.ctUsuario;
 
 
 public interface ctUsuarioService {

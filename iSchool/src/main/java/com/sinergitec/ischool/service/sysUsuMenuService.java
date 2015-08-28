@@ -2,7 +2,7 @@ package com.sinergitec.ischool.service;
 
 import java.util.List;
 
-import com.sinergitec.ischool.model.sysUsuMenu;
+import com.sinergitec.ischool.model.sg.sysUsuMenu;
 
 public interface sysUsuMenuService {
 	public void add_sysUsuMenu(sysUsuMenu obj);

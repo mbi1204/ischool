@@ -7,7 +7,7 @@ import java.util.List;
 import com.progress.open4gl.Open4GLException;
 import com.progress.open4gl.RunTime4GLException;
 import com.progress.open4gl.SystemErrorException;
-import com.sinergitec.ischool.model.ctUsuario;
+import com.sinergitec.ischool.model.sg.ctUsuario;
 
 public interface ctUsuarioDao {
 	public void add_ctUsuario(ctUsuario obj) throws RunTime4GLException,

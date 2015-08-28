@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.sinergitec.ischool.model.ctMenu;
-import com.sinergitec.ischool.model.ctPrograma;
-import com.sinergitec.ischool.model.ctUsuario;
-import com.sinergitec.ischool.model.sysUsuMenu;
+import com.sinergitec.ischool.model.sg.ctMenu;
+import com.sinergitec.ischool.model.sg.ctPrograma;
+import com.sinergitec.ischool.model.sg.ctUsuario;
+import com.sinergitec.ischool.model.sg.sysUsuMenu;
 import com.sinergitec.ischool.service.ctMenuService;
 import com.sinergitec.ischool.service.ctProgramaService;
 import com.sinergitec.ischool.service.sysUsuMenuService;

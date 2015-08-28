@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.sinergitec.ischool.model.ctPrograma;
+import com.sinergitec.ischool.model.sg.ctPrograma;
 import com.sinergitec.ischool.service.ctMenuService;
 import com.sinergitec.ischool.service.ctProgramaService;
 

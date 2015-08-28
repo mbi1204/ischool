@@ -21,9 +21,9 @@ import com.progress.open4gl.javaproxy.Connection;
 import com.sinergitec.ischool.dao.ctMenuDao;
 import com.sinergitec.ischool.dao.ctProgramaDao;
 import com.sinergitec.ischool.dao.ctPuestoDao;
-import com.sinergitec.ischool.model.ctMenu;
-import com.sinergitec.ischool.model.ctPrograma;
-import com.sinergitec.ischool.model.ctPuesto;
+import com.sinergitec.ischool.model.sg.ctMenu;
+import com.sinergitec.ischool.model.sg.ctPrograma;
+import com.sinergitec.ischool.model.sg.ctPuesto;
 import com.sinergitec.ischool.util.DBConexion;
 import com.sinergitec.ischool.util.VectorResultSet;
 

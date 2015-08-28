@@ -12,7 +12,7 @@ import com.progress.open4gl.Open4GLException;
 import com.progress.open4gl.RunTime4GLException;
 import com.progress.open4gl.SystemErrorException;
 import com.sinergitec.ischool.dao.sysUsuMenuDao;
-import com.sinergitec.ischool.model.sysUsuMenu;
+import com.sinergitec.ischool.model.sg.sysUsuMenu;
 import com.sinergitec.ischool.service.sysUsuMenuService;
 
 
