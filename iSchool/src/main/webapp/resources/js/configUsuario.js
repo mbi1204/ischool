@@ -11,6 +11,8 @@ function carga_ctMenu(cUsuario) {
 			cUsuario : cUsuario
 		},
 		success : function(data, textStatus, jqXHR) {
+			
+			
 			$("#mytable > tbody").empty();
 			$("#mytable2 > tbody").empty();
 			for ( var item in data) {
@@ -37,10 +39,11 @@ function carga_ctMenu(cUsuario) {
 						+ '</nobr></td>'
 						+ '</tr>');				
 				
-				}					
+				}
+								
 			},
 			error : function() {
-				alert('error');
+				alert("erro al ejecutar el BuscaMenu" + textStatus);
 			}
 			
 	});
@@ -86,7 +89,7 @@ function remove_sysMenu(iIdMenu){
 				
 			},
 			error : function() {
-				alert('error');
+				alert('error ');
 			}
 		});
 	 

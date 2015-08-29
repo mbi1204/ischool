@@ -11,9 +11,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
-
-import com.sinergitec.ischool.model.sg.ctMenu;
 import com.sinergitec.ischool.model.sg.ctPrograma;
 import com.sinergitec.ischool.model.sg.ctUsuario;
 import com.sinergitec.ischool.model.sg.sysUsuMenu;
@@ -51,6 +48,15 @@ public class sysUsuMenu_Control {
 
 		List<sysUsuMenu> lista = new ArrayList<sysUsuMenu>();
 		lista = this.servSysMenu.list_sysUsuMenu(cUsuario, true);
+		
+		
+		for (sysUsuMenu obj : lista){
+			
+			System.out.print(obj.getcMenu() + obj.getcUsuario());
+			
+			
+			
+		}
 		return lista;
 
 	}
