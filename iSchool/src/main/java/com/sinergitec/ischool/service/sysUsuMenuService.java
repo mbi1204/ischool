@@ -13,6 +13,6 @@ public interface sysUsuMenuService {
 
 	public sysUsuMenu get_sysUsuMenu(int id);
 
-	public void remove_sysUsuMenu(String cMenu ,int iMenu);
+	public void remove_sysUsuMenu(String cUsuario ,int iMenu);
 
 }

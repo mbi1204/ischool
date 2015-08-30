@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.sinergitec.ischool.model.sg.ctPrograma;
 import com.sinergitec.ischool.model.sg.ctUsuario;
 import com.sinergitec.ischool.model.sg.sysUsuMenu;
+import com.sinergitec.ischool.model.sg.sysUsuPrograma;
 import com.sinergitec.ischool.service.ctMenuService;
 import com.sinergitec.ischool.service.ctProgramaService;
 import com.sinergitec.ischool.service.sysUsuMenuService;
+import com.sinergitec.ischool.service.sysUsuProgramaService;
 import com.sinergitec.ischool.service.ctUsuarioService;
 
 @Controller
@@ -29,6 +31,10 @@ public class sysUsuMenu_Control {
 	private sysUsuMenuService servSysMenu;
 	@Autowired
 	private ctProgramaService serviPrograma;
+	@Autowired
+	private sysUsuProgramaService serviSysPrograma; 
+	
+	
 
 	@RequestMapping(value = "/configUsuario", method = RequestMethod.GET)
 	public String list_configUsuario(Model model) {
@@ -80,6 +86,26 @@ public class sysUsuMenu_Control {
 		return lista;
 
 	}
+	
+	
+	@RequestMapping(value = "/sysUsuPrograma/add")
+	public  @ResponseBody List<sysUsuPrograma> add_sysUsuPrograma(String cUsuario , int iIdMenu,		
+			ModelMap model) {
+		
+		
+		sysUsuPrograma obj = new sysUsuPrograma();
+		
+		obj.setcUsuario(cUsuario);
+		obj.setiIdMenu(iIdMenu);
+		obj.setlActivo(true);
+		this.serviSysPrograma.add_sysUsuPrograma(obj);
+		List<sysUsuPrograma> lista = new ArrayList<sysUsuPrograma>();
+		lista = this.serviSysPrograma.list_sysUsuPrograma(cUsuario, iIdMenu, true);
+		
+		return lista;
+
+	}
+	
 	
 	
 	@RequestMapping(value = "/sysUsuMenu/remove")
