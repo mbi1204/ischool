@@ -97,7 +97,7 @@ th {
 	</table>
 	
 	
-	<button class="pure-button pure-button-primary" onclick="add_sysUsuMenu()">
+	<button class="pure-button pure-button-primary" onclick="add_sysPrograma()">
 		<i class="fa fa-plus"></i> Agregar Programa
 	</button>
 	

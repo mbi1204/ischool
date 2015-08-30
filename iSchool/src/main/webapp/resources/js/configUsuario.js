@@ -161,6 +161,20 @@ function submit(){
 	
 }
 
+function add_sysPrograma(){
+	 var value = $(".selected td:first").html();
+	 alert(value);
+	 if (typeof value === "undefined") {
+		    alert("seleccione un menu para agregar programas");    
+	 }else {
+		 
+		 alert(value);
+	 }
+	
+}
+
+
+
 $('#mytable').on('dblclick', 'tr', function() {
 	/*alert($(this).find('td:eq(0)').text());
 	alert($(this).find('td:eq(1)').text());
@@ -230,12 +244,9 @@ $(document).ready(function() {
 			"Cancel" : function() {
 				$(this).dialog('close');
 			}
-		},
-		
+		},		
 		close : function() {
-
 			resetDialog($('#Form_sysUsuMenu'));
-
 			$(this).dialog('close');
 		},		
 		aceptar : function(){
