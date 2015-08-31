@@ -27,4 +27,6 @@ public class ctAlumnoServiceImp implements ctAlumnoService {
 	public void remove_ctAlumno(int id) throws RunTime4GLException, SystemErrorException, Open4GLException, IOException{
 		this.ctAlumnoDao.remove_ctAlumno(id);
 	}
+	
+	
 }
