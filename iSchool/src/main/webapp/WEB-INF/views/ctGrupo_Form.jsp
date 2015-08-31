@@ -4,7 +4,7 @@
 
 <c:url var="actionUrl" value="/ctGrupo/add" />
 
-<form:form id="Form_ctGrupo" commandName="Grupo" method="post"
+<form:form id="Form_ctGrupo" commandName="ctGrupo" method="post"
 	action="${actionUrl}" class="pure-form pure-form-aligned">
 
 	<fieldset>

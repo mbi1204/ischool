@@ -27,7 +27,7 @@ public class ctGrupoControl {
 		
 		model.addAttribute("ctGrupo", new ctGrupo());
 		model.addAttribute("lista_ctGrupo", this.ctGrupoService.list_ctGrupo());
-		return"grupoLista";
+		return"ctGrupo_List";
 	}
 	
 	@RequestMapping(value= "/ctGrupo/add", method = RequestMethod.POST)
@@ -45,7 +45,7 @@ public class ctGrupoControl {
            this.ctGrupoService.update_ctGrupo(g);
         }
          
-        return "redirect:/ctGrupo/";
+        return "redirect:/ctGrupo";
          
     }
 	
@@ -53,10 +53,10 @@ public class ctGrupoControl {
 	public String eliminarGrupo(@PathVariable("id") int grupo) throws Open4GLException, IOException {
 
 		this.ctGrupoService.remove_ctGrupo(grupo);
-		return "redirect:/grupo/adm/";
+		return "redirect:/ctGrupo";
 	}
 
-	@RequestMapping("/grupo/adm/get/{id}")
+	@RequestMapping("/ctGrupo/get/{id}")
 	public String get_ctGrupo(@PathVariable("id") int id,
 			Model model) throws Open4GLException, IOException {
 
@@ -64,17 +64,17 @@ public class ctGrupoControl {
 		//model.addAttribute("actionUrl", "edit_ctUsuario/");
 		//model.addAttribute("lista_ctGrupo", this.grupoService.list_ctGrupo());
 
-		return "grupo";
+		return "ctGrupo_Form";
 
 	}
 
-	@RequestMapping(value = "/grupo/adm/editar/{grupo}", method = RequestMethod.POST)
+	@RequestMapping(value = "/ctGrupo/edit/{grupo}", method = RequestMethod.POST)
 	public String editarGrupo(@PathVariable("id") int g, Model moldel) throws Open4GLException, IOException {
 		
 		/*java.util.Date date = new java.util.Date();
 		obj.setDtFechaAlta(new Timestamp(date.getTime()));*/
 		
 		moldel.addAttribute("ctGrupo",this.ctGrupoService.get_Grupo(g));
-		return "redirect:/grupo/adm/";
+		return "redirect:/ctGrupo";
 	}
 }
