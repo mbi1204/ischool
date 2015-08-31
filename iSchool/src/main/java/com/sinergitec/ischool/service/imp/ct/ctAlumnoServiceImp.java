@@ -3,6 +3,7 @@ package com.sinergitec.ischool.service.imp.ct;
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.progress.open4gl.Open4GLException;
 import com.progress.open4gl.RunTime4GLException;
@@ -11,6 +12,7 @@ import com.sinergitec.ischool.dao.ct.ctAlumnoDao;
 import com.sinergitec.ischool.model.ct.ctAlumno;
 import com.sinergitec.ischool.service.ct.ctAlumnoService;
 
+@Service
 public class ctAlumnoServiceImp implements ctAlumnoService {
 	
 	@Autowired
