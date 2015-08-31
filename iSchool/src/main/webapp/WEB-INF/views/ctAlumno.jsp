@@ -31,7 +31,7 @@
             </ul>
         </nav>
     </header>
-        <c:url var="addAction" value="/alumno/registro" ></c:url>
+        <c:url var="addAction" value="/ctAlumno/add" ></c:url>
         <section>
             <form class="registro" action="${addAction}" method="post" name="registro">
             <fieldset>

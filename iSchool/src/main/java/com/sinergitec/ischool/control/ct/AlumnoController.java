@@ -27,39 +27,11 @@ public class AlumnoController {
 	public String alumno(Locale locale, Model model) {
 		
 		
-		return "alumno";
+		return "ctAlumno";
 	}
 	
 	 @RequestMapping(value= "/ctAlumno/add", method = RequestMethod.POST)
-	    public String addPerson(@ModelAttribute("alumno") ctAlumno obj) throws RunTime4GLException, SystemErrorException, Open4GLException, IOException{
-	   	 	/*
-	   	 	 * Se comprueba que si inserta el programa
-	   	 	 * 
-	   	 	 * Se comprueba que si borra el programa
-	   	 	 * this.alumnoService.eliminarAlumno(2);
-	   	 	 * 
-	   	 	 *  Se comprueba que si realiza los cambios
-	   	 	 *  a.setiIdAlumno(4);
-	    		a.setcNombre("Pepe y Tono");
-	    		a.setcApellido("Mariana y Sofia");
-	    		a.setDtFechaNac("1992-08-18");
-	    		a.setcCalle("Munjica");
-	    		a.setcNumExt("62");
-	    		a.setcNumInt("s/n");
-	    		a.setcColonia("Pedro");
-	    		a.setcCP("12345");
-	    		a.setcMunicipio("Naucalpan");
-	    		a.setcEstado("Edo Mex");
-	    		a.setcTel("55486621");
-	    		a.setlEstatus(true);
-	    	
-	    		System.out.println("Entra a la edicion");
-	    		this.alumnoService.editarAlumno(a);
-	    		
-	    		NOTA; SE PUEDEN HACER DOS COSAS PARA LA FECHA DE INSCRIPCION:
-	    		1.- DIRECTAMENTE EN EL SERVIDOR INDICAR QUE SE TOME LA HORA ACTUAL
-	    		2.- EXCLUIR DE CAMBIO AL CAMPO DE FECHA DE INSCRIPCION
-	    		*/
+	    public String addPerson(@ModelAttribute("ctAlumno") ctAlumno obj) throws RunTime4GLException, SystemErrorException, Open4GLException, IOException{	   	 	
 	    	
 	    	
 	        if(obj.getiIdAlumno() == 0){

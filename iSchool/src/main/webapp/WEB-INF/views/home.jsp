@@ -22,7 +22,7 @@
 <h1>Menu Administrador</h1>
 
 
-<a href="ctPuesto">Inscripcion</a>
+<a href="ctAlumno">Inscripcion</a>
 
 
 </body>
