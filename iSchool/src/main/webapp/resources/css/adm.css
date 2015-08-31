@@ -1,0 +1,113 @@
+body{
+padding: 0 20px 20px;
+/*margin: 0 0 30px;*/
+background: #0080ff;
+border-radius: 10px; 
+background: -webkit-gradient( linear, left bottom, left top, color-stop(0,#0080ff), color-stop(1, #ffffff) );
+background: -moz-linear-gradient( center bottom, #0080ff 0%, #FBE080 100% ); 
+
+}
+.registro ul {
+    width:100%;
+    list-style-type:none;
+    list-style-position:outside;
+    margin:0px;
+    padding:0px;
+    position:center;
+    bgcolor:#3dc28d;
+	align:center;
+}
+.registro li{
+    padding:12px; 
+    border-bottom:1px sotdd #eee;
+    position:center;
+}
+
+.menu_inicio{
+	margin-top: 150px;
+	text-align:center;
+	
+	
+}
+
+.registro input {
+    height:25px; 
+    width:50%; 
+    padding:5px 8px;
+}
+
+.registro input, .registro textarea { 
+    border:1px solid #aaa;
+    box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
+    border-radius:2px;
+}
+.registro input:focus, .registro textarea:focus {
+    background: #fff; 
+    border:1px solid #555; 
+    box-shadow: 0 0 3px #aaa; 
+}
+
+.registro input:focus, .registro textarea:focus { /* add this to the already existing style */
+    padding-right:70px;
+}
+
+.registro input, .registro textarea { /* add this to the already existing style */
+    -moz-transition: padding .25s; 
+    -webkit-transition: padding .25s; 
+    -o-transition: padding .25s;
+    transition: padding .25s;
+}
+
+.registro input, .registro textarea {
+    padding-right:30px;
+}
+
+input:required, textarea:required {
+    background: #fff  no-repeat 98% center;
+}
+
+.registro input:focus:invalid, .registro textarea:focus:invalid { /* when a field is considered invatdd by the browser */
+    background: #fff url(../imagenes/cross.png) no-repeat 98% center;
+    box-shadow: 0 0 5px #d45252;
+    border-color: #b03535
+}
+
+.registro input:required:valid, .registro textarea:required:valid { /* when a field is considered vatdd by the browser */
+    background: #fff url(../imagenes/checkmark.png) no-repeat 98% center;
+    box-shadow: 0 0 5px #5cd053;
+    border-color: #28921f;
+}
+
+.form_hint {
+    background: #d45252;
+    border-radius: 3px 3px 3px 3px;
+    color: white;
+    margin-left:8px;
+    padding: 1px 6px;
+    z-index: 999; /* hints stay above all other elements */
+    position: absolute; /* allows proper formatting if hint is two tdnes */
+    display: none;
+}
+
+.form_hint::before {
+    content: "\25C0"; /* left point triangle in escaped unicode */
+    color:#d45252;
+    position: absolute;
+    top:1px;
+    left:-6px;
+}
+ .boton{
+        font-size:10px;
+        font-family:Verdana,Helvetica;
+        font-weight:bold;
+        color:white;
+        background:#638cb5;
+        border:0px;
+        width:80px;
+        height:19px;
+       }
+
+
+.registro input:focus + .form_hint {display: inline;}
+.registro input:required:valid + .form_hint {background: #28921f;} /* change form hint color when vatdd */
+.registro input:required:valid + .form_hint::before {color:#28921f;} /* change form hint arrow color when vatdd */
