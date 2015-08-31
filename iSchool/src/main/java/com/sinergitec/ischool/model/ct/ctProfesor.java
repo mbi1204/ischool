@@ -17,8 +17,8 @@ public class ctProfesor {
 	private String cEdoProfesor;
 	private String cTelProfesor;
 	private boolean lEstProfesor;
-	private String dtFechaNacProfe;
-	private String dtContrato;
+	private Timestamp dtFechaNacProfe;
+	private Timestamp dtContrato;
 	byte[] id;
 	
 	public int getiIdProfesor() {
@@ -93,16 +93,16 @@ public class ctProfesor {
 	public void setlEstProfesor(boolean lEstProfesor) {
 		this.lEstProfesor = lEstProfesor;
 	}
-	public String getDtFechaNacProfe() {
+	public Timestamp getDtFechaNacProfe() {
 		return dtFechaNacProfe;
 	}
-	public void setDtFechaNacProfe(String dtFechaNacProfe) {
+	public void setDtFechaNacProfe(Timestamp dtFechaNacProfe) {
 		this.dtFechaNacProfe = dtFechaNacProfe;
 	}
-	public String getDtContrato() {
+	public Timestamp getDtContrato() {
 		return dtContrato;
 	}
-	public void setDtContrato(String dtContrato) {
+	public void setDtContrato(Timestamp dtContrato) {
 		this.dtContrato = dtContrato;
 	}
 	public byte[] getId() {

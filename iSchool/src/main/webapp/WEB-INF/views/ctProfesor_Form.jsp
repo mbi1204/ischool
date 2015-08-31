@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
-<!--variable jtsl  -->
+
 <c:url var="actionUrl" value="ctProfesor/add" />
 
 
@@ -43,26 +43,7 @@
 				<td><form:input path="cCalleProfesor" placeholder="Domicilio del Porfesor"  size="80" /></td>
 			</tr>
 
-<!--  
-			<tr>
-				<td><form:label path="iIdPuesto">
-						<spring:message text="Puesto" />
-					</form:label></td>
-				<td><form:input path="iIdPuesto" placeholder="Puesto" /></td>
-			</tr>
-			-->
-			
-			
-			
-			<!--
-			<tr>
-				<td><form:label path="iIdPuesto">
-						<spring:message text="Puesto" />
-					</form:label></td>
-				<td><form:select path="iIdPuesto" items="${lista_ctPuesto}" itemValue="iIdPuesto" itemLabel="cPuesto" /></td>
-			</tr>
-			  -->
-			
+
 
 
 		</table>

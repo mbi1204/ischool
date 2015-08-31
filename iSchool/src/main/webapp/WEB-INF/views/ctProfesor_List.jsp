@@ -28,19 +28,19 @@ th {
 	<div style="width: 95%; margin: 0 auto;">
 	
 	
-		
 
-		<div id="AddCtUsuario_Dialog" style="display: none;">
+
+		<div id="AddctProfesor_Dialog" style="display: none;">
 			<%@ include file="ctProfesor_Form.jsp"%>
 		</div>
-		
+	
 	
 
 
 
 		<h1>Lista de Profesores</h1>
 
-		<button class="pure-button pure-button-primary" onclick="add_ctUsuario()">
+		<button class="pure-button pure-button-primary" onclick="add_ctProfesor()">
 			<i class="fa fa-plus"></i> Agregar Profesor
 		</button>
 		<br>
@@ -98,6 +98,6 @@ th {
 	<script type="text/javascript"
 		src='<c:url value="/resources/js/lib/jquery.ui.datepicker.js"/>'></script>
 	<script type="text/javascript"
-		src='<c:url value="/resources/js/ctUsuario.js"/>'></script>
+		src='<c:url value="/resources/js/ctProfesor.js"/>'></script>
 </body>
 </html>

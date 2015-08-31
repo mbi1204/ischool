@@ -1,4 +1,4 @@
-package com.sinergitec.ischool.service;
+package com.sinergitec.ischool.service.ct;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ public interface ctProfesorService {
 	
 	public List<ctProfesor> list_ctProfesor();
 	
-	public void remove_ctProfesor(String id) ;
+	public void remove_ctProfesor(int id) ;
 	
-	public ctProfesor get_ctProfesor(String id);
+	public ctProfesor get_ctProfesor(int id);
 }
