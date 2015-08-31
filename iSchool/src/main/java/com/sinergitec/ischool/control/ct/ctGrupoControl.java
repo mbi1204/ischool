@@ -1,4 +1,4 @@
-package com.sinergitec.ischool.control;
+package com.sinergitec.ischool.control.ct;
 
 import java.io.IOException;
 
