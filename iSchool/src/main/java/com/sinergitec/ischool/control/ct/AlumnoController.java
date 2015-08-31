@@ -52,7 +52,7 @@ public class AlumnoController {
 	           
 	        }
 	         
-	        return "alumno";
+	        return "ctAlumno";
 	         
 	    }
 
@@ -61,7 +61,7 @@ public class AlumnoController {
 	    	
 	    	//this.alumnoService.eliminarAlumno(iCliente);
 	        
-	        return "alumno";
+	        return "ctAlumno";
 	    }
 	    
 	    @RequestMapping(value= "/remove/{cCveCia},{iCliente}" , method= RequestMethod.GET)
@@ -70,6 +70,6 @@ public class AlumnoController {
 			
 			//this.alumnoService.eliminarAlumno(iCliente);
 
-			  return "alumno";
+			  return "ctAlumno";
 		}
 }

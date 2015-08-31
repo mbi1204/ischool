@@ -23,7 +23,10 @@
 
 
 <a href="ctAlumno">Inscripcion</a>
-<a href="ctGrupo">Grupox</a>
+<a href="ctGrupo">Grupo</a>
+<a href="ctProfesor">Profesor</a>
+<a href="ctCurso">Curso</a>
+
 
 
 </body>
