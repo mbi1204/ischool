@@ -18,3 +18,4 @@ public interface ctGrupoService {
 	
 	public ctGrupo get_Grupo(int g) throws Open4GLException, IOException;
 }
+ 
