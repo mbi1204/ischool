@@ -1,5 +1,6 @@
 package com.sinergitec.ischool.model.ct;
 
+import java.math.BigDecimal;
 import java.util.Vector;
 
 public class ctCurso {
@@ -9,7 +10,7 @@ public class ctCurso {
 	private boolean lEstCurso;
 	private int iMinCup;
 	private int iMaxCup;
-	private Double dePrecioCur;
+	private BigDecimal dePrecioCur;
 	byte[] id;
 	
 	public int getiIdCur() {
@@ -42,10 +43,10 @@ public class ctCurso {
 	public void setiMaxCup(int iMaxCup) {
 		this.iMaxCup = iMaxCup;
 	}
-	public Double getDePrecioCur() {
+	public BigDecimal getDePrecioCur() {
 		return dePrecioCur;
 	}
-	public void setDePrecioCur(Double dePrecioCur) {
+	public void setDePrecioCur(BigDecimal dePrecioCur) {
 		this.dePrecioCur = dePrecioCur;
 	}
 	public byte[] getId() {
