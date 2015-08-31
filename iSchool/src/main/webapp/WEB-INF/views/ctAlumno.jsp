@@ -20,16 +20,7 @@
         <div class="menu_bar">
             <a href="#" class="btn_menu"><span class="icon-menu">   </span>Menu</a>
         </div>
-        <nav>
-            <ul>
-                <li><a href="/ischool/"><span class="icon-home3">   </span>Inicio   </a></li>
-                <li><a href="/ischool/nosotros"><span class="icon-user-tie"></span>Nosotros </a></li>
-                <li><a href="/ischool/curso"><span class="icon-books">   </span>Cursos   </a></li>
-                <li><a href="/ischool/galeria"><span class="icon-camera">  </span>Galeria  </a></li>
-                <li><a href="/ischool/alumno"><span class="icon-profile"> </span>Registro </a></li>
-                
-            </ul>
-        </nav>
+       
     </header>
         <c:url var="addAction" value="/ctAlumno/add" ></c:url>
         <section>
@@ -93,7 +84,7 @@
   							<option value="cNomCurso">Salsa</option>
   							<option value="cNomCurso">Danzon</option>
   							<option value="cNomCurso">Baile Moderno</option>
-  							<option value="cNomCurso">Requezon</option>
+  							<option value="cNomCurso">Danza </option>
 						</select>
 				    	</ul>
                 </ul>
