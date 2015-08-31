@@ -1,4 +1,4 @@
-package com.sinergitec.ischool.control;
+package com.sinergitec.ischool.control.ct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -39,9 +39,9 @@ public class ctProfesorControl {
 
 	@RequestMapping(value = "/ctProfesor/add", method = RequestMethod.POST)
 	public String add_ctProfesor(@ModelAttribute("ctProfesor") ctProfesor obj,
-			ModelMap model) {	
-	
-		System.out.println("entro");
+			ModelMap model) {
+		
+		
 		this.servProfesor.add_ctProfesor(obj);
 
 		return "redirect:/ctProfesor";

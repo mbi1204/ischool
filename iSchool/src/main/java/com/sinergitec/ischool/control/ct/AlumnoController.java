@@ -25,8 +25,7 @@ public class AlumnoController {
 	
 	@RequestMapping(value = "/ctAlumno", method = RequestMethod.GET)
 	public String alumno(Locale locale, Model model) {
-		
-		
+				
 		return "ctAlumno";
 	}
 	
