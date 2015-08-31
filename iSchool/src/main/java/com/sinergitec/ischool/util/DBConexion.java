@@ -7,6 +7,10 @@ import com.progress.open4gl.javaproxy.Connection;
 
 public class DBConexion {
 	
+	 //conexion remota cURL = "http://192.168.2.30:8080/aia/Aia?AppService=asishool"
+	 //conexion loca cURL = "AppServer://192.168.2.30:5162/asischool"
+	
+	
 	 static String cURL = "AppServer://192.168.2.30:5162/asischool";
 	 static Connection conexion;
 	
