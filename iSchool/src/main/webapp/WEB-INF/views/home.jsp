@@ -18,5 +18,12 @@
 <a href="ctPrograma">Programa</a>
 <a href="configUsuario">Configuracion de Usuarios</a>
 
+
+<h1>Menu Administrador</h1>
+
+
+<a href="ctPuesto">Inscripcion</a>
+
+
 </body>
 </html>
