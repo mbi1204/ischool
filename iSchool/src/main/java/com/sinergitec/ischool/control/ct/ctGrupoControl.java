@@ -1,4 +1,4 @@
-package com.sinergitec.ischool.control;
+package com.sinergitec.ischool.control.ct;
 
 import java.io.IOException;
 
@@ -22,10 +22,10 @@ public class ctGrupoControl {
 	@Autowired
 	private ctGrupoService ctGrupoService;
 	
-	@RequestMapping(value = "/grupo/adm/", method = RequestMethod.GET)
+	@RequestMapping(value = "/ctGrupo", method = RequestMethod.GET)
 	public String grupo(Model model) throws Open4GLException, IOException{
 		
-		model.addAttribute("Grupo", new ctGrupo());
+		model.addAttribute("ctGrupo", new ctGrupo());
 		model.addAttribute("lista_ctGrupo", this.ctGrupoService.list_ctGrupo());
 		return"grupoLista";
 	}
@@ -45,11 +45,11 @@ public class ctGrupoControl {
            this.ctGrupoService.update_ctGrupo(g);
         }
          
-        return "redirect:/grupo/adm/";
+        return "redirect:/ctGrupo/";
          
     }
 	
-	@RequestMapping("/grupo/adm/eliminar/{id}")
+	@RequestMapping("/ctGrupo/remove/{id}")
 	public String eliminarGrupo(@PathVariable("id") int grupo) throws Open4GLException, IOException {
 
 		this.ctGrupoService.remove_ctGrupo(grupo);
@@ -60,7 +60,7 @@ public class ctGrupoControl {
 	public String get_ctGrupo(@PathVariable("id") int id,
 			Model model) throws Open4GLException, IOException {
 
-		model.addAttribute("Grupo", this.ctGrupoService.get_Grupo(id));
+		model.addAttribute("ctGrupo", this.ctGrupoService.get_Grupo(id));
 		//model.addAttribute("actionUrl", "edit_ctUsuario/");
 		//model.addAttribute("lista_ctGrupo", this.grupoService.list_ctGrupo());
 
@@ -74,7 +74,7 @@ public class ctGrupoControl {
 		/*java.util.Date date = new java.util.Date();
 		obj.setDtFechaAlta(new Timestamp(date.getTime()));*/
 		
-		moldel.addAttribute("Grupo",this.ctGrupoService.get_Grupo(g));
+		moldel.addAttribute("ctGrupo",this.ctGrupoService.get_Grupo(g));
 		return "redirect:/grupo/adm/";
 	}
 }
