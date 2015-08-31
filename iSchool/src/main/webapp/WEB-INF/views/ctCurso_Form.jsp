@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
-<c:url var="actionUrl" value="/curso/adm/registro" />
+<c:url var="actionUrl" value="/ctCurso/add" />
 
 <form:form id="Form_ctCurso" commandName="ctCurso" method="post"
 	action="${actionUrl}" class="pure-form pure-form-aligned">

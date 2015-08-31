@@ -8,7 +8,7 @@ function add_ctCurso() {
 
 function edit_ctCurso(id) {
 	
-	$.get("get/" + id, function(result) {
+	$.get("ctCurso/get/" + id, function(result) {
 		$("#AddCtPuesto_Dialog").html(result);
 		$("#AddCtPuesto_Dialog").dialog("option", "title", 'Editar Curso');
 		$("#AddCtPuesto_Dialog").dialog('open');

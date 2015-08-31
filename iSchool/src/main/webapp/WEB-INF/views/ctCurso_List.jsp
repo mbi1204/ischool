@@ -66,7 +66,7 @@ th {
 
 								<a class="pure-button pure-button-primary"
 									onclick="return confirm('¿Desea Eliminar el usuario  selecionado?');"
-									href="eliminar/${ctCurso.iIdCur}"> <i
+									href="ctCurso/remove/${ctCurso.iIdCur}"> <i
 									class="fa fa-times"></i>Eliminar
 								</a>
 

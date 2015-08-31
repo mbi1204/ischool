@@ -71,7 +71,7 @@ public class ctCursoControl {
 	@RequestMapping("/ctCurso/get/{id}")
 	public String get_ctCurso(@PathVariable("id") int id,	Model model) throws RunTime4GLException, SystemErrorException, Open4GLException, IOException, SQLException {
 
-		model.addAttribute("Curso", this.ctCursoService.get_Curso(id));		
+		model.addAttribute("ctCurso", this.ctCursoService.get_Curso(id));		
 
 		return "ctCurso_Form";
 
