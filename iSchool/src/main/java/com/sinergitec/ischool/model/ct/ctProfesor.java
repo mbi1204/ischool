@@ -1,124 +1,158 @@
 package com.sinergitec.ischool.model.ct;
 
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Vector;
 
 public class ctProfesor {
-	
-	private int iIdProfesor;
+
+	private Integer iIdProfesor;
 	private String cNomProfesor;
 	private String cApeProfesor;
 	private String cCalleProfesor;
-	private int iNumExtProfe;
-	private int iNumIntProfe;
+	private String iNumExtProfe;
+	private String iNumIntProfe;
 	private String cColProfesor;
 	private String cCPProfesor;
 	private String cMunicipioProfe;
 	private String cEdoProfesor;
 	private String cTelProfesor;
-	private boolean lEstProfesor;
-	private Timestamp dtFechaNacProfe;
+	private Boolean lEstProfesor;
 	private Timestamp dtContrato;
-	byte[] id;
-	
-	public int getiIdProfesor() {
+	private Timestamp dtFechaNacProfe;
+	private byte[] Id;
+
+	public Integer getiIdProfesor() {
 		return iIdProfesor;
 	}
-	public void setiIdProfesor(int iIdProfesor) {
+
+	public void setiIdProfesor(Integer iIdProfesor) {
 		this.iIdProfesor = iIdProfesor;
 	}
+
 	public String getcNomProfesor() {
 		return cNomProfesor;
 	}
+
 	public void setcNomProfesor(String cNomProfesor) {
 		this.cNomProfesor = cNomProfesor;
 	}
+
 	public String getcApeProfesor() {
 		return cApeProfesor;
 	}
+
 	public void setcApeProfesor(String cApeProfesor) {
 		this.cApeProfesor = cApeProfesor;
 	}
+
 	public String getcCalleProfesor() {
 		return cCalleProfesor;
 	}
+
 	public void setcCalleProfesor(String cCalleProfesor) {
 		this.cCalleProfesor = cCalleProfesor;
 	}
-	public int getiNumExtProfe() {
+
+	public String getiNumExtProfe() {
 		return iNumExtProfe;
 	}
-	public void setiNumExtProfe(int iNumExtProfe) {
+
+	public void setiNumExtProfe(String iNumExtProfe) {
 		this.iNumExtProfe = iNumExtProfe;
 	}
-	public int getiNumIntProfe() {
+
+	public String getiNumIntProfe() {
 		return iNumIntProfe;
 	}
-	public void setiNumIntProfe(int iNumIntProfe) {
+
+	public void setiNumIntProfe(String iNumIntProfe) {
 		this.iNumIntProfe = iNumIntProfe;
 	}
+
 	public String getcColProfesor() {
 		return cColProfesor;
 	}
+
 	public void setcColProfesor(String cColProfesor) {
 		this.cColProfesor = cColProfesor;
 	}
+
 	public String getcCPProfesor() {
 		return cCPProfesor;
 	}
+
 	public void setcCPProfesor(String cCPProfesor) {
 		this.cCPProfesor = cCPProfesor;
 	}
+
 	public String getcMunicipioProfe() {
 		return cMunicipioProfe;
 	}
+
 	public void setcMunicipioProfe(String cMunicipioProfe) {
 		this.cMunicipioProfe = cMunicipioProfe;
 	}
+
 	public String getcEdoProfesor() {
 		return cEdoProfesor;
 	}
+
 	public void setcEdoProfesor(String cEdoProfesor) {
 		this.cEdoProfesor = cEdoProfesor;
 	}
+
 	public String getcTelProfesor() {
 		return cTelProfesor;
 	}
+
 	public void setcTelProfesor(String cTelProfesor) {
 		this.cTelProfesor = cTelProfesor;
 	}
-	public boolean getlEstProfesor() {
+
+	public Boolean getlEstProfesor() {
 		return lEstProfesor;
 	}
-	public void setlEstProfesor(boolean lEstProfesor) {
+
+	public void setlEstProfesor(Boolean lEstProfesor) {
 		this.lEstProfesor = lEstProfesor;
 	}
-	public Timestamp getDtFechaNacProfe() {
-		return dtFechaNacProfe;
-	}
-	public void setDtFechaNacProfe(Timestamp dtFechaNacProfe) {
-		this.dtFechaNacProfe = dtFechaNacProfe;
-	}
+
 	public Timestamp getDtContrato() {
 		return dtContrato;
 	}
+
 	public void setDtContrato(Timestamp dtContrato) {
 		this.dtContrato = dtContrato;
 	}
+
+	public Timestamp getDtFechaNacProfe() {
+		return dtFechaNacProfe;
+	}
+
+	public void setDtFechaNacProfe(Timestamp dtFechaNacProfe) {
+		this.dtFechaNacProfe = dtFechaNacProfe;
+	}
+
 	public byte[] getId() {
-		return id;
+		return Id;
 	}
+
 	public void setId(byte[] id) {
-		this.id = id;
+		Id = id;
 	}
-	
+
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public Vector getVectorDatos(){
+	public Vector getVectorDatos() {
 		Vector vector = new Vector();
 		
-	
+		
+		Date date= new java.util.Date();
 		
 		
+		this.setDtFechaNacProfe(new Timestamp(date.getTime()));
+		this.setDtContrato(new Timestamp(date.getTime()));
+
 		vector.add(this.getiIdProfesor());
 		vector.add(this.getcNomProfesor());
 		vector.add(this.getcApeProfesor());

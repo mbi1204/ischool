@@ -58,12 +58,12 @@ th {
 			</thead>
 			<tbody>
 				<c:forEach items="${lista_ctProfesor}" var="ctProfesor"
-					varStatus="loopCounter">
+					>
 					<tr>
 						<td><c:out value="${ctProfesor.iIdProfesor}" /></td>
 						<td><c:out value="${ctProfesor.cNomProfesor}" /></td>
 						<td><c:out value="${ctProfesor.cApeProfesor}" /></td>
-						<td><c:out value="${ctProfesor.cCalleProfesorI}" /></td>
+						<td><c:out value="${ctProfesor.cCalleProfesor}" /></td>
 
 
 						<td><nobr>

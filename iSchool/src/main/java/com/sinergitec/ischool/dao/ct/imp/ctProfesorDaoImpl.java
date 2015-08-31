@@ -2,6 +2,7 @@ package com.sinergitec.ischool.dao.ct.imp;
 
 import java.io.IOException;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
@@ -142,17 +143,18 @@ public class ctProfesorDaoImpl implements ctProfesorDao {
 				obj.setcNomProfesor(rs_tt_ctProfesor.getString("cNomProfesor"));
 				obj.setcApeProfesor(rs_tt_ctProfesor.getString("cApeProfesor"));
 				obj.setcCalleProfesor(rs_tt_ctProfesor.getString("cCalleProfesor"));
-				obj.setiNumExtProfe(rs_tt_ctProfesor.getInt("iNumExtProfe"));
-				obj.setiNumIntProfe(rs_tt_ctProfesor.getInt("iNumIntProfe"));
+				obj.setiNumExtProfe(rs_tt_ctProfesor.getString("iNumExtProfe"));
+				obj.setiNumIntProfe(rs_tt_ctProfesor.getString("iNumIntProfe"));
 				obj.setcColProfesor(rs_tt_ctProfesor.getString("cColProfesor"));
 				obj.setcCPProfesor(rs_tt_ctProfesor.getString("cCPProfesor"));
 				obj.setcMunicipioProfe(rs_tt_ctProfesor.getString("cMunicipioProfe"));
 				obj.setcEdoProfesor(rs_tt_ctProfesor.getString("cEdoProfesor"));
 				obj.setcTelProfesor(rs_tt_ctProfesor.getString("cTelProfesor"));
 				obj.setlEstProfesor(rs_tt_ctProfesor.getBoolean("lEstProfesor"));
-				obj.setDtFechaNacProfe(rs_tt_ctProfesor.getTimestamp("dtFechaNacProfe"));
 				obj.setDtContrato(rs_tt_ctProfesor.getTimestamp("dtContrato"));
-				obj.setiIdProfesor(rs_tt_ctProfesor.getByte("iIdProfesor"));
+				obj.setDtFechaNacProfe(rs_tt_ctProfesor.getTimestamp("dtFechaNacProfe"));
+				obj.setId(rs_tt_ctProfesor.getBytes("id"));				
+				
 		
 			
 				Lista.add(obj);

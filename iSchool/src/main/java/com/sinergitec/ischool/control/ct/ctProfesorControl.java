@@ -39,12 +39,12 @@ public class ctProfesorControl {
 
 	@RequestMapping(value = "/ctProfesor/add", method = RequestMethod.POST)
 	public String add_ctProfesor(@ModelAttribute("ctProfesor") ctProfesor obj,
-			ModelMap model) {
-		
-		
+			ModelMap model) {		
+	 
 		this.servProfesor.add_ctProfesor(obj);
-
-		return "redirect:/ctProfesor";
+		
+		 
+		return "ctProfesor";
 
 	}
 
