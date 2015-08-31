@@ -23,7 +23,7 @@
 
 
 <a href="ctAlumno">Inscripcion</a>
-<a href="ctGrupo">Grupo</a>
+<a href="ctGrupo">Grupox</a>
 
 
 </body>
