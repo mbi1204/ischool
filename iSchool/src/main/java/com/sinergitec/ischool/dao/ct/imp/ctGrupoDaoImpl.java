@@ -40,7 +40,7 @@ public class ctGrupoDaoImpl implements ctGrupoDao {
 		Connection conexion = DBConexion.getConnection();
 		AppServer app = new AppServer(conexion);
 
-		System.out.println("antes del for");
+	
 		for (ctGrupo obj : Lista) {
 			vecRow1 = obj.getVectorDatos();
 			vecTabla1.add(vecRow1);
@@ -49,9 +49,7 @@ public class ctGrupoDaoImpl implements ctGrupoDao {
 		ResultSetHolder ttGrupos = new ResultSetHolder(new VectorResultSet(vecTabla1));
 		try {
 
-			app.as_ctGrupo_Inserta("SISIMB", ttGrupos, oplResultado, opcTexto);
-
-			System.out.println(opcTexto.getValue());
+			app.as_ctGrupo_Inserta("SISIMB", ttGrupos, oplResultado, opcTexto);			
 
 		} catch (Exception ex) {
 			System.err.println(ex);
@@ -86,7 +84,7 @@ public class ctGrupoDaoImpl implements ctGrupoDao {
 
 		try {
 			app.as_ctGrupo_Actualiza("SISIMB", gruposModificados, oplResultado, opcTexto);
-			System.out.print(opcTexto.getValue() + " Y el Resultado " + oplResultado.getValue());
+		
 
 		} finally {
 			// TODO: handle finally clause
@@ -104,7 +102,7 @@ public class ctGrupoDaoImpl implements ctGrupoDao {
 		AppServer app = new AppServer(conexion);
 
 		try {
-			System.out.println("Entro al metodo eliminar");
+			
 			app.as_ctGrupo_Borra("SISIMB", id, oplResultado, opcTexto);
 			System.err.println(opcTexto.getValue());
 		} finally {
@@ -126,7 +124,7 @@ public List<ctGrupo> list_ctGrupo() throws Open4GLException, IOException{
 		List<ctCurso> Lista_ctCurso = new ArrayList<ctCurso>();
 		
 		
-		System.out.println("lista" + Lista.size());
+		
 
 		Connection conexion = DBConexion.getConnection();
 		AppServer app = new AppServer(conexion);
@@ -137,7 +135,7 @@ public List<ctGrupo> list_ctGrupo() throws Open4GLException, IOException{
 			app.as_ctGrupo_Carga(true, tt_ctGrupo, oplError, opcError);
 
 			ResultSet rs_tt_ctGrupo = tt_ctGrupo.getResultSetValue();
-			System.out.println("Registros" + rs_tt_ctGrupo.getRow());
+			
 
 			while (rs_tt_ctGrupo.next()) {
 				
@@ -152,19 +150,13 @@ public List<ctGrupo> list_ctGrupo() throws Open4GLException, IOException{
 				
 				for(ctProfesor obj_ctProfesor : Lista_ctProfesor){
 					if(obj_ctProfesor.getiIdProfesor().equals(obj.getiIdProfesor())){
-						System.out.print("entro al for");
+						
 						ctProfesor obj2 = new ctProfesor();
 						
 					}
 				}
 				
-				System.out.println("Ya entro a la lista");
 				
-				System.out.println(obj.getiIdGrupo());
-				System.out.println(obj.getcNomGrupo());
-				System.out.println(obj.getiIdCur());
-				System.out.println(obj.getiIdProfesor());
-				System.out.println(obj.getDtHorario());
 				Lista.add(obj);
 			}
 			
@@ -175,7 +167,7 @@ public List<ctGrupo> list_ctGrupo() throws Open4GLException, IOException{
 			app._release();
 			DBConexion.closeConnection(conexion);
 		}
-		System.out.println("Ya devolvio la lista");
+		
 		return Lista;
 	}
 
@@ -188,7 +180,7 @@ public List<ctGrupo> list_ctGrupo() throws Open4GLException, IOException{
 		Connection conexion = DBConexion.getConnection();
 		AppServer app = new AppServer(conexion);
 		ctGrupo obj = new ctGrupo();
-		System.out.println("Truena aqui un paso antes de la conexion a BD");
+	
 		try {
 			
 			app.as_ctGrupo_get("SISIMB", g, tt_ctGrupo, oplResultado, opcTexto);

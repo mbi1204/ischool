@@ -16,5 +16,5 @@ public interface ctGrupoDao {
 	
 	public List<ctGrupo> list_ctGrupo() throws Open4GLException, IOException;
 	
-	public ctGrupo get_ctGrupo(int g) throws Open4GLException, IOException;
+	public ctGrupo get_ctGrupo(int id) throws Open4GLException, IOException;
 }

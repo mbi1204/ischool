@@ -58,10 +58,10 @@ th {
 	
 	
 	
-	<%-- <div id="AddsysUsuMenu_ctPrograma" style="display: none;">
-			<%@ include file="sysUsuMenu_Form_AddMenu.jsp"%>
+	 <div id="AddsysUsuMenu_ctprograma" style="display: none;">
+			<%@ include file="sysUsuMenu_Form_AddPrograma.jsp"%>
 	</div>
- --%>
+ 
 
 
 	<c:url var="actionUrl" value="configUsuario" />
