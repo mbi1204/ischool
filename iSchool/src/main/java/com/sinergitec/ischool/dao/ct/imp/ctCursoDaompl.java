@@ -2,6 +2,7 @@ package com.sinergitec.ischool.dao.ct.imp;
 
 import java.io.IOException;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
@@ -12,7 +13,9 @@ import com.progress.AppServer.AppServer;
 import com.progress.open4gl.BooleanHolder;
 import com.progress.open4gl.Open4GLException;
 import com.progress.open4gl.ResultSetHolder;
+import com.progress.open4gl.RunTime4GLException;
 import com.progress.open4gl.StringHolder;
+import com.progress.open4gl.SystemErrorException;
 import com.progress.open4gl.javaproxy.Connection;
 import com.sinergitec.ischool.model.ct.ctCurso;
 import com.sinergitec.ischool.dao.ct.ctCursoDao;
@@ -110,4 +113,93 @@ public class ctCursoDaompl implements ctCursoDao {
 			DBConexion.closeConnection(conexion);
 		}
 	}
+
+	public List<ctCurso> listaCurso() throws Open4GLException, IOException{
+		
+		ResultSetHolder tt_ctCurso = new ResultSetHolder();
+		
+		StringHolder opcError = new StringHolder();
+		BooleanHolder oplError = new BooleanHolder();
+		List<ctCurso> Lista = new ArrayList<ctCurso>();
+
+		Connection conexion = DBConexion.getConnection();
+		AppServer app = new AppServer(conexion);
+		
+
+		try {
+			
+		
+			app.as_ctCurso_Carga(true, tt_ctCurso, oplError, opcError);
+			
+			ResultSet rs_tt_ctCurso = tt_ctCurso.getResultSetValue();
+			System.out.println("Registros" + rs_tt_ctCurso.getRow());
+
+			while (rs_tt_ctCurso.next()) {
+				
+				ctCurso obj = new ctCurso();
+				
+				obj.setiIdCur(rs_tt_ctCurso.getInt("iIdCur"));
+				obj.setcNomCurso(rs_tt_ctCurso.getString("cNomCurso"));
+				obj.setlEstCurso(rs_tt_ctCurso.getBoolean("lEstCurso"));
+				obj.setiMinCup(rs_tt_ctCurso.getInt("iMinCup"));
+				obj.setiMaxCup(rs_tt_ctCurso.getInt("iMaxCup"));
+				obj.setDePrecioCur(rs_tt_ctCurso.getBigDecimal("dePrecioCur"));
+				obj.setId(rs_tt_ctCurso.getBytes("id"));
+
+				Lista.add(obj);
+				}
+			
+		} catch (Exception ex) {
+			System.out.print(ex);
+			
+			Lista = null;
+		} finally {
+			app._release();
+			DBConexion.closeConnection(conexion);
+		}
+
+		return Lista;
+	}
+
+	public ctCurso get_ctPuesto(int id) throws  RunTime4GLException,
+	SystemErrorException, Open4GLException, IOException, SQLException  {
+		// TODO Auto-generated method stub
+		
+		
+		BooleanHolder oplResultado = new BooleanHolder();
+		StringHolder opcTexto = new StringHolder();
+
+		ResultSetHolder tt_ctCurso = new ResultSetHolder();
+		Connection conexion = DBConexion.getConnection();
+		AppServer app = new AppServer(conexion);
+		ctCurso obj = new ctCurso();
+		try {
+			
+			app.as_ctCurso_get("SISIMB", id, tt_ctCurso, oplResultado, opcTexto);
+			
+			ResultSet rs_tt_ctCurso = tt_ctCurso.getResultSetValue();
+
+			while (rs_tt_ctCurso.next()) {
+				
+				obj.setiIdCur(rs_tt_ctCurso.getInt("iIdCur"));
+				obj.setcNomCurso(rs_tt_ctCurso.getString("cNomCurso"));
+				obj.setiMinCup(rs_tt_ctCurso.getInt("iMinCup"));
+				obj.setiMaxCup(rs_tt_ctCurso.getInt("iMaxCup"));
+				obj.setDePrecioCur(rs_tt_ctCurso.getBigDecimal("dePrecioCur"));
+				obj.setId(rs_tt_ctCurso.getBytes("id"));
+
+			}
+			
+		} catch (Exception ex) {
+			System.err.println(ex);
+
+			
+		} finally {
+			app._release();
+			DBConexion.closeConnection(conexion);
+		}
+		
+		return obj;
+	}
+
 }

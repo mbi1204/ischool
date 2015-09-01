@@ -11,7 +11,6 @@ public class DBConexion {
 	 static String cURL = "http://mioficina.ddns.net:8080/aia/Aia?AppService=asischool";
 	 static Connection conexion;
 	 
-	 
 	
 	public static Connection getConnection() throws Open4GLException, IOException {
 		conexion = new Connection(cURL,"", "",null);
