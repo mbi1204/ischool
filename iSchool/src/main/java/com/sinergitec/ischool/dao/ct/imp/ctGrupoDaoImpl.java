@@ -180,11 +180,7 @@ public List<ctGrupo> list_ctGrupo() throws Open4GLException, IOException{
 		Connection conexion = DBConexion.getConnection();
 		AppServer app = new AppServer(conexion);
 		ctGrupo obj = new ctGrupo();
-<<<<<<< HEAD
-	
-=======
-		
->>>>>>> branch 'master' of https://github.com/mbi1204/ischool.git
+
 		try {
 			
 			app.as_ctGrupo_get("SISIMB", g, tt_ctGrupo, oplResultado, opcTexto);
