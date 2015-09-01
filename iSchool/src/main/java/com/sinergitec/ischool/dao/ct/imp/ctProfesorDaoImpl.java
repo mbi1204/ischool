@@ -140,19 +140,19 @@ public class ctProfesorDaoImpl implements ctProfesorDao {
 			
 				
 				obj.setiIdProfesor(rs_tt_ctProfesor.getInt("iIdProfesor"));
-				obj.setcNombre(rs_tt_ctProfesor.getString("cNomProfesor"));
-				obj.setcApellido(rs_tt_ctProfesor.getString("cApeProfesor"));
-				obj.setcCalle(rs_tt_ctProfesor.getString("cCalleProfesor"));
-				obj.setiNumExt(rs_tt_ctProfesor.getString("iNumExtProfe"));
-				obj.setiNumInt(rs_tt_ctProfesor.getString("iNumIntProfe"));
-				obj.setcColonia(rs_tt_ctProfesor.getString("cColProfesor"));
-				obj.setcCP(rs_tt_ctProfesor.getString("cCPProfesor"));
-				obj.setcMunicipio(rs_tt_ctProfesor.getString("cMunicipioProfe"));
-				obj.setcEdo(rs_tt_ctProfesor.getString("cEdoProfesor"));
-				obj.setcTelefono(rs_tt_ctProfesor.getString("cTelProfesor"));
-				obj.setlEstatus(rs_tt_ctProfesor.getBoolean("lEstProfesor"));
-				obj.setDtContrato(rs_tt_ctProfesor.getTimestamp("dtContrato"));
-				obj.setDtFechaNac(rs_tt_ctProfesor.getTimestamp("dtFechaNacProfe"));
+				obj.setcNombre(rs_tt_ctProfesor.getString("cNombre"));
+				obj.setcApellido(rs_tt_ctProfesor.getString("cApellido"));
+				obj.setcCalle(rs_tt_ctProfesor.getString("cCalle"));
+				obj.setiNumExt(rs_tt_ctProfesor.getString("iNumExt"));
+				obj.setiNumInt(rs_tt_ctProfesor.getString("iNumInt"));
+				obj.setcColonia(rs_tt_ctProfesor.getString("cColonia"));
+				obj.setcCP(rs_tt_ctProfesor.getString("cCP"));
+				obj.setcMunicipio(rs_tt_ctProfesor.getString("cMunicipio"));
+				obj.setcEdo(rs_tt_ctProfesor.getString("cEdo"));
+				obj.setcTelefono(rs_tt_ctProfesor.getString("cTelefono"));
+				obj.setlEstatus(rs_tt_ctProfesor.getBoolean("lEstatus"));
+				//obj.setDtContrato(rs_tt_ctProfesor.getString("dtContrato"));
+				//obj.setDtFechaNac(rs_tt_ctProfesor.getTimestamp("dtFechaNac"));
 				obj.setId(rs_tt_ctProfesor.getBytes("id"));				
 				
 		

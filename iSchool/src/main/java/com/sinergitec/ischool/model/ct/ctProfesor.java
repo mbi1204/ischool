@@ -10,16 +10,16 @@ public class ctProfesor {
 	String cNombre;
 	String cApellido;
 	String cCalle;
-	String iNumExt;
-	String iNumInt;
+	String cNumExt;
+	String cNumInt;
 	String cColonia;
 	String cCP;
 	String cMunicipio;
 	String cEdo;
 	String cTelefono;
 	Boolean lEstatus;
-	Timestamp dtContrato;
-	Timestamp dtFechaNac;
+	String dtContrato;
+	String dtFechaNac;
 	byte[] Id;
 
 	public Integer getiIdProfesor() {
@@ -54,20 +54,20 @@ public class ctProfesor {
 		this.cCalle = cCalle;
 	}
 
-	public String getiNumExt() {
-		return iNumExt;
+	public String getcNumExt() {
+		return cNumExt;
 	}
 
-	public void setiNumExt(String iNumExt) {
-		this.iNumExt = iNumExt;
+	public void setiNumExt(String cNumExt) {
+		this.cNumExt = cNumExt;
 	}
 
-	public String getiNumInt() {
-		return iNumInt;
+	public String getcNumInt() {
+		return cNumInt;
 	}
 
-	public void setiNumInt(String iNumInt) {
-		this.iNumInt = iNumInt;
+	public void setiNumInt(String cNumInt) {
+		this.cNumInt = cNumInt;
 	}
 
 	public String getcColonia() {
@@ -118,19 +118,19 @@ public class ctProfesor {
 		this.lEstatus = lEstatus;
 	}
 
-	public Timestamp getDtContrato() {
+	public String getDtContrato() {
 		return dtContrato;
 	}
 
-	public void setDtContrato(Timestamp dtContrato) {
+	public void setDtContrato(String dtContrato) {
 		this.dtContrato = dtContrato;
 	}
 
-	public Timestamp getDtFechaNac() {
+	public String getDtFechaNac() {
 		return dtFechaNac;
 	}
 
-	public void setDtFechaNac(Timestamp dtFechaNac) {
+	public void setDtFechaNac(String dtFechaNac) {
 		this.dtFechaNac = dtFechaNac;
 	}
 
@@ -146,25 +146,32 @@ public class ctProfesor {
 	public Vector getVectorDatos() {
 		Vector vector = new Vector();
 
-		Date date = new java.util.Date();
+		
+		
+		Timestamp dtFechaNac = Timestamp.valueOf(this.getDtFechaNac()+" 00:00:00.000000");
+		Timestamp dtFechaContrato = Timestamp.valueOf(this.getDtContrato()+" 00:00:00.000000");
+		//this.setDtContrato(dtFechaContrato);
+		//this.setDtFechaNac(dtFechaNac);
+		
 
-		this.setDtFechaNac(new Timestamp(date.getTime()));
-		this.setDtContrato(new Timestamp(date.getTime()));
-
+		
+		
+	
+		
 		vector.add(this.getiIdProfesor());
 		vector.add(this.getcNombre());
 		vector.add(this.getcApellido());
 		vector.add(this.getcCalle());
-		vector.add(this.getiNumExt());
-		vector.add(this.getiNumInt());
+		vector.add(this.getcNumExt());
+		vector.add(this.getcNumInt());
 		vector.add(this.getcColonia());
 		vector.add(this.getcCP());
 		vector.add(this.getcMunicipio());
 		vector.add(this.getcEdo());
 		vector.add(this.getcTelefono());
 		vector.add(this.getlEstatus());
-		vector.add(this.getDtFechaNac());
-		vector.add(this.getDtContrato());
+		vector.add(dtFechaContrato);
+		vector.add(dtFechaNac);
 		vector.add(this.getId());
 
 		return vector;

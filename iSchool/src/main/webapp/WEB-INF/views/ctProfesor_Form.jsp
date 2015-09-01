@@ -44,17 +44,17 @@
 			</tr>
 			
 			<tr>
-				<td><form:label path="iNumExt">
+				<td><form:label path="cNumExt">
 						<spring:message text="NumeroExt" />
 					</form:label></td>
-				<td><form:input path="iNumExt"  size="5" /></td>
+				<td><form:input path="cNumExt"  size="5" /></td>
 			</tr>
 			
 			<tr>
-				<td><form:label path="iNumInt">
+				<td><form:label path="cNumInt">
 						<spring:message text="NumeroInt" />
 					</form:label></td>
-				<td><form:input path="iNumInt"  size="5" /></td>
+				<td><form:input path="cNumInt"  size="5" /></td>
 			</tr>
 			
 			<tr>
@@ -79,10 +79,25 @@
 			</tr>
 			
 			<tr>
+				<td><form:label path="cEdo">
+						<spring:message text="Estado"/>
+					</form:label></td>
+				<td><form:input path="cEdo" placeholder="Estado" size="10" /></td>
+			</tr>
+
+			
+			<tr>
 				<td><form:label path="cTelefono">
 						<spring:message text="Telefono"/>
 					</form:label></td>
 				<td><form:input path="cTelefono" placeholder="Telefono" size="10" /></td>
+			</tr>
+			
+			<tr>
+				<td><form:label path="lEstatus">
+						<spring:message text="Activo" />
+					</form:label></td>
+				<td><form:checkbox path="lEstatus"/></td>
 			</tr>
 			
 			<tr>
@@ -93,11 +108,12 @@
 			</tr>
 			
 			<tr>
-				<td><form:label path="lEstatus">
-						<spring:message text="Activo" />
+				<td><form:label path="dtFechaNac">
+						<spring:message text="Fecha de Nacimiento" />
 					</form:label></td>
-				<td><form:checkbox path="lEstatus"/></td>
+				<td><input type="date" name="dtFechaNac">
 			</tr>
+			
 			
 			
 

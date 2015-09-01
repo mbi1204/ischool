@@ -41,6 +41,7 @@ public class ctProfesorControl {
 	public String add_ctProfesor(@ModelAttribute("ctProfesor") ctProfesor obj,
 			ModelMap model) {		
 	 
+		
 		this.servProfesor.add_ctProfesor(obj);
 		
 		 
