@@ -50,10 +50,10 @@ th {
 					<th width="4%">ID Menu</th>
 					<th width="4%">Menu</th>
 					<th width="12%">ID Programa</th>
-					<th width="12%">Programa</th>
-					<th width="12%">Nombre</th>
+					<th width="20%">Nombre</th>
+					<th width="12%">Programa</th>				
 					<th width="12%">Activo</th>
-					<th width="48%"></th>
+					<th width="38%"></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -62,8 +62,8 @@ th {
 						<td><c:out value="${ctPrograma.iIdMenu}" /></td>
 						<td><c:out value="${ctPrograma.menu.cMenu}" /></td>
 						<td><c:out value="${ctPrograma.iIdPrograma}" /></td>
-						<td><c:out value="${ctPrograma.cPrograma}" /></td>
 						<td><c:out value="${ctPrograma.cNombre}" /></td>
+						<td><c:out value="${ctPrograma.cPrograma}" /></td>						
 						<td><c:out value="${ctPrograma.lActivo}" /></td>
 
 

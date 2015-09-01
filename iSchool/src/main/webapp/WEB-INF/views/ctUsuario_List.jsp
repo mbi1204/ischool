@@ -52,11 +52,11 @@ th {
 				<tr>
 					<th width="4%">No.</th>
 					<th width="12%">Usuario</th>
-					<th width="12%">Nombre</th>
+					<th width="20%">Nombre</th>
 					<th width="12%">Activo</th>
 					<th width="12%">Puesto</th>
 
-					<th width="48%"></th>
+					<th width="18%"></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -65,9 +65,9 @@ th {
 					<tr>
 						<td><c:out value="${loopCounter.count}" /></td>
 						<td><c:out value="${ctUsuario.cUsuario}" /></td>
-						<td><c:out value="${ctUsuario.cNombre}" /></td>
-						<td><c:out value="${ctUsuario.lActivo}" /></td>
+						<td><c:out value="${ctUsuario.cNombre}" /></td>				
 						<td><c:out value="${ctUsuario.puesto.cPuesto}" /></td>
+						<td><c:out value="${ctUsuario.lActivo}" /></td>
 
 
 						<td><nobr>
