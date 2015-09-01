@@ -15,6 +15,7 @@ import com.progress.open4gl.ResultSetHolder;
 import com.progress.open4gl.StringHolder;
 import com.progress.open4gl.javaproxy.Connection;
 import com.sinergitec.ischool.dao.ct.ctGrupoDao;
+import com.sinergitec.ischool.model.ct.ctCurso;
 import com.sinergitec.ischool.model.ct.ctGrupo;
 import com.sinergitec.ischool.model.ct.ctProfesor;
 import com.sinergitec.ischool.util.DBConexion;
@@ -120,9 +121,9 @@ public List<ctGrupo> list_ctGrupo() throws Open4GLException, IOException{
 		BooleanHolder oplError = new BooleanHolder();
 		List<ctGrupo> Lista = new ArrayList<ctGrupo>();
 		
-		List<ctProfesor> Lista_ctPuesto = new ArrayList<ctProfesor>();
+		List<ctProfesor> Lista_ctProfesor = new ArrayList<ctProfesor>();
 		
-		//Lista_ctPuesto = DaoPuesto.list_ctPuesto();
+		List<ctCurso> Lista_ctCurso = new ArrayList<ctCurso>();
 		
 		
 		System.out.println("lista" + Lista.size());
@@ -149,6 +150,13 @@ public List<ctGrupo> list_ctGrupo() throws Open4GLException, IOException{
 				obj.setDtHorario(rs_tt_ctGrupo.getString("dtHorario"));
 				obj.setId(rs_tt_ctGrupo.getBytes("Id"));
 				
+				for(ctProfesor obj_ctProfesor : Lista_ctProfesor){
+					if(obj_ctProfesor.getiIdProfesor().equals(obj.getiIdProfesor())){
+						System.out.print("entro al for");
+						ctProfesor obj2 = new ctProfesor();
+						
+					}
+				}
 				
 				System.out.println("Ya entro a la lista");
 				
