@@ -151,8 +151,8 @@ public class ctProfesorDaoImpl implements ctProfesorDao {
 				obj.setcEdo(rs_tt_ctProfesor.getString("cEdo"));
 				obj.setcTelefono(rs_tt_ctProfesor.getString("cTelefono"));
 				obj.setlEstatus(rs_tt_ctProfesor.getBoolean("lEstatus"));
-				//obj.setDtContrato(rs_tt_ctProfesor.getString("dtContrato"));
-				//obj.setDtFechaNac(rs_tt_ctProfesor.getTimestamp("dtFechaNac"));
+				obj.setDtContrato(rs_tt_ctProfesor.getString("dtContrato"));
+				obj.setDtFechaNac(rs_tt_ctProfesor.getTimestamp("dtFechaNac"));
 				obj.setId(rs_tt_ctProfesor.getBytes("id"));				
 				
 		
