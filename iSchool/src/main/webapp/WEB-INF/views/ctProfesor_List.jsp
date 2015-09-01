@@ -47,10 +47,12 @@ th {
 		<table class="pure-table pure-table-bordered pure-table-striped">
 			<thead>
 				<tr>
-					<th width="4%">ID.</th>
+					<th width="4%">ID</th>
 					<th width="12%">Nombre</th>
 					<th width="12%">Apellidos</th>
 					<th width="12%">Direccion</th>
+					<th width="5%">N°Int</th>
+					<th width="5">Activo</th>
 					
 
 					<th width="48%"></th>
@@ -61,9 +63,11 @@ th {
 					>
 					<tr>
 						<td><c:out value="${ctProfesor.iIdProfesor}" /></td>
-						<td><c:out value="${ctProfesor.cNomProfesor}" /></td>
-						<td><c:out value="${ctProfesor.cApeProfesor}" /></td>
-						<td><c:out value="${ctProfesor.cCalleProfesor}" /></td>
+						<td><c:out value="${ctProfesor.cNombre}" /></td>
+						<td><c:out value="${ctProfesor.cApellido}" /></td>
+						<td><c:out value="${ctProfesor.cCalle}" /></td>
+						<td><c:out value="${ctProfesor.iNumExt}" /></td>
+						<td><c:out value="${ctProfesor.lEstatus}" /></td>
 
 
 						<td><nobr>

@@ -40,24 +40,24 @@ public class ctProfesorDaoImpl implements ctProfesorDao {
 		Connection conexion = DBConexion.getConnection();
 		AppServer app = new AppServer(conexion);
 
-		System.out.println("antes del for");
+		
 		for (ctProfesor obj : Lista) {
 			vecRow1 = obj.getVectorDatos();
 			vecTabla1.add(vecRow1);
 		}
 
-		System.out.println("despues del for");
+		
 
 		ResultSetHolder ttProfesores = new ResultSetHolder(new VectorResultSet(vecTabla1));
-		System.out.println("despues conversion");
+		
 
 		try {		
 			app.as_ctProfesor_Inserta("SISIMB", ttProfesores, oplResultado, opcTexto);		
 
-			System.out.println(opcTexto.getValue());
+			
 
 		} catch (Exception ex) {
-			System.err.println(ex);
+			
 
 		} finally {
 			app._release();
@@ -89,7 +89,7 @@ public class ctProfesorDaoImpl implements ctProfesorDao {
 
 		try {
 			app.as_ctProfesor_Actualiza("SISIMB", alumnosModificados, oplResultado, opcTexto);
-			System.out.print(opcTexto.getValue() + " Y el Resultado " + oplResultado.getValue());
+			
 
 		} finally {
 			// TODO: handle finally clause
@@ -107,7 +107,7 @@ public class ctProfesorDaoImpl implements ctProfesorDao {
 		AppServer app = new AppServer(conexion);
 
 		try {
-			System.out.println("Entro al metodo eliminar");
+			
 			app.as_ctAlumno_Borra("SISIMB", id, oplResultado, opcTexto);
 			System.err.println(opcTexto.getValue());
 		} finally {
@@ -140,19 +140,19 @@ public class ctProfesorDaoImpl implements ctProfesorDao {
 			
 				
 				obj.setiIdProfesor(rs_tt_ctProfesor.getInt("iIdProfesor"));
-				obj.setcNomProfesor(rs_tt_ctProfesor.getString("cNomProfesor"));
-				obj.setcApeProfesor(rs_tt_ctProfesor.getString("cApeProfesor"));
-				obj.setcCalleProfesor(rs_tt_ctProfesor.getString("cCalleProfesor"));
-				obj.setiNumExtProfe(rs_tt_ctProfesor.getString("iNumExtProfe"));
-				obj.setiNumIntProfe(rs_tt_ctProfesor.getString("iNumIntProfe"));
-				obj.setcColProfesor(rs_tt_ctProfesor.getString("cColProfesor"));
-				obj.setcCPProfesor(rs_tt_ctProfesor.getString("cCPProfesor"));
-				obj.setcMunicipioProfe(rs_tt_ctProfesor.getString("cMunicipioProfe"));
-				obj.setcEdoProfesor(rs_tt_ctProfesor.getString("cEdoProfesor"));
-				obj.setcTelProfesor(rs_tt_ctProfesor.getString("cTelProfesor"));
-				obj.setlEstProfesor(rs_tt_ctProfesor.getBoolean("lEstProfesor"));
+				obj.setcNombre(rs_tt_ctProfesor.getString("cNomProfesor"));
+				obj.setcApellido(rs_tt_ctProfesor.getString("cApeProfesor"));
+				obj.setcCalle(rs_tt_ctProfesor.getString("cCalleProfesor"));
+				obj.setiNumExt(rs_tt_ctProfesor.getString("iNumExtProfe"));
+				obj.setiNumInt(rs_tt_ctProfesor.getString("iNumIntProfe"));
+				obj.setcColonia(rs_tt_ctProfesor.getString("cColProfesor"));
+				obj.setcCP(rs_tt_ctProfesor.getString("cCPProfesor"));
+				obj.setcMunicipio(rs_tt_ctProfesor.getString("cMunicipioProfe"));
+				obj.setcEdo(rs_tt_ctProfesor.getString("cEdoProfesor"));
+				obj.setcTelefono(rs_tt_ctProfesor.getString("cTelProfesor"));
+				obj.setlEstatus(rs_tt_ctProfesor.getBoolean("lEstProfesor"));
 				obj.setDtContrato(rs_tt_ctProfesor.getTimestamp("dtContrato"));
-				obj.setDtFechaNacProfe(rs_tt_ctProfesor.getTimestamp("dtFechaNacProfe"));
+				obj.setDtFechaNac(rs_tt_ctProfesor.getTimestamp("dtFechaNacProfe"));
 				obj.setId(rs_tt_ctProfesor.getBytes("id"));				
 				
 		
@@ -161,7 +161,7 @@ public class ctProfesorDaoImpl implements ctProfesorDao {
 			}
 			
 		} catch (Exception ex) {
-			System.out.print(ex);
+			
 			Lista = null;
 		} finally {
 			app._release();
