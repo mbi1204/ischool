@@ -52,10 +52,16 @@ th {
 	<h1>Configuracion de Usuarios</h1>
 	
 	
-	<div id="AddsysUsuMenu_Dialog" style="display: none;">
-			<%@ include file="sysUsuMenu_Form.jsp"%>
+	<div id="AddsysUsuMenu_ctMenu" style="display: none;">
+			<%@ include file="sysUsuMenu_Form_AddMenu.jsp"%>
 	</div>
-
+	
+	
+	
+	<%-- <div id="AddsysUsuMenu_ctPrograma" style="display: none;">
+			<%@ include file="sysUsuMenu_Form_AddMenu.jsp"%>
+	</div>
+ --%>
 
 
 	<c:url var="actionUrl" value="configUsuario" />
@@ -64,7 +70,7 @@ th {
 	
 
 
-	<form:form commandName="ctUsuario" method="post" action="${actionUrl}"
+	<form:form id ="Form_ctUsuario" commandName="ctUsuario" method="post" action="${actionUrl}"
 		class="pure-form pure-form-aligned">
 
 		<form:label path="cUsuario">

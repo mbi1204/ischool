@@ -96,17 +96,18 @@ function remove_sysMenu(iIdMenu){
 	
 }
 
-function add_sysUsuMenu() {
-	
-
-	$('#Form_sysUsuMenu input#cUsuario').val($('#cUsuario').val());	
-	$('#AddsysUsuMenu_Dialog').dialog("option", "title", 'Agregar Menu');
-	$('#AddsysUsuMenu_Dialog').dialog('open');
+function add_sysUsuMenu() {	
+        
+	$('#Form_sysUsuMenu_ctMenu input#cUsuario').val($('#cUsuario').val());	
+	$('#AddsysUsuMenu_ctMenu').dialog("option", "title", 'Agregar Menu');
+	$('#AddsysUsuMenu_ctMenu').dialog('open');
 }
 
 function carga() {
-	window.onload = carga_ctMenu($('#cUsuario').val());
 	
+	
+	//window.onload = carga_ctMenu($('AddsysUsuMenu_ctMenu.#cUsuario').val());	
+	window.onload = carga_ctMenu($('#cUsuario').val());
 	
 }
 
@@ -162,8 +163,7 @@ function submit(){
 }
 
 function add_sysPrograma(){
-	 var value = $(".selected td:first").html();
-	 alert(value);
+	 var value = $(".selected td:first").html();	
 	 if (typeof value === "undefined") {
 		    alert("seleccione un menu para agregar programas");    
 	 }else {
@@ -228,7 +228,7 @@ $('#mytable').on('dblclick', 'tr', function() {
 
 $(document).ready(function() {
 
-	$('#AddsysUsuMenu_Dialog').dialog({
+	$('#AddsysUsuMenu_ctMenu').dialog({
 
 		autoOpen : false,
 		position : 'center',
@@ -237,8 +237,7 @@ $(document).ready(function() {
 		width : 800,
 		buttons : {
 			"Save" : function() {
-				//$('#Form_sysUsuMenu').submit();
-				 submit();
+				submit();
 				$(this).dialog('close');
 			},
 			"Cancel" : function() {
@@ -246,11 +245,8 @@ $(document).ready(function() {
 			}
 		},		
 		close : function() {
-			resetDialog($('#Form_sysUsuMenu'));
+			resetDialog($('#Form_sysUsuMenu_ctMenu'));
 			$(this).dialog('close');
-		},		
-		aceptar : function(){
-			alert ("hola entro aceptar");			
 		}	
 		
 	});	

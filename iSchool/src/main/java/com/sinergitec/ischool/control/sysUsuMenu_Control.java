@@ -50,19 +50,9 @@ public class sysUsuMenu_Control {
 
 	@RequestMapping(value = "/BuscaMenu", headers = "Accept=application/json")
 	public @ResponseBody List<sysUsuMenu> BuscaMenu(String cUsuario, Model model) {
-		System.out.println("Usuario -> " + cUsuario);
-
 		List<sysUsuMenu> lista = new ArrayList<sysUsuMenu>();
-		lista = this.servSysMenu.list_sysUsuMenu(cUsuario, true);
-		
-		
-		for (sysUsuMenu obj : lista){
-			
-			System.out.print(obj.getcMenu() + obj.getcUsuario());
-			
-			
-			
-		}
+		lista = this.servSysMenu.list_sysUsuMenu(cUsuario, true);	
+	
 		return lista;
 
 	}
