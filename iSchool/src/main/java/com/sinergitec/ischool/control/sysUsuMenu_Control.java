@@ -41,6 +41,7 @@ public class sysUsuMenu_Control {
 
 		model.addAttribute("ctUsuario", new ctUsuario());
 		model.addAttribute("sysUsuMenu" , new sysUsuMenu());
+		model.addAttribute("sysUsuprograma" , new sysUsuPrograma());		
 		model.addAttribute("lista_ctUsuario", this.serv.list_ctUsuario());
 		model.addAttribute("lista_ctMenu", this.servMenu.list_ctMenu());
 
@@ -79,8 +80,8 @@ public class sysUsuMenu_Control {
 	
 	
 	@RequestMapping(value = "/sysUsuPrograma/add")
-	public  @ResponseBody List<sysUsuPrograma> add_sysUsuPrograma(String cUsuario , int iIdMenu,		
-			ModelMap model) {
+	public  @ResponseBody List<sysUsuPrograma> add_sysUsuPrograma(
+			String cUsuario , int iIdMenu,int iIdPrograma,ModelMap model) {
 		
 		
 		sysUsuPrograma obj = new sysUsuPrograma();

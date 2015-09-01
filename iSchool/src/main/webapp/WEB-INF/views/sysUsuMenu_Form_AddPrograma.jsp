@@ -5,8 +5,8 @@
 <c:url var="actionUrl" value="sysUsuprograma/add" />
 
 
-
-<form:form id="Form_sysUsuMenu_ctPrograma" commandName="sysUsuPrograma"
+                                                     
+<form:form id="Form_sysUsuMenu_ctPrograma" commandName="sysUsuprograma"
 	method="post" action="${actionUrl}" class="pure-form pure-form-aligned">
 
 	<fieldset>
@@ -15,7 +15,7 @@
 
 		<table>
 
-<%-- 			<tr>
+			<tr>
 				<td><form:label path="cUsuario">
 						<spring:message text="Usuario" />
 					</form:label></td>
@@ -26,10 +26,21 @@
 				<td><form:label path="iIdMenu">
 						<spring:message text="Menu" />
 					</form:label></td>
-				<td><form:input path="iIdMenu" placeholder="Usuario" size="10"
-						readonly="true" maxlength="10" /></td>
+				<td><form:input path="iIdMenu" placeholder="Menu" size="10"	 maxlength="10" readonly="true" /></td>
+				
 			</tr>
- --%>
+			
+			<tr>
+				<td><form:label path="iIdPrograma">
+						<spring:message text="Programa" />
+					</form:label></td>
+				<td><form:input path="iIdPrograma" placeholder="programa" size="10"	 maxlength="10" /></td>
+				
+			</tr>
+			
+
 		</table>
 	</fieldset>
 </form:form>
+
+

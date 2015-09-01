@@ -27,18 +27,10 @@ th {
 	text-align: left
 }
 
-/*table.selector tbody tr:hover {
-    background-color: orange;
-    cursor: pointer;
-}*/
-
-
-
  td {border: 1px #DDD solid; padding: 5px; cursor: pointer;}
-
-     .selected {
-        background-color: orange;
-          }
+      .selected {
+      background-color: orange;
+}
 
 
 
