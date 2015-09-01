@@ -144,8 +144,8 @@ public List<ctGrupo> list_ctGrupo() throws Open4GLException, IOException{
 				ctGrupo obj = new ctGrupo();
 
 				obj.setiIdGrupo(rs_tt_ctGrupo.getInt("iIdGrupo"));
-				obj.setcNomGrupo(rs_tt_ctGrupo.getString("cNomGrupo"));
-				obj.setiIdCur(rs_tt_ctGrupo.getInt("iIdCur"));
+				obj.setcNomGrupo(rs_tt_ctGrupo.getString("cNombre"));
+				obj.setiIdCur(rs_tt_ctGrupo.getInt("iIdCurso"));
 				obj.setiIdProfesor(rs_tt_ctGrupo.getInt("iIdProfesor"));
 				obj.setDtHorario(rs_tt_ctGrupo.getString("dtHorario"));
 				obj.setId(rs_tt_ctGrupo.getBytes("Id"));
@@ -158,13 +158,7 @@ public List<ctGrupo> list_ctGrupo() throws Open4GLException, IOException{
 					}
 				}
 				
-				System.out.println("Ya entro a la lista");
 				
-				System.out.println(obj.getiIdGrupo());
-				System.out.println(obj.getcNomGrupo());
-				System.out.println(obj.getiIdCur());
-				System.out.println(obj.getiIdProfesor());
-				System.out.println(obj.getDtHorario());
 				Lista.add(obj);
 			}
 			
@@ -175,7 +169,7 @@ public List<ctGrupo> list_ctGrupo() throws Open4GLException, IOException{
 			app._release();
 			DBConexion.closeConnection(conexion);
 		}
-		System.out.println("Ya devolvio la lista");
+		
 		return Lista;
 	}
 
@@ -188,7 +182,7 @@ public List<ctGrupo> list_ctGrupo() throws Open4GLException, IOException{
 		Connection conexion = DBConexion.getConnection();
 		AppServer app = new AppServer(conexion);
 		ctGrupo obj = new ctGrupo();
-		System.out.println("Truena aqui un paso antes de la conexion a BD");
+		
 		try {
 			
 			app.as_ctGrupo_get("SISIMB", g, tt_ctGrupo, oplResultado, opcTexto);
@@ -198,8 +192,8 @@ public List<ctGrupo> list_ctGrupo() throws Open4GLException, IOException{
 			while (rs_tt_ctGrupo.next()) {
 				
 				obj.setiIdGrupo(rs_tt_ctGrupo.getInt("iIdGrupo"));
-				obj.setcNomGrupo(rs_tt_ctGrupo.getString("cNomGrupo"));
-				obj.setiIdCur(rs_tt_ctGrupo.getInt("iIdCur"));
+				obj.setcNomGrupo(rs_tt_ctGrupo.getString("cNombre"));
+				obj.setiIdCur(rs_tt_ctGrupo.getInt("iIdCurso"));
 				obj.setiIdProfesor(rs_tt_ctGrupo.getInt("iIdProfesor"));
 				obj.setDtHorario(rs_tt_ctGrupo.getString("dtHorario"));
 				 /* 
