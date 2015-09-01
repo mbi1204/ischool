@@ -67,6 +67,11 @@ th {
 						<td><c:out value="${ctProfesor.cApellido}" /></td>
 						<td><c:out value="${ctProfesor.cCalle}" /></td>
 						<td><c:out value="${ctProfesor.iNumExt}" /></td>
+						<td><c:out value="${ctProfesor.iNumInt}" /></td>
+						<td><c:out value="${ctProfesor.cColonia}" /></td>
+						<td><c:out value="${ctProfesor.cCP}" /></td>
+						<td><c:out value="${ctProfesor.cMunicipio}" /></td>
+						<td><c:out value="${ctProfesor.cTelefono}" /></td>
 						<td><c:out value="${ctProfesor.lEstatus}" /></td>
 
 

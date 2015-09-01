@@ -51,11 +51,52 @@
 			</tr>
 			
 			<tr>
+				<td><form:label path="iNumInt">
+						<spring:message text="NumeroInt" />
+					</form:label></td>
+				<td><form:input path="iNumInt"  size="5" /></td>
+			</tr>
+			
+			<tr>
+				<td><form:label path="cColonia">
+						<spring:message text="Colonia" />
+					</form:label></td>
+				<td><form:input path="cColonia"  placeholder="Colonia" size="10" /></td>
+			</tr>
+			
+			<tr>
+				<td><form:label path="cCP">
+						<spring:message text="Codigo Postal"/>
+					</form:label></td>
+				<td><form:input path="cCP" placeholder="Codigo Postal" size="11" /></td>
+			</tr>
+			
+			<tr>
+				<td><form:label path="cMunicipio">
+						<spring:message text="Municipio"/>
+					</form:label></td>
+				<td><form:input path="cMunicipio" placeholder="Municipio" size="10" /></td>
+			</tr>
+			
+			<tr>
+				<td><form:label path="cTelefono">
+						<spring:message text="Telefono"/>
+					</form:label></td>
+				<td><form:input path="cTelefono" placeholder="Telefono" size="10" /></td>
+			</tr>
+			
+			<tr>
+				<td><form:label path="dtContrato">
+						<spring:message text="Fecha Contrato"/>
+					</form:label></td>
+				<td><input type="date" name="dtContrato">
+			</tr>
+			
+			<tr>
 				<td><form:label path="lEstatus">
 						<spring:message text="Activo" />
 					</form:label></td>
-				<td><form:checkbox path="lEstatus" /></td>
-
+				<td><form:checkbox path="lEstatus"/></td>
 			</tr>
 			
 			
