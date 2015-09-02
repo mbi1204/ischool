@@ -5,6 +5,8 @@ public class ctEmpleado {
 	private String cNombre;
 
 	private String iEdad;
+	
+	private String cApellido;
 
 	public String getcNombre() {
 		return cNombre;
