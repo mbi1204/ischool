@@ -6,9 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
-
 import org.springframework.stereotype.Repository;
-
 import com.progress.AppServer.AppServer;
 import com.progress.open4gl.BooleanHolder;
 import com.progress.open4gl.Open4GLException;
@@ -18,6 +16,7 @@ import com.progress.open4gl.StringHolder;
 import com.progress.open4gl.SystemErrorException;
 import com.progress.open4gl.javaproxy.Connection;
 import com.sinergitec.ischool.dao.sg.sysUsuProgramaDao;
+import com.sinergitec.ischool.model.sg.ctPrograma;
 import com.sinergitec.ischool.model.sg.sysUsuPrograma;
 import com.sinergitec.ischool.util.DBConexion;
 import com.sinergitec.ischool.util.VectorResultSet;
@@ -135,6 +134,61 @@ public class sysUsuProgramaDaoImp implements sysUsuProgramaDao {
 	public void remove_sysUsuPrograma(String cUsuario , int iMenu, int iPrograma) throws RunTime4GLException,
 			SystemErrorException, Open4GLException, IOException {
 		// TODO Auto-generated method stub		
+		
+	}
+
+	@Override
+	public List<ctPrograma> List_ctProgXctMenu(String cUsuario, int iMenu, boolean lTodos)
+			throws RunTime4GLException, SystemErrorException, Open4GLException, IOException, SQLException {
+		// TODO Auto-generated method stub
+
+		ResultSetHolder tt_ctPrograma = new ResultSetHolder();
+		StringHolder opcError = new StringHolder();
+		BooleanHolder oplError = new BooleanHolder();
+		List<ctPrograma> Lista = new ArrayList<ctPrograma>();
+		
+
+		Connection conexion = DBConexion.getConnection();
+		AppServer app = new AppServer(conexion);
+		
+		
+		
+		try {
+			app.as_ctProgXctMenu_Carga(cUsuario, iMenu, lTodos, tt_ctPrograma, oplError, opcError);
+			ResultSet rs_tt_ctPrograma = tt_ctPrograma.getResultSetValue();
+
+			while (rs_tt_ctPrograma.next()) {
+
+				ctPrograma obj = new ctPrograma();
+				obj.setiIdPrograma(rs_tt_ctPrograma.getInt("iIdPrograma"));
+				obj.setiIdMenu(rs_tt_ctPrograma.getInt("iIdMenu"));
+				obj.setcPrograma(rs_tt_ctPrograma.getString("cPrograma"));
+				obj.setlActivo(rs_tt_ctPrograma.getBoolean("lActivo"));
+				obj.setcNombre(rs_tt_ctPrograma.getString("cNombre"));
+				obj.setId(rs_tt_ctPrograma.getBytes("Id"));
+				
+				
+
+						
+
+				Lista.add(obj);
+
+			}
+
+		} catch (Exception ex) {
+
+			System.out.print(ex);
+
+			Lista = null;
+		} finally {
+			app._release();
+			DBConexion.closeConnection(conexion);
+		}
+
+		return Lista;
+		
+		
+		
 		
 	}
 		

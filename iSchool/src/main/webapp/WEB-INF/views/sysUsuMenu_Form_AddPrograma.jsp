@@ -28,13 +28,16 @@
 					</form:label></td>
 				<td><form:input path="iIdMenu" placeholder="Menu" size="10"	 maxlength="10" readonly="true" /></td>
 				
+			
+				<td> <input type="text" name="cMenu" id="cMenu" readonly="readonly" ></td>
+				
 			</tr>
 			
 			<tr>
 				<td><form:label path="iIdPrograma">
 						<spring:message text="Programa" />
 					</form:label></td>
-				<td><form:input path="iIdPrograma" placeholder="programa" size="10"	 maxlength="10" /></td>
+				<td><form:select path="iIdPrograma"  itemValue="iIdPrograma" itemLabel="cNombre" /></td>
 				
 			</tr>
 			

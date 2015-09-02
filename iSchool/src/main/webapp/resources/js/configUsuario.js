@@ -139,7 +139,7 @@ function submit() {
 function submit_ctprograma() {
 	vcUsuario = $('#Form_sysUsuMenu_ctPrograma input#cUsuario').val();
 	viMenu = $('#Form_sysUsuMenu_ctPrograma input#iIdMenu').val();
-	viprograma = $('#Form_sysUsuMenu_ctPrograma input#iIdPrograma').val();
+	viprograma = $('#Form_sysUsuMenu_ctPrograma select#iIdPrograma').val();
 
 	$.ajax({
 		type : "POST",
@@ -154,9 +154,10 @@ function submit_ctprograma() {
 			$("#mytable2 > tbody").empty();
 			for ( var item in data) {
 				$('#mytable2 > tbody').append(
-						'<tr>' + '<td>' + data[item].iIdPrograma + '</td>' + '<td>'
-								+ data[item].cNombre + '</td>' + '<td>'
-								+ data[item].lActivo + '</td>' + '<td><nobr>'
+						'<tr>' + '<td>' + data[item].iIdPrograma + '</td>'
+								+ '<td>' + data[item].cNombre + '</td>'
+								+ '<td>' + data[item].lActivo + '</td>'
+								+ '<td><nobr>'
 
 								+ '<a class="pure-button pure-button-primary"'
 								+ 'onclick="return confirm('
@@ -166,9 +167,7 @@ function submit_ctprograma() {
 								+ '	class="fa fa-times"></i>Eliminar' + '</a>'
 
 								+ '</nobr></td>' + '</tr>');
-
 			}
-			
 
 		},
 		error : function() {
@@ -183,59 +182,154 @@ function add_sysPrograma() {
 	// alert ($(".selected td:eq(0)").html());
 	// alert ($(".selected td:eq(1)").html());
 
+	// cargar programas del menu
+
 	var value = $(".selected td:first").html();
 	if (typeof value === "undefined") {
 		alert("seleccione un menu para agregar programas");
 	} else {
-		$('#Form_sysUsuMenu_ctPrograma input#cUsuario').val($('#Form_ctUsuario select#cUsuario').val());
-		$('#Form_sysUsuMenu_ctPrograma input#iIdMenu').val($(".selected td:eq(0)").html());
-		$('#AddsysUsuMenu_ctprograma').dialog("option", "title",'Agregar Programa');
+
+		vcUsuario = $('#Form_ctUsuario select#cUsuario').val();
+		viMenu = $(".selected td:eq(0)").html();
+
+		alert(vcUsuario);
+		alert(viMenu);
+
+		$.ajax({
+			type : "GET",
+			url : "sysUsuPrograma/List_ctProgXctMenu",
+			dataType : "json",
+			contentType : "application/json; charset=utf-8",
+			data : {
+				cUsuario : vcUsuario,
+				iIdMenu : viMenu
+			},
+			success : function(data, textStatus, jqXHR) {
+
+				var options = '';
+
+				for ( var item in data) {
+					options += '<option value="' + data[item].iIdPrograma
+							+ '">' + data[item].cNombre + '</option>';
+				}
+				$("#Form_sysUsuMenu_ctPrograma select#iIdPrograma").html(
+						options);
+
+			},
+			error : function() {
+				error("al cargar la lista");
+
+			}
+		});
+
+		$('#Form_sysUsuMenu_ctPrograma input#cUsuario').val(vcUsuario);
+		$('#Form_sysUsuMenu_ctPrograma input#iIdMenu').val(viMenu);
+		$('#Form_sysUsuMenu_ctPrograma input#cMenu').val(
+				$(".selected td:eq(1)").html());
+
+		$('#AddsysUsuMenu_ctprograma').dialog("option", "title",
+				'Agregar Programa');
 		$('#AddsysUsuMenu_ctprograma').dialog('open');
 	}
 }
 
-$('#mytable').on('dblclick','tr',function() {
+function remove_sysPrograma(iIdMenu, iIdPrograma) {
+	vcUsuario = ('#Form_ctUsuario select#cUsuario').val();
 
-			$(this).addClass('selected').siblings().removeClass('selected');
-			var value = $(this).find('td:first').html();
-			$("#mytable2 > tbody").empty();
+	$.ajax({
+		type : "POST",
+		url : "sysUsuMenu/remove",
+		data : {
+			cUsuario : vcUsuario,
+			iIdMenu : iIdMenu
+		},
 
-			vcUsuario = $('#Form_ctUsuario select#cUsuario').val();
-			viMenu = $(".selected td:eq(0)").html();
+		success : function(data, textStatus, jqXHR) {
+			$("#mytable > tbody").empty();
+			for ( var item in data) {
+				$('#mytable > tbody').append(
+						'<tr>' + '<td>' + data[item].iIdMenu + '</td>' + '<td>'
+								+ data[item].cMenu + '</td>' + '<td>'
+								+ data[item].lActivo + '</td>' + '<td><nobr>'
 
-			$.ajax({
-				type : "GET",
-				url : "sysUsuPrograma/getList",
-				dataType : "json",
-				contentType : "application/json; charset=utf-8",
-				data : {
-					cUsuario : vcUsuario,
-					iIdMenu : viMenu
-				},
-				success : function(data, textStatus, jqXHR) {
-					
+								+ '<a class="pure-button pure-button-primary"'
+								+ 'onclick="return confirm('
+								+ "'¿Desea Eliminar el usuario selecionado?'"
+								+ ');" ' + 'href="javascript:remove_sysMenu('
+								+ data[item].iIdMenu + ' )"> <i'
+								+ '	class="fa fa-times"></i>Eliminar' + '</a>'
+
+								+ '</nobr></td>' + '</tr>');
+			}
+
+		},
+		error : function() {
+			alert('error ');
+		}
+	});
+
+}
+
+$('#mytable')
+		.on(
+				'dblclick',
+				'tr',
+				function() {
+
+					$(this).addClass('selected').siblings().removeClass(
+							'selected');
+					var value = $(this).find('td:first').html();
 					$("#mytable2 > tbody").empty();
-					for ( var item in data) {
-						$('#mytable2 > tbody').append(
-								'<tr>' + '<td>' + data[item].iIdPrograma + '</td>' + '<td>'
-										+ data[item].cNombre + '</td>' + '<td>'
-										+ data[item].lActivo + '</td>' + '<td><nobr>'
 
-										+ '<a class="pure-button pure-button-primary"'
-										+ 'onclick="return confirm('
-										+ "'¿Desea Eliminar el programa selecionado?'"
-										+ ');" ' + 'href="javascript:remove_sysMenu('
-										+ data[item].iIdMenu + ' )"> <i'
-										+ '	class="fa fa-times"></i>Eliminar' + '</a>'
+					vcUsuario = $('#Form_ctUsuario select#cUsuario').val();
+					viMenu = $(".selected td:eq(0)").html();
 
-										+ '</nobr></td>' + '</tr>');
+					$
+							.ajax({
+								type : "GET",
+								url : "sysUsuPrograma/getList",
+								dataType : "json",
+								contentType : "application/json; charset=utf-8",
+								data : {
+									cUsuario : vcUsuario,
+									iIdMenu : viMenu
+								},
+								success : function(data, textStatus, jqXHR) {
 
-					}
-					
-				
-				}
-			});
-		});
+									$("#mytable2 > tbody").empty();
+									for ( var item in data) {
+										$('#mytable2 > tbody')
+												.append(
+														'<tr>'
+																+ '<td>'
+																+ data[item].iIdPrograma
+																+ '</td>'
+																+ '<td>'
+																+ data[item].cNombre
+																+ '</td>'
+																+ '<td>'
+																+ data[item].lActivo
+																+ '</td>'
+																+ '<td><nobr>'
+
+																+ '<a class="pure-button pure-button-primary"'
+																+ 'onclick="return confirm('
+																+ "'¿Desea Eliminar el programa selecionado?'"
+																+ ');" '
+																+ 'href="javascript:remove_sysMenu('
+																+ data[item].iIdMenu
+																+ ' )"> <i'
+																+ '	class="fa fa-times"></i>Eliminar'
+																+ '</a>'
+
+																+ '</nobr></td>'
+																+ '</tr>');
+
+									}
+
+								}
+							});
+				});
 
 $(document).ready(function() {
 

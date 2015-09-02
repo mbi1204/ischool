@@ -7,6 +7,7 @@ import java.util.List;
 import com.progress.open4gl.Open4GLException;
 import com.progress.open4gl.RunTime4GLException;
 import com.progress.open4gl.SystemErrorException;
+import com.sinergitec.ischool.model.sg.ctPrograma;
 import com.sinergitec.ischool.model.sg.sysUsuPrograma;
 
 public interface sysUsuProgramaDao {
@@ -25,5 +26,8 @@ public interface sysUsuProgramaDao {
 
 	public void remove_sysUsuPrograma(String cUsuario , int iMenu ,int Programa) throws RunTime4GLException,
 			SystemErrorException, Open4GLException, IOException;
+	
+	public List<ctPrograma> List_ctProgXctMenu(String cUsuario , int iMenu, boolean lTodos ) throws RunTime4GLException,
+				SystemErrorException, Open4GLException, IOException, SQLException;
 
 }

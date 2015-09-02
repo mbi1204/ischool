@@ -12,6 +12,7 @@ import com.progress.open4gl.Open4GLException;
 import com.progress.open4gl.RunTime4GLException;
 import com.progress.open4gl.SystemErrorException;
 import com.sinergitec.ischool.dao.sg.sysUsuProgramaDao;
+import com.sinergitec.ischool.model.sg.ctPrograma;
 import com.sinergitec.ischool.model.sg.sysUsuPrograma;
 import com.sinergitec.ischool.service.sysUsuProgramaService;
 
@@ -145,6 +146,34 @@ public class sysUsuProgramaServiceImp implements sysUsuProgramaService {
 			e.printStackTrace();
 		}
 
+	}
+
+	@Override
+	public List<ctPrograma> List_ctProgXctMenu(String cUsuario, int iMenu, boolean lTodos) {
+		// TODO Auto-generated method stub
+		
+		List<ctPrograma> Lista =new ArrayList<ctPrograma>();
+		try {
+			Lista = dao.List_ctProgXctMenu(cUsuario, iMenu, lTodos);
+		} catch (RunTime4GLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SystemErrorException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Open4GLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return Lista;
 	}
 
 }

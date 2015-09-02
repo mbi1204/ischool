@@ -1,7 +1,7 @@
 package com.sinergitec.ischool.service;
 
 import java.util.List;
-
+import com.sinergitec.ischool.model.sg.ctPrograma;
 import com.sinergitec.ischool.model.sg.sysUsuPrograma;
 
 public interface sysUsuProgramaService {
@@ -14,5 +14,7 @@ public interface sysUsuProgramaService {
 	public sysUsuPrograma get_sysUsuPrograma(int id);
 
 	public void remove_sysUsuPrograma(String cMenu ,int iMenu, int iPrograma);
+	
+	public List<ctPrograma> List_ctProgXctMenu(String cUsuario , int iMenu, boolean lTodos );
 
 }

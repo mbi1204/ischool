@@ -128,6 +128,20 @@ public class sysUsuMenu_Control {
 
 	}
 	
+	
+	@RequestMapping(value = "/sysUsuPrograma/List_ctProgXctMenu", headers = "Accept=application/json")
+	public @ResponseBody  List<ctPrograma> List_ctProgXctMenu(String cUsuario , Integer iIdMenu ,ModelMap model) {		
+		
+		List<ctPrograma> list = new ArrayList<ctPrograma>();
+		
+		list = this.serviSysPrograma.List_ctProgXctMenu(cUsuario, iIdMenu, true);
+		
+		return list;
+
+	}
+	
+	
+	
 
 }
 
