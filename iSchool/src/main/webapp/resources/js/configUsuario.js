@@ -255,7 +255,6 @@ function remove_sysPrograma(iIdMenu, iIdPrograma) {
 								+ ');" ' + 'href="javascript:remove_sysMenu('
 								+ data[item].iIdMenu + ' )"> <i'
 								+ '	class="fa fa-times"></i>Eliminar' + '</a>'
-
 								+ '</nobr></td>' + '</tr>');
 			}
 

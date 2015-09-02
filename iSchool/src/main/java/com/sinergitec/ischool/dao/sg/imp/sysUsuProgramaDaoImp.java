@@ -133,7 +133,23 @@ public class sysUsuProgramaDaoImp implements sysUsuProgramaDao {
 	@Override
 	public void remove_sysUsuPrograma(String cUsuario , int iMenu, int iPrograma) throws RunTime4GLException,
 			SystemErrorException, Open4GLException, IOException {
-		// TODO Auto-generated method stub		
+		
+		BooleanHolder oplResultado = new BooleanHolder();
+		StringHolder opcTexto = new StringHolder();
+
+		Connection conexion = DBConexion.getConnection();
+		AppServer app = new AppServer(conexion);
+
+		try {
+
+			app.as_sysUsuPrograma_Borra("SISIMB", cUsuario, iMenu, iPrograma, oplResultado, opcTexto);
+
+			System.err.println(opcTexto.getValue());
+		} finally {
+			app._release();
+			DBConexion.closeConnection(conexion);
+		}
+		
 		
 	}
 

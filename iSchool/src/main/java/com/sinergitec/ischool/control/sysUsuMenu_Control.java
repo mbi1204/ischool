@@ -115,6 +115,21 @@ public class sysUsuMenu_Control {
 	}
 	
 	
+	@RequestMapping(value = "/sysUsuPrograma/remove")
+	public  @ResponseBody List<sysUsuMenu> remove_sysUsuPrograma(String cUsuario , int iIdMenu,	int iIdPrograma,	
+			ModelMap model) {		
+		System.out.print("entro al remove del programa");
+		
+		this.servSysMenu.remove_sysUsuMenu(cUsuario, iIdMenu);
+		
+		List<sysUsuMenu> lista = new ArrayList<sysUsuMenu>();
+		lista = this.servSysMenu.list_sysUsuMenu(cUsuario, true);
+		
+		return lista;
+
+	}
+	
+	
 
 	
 	@RequestMapping(value = "/sysUsuPrograma/getList", headers = "Accept=application/json")
