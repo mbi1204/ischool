@@ -1,7 +1,6 @@
 package com.sinergitec.ischool.model.sg;
 
 import java.sql.Timestamp;
-import java.util.List;
 import java.util.Vector;
 
 
