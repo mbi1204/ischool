@@ -14,39 +14,45 @@
 	<section class="container">
 		<div class="login">
 
-			<c:url var="actionUrl" value="sysUsuMenu/add" />
+			<c:url var="actionUrl" value="ctUsuario/Login" />
 
 
 
 			<form:form id="Form_Login" commandName="ctUsuario" method="post"
 				action="${actionUrl}" class="pure-form pure-form-aligned">
 
-				<h1>Iniciar sesión</h1>
+				<table style="margin: 0 auto;" >
+					<tr>
+						<td colspan="2" style="text-align: center">
+							<h1>Iniciar sesión</h1>
+						</td>
+					</tr>
 
+					<tr>
+						<td><form:label path="cUsuario">
+								<spring:message text="Usuario" />
+							</form:label></td>
+						<td><form:input path="cUsuario" placeholder="Usuario"
+								size="20" maxlength="20" /></td>
+					</tr>
+					<tr>
+						<td><form:label path="cPassword">
+								<spring:message text="Password" />
+							</form:label></td>
 
-				<form:label path="cUsuario">
-					<spring:message text="Usuario" />
-				</form:label>
-				<form:input path="cUsuario" placeholder="Usuario" size="10" readonly="true" maxlength="10" />
-				
-				<form:label path="c">
-					<spring:message text="Usuario" />
-				</form:label>
-				<form:input path="cUsuario" placeholder="Usuario" size="10" readonly="true" maxlength="10" />
-				
+						<td><form:input type="password" path="cPassword"
+								placeholder="Password" size="20" maxlength="20" /></td>
+					</tr>
 
+					<tr>
+						<td colspan="2" style="text-align: center"><font color="red">
+								${cResultado}</font></td>
+					</tr>
 
-
-				<p>
-					<font color="red"> ${cResultado}</font>
-				</p>
-
-				<p class="submit">
-					<input type="submit" name="commit" value="Login">
-				</p>
-
-
-
+					<tr>
+						<td colspan="2" align="center"><input type="submit" name="aceptar" value="Aceptar" ></td>
+					</tr>
+				</table>
 			</form:form>
 		</div>
 

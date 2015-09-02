@@ -8,6 +8,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -40,5 +42,19 @@ public class HomeController {
 		
 		return "home";
 	}
+	
+	
+	@RequestMapping(value= "/ctUsuario/Login", method = RequestMethod.POST)
+    public String cursoRegistro(@ModelAttribute("ctUsuario") ctUsuario  obj_ctUsuario, ModelMap model){
+		
+		System.out.println(obj_ctUsuario.getcNombre());
+		System.out.println(obj_ctUsuario.getcPassword());
+		
+		
+		return "home";
+		
+	
+	}
+   
 	
 }
