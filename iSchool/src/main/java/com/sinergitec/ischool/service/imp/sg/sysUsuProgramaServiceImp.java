@@ -1,4 +1,4 @@
-package com.sinergitec.ischool.service.imp;
+package com.sinergitec.ischool.service.imp.sg;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -11,25 +11,26 @@ import org.springframework.stereotype.Service;
 import com.progress.open4gl.Open4GLException;
 import com.progress.open4gl.RunTime4GLException;
 import com.progress.open4gl.SystemErrorException;
-import com.sinergitec.ischool.dao.sg.ctPuestoDao;
-import com.sinergitec.ischool.model.sg.ctPuesto;
-import com.sinergitec.ischool.service.ctPuestoService;
+import com.sinergitec.ischool.dao.sg.sysUsuProgramaDao;
+import com.sinergitec.ischool.model.sg.ctPrograma;
+import com.sinergitec.ischool.model.sg.sysUsuPrograma;
+import com.sinergitec.ischool.service.sg.sysUsuProgramaService;
 
 
 @Service
-public class ctPuestoServiceImp implements ctPuestoService {
+public class sysUsuProgramaServiceImp implements sysUsuProgramaService {
 	@Autowired
-	private ctPuestoDao dao;
+	private sysUsuProgramaDao dao;
 
 	@Override
-	public void add_ctPuesto(ctPuesto obj) {
+	public void add_sysUsuPrograma(sysUsuPrograma obj) {
 		// TODO Auto-generated method stub
 		
 		
 		
 		
 		try {
-			dao.add_ctPuesto(obj);
+			dao.add_sysUsuPrograma(obj);
 		} catch (RunTime4GLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -48,11 +49,11 @@ public class ctPuestoServiceImp implements ctPuestoService {
 	}
 
 	@Override
-	public void update_ctPuesto(ctPuesto obj) {
+	public void update_sysUsuPrograma(sysUsuPrograma obj) {
 		// TODO Auto-generated method stub
 		
 		try {
-			dao.update_ctPuesto(obj);
+			dao.update_sysUsuPrograma(obj);
 		} catch (RunTime4GLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -70,13 +71,13 @@ public class ctPuestoServiceImp implements ctPuestoService {
 	}
 
 	@Override
-	public List<ctPuesto> list_ctPuesto() {
+	public List<sysUsuPrograma> list_sysUsuPrograma(String cUsuario ,int iPrograma, Boolean lActivo) {
 		// TODO Auto-generated method stub
 		
-		List<ctPuesto> Lista =new ArrayList<ctPuesto>();
+		List<sysUsuPrograma> Lista =new ArrayList<sysUsuPrograma>();
 	
 		try {
-			Lista=	 dao.list_ctPuesto();
+			Lista=	 dao.list_sysUsuPrograma(cUsuario,iPrograma, lActivo);
 		} catch (RunTime4GLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -98,12 +99,12 @@ public class ctPuestoServiceImp implements ctPuestoService {
 	}
 
 	@Override
-	public ctPuesto get_ctPuesto(int id) {
+	public sysUsuPrograma get_sysUsuPrograma(int id) {
 		// TODO Auto-generated method stub
-		ctPuesto obj = new ctPuesto();
+		sysUsuPrograma obj = new sysUsuPrograma();
 		
 		try {
-			obj = dao.get_ctPuesto(id);
+			obj = dao.get_sysUsuPrograma(id);
 		} catch (RunTime4GLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -127,10 +128,10 @@ public class ctPuestoServiceImp implements ctPuestoService {
 	}
 
 	@Override
-	public void remove_ctPuesto(int id) {
+	public void remove_sysUsuPrograma(String cUsuario ,int iMenu, int iPrograma) {
 		// TODO Auto-generated method stub
 		try {
-			dao.remove_ctPuesto(id);
+			dao.remove_sysUsuPrograma(cUsuario, iMenu,iPrograma);
 		} catch (RunTime4GLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -145,6 +146,34 @@ public class ctPuestoServiceImp implements ctPuestoService {
 			e.printStackTrace();
 		}
 
+	}
+
+	@Override
+	public List<ctPrograma> List_ctProgXctMenu(String cUsuario, int iMenu, boolean lTodos) {
+		// TODO Auto-generated method stub
+		
+		List<ctPrograma> Lista =new ArrayList<ctPrograma>();
+		try {
+			Lista = dao.List_ctProgXctMenu(cUsuario, iMenu, lTodos);
+		} catch (RunTime4GLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SystemErrorException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Open4GLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return Lista;
 	}
 
 }

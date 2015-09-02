@@ -1,4 +1,4 @@
-package com.sinergitec.ischool.control;
+package com.sinergitec.ischool.control.sg;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sinergitec.ischool.model.sg.ctPrograma;
-import com.sinergitec.ischool.service.ctMenuService;
-import com.sinergitec.ischool.service.ctProgramaService;
+import com.sinergitec.ischool.service.sg.ctMenuService;
+import com.sinergitec.ischool.service.sg.ctProgramaService;
 
 @Controller
 public class ctProgramaControl {

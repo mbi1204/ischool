@@ -1,4 +1,4 @@
-package com.sinergitec.ischool.control;
+package com.sinergitec.ischool.control.sg;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sinergitec.ischool.model.sg.ctPuesto;
 import com.sinergitec.ischool.model.sg.ctUsuario;
-import com.sinergitec.ischool.service.ctPuestoService;
-import com.sinergitec.ischool.service.ctUsuarioService;
+import com.sinergitec.ischool.service.sg.ctPuestoService;
+import com.sinergitec.ischool.service.sg.ctUsuarioService;
 
 @Controller
 public class ctUsuarioControl {

@@ -1,4 +1,4 @@
-package com.sinergitec.ischool.control;
+package com.sinergitec.ischool.control.sg;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sinergitec.ischool.model.sg.ctMenu;
-import com.sinergitec.ischool.service.ctMenuService;
+import com.sinergitec.ischool.service.sg.ctMenuService;
 
 @Controller
 public class ctMenuControl {

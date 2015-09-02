@@ -1,4 +1,4 @@
-package com.sinergitec.ischool.service.imp;
+package com.sinergitec.ischool.service.imp.sg;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -11,72 +11,64 @@ import org.springframework.stereotype.Service;
 import com.progress.open4gl.Open4GLException;
 import com.progress.open4gl.RunTime4GLException;
 import com.progress.open4gl.SystemErrorException;
-import com.sinergitec.ischool.dao.sg.ctProgramaDao;
-import com.sinergitec.ischool.model.sg.ctPrograma;
-import com.sinergitec.ischool.service.ctProgramaService;
-
-
+import com.sinergitec.ischool.dao.sg.ctUsuarioDao;
+import com.sinergitec.ischool.model.sg.ctUsuario;
+import com.sinergitec.ischool.service.sg.ctUsuarioService;
 @Service
-public class ctProgramaServiceImp implements ctProgramaService {
+public class ctUsuarioServiceImp implements ctUsuarioService {
+
 	@Autowired
-	private ctProgramaDao dao;
-
-	@Override
-	public void add_ctPrograma(ctPrograma obj) {
-		// TODO Auto-generated method stub
-		
-		
-		
-		
-		try {
-			dao.add_ctPrograma(obj);
-		} catch (RunTime4GLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SystemErrorException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (Open4GLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
-	}
-
-	@Override
-	public void update_ctPrograma(ctPrograma obj) {
-		// TODO Auto-generated method stub
-		
-		try {
-			dao.update_ctPrograma(obj);
-		} catch (RunTime4GLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SystemErrorException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (Open4GLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
-
-	@Override
-	public List<ctPrograma> list_ctPrograma() {
-		// TODO Auto-generated method stub
-		
-		List<ctPrograma> Lista =new ArrayList<ctPrograma>();
+	private ctUsuarioDao dao;
 	
+	@Override
+	public void add_ctUsuario(ctUsuario obj) {
+		// TODO Auto-generated method stub
 		try {
-			Lista=	 dao.list_ctPrograma();
+			dao.add_ctUsuario(obj);
+		} catch (RunTime4GLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SystemErrorException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Open4GLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	@Override
+	public void update_ctUsuario(ctUsuario obj) {
+		// TODO Auto-generated method stub
+		
+		try {
+			dao.update_ctUsuario(obj);
+		} catch (RunTime4GLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SystemErrorException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Open4GLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	@Override
+	public List<ctUsuario> list_ctUsuario() {
+		// TODO Auto-generated method stub
+		List<ctUsuario> Lista =new ArrayList<ctUsuario>();
+		try {
+			Lista = dao.list_ctUsuario();
 		} catch (RunTime4GLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -93,17 +85,18 @@ public class ctProgramaServiceImp implements ctProgramaService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		
 		return Lista;
 	}
 
 	@Override
-	public ctPrograma get_ctPrograma(int iMenu ,int iPrograma) {
+	public ctUsuario get_ctUsuario(String id) {
 		// TODO Auto-generated method stub
-		ctPrograma obj = new ctPrograma();
 		
+		ctUsuario obj = new ctUsuario();
 		try {
-			obj = dao.get_ctPrograma(iMenu, iPrograma);
+			obj = dao.get_ctUsuario(id);
 		} catch (RunTime4GLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -120,17 +113,17 @@ public class ctProgramaServiceImp implements ctProgramaService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		
 		
 		return obj;
 	}
 
 	@Override
-	public void remove_ctPrograma(int iMenu ,int iPrograma) {
+	public void remove_ctUsuario(String id) {
 		// TODO Auto-generated method stub
+		
 		try {
-			dao.remove_ctPrograma(iMenu, iPrograma);
+			dao.remove_ctUsuario(id);
 		} catch (RunTime4GLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

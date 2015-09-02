@@ -1,4 +1,4 @@
-package com.sinergitec.ischool.service.imp;
+package com.sinergitec.ischool.service.imp.sg;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -11,25 +11,25 @@ import org.springframework.stereotype.Service;
 import com.progress.open4gl.Open4GLException;
 import com.progress.open4gl.RunTime4GLException;
 import com.progress.open4gl.SystemErrorException;
-import com.sinergitec.ischool.dao.sg.sysUsuMenuDao;
-import com.sinergitec.ischool.model.sg.sysUsuMenu;
-import com.sinergitec.ischool.service.sysUsuMenuService;
+import com.sinergitec.ischool.dao.sg.ctPuestoDao;
+import com.sinergitec.ischool.model.sg.ctPuesto;
+import com.sinergitec.ischool.service.sg.ctPuestoService;
 
 
 @Service
-public class sysUsuMenuServiceImp implements sysUsuMenuService {
+public class ctPuestoServiceImp implements ctPuestoService {
 	@Autowired
-	private sysUsuMenuDao dao;
+	private ctPuestoDao dao;
 
 	@Override
-	public void add_sysUsuMenu(sysUsuMenu obj) {
+	public void add_ctPuesto(ctPuesto obj) {
 		// TODO Auto-generated method stub
 		
 		
 		
 		
 		try {
-			dao.add_sysUsuMenu(obj);
+			dao.add_ctPuesto(obj);
 		} catch (RunTime4GLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -48,11 +48,11 @@ public class sysUsuMenuServiceImp implements sysUsuMenuService {
 	}
 
 	@Override
-	public void update_sysUsuMenu(sysUsuMenu obj) {
+	public void update_ctPuesto(ctPuesto obj) {
 		// TODO Auto-generated method stub
 		
 		try {
-			dao.update_sysUsuMenu(obj);
+			dao.update_ctPuesto(obj);
 		} catch (RunTime4GLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -70,13 +70,13 @@ public class sysUsuMenuServiceImp implements sysUsuMenuService {
 	}
 
 	@Override
-	public List<sysUsuMenu> list_sysUsuMenu(String cUsuario , Boolean lActivo) {
+	public List<ctPuesto> list_ctPuesto() {
 		// TODO Auto-generated method stub
 		
-		List<sysUsuMenu> Lista =new ArrayList<sysUsuMenu>();
+		List<ctPuesto> Lista =new ArrayList<ctPuesto>();
 	
 		try {
-			Lista=	 dao.list_sysUsuMenu(cUsuario, lActivo);
+			Lista=	 dao.list_ctPuesto();
 		} catch (RunTime4GLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -98,12 +98,12 @@ public class sysUsuMenuServiceImp implements sysUsuMenuService {
 	}
 
 	@Override
-	public sysUsuMenu get_sysUsuMenu(int id) {
+	public ctPuesto get_ctPuesto(int id) {
 		// TODO Auto-generated method stub
-		sysUsuMenu obj = new sysUsuMenu();
+		ctPuesto obj = new ctPuesto();
 		
 		try {
-			obj = dao.get_sysUsuMenu(id);
+			obj = dao.get_ctPuesto(id);
 		} catch (RunTime4GLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -127,10 +127,10 @@ public class sysUsuMenuServiceImp implements sysUsuMenuService {
 	}
 
 	@Override
-	public void remove_sysUsuMenu(String cUsuario ,int iMenu) {
+	public void remove_ctPuesto(int id) {
 		// TODO Auto-generated method stub
 		try {
-			dao.remove_sysUsuMenu(cUsuario, iMenu);
+			dao.remove_ctPuesto(id);
 		} catch (RunTime4GLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

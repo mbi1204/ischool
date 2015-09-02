@@ -1,4 +1,4 @@
-package com.sinergitec.ischool.control;
+package com.sinergitec.ischool.control.sg;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,10 +14,10 @@ import com.sinergitec.ischool.model.sg.ctPrograma;
 import com.sinergitec.ischool.model.sg.ctUsuario;
 import com.sinergitec.ischool.model.sg.sysUsuMenu;
 import com.sinergitec.ischool.model.sg.sysUsuPrograma;
-import com.sinergitec.ischool.service.ctMenuService;
-import com.sinergitec.ischool.service.sysUsuMenuService;
-import com.sinergitec.ischool.service.sysUsuProgramaService;
-import com.sinergitec.ischool.service.ctUsuarioService;
+import com.sinergitec.ischool.service.sg.ctMenuService;
+import com.sinergitec.ischool.service.sg.ctUsuarioService;
+import com.sinergitec.ischool.service.sg.sysUsuMenuService;
+import com.sinergitec.ischool.service.sg.sysUsuProgramaService;
 
 @Controller
 public class sysUsuMenu_Control {

@@ -5,4 +5,4 @@
  * @author mendoza
  *
  */
-package com.sinergitec.ischool.control;
+package com.sinergitec.ischool.control.sg;

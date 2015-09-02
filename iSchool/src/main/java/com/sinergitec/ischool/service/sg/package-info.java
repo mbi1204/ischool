@@ -5,4 +5,4 @@
  * @author mendoza
  *
  */
-package com.sinergitec.ischool.service.imp;
+package com.sinergitec.ischool.service.sg;

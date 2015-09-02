@@ -1,4 +1,4 @@
-package com.sinergitec.ischool.service;
+package com.sinergitec.ischool.service.sg;
 
 import java.util.List;
 import com.sinergitec.ischool.model.sg.ctPrograma;
