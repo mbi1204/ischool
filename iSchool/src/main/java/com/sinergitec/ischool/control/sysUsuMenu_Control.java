@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -16,7 +15,6 @@ import com.sinergitec.ischool.model.sg.ctUsuario;
 import com.sinergitec.ischool.model.sg.sysUsuMenu;
 import com.sinergitec.ischool.model.sg.sysUsuPrograma;
 import com.sinergitec.ischool.service.ctMenuService;
-import com.sinergitec.ischool.service.ctProgramaService;
 import com.sinergitec.ischool.service.sysUsuMenuService;
 import com.sinergitec.ischool.service.sysUsuProgramaService;
 import com.sinergitec.ischool.service.ctUsuarioService;
@@ -29,8 +27,6 @@ public class sysUsuMenu_Control {
 	private ctMenuService servMenu;
 	@Autowired
 	private sysUsuMenuService servSysMenu;
-	@Autowired
-	private ctProgramaService serviPrograma;
 	@Autowired
 	private sysUsuProgramaService serviSysPrograma; 
 	
@@ -116,14 +112,14 @@ public class sysUsuMenu_Control {
 	
 	
 	@RequestMapping(value = "/sysUsuPrograma/remove")
-	public  @ResponseBody List<sysUsuMenu> remove_sysUsuPrograma(String cUsuario , int iIdMenu,	int iIdPrograma,	
-			ModelMap model) {		
-		System.out.print("entro al remove del programa");
-		
-		this.servSysMenu.remove_sysUsuMenu(cUsuario, iIdMenu);
-		
-		List<sysUsuMenu> lista = new ArrayList<sysUsuMenu>();
-		lista = this.servSysMenu.list_sysUsuMenu(cUsuario, true);
+	public  @ResponseBody List<sysUsuPrograma> remove_sysUsuPrograma(String cUsuario , int iIdMenu,	int iIdPrograma,
+			ModelMap model) {
+		System.out.println("/sysUsuPrograma/remove");
+		System.out.println(cUsuario  +  iIdMenu + iIdPrograma );
+			
+		this.serviSysPrograma.remove_sysUsuPrograma(cUsuario, iIdMenu, iIdPrograma);
+		List<sysUsuPrograma> lista = new ArrayList<sysUsuPrograma>();
+		lista = this.serviSysPrograma.list_sysUsuPrograma(cUsuario, iIdMenu, true);
 		
 		return lista;
 
