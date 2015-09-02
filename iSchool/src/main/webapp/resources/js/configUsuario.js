@@ -190,10 +190,7 @@ function add_sysPrograma() {
 	} else {
 
 		vcUsuario = $('#Form_ctUsuario select#cUsuario').val();
-		viMenu = $(".selected td:eq(0)").html();
-
-		alert(vcUsuario);
-		alert(viMenu);
+		viMenu = $(".selected td:eq(0)").html();		
 
 		$.ajax({
 			type : "GET",
