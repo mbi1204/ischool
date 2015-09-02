@@ -11,6 +11,23 @@
 </head>
 <body>
 
+
+
+	<h1>Sistema de Inscripciones</h1>
+
+	<ul id="menu">
+
+		<li><a href="ctPuesto">Puesto</a></li>
+		<li><a href="ctUsuario">Usuario</a></li>
+		<li><a href="ctMenu">Menu</a></li>
+		<li><a href="ctPrograma">Programa</a></li>
+		<li><a href="configUsuario">Configuracion de Usuarios</a></li>				
+		<li><a href="ctAlumno">Inscripcion</a></li>
+		<li><a href="ctProfesor">Profesor</a></li>
+		<li><a href="ctCurso">Curso</a></li>
+		<li><a href="ctGrupo">Grupo</a></li>
+	</ul>
+
 	<section class="container">
 		<div class="login">
 

@@ -51,7 +51,7 @@ public class HomeController {
 		System.out.println(obj_ctUsuario.getcPassword());
 		
 		
-		return "home";
+		return "sysUsuMenu";
 		
 	
 	}

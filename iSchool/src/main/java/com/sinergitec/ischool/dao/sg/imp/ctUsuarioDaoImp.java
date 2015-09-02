@@ -24,16 +24,16 @@ import com.sinergitec.ischool.model.sg.ctPuesto;
 import com.sinergitec.ischool.model.sg.ctUsuario;
 import com.sinergitec.ischool.util.DBConexion;
 import com.sinergitec.ischool.util.VectorResultSet;
+
 @Repository
 public class ctUsuarioDaoImp implements ctUsuarioDao {
 	@Autowired
 	private ctPuestoDao DaoPuesto;
-	
+
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public void add_ctUsuario(ctUsuario obj_ctUsuario)
-			throws RunTime4GLException, SystemErrorException, Open4GLException,
-			IOException {
+			throws RunTime4GLException, SystemErrorException, Open4GLException, IOException {
 		// TODO Auto-generated method stub
 		List<ctUsuario> ListNuevos = new ArrayList<ctUsuario>();
 
@@ -51,12 +51,10 @@ public class ctUsuarioDaoImp implements ctUsuarioDao {
 			vecRow1 = obj.getVectorDatos();
 			vecTabla1.add(vecRow1);
 		}
-		ResultSetHolder tt_Nuevos = new ResultSetHolder(new VectorResultSet(
-				vecTabla1));
+		ResultSetHolder tt_Nuevos = new ResultSetHolder(new VectorResultSet(vecTabla1));
 
 		try {
-			app.as_ctUsuario_Inserta("SISIMB", tt_Nuevos, ps_Resultado,
-					ps_Texto);
+			app.as_ctUsuario_Inserta("SISIMB", tt_Nuevos, ps_Resultado, ps_Texto);
 			System.out.print(ps_Texto.getStringValue());
 		} catch (Exception ex) {
 
@@ -69,8 +67,8 @@ public class ctUsuarioDaoImp implements ctUsuarioDao {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	public void update_ctUsuario(ctUsuario obj) throws RunTime4GLException,
-			SystemErrorException, Open4GLException, IOException {
+	public void update_ctUsuario(ctUsuario obj)
+			throws RunTime4GLException, SystemErrorException, Open4GLException, IOException {
 		// TODO Auto-generated method stub
 		StringHolder ps_Texto = new StringHolder();
 		BooleanHolder ps_Resultado = new BooleanHolder();
@@ -83,16 +81,12 @@ public class ctUsuarioDaoImp implements ctUsuarioDao {
 
 		vecRow1 = obj.getVectorDatos();
 		vecTabla1.add(vecRow1);
-		
-		
-		System.out.println("usuario dao->" + obj.getcUsuario() );
 
 		ResultSet tt_Modificados = new VectorResultSet(vecTabla1);
 
 		try {
 
-			app.as_ctUsuario_Actualiza("SISIMB", tt_Modificados, ps_Resultado,
-					ps_Texto);
+			app.as_ctUsuario_Actualiza("SISIMB", tt_Modificados, ps_Resultado, ps_Texto);
 
 			System.out.print(ps_Texto.getStringValue());
 
@@ -105,45 +99,30 @@ public class ctUsuarioDaoImp implements ctUsuarioDao {
 	}
 
 	@Override
-	public List<ctUsuario> list_ctUsuario() throws RunTime4GLException,
-			SystemErrorException, Open4GLException, IOException, SQLException {
+	public List<ctUsuario> list_ctUsuario()
+			throws RunTime4GLException, SystemErrorException, Open4GLException, IOException, SQLException {
 		// TODO Auto-generated method stub
 		System.out.print("entro el dao ctUsuaio");
 		ResultSetHolder tt_ctUsuario = new ResultSetHolder();
-		
-		
+
 		StringHolder opcError = new StringHolder();
 		BooleanHolder oplError = new BooleanHolder();
 		List<ctUsuario> Lista = new ArrayList<ctUsuario>();
-		
+
 		List<ctPuesto> Lista_ctPuesto = new ArrayList<ctPuesto>();
-		
+
 		Lista_ctPuesto = DaoPuesto.list_ctPuesto();
-		
-		
-		System.out.println("lista" + Lista_ctPuesto.size());
 
 		Connection conexion = DBConexion.getConnection();
 		AppServer app = new AppServer(conexion);
-		
-		
-
 		try {
-			
-		
+
 			app.as_ctUsuario_Carga(true, tt_ctUsuario, oplError, opcError);
-			
-			
-			
-				
-		
-		
-			
+
 			ResultSet rs_tt_ctUsuario = tt_ctUsuario.getResultSetValue();
-			System.out.println("Registros" + rs_tt_ctUsuario.getRow());
 
 			while (rs_tt_ctUsuario.next()) {
-				
+
 				ctUsuario obj = new ctUsuario();
 
 				obj.setcUsuario(rs_tt_ctUsuario.getString("cUsuario"));
@@ -153,29 +132,27 @@ public class ctUsuarioDaoImp implements ctUsuarioDao {
 				obj.setDtFechaAlta(rs_tt_ctUsuario.getTimestamp("dtFechaAlta"));
 				obj.setiIdPuesto(rs_tt_ctUsuario.getInt("iIdPuesto"));
 				obj.setId(rs_tt_ctUsuario.getBytes("Id"));
-				
-				
-				for (ctPuesto obj_ctPuesto : Lista_ctPuesto){
-					
-					if (obj_ctPuesto.getiIdPuesto().equals(obj.getiIdPuesto())){
+
+				for (ctPuesto obj_ctPuesto : Lista_ctPuesto) {
+
+					if (obj_ctPuesto.getiIdPuesto().equals(obj.getiIdPuesto())) {
 						System.out.print("entro al for");
 						ctPuesto obj_nctPuesto = new ctPuesto();
 						obj_nctPuesto.setiIdPuesto(obj_ctPuesto.getiIdPuesto());
 						obj_nctPuesto.setcPuesto(obj_ctPuesto.getcPuesto());
 						obj.setPuesto(obj_nctPuesto);
-						
+
 					}
-					
+
 				}
-				
-				
+
 				Lista.add(obj);
-				
+
 			}
-			
+
 		} catch (Exception ex) {
 			System.out.print(ex);
-			
+
 			Lista = null;
 		} finally {
 			app._release();
@@ -186,8 +163,8 @@ public class ctUsuarioDaoImp implements ctUsuarioDao {
 	}
 
 	@Override
-	public ctUsuario get_ctUsuario(String id) throws RunTime4GLException,
-			SystemErrorException, Open4GLException, IOException, SQLException {
+	public ctUsuario get_ctUsuario(String id)
+			throws RunTime4GLException, SystemErrorException, Open4GLException, IOException, SQLException {
 		// TODO Auto-generated method stub
 
 		BooleanHolder oplResultado = new BooleanHolder();
@@ -199,8 +176,7 @@ public class ctUsuarioDaoImp implements ctUsuarioDao {
 		ctUsuario obj = new ctUsuario();
 		try {
 
-			app.as_ctUsuario_get("SISIMB", id, tt_ctUsuario, oplResultado,
-					opcTexto);
+			app.as_ctUsuario_get("SISIMB", id, tt_ctUsuario, oplResultado, opcTexto);
 
 			ResultSet rs_tt_ctUsuario = tt_ctUsuario.getResultSetValue();
 
@@ -228,10 +204,10 @@ public class ctUsuarioDaoImp implements ctUsuarioDao {
 	}
 
 	@Override
-	public void remove_ctUsuario(String  id) throws RunTime4GLException,
-			SystemErrorException, Open4GLException, IOException {
+	public void remove_ctUsuario(String id)
+			throws RunTime4GLException, SystemErrorException, Open4GLException, IOException {
 		// TODO Auto-generated method stub
-		
+
 		BooleanHolder oplResultado = new BooleanHolder();
 		StringHolder opcTexto = new StringHolder();
 
@@ -239,16 +215,37 @@ public class ctUsuarioDaoImp implements ctUsuarioDao {
 		AppServer app = new AppServer(conexion);
 
 		try {
-			
+
 			app.as_ctUsuario_Borra("SISIMB", id, oplResultado, opcTexto);
 
-			System.err.println(opcTexto.getValue());
 		} finally {
 			app._release();
 			DBConexion.closeConnection(conexion);
 		}
 
+	}
 
+	@Override
+	public String get_login(ctUsuario Obj)
+			throws RunTime4GLException, SystemErrorException, Open4GLException, IOException {
+		// TODO Auto-generated method stub
+		
+
+		BooleanHolder oplResultado = new BooleanHolder();
+		StringHolder opcTexto = new StringHolder();
+
+		Connection conexion = DBConexion.getConnection();
+		AppServer app = new AppServer(conexion);
+
+		try {
+			app.as_acceso_carga(Obj.getcNombre(), Obj.getcPassword(), opcTexto, oplResultado);	
+
+		} finally {
+			app._release();
+			DBConexion.closeConnection(conexion);
+		}
+
+		return opcTexto.getStringValue();
 	}
 
 }
