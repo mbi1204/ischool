@@ -88,6 +88,7 @@ public class sysUsuMenu_Control {
 		
 		obj.setcUsuario(cUsuario);
 		obj.setiIdMenu(iIdMenu);
+		obj.setiIdPrograma(iIdPrograma);
 		obj.setlActivo(true);
 		this.serviSysPrograma.add_sysUsuPrograma(obj);
 		List<sysUsuPrograma> lista = new ArrayList<sysUsuPrograma>();
@@ -114,18 +115,14 @@ public class sysUsuMenu_Control {
 	}
 	
 	
+
 	
-	
-	
-	@RequestMapping(value = "/prueba", headers = "Accept=application/json")
-	public @ResponseBody  List<ctPrograma> prueba(@ModelAttribute("sysUsuMenu") sysUsuMenu obj,
-			ModelMap model) {	
+	@RequestMapping(value = "/sysUsuPrograma/getList", headers = "Accept=application/json")
+	public @ResponseBody  List<sysUsuPrograma> list_sysUsuPrograma(String cUsuario , Integer iIdMenu ,ModelMap model) {		
+						
+		List<sysUsuPrograma> list = new ArrayList<sysUsuPrograma>();
 		
-		System.out.println("entro");
-				
-		List<ctPrograma> list = new ArrayList<ctPrograma>();
-		
-		list = this.serviPrograma.list_ctPrograma();
+		list = this.serviSysPrograma.list_sysUsuPrograma(cUsuario, iIdMenu, true);
 		
 		return list;
 

@@ -27,43 +27,35 @@ th {
 	text-align: left
 }
 
- td {border: 1px #DDD solid; padding: 5px; cursor: pointer;}
-      .selected {
-      background-color: orange;
+td {
+	border: 1px #DDD solid;
+	padding: 5px;
+	cursor: pointer;
 }
 
-
-
-
-
+.selected {
+	background-color: orange;
+}
 </style>
 
 </head>
 <body onload="carga();">
 
 	<h1>Configuracion de Usuarios</h1>
-	
-	
-	<div id="AddsysUsuMenu_ctMenu" style="display: none;">
-			<%@ include file="sysUsuMenu_Form_AddMenu.jsp"%>
-	</div>
-	
-	
-	
-	 <div id="AddsysUsuMenu_ctprograma" style="display: none;">
-			<%@ include file="sysUsuMenu_Form_AddPrograma.jsp"%>
-	</div>
- 
 
+
+	<div id="AddsysUsuMenu_ctMenu" style="display: none;">
+		<%@ include file="sysUsuMenu_Form_AddMenu.jsp"%>
+	</div>
+	
+	<div id="AddsysUsuMenu_ctprograma" style="display: none;">
+		<%@ include file="sysUsuMenu_Form_AddPrograma.jsp"%>
+	</div>
 
 	<c:url var="actionUrl" value="configUsuario" />
 
-
-	
-
-
-	<form:form id ="Form_ctUsuario" commandName="ctUsuario" method="post" action="${actionUrl}"
-		class="pure-form pure-form-aligned">
+	<form:form id="Form_ctUsuario" commandName="ctUsuario" method="post"
+		action="${actionUrl}" class="pure-form pure-form-aligned">
 
 		<form:label path="cUsuario">
 			<spring:message text="Usuario" />
@@ -73,13 +65,14 @@ th {
 			onchange="carga_ctMenu(value);" />
 
 	</form:form>
-	
-	<button class="pure-button pure-button-primary" onclick="add_sysUsuMenu()">
+
+	<button class="pure-button pure-button-primary"
+		onclick="add_sysUsuMenu()">
 		<i class="fa fa-plus"></i> Agregar Menu
 	</button>
 
 
-	<table id="mytable"	class="pure-table pure-table-bordered  ">
+	<table id="mytable" class="pure-table pure-table-bordered  ">
 		<thead>
 			<tr>
 				<th width="4%">ID</th>
@@ -89,37 +82,32 @@ th {
 
 			</tr>
 		</thead>
-		
+
 		<tbody>
 		</tbody>
 	</table>
-	
-	
-	<button class="pure-button pure-button-primary" onclick="add_sysPrograma()">
+
+
+	<button class="pure-button pure-button-primary"
+		onclick="add_sysPrograma()">
 		<i class="fa fa-plus"></i> Agregar Programa
 	</button>
-	
-	
-	<table id="mytable2"
-		class="pure-table pure-table-bordered  ">
+
+
+	<table id="mytable2" class="pure-table pure-table-bordered  ">
 		<thead>
 			<tr>
 				<th width="4%">ID</th>
-				<th width="12%">cPrograma</th>
-				<th width="12%">cMenu</th>
-				<th width="48%"></th>
+				<th width="30%">Programa</th>
+				<th width="12%">Activo?</th>
+				<th width="54%"></th>
 
 			</tr>
 		</thead>
-		
+
 		<tbody>
 		</tbody>
 	</table>
-
-
-
-
-
 
 
 
