@@ -1,7 +1,7 @@
 package com.sinergitec.ischool.service.sg;
 
-import java.util.List;
 
+import java.util.List;
 import com.sinergitec.ischool.model.sg.ctUsuario;
 
 
@@ -15,5 +15,8 @@ public interface ctUsuarioService {
 	public ctUsuario get_ctUsuario(String id);
 
 	public void remove_ctUsuario(String id);
+	
+	public String get_login(ctUsuario Obj);
+	
 
 }

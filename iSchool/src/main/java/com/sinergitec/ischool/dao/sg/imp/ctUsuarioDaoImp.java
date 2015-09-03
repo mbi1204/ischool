@@ -238,7 +238,7 @@ public class ctUsuarioDaoImp implements ctUsuarioDao {
 		AppServer app = new AppServer(conexion);
 
 		try {
-			app.as_acceso_carga(Obj.getcNombre(), Obj.getcPassword(), opcTexto, oplResultado);	
+			app.as_acceso_carga(Obj.getcUsuario(), Obj.getcPassword(), opcTexto, oplResultado);	
 
 		} finally {
 			app._release();

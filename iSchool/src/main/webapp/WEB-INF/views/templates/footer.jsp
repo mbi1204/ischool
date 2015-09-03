@@ -1,0 +1,1 @@
+<p align="center">Copyright &copy; 2015 SINERGITEC MEXICO</p>

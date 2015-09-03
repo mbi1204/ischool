@@ -140,4 +140,29 @@ public class ctUsuarioServiceImp implements ctUsuarioService {
 
 	}
 
+	@Override
+	public String get_login(ctUsuario Obj) {
+		// TODO Auto-generated method stub
+		
+		String vcRespuesta = null;
+		
+		try {
+			vcRespuesta = dao.get_login(Obj);
+		} catch (RunTime4GLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SystemErrorException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Open4GLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return vcRespuesta;
+	}
+
 }
