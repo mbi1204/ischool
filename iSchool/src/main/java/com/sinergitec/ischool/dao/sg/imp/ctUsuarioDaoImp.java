@@ -20,6 +20,8 @@ import com.progress.open4gl.SystemErrorException;
 import com.progress.open4gl.javaproxy.Connection;
 import com.sinergitec.ischool.dao.sg.ctPuestoDao;
 import com.sinergitec.ischool.dao.sg.ctUsuarioDao;
+import com.sinergitec.ischool.model.sg.ctMenu;
+import com.sinergitec.ischool.model.sg.ctPrograma;
 import com.sinergitec.ischool.model.sg.ctPuesto;
 import com.sinergitec.ischool.model.sg.ctUsuario;
 import com.sinergitec.ischool.util.DBConexion;
@@ -229,7 +231,6 @@ public class ctUsuarioDaoImp implements ctUsuarioDao {
 	public String get_login(ctUsuario Obj)
 			throws RunTime4GLException, SystemErrorException, Open4GLException, IOException {
 		// TODO Auto-generated method stub
-		
 
 		BooleanHolder oplResultado = new BooleanHolder();
 		StringHolder opcTexto = new StringHolder();
@@ -238,7 +239,7 @@ public class ctUsuarioDaoImp implements ctUsuarioDao {
 		AppServer app = new AppServer(conexion);
 
 		try {
-			app.as_acceso_carga(Obj.getcUsuario(), Obj.getcPassword(), opcTexto, oplResultado);	
+			app.as_acceso_carga(Obj.getcUsuario(), Obj.getcPassword(), opcTexto, oplResultado);
 
 		} finally {
 			app._release();
@@ -246,6 +247,74 @@ public class ctUsuarioDaoImp implements ctUsuarioDao {
 		}
 
 		return opcTexto.getStringValue();
+	}
+
+	@SuppressWarnings("rawtypes")
+	@Override
+	public List<List> getAllMenu(String cUsuario)
+			throws RunTime4GLException, SystemErrorException, Open4GLException, IOException {
+		// TODO Auto-generated method stub
+
+		BooleanHolder oplResultado = new BooleanHolder();
+		StringHolder opcTexto = new StringHolder();
+		ResultSetHolder tt_ctMenu = new ResultSetHolder();
+		ResultSetHolder tt_ctPrograma = new ResultSetHolder();
+		List<List>   lista      = new ArrayList<List>();
+		
+		List<ctMenu> Lista_ctMenu = new ArrayList<ctMenu>();
+		List<ctPrograma> Lista_ctPrograma = new ArrayList<ctPrograma>();
+
+		Connection conexion = DBConexion.getConnection();
+		AppServer app = new AppServer(conexion);
+
+		try {
+			app.as_MenuUsuario_Carga(cUsuario, tt_ctMenu, tt_ctPrograma, oplResultado, opcTexto);
+
+			ResultSet rs_tt_ctMenu     = tt_ctMenu.getResultSetValue();
+			ResultSet rs_tt_ctPrograma = tt_ctPrograma.getResultSetValue();
+
+			while (rs_tt_ctMenu.next()) {
+
+				ctMenu obj = new ctMenu();
+
+				obj.setiIdMenu(rs_tt_ctMenu.getInt("iIdMenu"));
+				obj.setcMenu(rs_tt_ctMenu.getString("cMenu"));
+				obj.setlActivo(rs_tt_ctMenu.getBoolean("lActivo"));
+				obj.setId(rs_tt_ctMenu.getBytes("Id"));
+				Lista_ctMenu.add(obj);
+
+			}
+			
+			
+			while (rs_tt_ctPrograma.next()) {
+
+				ctPrograma obj = new ctPrograma();
+				obj.setiIdPrograma(rs_tt_ctPrograma.getInt("iIdPrograma"));
+				obj.setiIdMenu(rs_tt_ctPrograma.getInt("iIdMenu"));
+				obj.setcPrograma(rs_tt_ctPrograma.getString("cPrograma"));
+				obj.setlActivo(rs_tt_ctPrograma.getBoolean("lActivo"));
+				obj.setcNombre(rs_tt_ctPrograma.getString("cNombre"));
+				obj.setId(rs_tt_ctPrograma.getBytes("Id"));		
+				obj.setMenu(null);
+
+				Lista_ctPrograma.add(obj);
+			}
+			
+			lista.add(Lista_ctMenu);
+			lista.add(Lista_ctPrograma);
+			
+
+			
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			app._release();
+			DBConexion.closeConnection(conexion);
+		}
+
+		return lista;
 	}
 
 }

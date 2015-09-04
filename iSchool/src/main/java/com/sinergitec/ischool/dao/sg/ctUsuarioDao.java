@@ -27,4 +27,9 @@ public interface ctUsuarioDao {
 
 	public String get_login(ctUsuario Obj)
 			throws RunTime4GLException, SystemErrorException, Open4GLException, IOException;
+	
+	@SuppressWarnings("rawtypes")
+	public  List<List>     getAllMenu(String cUsuario)
+			throws RunTime4GLException, SystemErrorException, Open4GLException, IOException;
+
 }
