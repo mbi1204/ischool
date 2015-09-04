@@ -40,17 +40,54 @@
  -->
 
 <div id='cssmenu'>
-	<ul>
+	<!-- <ul>
 		<li><a href='#'>Home</a></li>
 		<li><a href='#'>Catalogos</a>
 			<ul>
 
 				<li><a href='ctPuesto'>Puestos</a></li>
-				<li><a href='ctUsuario'>Usuarios</a>/a></li>
+				<li><a href='ctUsuario'>Usuarios</a></li>
 
 
 			</ul></li>
 		<li><a href='#'>About</a></li>
 		<li><a href='#'>Contact</a></li>
 	</ul>
+ -->
+
+	<ul>
+		<c:forEach items="${List_ctMenu}" var="Menu">
+			<li><a href='#'><c:out value="${Menu.cMenu}" /></a>
+
+				<ul>
+					<c:forEach items="${List_ctPrograma}" var="Programa">
+						<li><a href='ctPuesto'><c:out value="${Programa.cNombre}" /></a></li>
+						
+					</c:forEach>
+				</ul></li>
+
+
+		</c:forEach>
+	</ul>
+
+	<!-- 
+<c:forEach items="${listSubMenu}" var="Evento">
+							<c:choose>
+								<c:when test="${Evento.cModulo==Modulo.cModulo}">
+									<li><a href="${Evento.cEvento}" ><c:out	value="${Evento.cNombre}" /></a></li>
+								</c:when>
+							</c:choose>
+						</c:forEach>
+-->
+
+
+
+
+
+
+
+
+
+
+
 </div>

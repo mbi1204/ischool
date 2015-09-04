@@ -283,29 +283,24 @@ public class ctUsuarioDaoImp implements ctUsuarioDao {
 				obj.setId(rs_tt_ctMenu.getBytes("Id"));
 				Lista_ctMenu.add(obj);
 
-			}
-			
+			}			
 			
 			while (rs_tt_ctPrograma.next()) {
-
 				ctPrograma obj = new ctPrograma();
 				obj.setiIdPrograma(rs_tt_ctPrograma.getInt("iIdPrograma"));
 				obj.setiIdMenu(rs_tt_ctPrograma.getInt("iIdMenu"));
 				obj.setcPrograma(rs_tt_ctPrograma.getString("cPrograma"));
 				obj.setlActivo(rs_tt_ctPrograma.getBoolean("lActivo"));
 				obj.setcNombre(rs_tt_ctPrograma.getString("cNombre"));
-				obj.setId(rs_tt_ctPrograma.getBytes("Id"));		
-				obj.setMenu(null);
-
-				Lista_ctPrograma.add(obj);
-			}
+				obj.setId(rs_tt_ctPrograma.getBytes("Id"));				
 			
+				System.out.println(	obj.toString());
+				//obj.setMenu(null);
+				Lista_ctPrograma.add(obj);
+			}			
 			lista.add(Lista_ctMenu);
 			lista.add(Lista_ctPrograma);
 			
-
-			
-
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

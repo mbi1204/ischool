@@ -1,7 +1,9 @@
 package com.sinergitec.ischool.control.sg;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import org.slf4j.Logger;
@@ -13,6 +15,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.sinergitec.ischool.model.sg.ctUsuario;
 import com.sinergitec.ischool.service.imp.sg.ctUsuarioServiceImp;
@@ -21,6 +24,10 @@ import com.sinergitec.ischool.service.imp.sg.ctUsuarioServiceImp;
  * Handles requests for the application home page.
  */
 @Controller
+@SessionAttributes("List_ctMenu ,List_ctPrograma" )
+
+
+
 public class HomeController {
 	
 	@Autowired
@@ -57,9 +64,16 @@ public class HomeController {
 		String vcRespuesta ;
 		
 		vcRespuesta = ctUsuarioserv.get_login(obj_ctUsuario);
+		List<List>   lista      = new ArrayList<List>();
 				
 		
-		if (vcRespuesta.equals("") ){	
+		if (vcRespuesta.equals("") ){
+			
+			lista = ctUsuarioserv.getAllMenu(obj_ctUsuario.getcUsuario());
+			
+			model.addAttribute("List_ctMenu", lista.get(0) );
+			model.addAttribute("List_ctPrograma", lista.get(1) );
+			
 		
 			return "sysUsuMenu";
 			

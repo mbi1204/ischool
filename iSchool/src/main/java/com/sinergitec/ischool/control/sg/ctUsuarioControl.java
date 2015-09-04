@@ -67,8 +67,6 @@ public class ctUsuarioControl {
 			Model model) {
 		
 		
-
-		System.out.print("Entro al get imb");
 		model.addAttribute("ctUsuario", this.serv.get_ctUsuario(cUsuario));
 		//model.addAttribute("actionUrl", "edit_ctUsuario/");
 		model.addAttribute("lista_ctPuesto", this.serv_ctPuesto.list_ctPuesto());
@@ -81,12 +79,7 @@ public class ctUsuarioControl {
 	public String edit_ctUsuario(@ModelAttribute("ctUsuario") ctUsuario obj) {
 		java.util.Date date = new java.util.Date();
 		obj.setDtFechaAlta(new Timestamp(date.getTime()));
-		
-		
-	
-
-		this.serv.update_ctUsuario(obj);
-		
+		this.serv.update_ctUsuario(obj);		
 	
 		return "redirect:/ctUsuario";
 	}

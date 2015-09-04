@@ -14,5 +14,7 @@ public interface ctProgramaService {
 	public ctPrograma get_ctPrograma(int idMenu, int idPrograma);
 
 	public void remove_ctPrograma(int idMenu, int idPrograma);
+	
+
 
 }

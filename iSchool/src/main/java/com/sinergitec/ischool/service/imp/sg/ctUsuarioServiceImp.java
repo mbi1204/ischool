@@ -165,4 +165,29 @@ public class ctUsuarioServiceImp implements ctUsuarioService {
 		return vcRespuesta;
 	}
 
+	@SuppressWarnings("rawtypes")
+	@Override
+	public List<List> getAllMenu(String cUsuario) {
+		
+		List<List>   lista      = new ArrayList<List>();
+		// TODO Auto-generated method stub
+		try {
+			lista = dao.getAllMenu(cUsuario);
+		} catch (RunTime4GLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SystemErrorException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Open4GLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return lista;
+	}
+
 }

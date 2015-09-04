@@ -1,5 +1,6 @@
 package com.sinergitec.ischool.model.sg;
 
+import java.util.Arrays;
 import java.util.Vector;
 
 public class ctPrograma {
@@ -87,5 +88,15 @@ public class ctPrograma {
 	public void setId(byte[] id) {
 		Id = id;
 	}
+
+	@Override
+	public String toString() {
+		return "ctPrograma [iIdPrograma=" + iIdPrograma + ", iIdMenu=" + iIdMenu + ", cPrograma=" + cPrograma
+				+ ", lActivo=" + lActivo + ", cNombre=" + cNombre + ", Id=" + Arrays.toString(Id) + ", menu=" + menu
+				+ "]";
+	}
+	
+	
+	
 
 }

@@ -18,5 +18,7 @@ public interface ctUsuarioService {
 	
 	public String get_login(ctUsuario Obj);
 	
+	@SuppressWarnings("rawtypes")
+	public  List<List>     getAllMenu(String cUsuario);
 
 }
