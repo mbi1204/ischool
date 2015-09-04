@@ -2,8 +2,6 @@
 <!DOCTYPE tiles-definitions PUBLIC
        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
-       
-       
 <tiles-definitions>
 
 	<definition name="base.definition" template="/WEB-INF/views/templates/layout.jsp">
@@ -14,18 +12,52 @@
 		<put-attribute name="footer"
 			value="/WEB-INF/views/templates/footer.jsp" />
 	</definition>
+	
+	
+	<definition name="base.definition2" template="/WEB-INF/views/templates/layout.jsp">
+		<put-attribute name="header"	value="" />
+		<put-attribute name="title" value="" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer"		value="/WEB-INF/views/templates/footer.jsp" />
+	</definition>
+	
 
-
-
-
-
-	<definition name="home" extends="base.definition">
+	<definition name="home"  extends="base.definition2" >
 		<put-attribute name="title" value="Spring MVC - Home" />
 		<put-attribute name="body" value="/WEB-INF/views/home.jsp" />
 	</definition>
 
 
+	<definition name="sysUsuMenu" extends="base.definition">
+		<put-attribute name="title" value="Spring MVC - Home" />
+		<put-attribute name="body" value="/WEB-INF/views/sysUsuMenu.jsp" />
+	</definition>
+
+	<definition name="ctPuesto_List" extends="base.definition">
+		<put-attribute name="title" value="Spring MVC - Home" />
+		<put-attribute name="body" value="/WEB-INF/views/ctPuesto_List.jsp" />
+	</definition>
 	
+	<definition name="ctUsuario_List" extends="base.definition">
+		<put-attribute name="title" value="Spring MVC - Home" />
+		<put-attribute name="body" value="/WEB-INF/views/ctUsuario_List.jsp" />
+	</definition>
+	
+	
+	<definition name="ctMenu_List" extends="base.definition">
+		<put-attribute name="title" value="Spring MVC - Home" />
+		<put-attribute name="body" value="/WEB-INF/views/ctMenu_List.jsp" />
+	</definition>
+	
+	
+	
+	<definition name="ctPrograma_List" extends="base.definition">
+		<put-attribute name="title" value="Spring MVC - Home" />
+		<put-attribute name="body" value="/WEB-INF/views/ctPrograma_List.jsp" />
+	</definition>
+
+
 
 
 </tiles-definitions>
+

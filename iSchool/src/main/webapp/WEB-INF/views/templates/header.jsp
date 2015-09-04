@@ -16,45 +16,23 @@
 
 
 <div id='cssmenu'>
-	<ul>
+	
+	<ul id="menu">
 
-		<c:if test="${ not empty  Usuario}">
-
-			<c:if test="${not empty listCompanias}">
-				<li><a href='#'>Empresas</a>
-					<ul>
-						<c:forEach items="${listCompanias}" var="Companias">
-
-							<li><a
-								href="getCompania.do?action=Menu&cCompania=<c:out value="${Companias.cCveCia}"/>">
-									<span><c:out value="${Companias.cCveCia}" /></span>
-							</a></li>
-
-						</c:forEach>
-					</ul></li>
-			</c:if>
-
-			<c:forEach items="${listMenu}" var="Modulo">
-				<li class='has-sub'><a href='#'> <span> <c:out
-								value="${Modulo.cModulo}" />
-					</span></a>
-					<ul>
-						<c:forEach items="${listSubMenu}" var="Evento">
-							<c:choose>
-								<c:when test="${Evento.cModulo==Modulo.cModulo}">
-									<li><a href="${Evento.cEvento}" ><c:out	value="${Evento.cNombre}" /></a></li>
-								</c:when>
-							</c:choose>
-						</c:forEach>
-					</ul></li>
-			</c:forEach>
-
-
-			<li><a href="<c:url value='logout.do' />">Cerrar sesión</a></li>
-		</c:if>
-
-
-
+		<li><a href="ctPuesto">Puesto</a></li>
+		<li><a href="ctUsuario">Usuario</a></li>
+		<li><a href="ctMenu">Menu</a></li>
+		<li><a href="ctPrograma">Programa</a></li>
+		<li><a href="configUsuario">Configuracion de Usuarios</a></li>
+		<li><a href="ctAlumno">Inscripcion</a></li>
+		<li><a href="ctProfesor">Profesor</a></li>
+		<li><a href="ctCurso">Curso</a></li>
+		<li><a href="ctGrupo">Grupo</a></li>
 	</ul>
+		
+
+
+
+	
 </div>
 
