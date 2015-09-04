@@ -7,15 +7,15 @@
 
 
 
-<link href="<c:url value="/resources/css/styles.css" />" rel="stylesheet">
-<script src="<c:url value="/resources/js/script.js" />"></script>
+<link href="<c:url value="/resources/css/menu/menu-styles.css" />" rel="stylesheet">
+<script src="<c:url value="/resources/js/menu/menu-script.js" />"></script>
 <script	src="<c:url value="http://code.jquery.com/jquery-latest.min.js" />"></script>
 
 
 
 
 
-<div id='cssmenu'>
+<!-- <div id='cssmenu'>
 	
 	<ul id="menu">
 
@@ -35,4 +35,18 @@
 
 	
 </div>
+ -->
 
+<div id='cssmenu'>
+<ul>
+   <li><a href='#'>Home</a></li>
+   <li class='active has-sub'><a href=''>Products</a>
+      <ul>
+         <li class='has-sub'><a href='ctPuesto'>Product 1</a>  </li>
+         <li class='has-sub'><a href='ctUsuario'>Product 2</a>  </li>
+      </ul>
+   </li>
+   <li><a href='#'>About</a></li>
+   <li><a href='#'>Contact</a></li>
+</ul>
+</div>
