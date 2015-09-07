@@ -63,13 +63,7 @@
 					</form:label></td>
 				<td><form:input path="cColonia"  placeholder="Colonia" size="10" /></td>
 			</tr>
-			
-			<tr>
-				<td><form:label path="cCP">
-						<spring:message text="Codigo Postal"/>
-					</form:label></td>
-				<td><form:input path="cCP" placeholder="Codigo Postal" size="11" /></td>
-			</tr>
+		
 			
 			<tr>
 				<td><form:label path="cMunicipio">
@@ -84,6 +78,13 @@
 					</form:label></td>
 				<td><form:input path="cEdo" placeholder="Estado" size="10" /></td>
 			</tr>
+			
+			<tr>
+				<td><form:label path="cCP">
+						<spring:message text="Codigo Postal"/>
+					</form:label></td>
+				<td><form:input path="cCP" placeholder="Codigo Postal" size="11" /></td>
+			</tr>
 
 			
 			<tr>
@@ -94,18 +95,12 @@
 			</tr>
 			
 			<tr>
-				<td><form:label path="lEstatus">
-						<spring:message text="Activo" />
-					</form:label></td>
-				<td><form:checkbox path="lEstatus"/></td>
-			</tr>
-			
-			<tr>
 				<td><form:label path="dtContrato">
 						<spring:message text="Fecha Contrato"/>
 					</form:label></td>
 				<td><input type="date" name="dtContrato">
 			</tr>
+			
 			
 			<tr>
 				<td><form:label path="dtFechaNac">
@@ -114,6 +109,12 @@
 				<td><input type="date" name="dtFechaNac">
 			</tr>
 			
+			<tr>
+				<td><form:label path="lEstatus">
+						<spring:message text="Activo" />
+					</form:label></td>
+				<td><form:checkbox path="lEstatus"/></td>
+			</tr>
 			
 			
 

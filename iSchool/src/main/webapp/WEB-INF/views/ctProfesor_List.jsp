@@ -59,7 +59,8 @@ th {
 					<th width="5%">Estado</th>
 					<th width="5%">Telefono</th>
 					<th width="5">Activo</th>
-					<th width="10%">Fecha de Contrato</th>
+					<th width="10">Fecha de Contrato</th>
+					<th width="10">Fecha de Nacimineto</th>
 
 					<th width="48%"></th>
 				</tr>

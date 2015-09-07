@@ -9,7 +9,7 @@ function add_ctProfesor() {
 
 function edit_ctProfesor(id) {
 	
-	$.get("get_ctProfesor/" + id, function(result) {
+	$.get("get/" + id, function(result) {
 		$("#UpdatectProfesor_Dialog").html(result);
 		$("#UpdatectProfesor_Dialog").dialog("option", "title", 'Editar Usuario');
 		$("#UpdatectProfesor_Dialog").dialog('open');

@@ -2,7 +2,6 @@ package com.sinergitec.ischool.model.ct;
 
 import java.sql.Timestamp;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.Vector;
 
 public class ctProfesor {
@@ -28,7 +27,7 @@ public class ctProfesor {
 		iIdProfesor = 0;
 
 	}
-
+	
 	public String getcNumExt() {
 		return cNumExt;
 	}

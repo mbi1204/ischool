@@ -1,5 +1,7 @@
 package com.sinergitec.ischool.control.ct;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.progress.open4gl.Open4GLException;
 import com.sinergitec.ischool.model.ct.ctProfesor;
 import com.sinergitec.ischool.service.ct.ctProfesorService;
 
@@ -75,15 +78,22 @@ public class ctProfesorControl {
 
 	}
 
-	@RequestMapping(value = "/ctProfesor/update", method = RequestMethod.POST)
+	/*@RequestMapping(value = "/ctProfesor/update", method = RequestMethod.POST)
 	public String edit_ctProfesor(@ModelAttribute("ctProfesor") ctProfesor obj) {
-		
-		
-	
+
 
 		this.servProfesor.update_ctProfesor(obj);
 		
 	
+		return "redirect:/ctProfesor";
+	}*/
+	
+	@RequestMapping(value = "/ctProfesor/update", method = RequestMethod.POST)
+	public String edit_ctProfesor(@PathVariable("ctProfesor") int g, Model moldel){
+		
+		
+		
+		moldel.addAttribute("ctProfesor",this.servProfesor.get_ctProfesor(g));
 		return "redirect:/ctProfesor";
 	}
 	
