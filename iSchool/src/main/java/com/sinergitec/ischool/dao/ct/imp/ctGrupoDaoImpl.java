@@ -160,7 +160,7 @@ public List<ctGrupo> list_ctGrupo() throws Open4GLException, IOException{
 				
 				for(ctCurso obj_ctCurso : List_ctCurso){
 					
-					System.out.println(obj_ctCurso.getiIdCurso());
+					
 					if(obj_ctCurso.getiIdCurso().equals(obj.getiIdCurso())){
 						
 						ctCurso obj_nctCurso = new ctCurso();
@@ -172,7 +172,7 @@ public List<ctGrupo> list_ctGrupo() throws Open4GLException, IOException{
 				
 				for(ctProfesor obj_ctProfesor : List_ctProfesor){
 					
-					System.out.println(obj_ctProfesor.getiIdProfesor());
+					
 					if(obj_ctProfesor.getiIdProfesor().equals(obj.getiIdProfesor())){
 						
 						ctProfesor obj_nctProfesor = new ctProfesor();
