@@ -5,19 +5,18 @@ import java.util.Vector;
 
 public class ctCurso {
 	
-	private int iIdCurso;
+	private Integer iIdCurso;
 	private String cNombre;
-	private boolean lEstatus;
-	private int iMinCup;
-	private int iMaxCup;
+	private Boolean lEstatus;
+	private Integer iMinCup;
+	private Integer iMaxCup;
 	private BigDecimal dePrecio;
 	byte[] id;
 	
-	
-	public int getiIdCurso() {
+	public Integer getiIdCurso() {
 		return iIdCurso;
 	}
-	public void setiIdCurso(int iIdCurso) {
+	public void setiIdCurso(Integer iIdCurso) {
 		this.iIdCurso = iIdCurso;
 	}
 	public String getcNombre() {
@@ -26,22 +25,22 @@ public class ctCurso {
 	public void setcNombre(String cNombre) {
 		this.cNombre = cNombre;
 	}
-	public boolean getlEstatus() {
+	public Boolean getlEstatus() {
 		return lEstatus;
 	}
-	public void setlEstatus(boolean lEstatus) {
+	public void setlEstatus(Boolean lEstatus) {
 		this.lEstatus = lEstatus;
 	}
-	public int getiMinCup() {
+	public Integer getiMinCup() {
 		return iMinCup;
 	}
-	public void setiMinCup(int iMinCup) {
+	public void setiMinCup(Integer iMinCup) {
 		this.iMinCup = iMinCup;
 	}
-	public int getiMaxCup() {
+	public Integer getiMaxCup() {
 		return iMaxCup;
 	}
-	public void setiMaxCup(int iMaxCup) {
+	public void setiMaxCup(Integer iMaxCup) {
 		this.iMaxCup = iMaxCup;
 	}
 	public BigDecimal getDePrecio() {
@@ -56,6 +55,9 @@ public class ctCurso {
 	public void setId(byte[] id) {
 		this.id = id;
 	}
+
+
+
 
 
 

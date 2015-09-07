@@ -10,9 +10,22 @@ public class ctGrupo {
 	private int iIdProfesor;
 	private String dtHorario;
 	byte[] Id;
-	
+	ctProfesor profesor;
+	ctCurso curso;
 	
 
+	public ctProfesor getProfesor() {
+		return profesor;
+	}
+	public void setProfesor(ctProfesor profesor) {
+		this.profesor = profesor;
+	}
+	public ctCurso getCurso() {
+		return curso;
+	}
+	public void setCurso(ctCurso curso) {
+		this.curso = curso;
+	}
 	public int getiIdGrupo() {
 		return iIdGrupo;
 	}

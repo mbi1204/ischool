@@ -35,7 +35,7 @@ public class ctCursoServiceImp implements ctCursoService {
 	
 	public List<ctCurso> list_ctCurso() throws Open4GLException, IOException{
 		List<ctCurso> Lista =new ArrayList<ctCurso>();
-		Lista = ctCursosDao.listaCurso();
+		Lista = ctCursosDao.list_ctCurso();
 		return Lista;
 	}
 	

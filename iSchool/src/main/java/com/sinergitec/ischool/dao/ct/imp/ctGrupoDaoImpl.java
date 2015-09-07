@@ -117,11 +117,12 @@ public List<ctGrupo> list_ctGrupo() throws Open4GLException, IOException{
 		
 		StringHolder opcError = new StringHolder();
 		BooleanHolder oplError = new BooleanHolder();
+		
 		List<ctGrupo> Lista = new ArrayList<ctGrupo>();
 		
-		List<ctProfesor> Lista_ctProfesor = new ArrayList<ctProfesor>();
+		List<ctProfesor> List_ctProfesor = new ArrayList<ctProfesor>();
 		
-		List<ctCurso> Lista_ctCurso = new ArrayList<ctCurso>();
+		List<ctCurso> List_ctCurso = new ArrayList<ctCurso>();
 		
 		
 		
@@ -147,16 +148,28 @@ public List<ctGrupo> list_ctGrupo() throws Open4GLException, IOException{
 				obj.setiIdProfesor(rs_tt_ctGrupo.getInt("iIdProfesor"));
 				obj.setDtHorario(rs_tt_ctGrupo.getString("dtHorario"));
 				obj.setId(rs_tt_ctGrupo.getBytes("Id"));
+				System.out.println("LLega antes de los for");
 				
-				for(ctProfesor obj_ctProfesor : Lista_ctProfesor){
-					if(obj_ctProfesor.getiIdProfesor().equals(obj.getiIdProfesor())){
-						
-						ctProfesor obj2 = new ctProfesor();
-						
-					}
+				for(ctCurso obj_ctCurso : List_ctCurso){
+					if(obj_ctCurso.getiIdCurso().equals(obj.getiIdCurso())){
+						System.out.println("Entro al for curso");
+						ctCurso obj_nctCurso = new ctCurso();
+						obj_nctCurso.setiIdCurso(obj_ctCurso.getiIdCurso());
+						obj_nctCurso.setcNombre(obj_ctCurso.getcNombre());
+						obj.setCurso(obj_nctCurso);
+						}
 				}
 				
-				
+				for(ctProfesor obj_ctProfesor : List_ctProfesor){
+					if(obj_ctProfesor.getiIdProfesor().equals(obj.getiIdProfesor())){
+						System.out.println("Entro al for profesor");
+						ctProfesor obj_nctProfesor = new ctProfesor();
+						obj_nctProfesor.setiIdProfesor(obj_ctProfesor.getiIdProfesor());
+						obj_nctProfesor.setcNombre(obj_ctProfesor.getcNombre());
+						obj_nctProfesor.setcApellido(obj_ctProfesor.getcApellido());
+						obj.setProfesor(obj_nctProfesor);
+						}
+					}
 				Lista.add(obj);
 			}
 			

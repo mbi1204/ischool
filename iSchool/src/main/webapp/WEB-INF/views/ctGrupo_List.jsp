@@ -50,8 +50,8 @@ th {
 					<tr>
 						<td><c:out value="${ctGrupo.iIdGrupo}" /></td>
 						<td><c:out value="${ctGrupo.cNombre}" /></td>
-						<td><c:out value="${ctGrupo.iIdCurso}" /></td>
-						<td><c:out value="${ctGrupo.iIdProfesor}" /></td>
+						<td><c:out value="${ctGrupo.curso.iIdCurso}" /></td>
+						<td><c:out value="${ctGrupo.profesor.iIdProfesor}" /></td>
 						<td><c:out value="${ctGrupo.dtHorario}" /></td>
 						
 						<td><nobr>

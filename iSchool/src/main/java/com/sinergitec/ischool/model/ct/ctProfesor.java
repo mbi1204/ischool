@@ -21,6 +21,7 @@ public class ctProfesor {
 	String dtContrato;
 	String dtFechaNac;
 	byte[] Id;
+	
 
 	public Integer getiIdProfesor() {
 		return iIdProfesor;

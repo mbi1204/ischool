@@ -17,7 +17,7 @@ public interface ctCursoDao {
 	
 	public void remove_ctCurso(int id) throws Open4GLException, IOException;
 	
-	public List<ctCurso> listaCurso() throws Open4GLException, IOException;
+	public List<ctCurso> list_ctCurso() throws Open4GLException, IOException;
 	
 	public ctCurso get_ctPuesto(int id) throws RunTime4GLException, SystemErrorException, Open4GLException, IOException, SQLException;
 }

@@ -114,7 +114,7 @@ public class ctCursoDaompl implements ctCursoDao {
 		}
 	}
 
-	public List<ctCurso> listaCurso() throws Open4GLException, IOException{
+	public List<ctCurso> list_ctCurso() throws Open4GLException, IOException{
 		
 		ResultSetHolder tt_ctCurso = new ResultSetHolder();
 		

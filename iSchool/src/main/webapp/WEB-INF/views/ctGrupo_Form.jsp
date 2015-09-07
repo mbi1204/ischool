@@ -41,13 +41,13 @@
 						itemValue="iIdProfesor" itemLabel="cNombre"/></td>
 			</tr>
 			
-			  <tr>
+			  <!--  <tr>
 				<td><form:label path="dtHorario">
 						<spring:message text="Horario" />
 					</form:label></td>
 				<td><form:input path="dtHorario" /></td>
 
-			</tr> 
+			</tr> -->
 
 		</table>
 
