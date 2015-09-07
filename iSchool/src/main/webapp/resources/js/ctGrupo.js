@@ -6,7 +6,7 @@ function addGrupo() {
 
 function editGrupo(id) {
 
-	$.get("get/" + id, function(result) {
+	$.get("ctGrupo/get/" + id, function(result) {
 		$("#AddCtGrupo_Dialog").html(result);
 		$("#AddCtGrupo_Dialog").dialog("option", "title", 'Editar Grupo');
 		$("#AddCtGrupo_Dialog").dialog('open');

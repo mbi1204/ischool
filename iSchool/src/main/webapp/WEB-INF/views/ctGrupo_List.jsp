@@ -63,7 +63,7 @@ th {
 
 								<a class="pure-button pure-button-primary"
 									onclick="return confirm('¿Desea Eliminar el usuario  selecionado?');"
-									href="eliminar/${ctGrupo.iIdGrupo}"> <i
+									href="ctGrupo/remove/${ctGrupo.iIdGrupo}"> <i
 									class="fa fa-times"></i>Eliminar
 								</a>
 
