@@ -5,31 +5,32 @@ import java.util.Vector;
 
 public class ctCurso {
 	
-	private int iIdCur;
-	private String cNomCurso;
-	private boolean lEstCurso;
+	private int iIdCurso;
+	private String cNombre;
+	private boolean lEstatus;
 	private int iMinCup;
 	private int iMaxCup;
-	private BigDecimal dePrecioCur;
+	private BigDecimal dePrecio;
 	byte[] id;
 	
-	public int getiIdCur() {
-		return iIdCur;
+	
+	public int getiIdCurso() {
+		return iIdCurso;
 	}
-	public void setiIdCur(int iIdCur) {
-		this.iIdCur = iIdCur;
+	public void setiIdCurso(int iIdCurso) {
+		this.iIdCurso = iIdCurso;
 	}
-	public String getcNomCurso() {
-		return cNomCurso;
+	public String getcNombre() {
+		return cNombre;
 	}
-	public void setcNomCurso(String cNomCurso) {
-		this.cNomCurso = cNomCurso;
+	public void setcNombre(String cNombre) {
+		this.cNombre = cNombre;
 	}
-	public boolean getlEstCurso() {
-		return lEstCurso;
+	public boolean getlEstatus() {
+		return lEstatus;
 	}
-	public void setlEstCurso(boolean lEstCurso) {
-		this.lEstCurso = lEstCurso;
+	public void setlEstatus(boolean lEstatus) {
+		this.lEstatus = lEstatus;
 	}
 	public int getiMinCup() {
 		return iMinCup;
@@ -43,11 +44,11 @@ public class ctCurso {
 	public void setiMaxCup(int iMaxCup) {
 		this.iMaxCup = iMaxCup;
 	}
-	public BigDecimal getDePrecioCur() {
-		return dePrecioCur;
+	public BigDecimal getDePrecio() {
+		return dePrecio;
 	}
-	public void setDePrecioCur(BigDecimal dePrecioCur) {
-		this.dePrecioCur = dePrecioCur;
+	public void setDePrecio(BigDecimal dePrecio) {
+		this.dePrecio = dePrecio;
 	}
 	public byte[] getId() {
 		return id;
@@ -55,7 +56,9 @@ public class ctCurso {
 	public void setId(byte[] id) {
 		this.id = id;
 	}
-	
+
+
+
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Vector getVectorDatos(){
 		Vector vector = new Vector();
@@ -63,12 +66,12 @@ public class ctCurso {
 		Date date= new java.util.Date();
 		this.setDtFechaIns(new Timestamp(date.getTime()));*/
 		
-		vector.add(this.getiIdCur());
-		vector.add(this.getcNomCurso());
-		vector.add(this.getlEstCurso());
+		vector.add(this.getiIdCurso());
+		vector.add(this.getcNombre());
+		vector.add(this.getlEstatus());
 		vector.add(this.getiMinCup());
 		vector.add(this.getiMaxCup());
-		vector.add(this.getDePrecioCur());
+		vector.add(this.getDePrecio());
 		vector.add(this.getId());
 		
 		return vector;

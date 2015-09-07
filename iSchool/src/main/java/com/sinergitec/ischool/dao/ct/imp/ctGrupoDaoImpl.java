@@ -142,8 +142,8 @@ public List<ctGrupo> list_ctGrupo() throws Open4GLException, IOException{
 				ctGrupo obj = new ctGrupo();
 
 				obj.setiIdGrupo(rs_tt_ctGrupo.getInt("iIdGrupo"));
-				obj.setcNomGrupo(rs_tt_ctGrupo.getString("cNombre"));
-				obj.setiIdCur(rs_tt_ctGrupo.getInt("iIdCurso"));
+				obj.setcNombre(rs_tt_ctGrupo.getString("cNombre"));
+				obj.setiIdCurso(rs_tt_ctGrupo.getInt("iIdCurso"));
 				obj.setiIdProfesor(rs_tt_ctGrupo.getInt("iIdProfesor"));
 				obj.setDtHorario(rs_tt_ctGrupo.getString("dtHorario"));
 				obj.setId(rs_tt_ctGrupo.getBytes("Id"));
@@ -190,8 +190,8 @@ public List<ctGrupo> list_ctGrupo() throws Open4GLException, IOException{
 			while (rs_tt_ctGrupo.next()) {
 				
 				obj.setiIdGrupo(rs_tt_ctGrupo.getInt("iIdGrupo"));
-				obj.setcNomGrupo(rs_tt_ctGrupo.getString("cNombre"));
-				obj.setiIdCur(rs_tt_ctGrupo.getInt("iIdCurso"));
+				obj.setcNombre(rs_tt_ctGrupo.getString("cNombre"));
+				obj.setiIdCurso(rs_tt_ctGrupo.getInt("iIdCurso"));
 				obj.setiIdProfesor(rs_tt_ctGrupo.getInt("iIdProfesor"));
 				obj.setDtHorario(rs_tt_ctGrupo.getString("dtHorario"));
 				 /* 

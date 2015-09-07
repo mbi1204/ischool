@@ -15,6 +15,8 @@ import com.progress.open4gl.RunTime4GLException;
 import com.progress.open4gl.SystemErrorException;
 import com.sinergitec.ischool.model.ct.ctGrupo;
 import com.sinergitec.ischool.service.ct.ctGrupoService;
+import com.sinergitec.ischool.service.ct.ctCursoService;
+import com.sinergitec.ischool.service.ct.ctProfesorService;
 
 @Controller
 public class ctGrupoControl {
@@ -22,11 +24,19 @@ public class ctGrupoControl {
 	@Autowired
 	private ctGrupoService ctGrupoService;
 	
+	@Autowired
+	private ctCursoService ctCursoService;
+	
+	@Autowired
+	private ctProfesorService ctProfesorService;
+	
 	@RequestMapping(value = "/ctGrupo", method = RequestMethod.GET)
 	public String grupo(Model model) throws Open4GLException, IOException{
 		
 		model.addAttribute("ctGrupo", new ctGrupo());
 		model.addAttribute("lista_ctGrupo", this.ctGrupoService.list_ctGrupo());
+		model.addAttribute("lista_ctCurso", this.ctCursoService.listaCurso());
+		model.addAttribute("lista_ctProfesor", this.ctProfesorService.list_ctProfesor());
 		return"ctGrupo_List";
 	}
 	

@@ -63,6 +63,21 @@
 		<put-attribute name="body" value="/WEB-INF/views/sysUsuMenu_List.jsp" />
 	</definition>
 
+    <definition name="ctGrupo_List" extends="base.definition">
+		<put-attribute name="title" value="Spring MVC - Home" />
+		<put-attribute name="body" value="/WEB-INF/views/ctGrupo_List.jsp" />
+	</definition>
+	
+	  <definition name="ctProfesor_List" extends="base.definition">
+		<put-attribute name="title" value="Catalogo de Profesores" />
+		<put-attribute name="body" value="/WEB-INF/views/ctProfesor_List.jsp" />
+	</definition>
+	
+	 <definition name="ctCurso_List" extends="base.definition">
+		<put-attribute name="title" value="Catalogo de Cursos" />
+		<put-attribute name="body" value="/WEB-INF/views/ctCurso_List.jsp" />
+	</definition>
+	
 
 
 

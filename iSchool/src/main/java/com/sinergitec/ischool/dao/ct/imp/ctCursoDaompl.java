@@ -138,12 +138,12 @@ public class ctCursoDaompl implements ctCursoDao {
 				
 				ctCurso obj = new ctCurso();
 				
-				obj.setiIdCur(rs_tt_ctCurso.getInt("iIdCurso"));
-				obj.setcNomCurso(rs_tt_ctCurso.getString("cNombre"));
-				obj.setlEstCurso(rs_tt_ctCurso.getBoolean("lEstatus"));
+				obj.setiIdCurso(rs_tt_ctCurso.getInt("iIdCurso"));
+				obj.setcNombre(rs_tt_ctCurso.getString("cNombre"));
+				obj.setlEstatus(rs_tt_ctCurso.getBoolean("lEstatus"));
 				obj.setiMinCup(rs_tt_ctCurso.getInt("iMinCup"));
 				obj.setiMaxCup(rs_tt_ctCurso.getInt("iMaxCup"));
-				obj.setDePrecioCur(rs_tt_ctCurso.getBigDecimal("dePrecio"));
+				obj.setDePrecio(rs_tt_ctCurso.getBigDecimal("dePrecio"));
 				obj.setId(rs_tt_ctCurso.getBytes("id"));
 
 				Lista.add(obj);
@@ -181,11 +181,11 @@ public class ctCursoDaompl implements ctCursoDao {
 
 			while (rs_tt_ctCurso.next()) {
 				
-				obj.setiIdCur(rs_tt_ctCurso.getInt("iIdCurso"));
-				obj.setcNomCurso(rs_tt_ctCurso.getString("cNombre"));
+				obj.setiIdCurso(rs_tt_ctCurso.getInt("iIdCurso"));
+				obj.setcNombre(rs_tt_ctCurso.getString("cNombre"));
 				obj.setiMinCup(rs_tt_ctCurso.getInt("iMinCup"));
 				obj.setiMaxCup(rs_tt_ctCurso.getInt("iMaxCup"));
-				obj.setDePrecioCur(rs_tt_ctCurso.getBigDecimal("dePrecio"));
+				obj.setDePrecio(rs_tt_ctCurso.getBigDecimal("dePrecio"));
 				obj.setId(rs_tt_ctCurso.getBytes("id"));
 
 			}

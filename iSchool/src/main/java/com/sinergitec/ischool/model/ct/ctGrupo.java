@@ -5,29 +5,31 @@ import java.util.Vector;
 public class ctGrupo {
 	
 	private int iIdGrupo;
-	private String cNomGrupo;
-	private int iIdCur;
+	private String cNombre;
+	private int iIdCurso;
 	private int iIdProfesor;
 	private String dtHorario;
 	byte[] Id;
 	
+	
+
 	public int getiIdGrupo() {
 		return iIdGrupo;
 	}
 	public void setiIdGrupo(int iIdGrupo) {
 		this.iIdGrupo = iIdGrupo;
 	}
-	public String getcNomGrupo() {
-		return cNomGrupo;
+	public String getcNombre() {
+		return cNombre;
 	}
-	public void setcNomGrupo(String cNomGrupo) {
-		this.cNomGrupo = cNomGrupo;
+	public void setcNombre(String cNombre) {
+		this.cNombre = cNombre;
 	}
-	public int getiIdCur() {
-		return iIdCur;
+	public int getiIdCurso() {
+		return iIdCurso;
 	}
-	public void setiIdCur(int iIdCur) {
-		this.iIdCur = iIdCur;
+	public void setiIdCurso(int iIdCurso) {
+		this.iIdCurso = iIdCurso;
 	}
 	public int getiIdProfesor() {
 		return iIdProfesor;
@@ -49,6 +51,7 @@ public class ctGrupo {
 	}
 
 
+
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Vector getVectorDatos(){
 		Vector vector = new Vector();
@@ -57,8 +60,8 @@ public class ctGrupo {
 		this.setDtFechaIns(new Timestamp(date.getTime()));*/
 		
 		vector.add(this.getiIdGrupo());
-		vector.add(this.getcNomGrupo());
-		vector.add(this.getiIdCur());
+		vector.add(this.getcNombre());
+		vector.add(this.getiIdCurso());
 		vector.add(this.getiIdProfesor());
 		vector.add(this.getDtHorario());
 		vector.add(this.getId());

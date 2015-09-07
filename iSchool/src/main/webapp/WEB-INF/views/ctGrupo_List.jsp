@@ -50,7 +50,7 @@ th {
 					<tr>
 						<td><c:out value="${ctGrupo.iIdGrupo}" /></td>
 						<td><c:out value="${ctGrupo.cNomGrupo}" /></td>
-						<td><c:out value="${ctGrupo.iIdCur}" /></td>
+						<td><c:out value="${ctGrupo.iIdCurso}" /></td>
 						<td><c:out value="${ctGrupo.iIdProfesor}" /></td>
 						<td><c:out value="${ctGrupo.dtHorario}" /></td>
 						

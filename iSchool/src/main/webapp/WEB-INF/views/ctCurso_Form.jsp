@@ -12,23 +12,23 @@
 
 		<table>
 			<tr>
-				<td><form:label path="iIdCur">
+				<td><form:label path="iIdCurso">
 						<spring:message text="ID" />
 					</form:label></td>
-				<td><form:input path="iIdCur" readonly="true" /></td>
+				<td><form:input path="iIdCurso" readonly="true" /></td>
 			</tr>
 			<tr>
-				<td><form:label path="cNomCurso">
+				<td><form:label path="cNombre">
 						<spring:message text="Curso" />
 					</form:label></td>
-				<td><form:input path="cNomCurso" /></td>
+				<td><form:input path="cNombre" /></td>
 			</tr>
 
 			<tr>
-				<td><form:label path="lEstCurso">
+				<td><form:label path="lEstatus">
 						<spring:message text="Estatus" />
 					</form:label></td>
-				<td><form:checkbox path="lEstCurso" /></td>
+				<td><form:checkbox path="lEstatus" /></td>
 
 			</tr>
 			
@@ -49,10 +49,10 @@
 			</tr>
 			
 			<tr>
-				<td><form:label path="dePrecioCur">
+				<td><form:label path="dePrecio">
 						<spring:message text="Precio del Curso" />
 					</form:label></td>
-				<td><form:input path="dePrecioCur" /></td>
+				<td><form:input path="dePrecio" /></td>
 
 			</tr>
 

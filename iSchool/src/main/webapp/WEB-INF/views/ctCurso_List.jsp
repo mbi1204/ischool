@@ -50,23 +50,23 @@ th {
 			<tbody>
 				<c:forEach items="${lista_ctCurso}" var="ctCurso">
 					<tr>
-						<td><c:out value="${ctCurso.iIdCur}" /></td>
-						<td><c:out value="${ctCurso.cNomCurso}" /></td>
-						<td><c:out value="${ctCurso.lEstCurso}" /></td>
+						<td><c:out value="${ctCurso.iIdCurso}" /></td>
+						<td><c:out value="${ctCurso.cNombre}" /></td>
+						<td><c:out value="${ctCurso.lEstatus}" /></td>
 						<td><c:out value="${ctCurso.iMinCup}" /></td>
 						<td><c:out value="${ctCurso.iMaxCup}" /></td>
-						<td><c:out value="${ctCurso.dePrecioCur}" /></td>
+						<td><c:out value="${ctCurso.dePrecio}" /></td>
 
 						<td><nobr>
 
 								<button class="pure-button pure-button-primary"
-									onclick="edit_ctCurso('${ctCurso.iIdCur}');">
+									onclick="edit_ctCurso('${ctCurso.iIdCurso}');">
 									<i class="fa fa-pencil"></i> Editar
 								</button>
 
 								<a class="pure-button pure-button-primary"
 									onclick="return confirm('¿Desea Eliminar el usuario  selecionado?');"
-									href="ctCurso/remove/${ctCurso.iIdCur}"> <i
+									href="ctCurso/remove/${ctCurso.iIdCurso}"> <i
 									class="fa fa-times"></i>Eliminar
 								</a>
 

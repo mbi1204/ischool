@@ -29,15 +29,17 @@
 				<td><form:label path="iIdProfesor">
 						<spring:message text="Profesor" />
 					</form:label></td>
-				<td><form:input path="iIdProfesor" /></td>
+				<td><form:select path="iIdProfesor" item="${lista_ctProfesor}" 
+						itemValue="iIdProfesor" itemLabel="cNombre"/></td>
 
 			</tr>
 			
 			<tr>
-				<td><form:label path="iIdCur">
+				<td><form:label path="iIdCurso">
 						<spring:message text="Curso" />
 					</form:label></td>
-				<td><form:input path="iIdCur" /></td>
+				<td><form:select path="iIdCurso" item="${lista_ctCurso}"
+						itemValue="iIdCurso" itemLabel="cNombre"/></td>
 
 			</tr>
 			
