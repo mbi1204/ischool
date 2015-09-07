@@ -24,7 +24,7 @@ import com.sinergitec.ischool.service.imp.sg.ctUsuarioServiceImp;
  * Handles requests for the application home page.
  */
 @Controller
-@SessionAttributes("List_ctMenu ,List_ctPrograma" )
+@SessionAttributes({"List_ctMenu" ,"List_ctPrograma"} )
 
 
 

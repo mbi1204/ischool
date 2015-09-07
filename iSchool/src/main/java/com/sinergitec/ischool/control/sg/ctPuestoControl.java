@@ -62,6 +62,7 @@ public class ctPuestoControl {
 	
 	@RequestMapping("/get_ctPuesto/{id}")
 	public String get_ctPuesto(@PathVariable("id") int id,	Model model) {
+				
 
 		model.addAttribute("ctPuesto", this.serv.get_ctPuesto(id));		
 		

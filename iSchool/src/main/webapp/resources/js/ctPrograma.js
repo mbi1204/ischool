@@ -1,8 +1,4 @@
-function add_ctPrograma() {
-
-	$('#AddCtPrograma_Dialog').dialog("option", "title", 'Agregar Programa');
-	$('#AddCtPrograma_Dialog').dialog('open');
-
+function add_ctPrograma() {	
 	$.get("open_ctPrograma/",
 			function(result) {
 
@@ -13,6 +9,7 @@ function add_ctPrograma() {
 				// initializeDatePicker();
 			});
 
+	
 }
 
 function edit_ctPrograma(iMenu, iPrograma) {
@@ -42,7 +39,7 @@ function initializeDatePicker() {
 function resetDialog(form) {
 
 	form.find("input").val("");
-	/*form.find("#iIdPrograma").val("0");*/
+	/* form.find("#iIdPrograma").val("0"); */
 
 }
 

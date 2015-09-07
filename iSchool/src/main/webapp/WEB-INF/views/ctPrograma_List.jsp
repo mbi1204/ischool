@@ -4,7 +4,7 @@
 
 <html>
 <head>
-<title>Programas</title>
+<title>Usuario</title>
 
 <link rel="stylesheet"
 	href='<c:url value="/resources/css/pure-0.4.2.css"/>'>
@@ -14,13 +14,23 @@
 
 <link rel="stylesheet"
 	href='<c:url value="/resources/css/jquery-ui-1.10.4.custom.css"/>'>
+	
+	
+	<!--  It is advised to put the <script> tags at the end of the document body so they don't block rendering of the page -->
+	<script type="text/javascript"
+		src='<c:url value="/resources/js/lib/jquery-1.10.2.js"/>'></script>
+	<script type="text/javascript"
+		src='<c:url value="/resources/js/lib/jquery-ui-1.10.4.custom.js"/>'></script>
+	<script type="text/javascript"
+		src='<c:url value="/resources/js/ctPrograma.js"/>'></script>
+	
+	
 
 <style type="text/css">
 th {
 	text-align: left
 }
 </style>
-
 
 </head>
 
@@ -33,16 +43,12 @@ th {
 		</div>
 
 
-
-
-
-
 		<h1>Lista de Programas</h1>
 
-		<button class="pure-button pure-button-primary"
-			onclick="add_ctPrograma()">
-			<i class="fa fa-plus"></i> Agregar Programa
+		<button class="pure-button pure-button-primary" onclick="add_ctPrograma()">
+				<i class="fa fa-plus"></i> Agregar Programa
 		</button>
+
 		<br>
 		<table class="pure-table pure-table-bordered pure-table-striped">
 			<thead>
@@ -51,7 +57,7 @@ th {
 					<th width="4%">Menu</th>
 					<th width="12%">ID Programa</th>
 					<th width="20%">Nombre</th>
-					<th width="12%">Programa</th>				
+					<th width="12%">Programa</th>
 					<th width="12%">Activo</th>
 					<th width="38%"></th>
 				</tr>
@@ -63,25 +69,30 @@ th {
 						<td><c:out value="${ctPrograma.menu.cMenu}" /></td>
 						<td><c:out value="${ctPrograma.iIdPrograma}" /></td>
 						<td><c:out value="${ctPrograma.cNombre}" /></td>
-						<td><c:out value="${ctPrograma.cPrograma}" /></td>						
+						<td><c:out value="${ctPrograma.cPrograma}" /></td>
 						<td><c:out value="${ctPrograma.lActivo}" /></td>
-
-
-						<td><nobr>
+						
+						
+					 	<td><nobr>
 
 								<button class="pure-button pure-button-primary"
-									onclick="edit_ctPrograma(${ctPrograma.iIdMenu} ,  ${ctPrograma.iIdPrograma});">
+									onclick="edit_ctPrograma(${ctPrograma.iIdMenu} , ${ctPrograma.iIdPrograma});">
 									<i class="fa fa-pencil"></i> Editar
 								</button>
+								
+							
+									
 
 
-								<a class="pure-button pure-button-primary"
-									onclick="return confirm('¿Desea Eliminar el Programa  selecionado?');"
+							<%-- 	<a class="pure-button pure-button-primary"
+									onclick="return confirm('¿Desea Eliminar el puesto  selecionado?');"
 									href="remove_ctPrograma/${ctPrograma.iIdMenu}&${ctPrograma.iIdPrograma}"> <i
 									class="fa fa-times"></i>Eliminar
-								</a>
+								</a> --%> 	
 
-							</nobr></td> 
+							</nobr></td>
+
+
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -89,14 +100,6 @@ th {
 
 	</div>
 
-	<!--  It is advised to put the <script> tags at the end of the document body so they don't block rendering of the page -->
-	<script type="text/javascript"
-		src='<c:url value="/resources/js/lib/jquery-1.10.2.js"/>'></script>
-	<script type="text/javascript"
-		src='<c:url value="/resources/js/lib/jquery-ui-1.10.4.custom.js"/>'></script>
-	<script type="text/javascript"
-		src='<c:url value="/resources/js/lib/jquery.ui.datepicker.js"/>'></script>
-	<script type="text/javascript"
-		src='<c:url value="/resources/js/ctPrograma.js"/>'></script>
+	
 </body>
 </html>

@@ -27,12 +27,9 @@ public class ctProgramaControl {
 
 	@RequestMapping(value = "/ctPrograma", method = RequestMethod.GET)
 	public String list_ctPrograma(Model model) {
-		System.out.print("entro al lista");
-
 		model.addAttribute("ctPrograma", new ctPrograma());
 		model.addAttribute("lista_ctPrograma", this.serv.list_ctPrograma());
 		
-
 		return "ctPrograma_List";
 	}
 
