@@ -19,7 +19,7 @@
 				<td><form:label path="iIdProfesor">
 						<spring:message text="ID Profesor" />
 					</form:label></td>
-				<td><form:input path="iIdProfesor" placeholder="ID" size="5" maxlength="10"  /></td>
+				<td><form:input path="iIdProfesor" readonly="true"  /></td>
 			</tr>
 
 			<tr>
@@ -47,14 +47,14 @@
 				<td><form:label path="cNumExt">
 						<spring:message text="NumeroExt" />
 					</form:label></td>
-				<td><form:input path="cNumExt"  size="5" /></td>
+				<td><form:input path="cNumExt" placeholder="Num Exterior" size="5" /></td>
 			</tr>
 			
 			<tr>
 				<td><form:label path="cNumInt">
 						<spring:message text="NumeroInt" />
 					</form:label></td>
-				<td><form:input path="cNumInt"  size="5" /></td>
+				<td><form:input path="cNumInt" placeholder="Num Interior" size="5" /></td>
 			</tr>
 			
 			<tr>

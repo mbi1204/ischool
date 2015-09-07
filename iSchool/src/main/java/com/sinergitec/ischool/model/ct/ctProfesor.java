@@ -1,6 +1,7 @@
 package com.sinergitec.ischool.model.ct;
 
 import java.sql.Timestamp;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Vector;
 
@@ -21,6 +22,28 @@ public class ctProfesor {
 	String dtContrato;
 	String dtFechaNac;
 	byte[] Id;
+
+	// Inicializar en 0
+	public ctProfesor() {
+		iIdProfesor = 0;
+
+	}
+
+	public String getcNumExt() {
+		return cNumExt;
+	}
+
+	public void setcNumExt(String cNumExt) {
+		this.cNumExt = cNumExt;
+	}
+
+	public String getcNumInt() {
+		return cNumInt;
+	}
+
+	public void setcNumInt(String cNumInt) {
+		this.cNumInt = cNumInt;
+	}
 
 	public Integer getiIdProfesor() {
 		return iIdProfesor;
@@ -52,22 +75,6 @@ public class ctProfesor {
 
 	public void setcCalle(String cCalle) {
 		this.cCalle = cCalle;
-	}
-
-	public String getcNumExt() {
-		return cNumExt;
-	}
-
-	public void setiNumExt(String cNumExt) {
-		this.cNumExt = cNumExt;
-	}
-
-	public String getcNumInt() {
-		return cNumInt;
-	}
-
-	public void setiNumInt(String cNumInt) {
-		this.cNumInt = cNumInt;
 	}
 
 	public String getcColonia() {
@@ -146,18 +153,11 @@ public class ctProfesor {
 	public Vector getVectorDatos() {
 		Vector vector = new Vector();
 
-		
-		
-		Timestamp dtFechaNac = Timestamp.valueOf(this.getDtFechaNac()+" 00:00:00.000000");
-		Timestamp dtFechaContrato = Timestamp.valueOf(this.getDtContrato()+" 00:00:00.000000");
-		//this.setDtContrato(dtFechaContrato);
-		//this.setDtFechaNac(dtFechaNac);
-		
+		Timestamp dtFechaNac = Timestamp.valueOf(this.getDtFechaNac() + " 00:00:00.000000");
+		Timestamp dtFechaContrato = Timestamp.valueOf(this.getDtContrato() + " 00:00:00.000000");
+		// this.setDtContrato(dtFechaContrato);
+		// this.setDtFechaNac(dtFechaNac);
 
-		
-		
-	
-		
 		vector.add(this.getiIdProfesor());
 		vector.add(this.getcNombre());
 		vector.add(this.getcApellido());
@@ -176,4 +176,14 @@ public class ctProfesor {
 
 		return vector;
 	}
+
+	@Override
+	public String toString() {
+		return "ctProfesor [iIdProfesor=" + iIdProfesor + ", cNombre=" + cNombre + ", cApellido=" + cApellido
+				+ ", cCalle=" + cCalle + ", cNumExt=" + cNumExt + ", cNumInt=" + cNumInt + ", cColonia=" + cColonia
+				+ ", cCP=" + cCP + ", cMunicipio=" + cMunicipio + ", cEdo=" + cEdo + ", cTelefono=" + cTelefono
+				+ ", lEstatus=" + lEstatus + ", dtContrato=" + dtContrato + ", dtFechaNac=" + dtFechaNac + ", Id="
+				+ Arrays.toString(Id) + "]";
+	}
+
 }

@@ -39,13 +39,20 @@ public class ctProfesorControl {
 
 	@RequestMapping(value = "/ctProfesor/add", method = RequestMethod.POST)
 	public String add_ctProfesor(@ModelAttribute("ctProfesor") ctProfesor obj,
-			ModelMap model) {		
-	 
+			ModelMap model) {
+
 		
-		this.servProfesor.add_ctProfesor(obj);
-		
-		 
-		return "ctProfesor";
+		System.out.println(obj.toString());
+		if(obj.getiIdProfesor() == 0){
+			System.out.println("entro al 0");
+
+			this.servProfesor.add_ctProfesor(obj);
+            
+        }else{
+            //existing person, call update
+           this.servProfesor.update_ctProfesor(obj);
+        }
+		return "redirect:/ctProfesor";
 
 	}
 
