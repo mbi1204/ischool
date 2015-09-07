@@ -36,7 +36,7 @@ public class ctCursoControl {
 	public String cursoLista(Model model) throws Open4GLException, IOException {
 		
 		model.addAttribute("ctCurso", new ctCurso());
-		model.addAttribute("lista_ctCurso", this.ctCursoService.listaCurso());
+		model.addAttribute("lista_ctCurso", this.ctCursoService.list_ctCurso());
 
 		return "ctCurso_List";
 	}
@@ -82,7 +82,7 @@ public class ctCursoControl {
 	    public String edit_ctCurso(@PathVariable("id") int id, Model model) throws RunTime4GLException, SystemErrorException, Open4GLException, IOException, SQLException{
 		 
 	        model.addAttribute("ctCurso", this.ctCursoService.get_Curso(id));
-	        model.addAttribute("lista_ctPuesto", this.ctCursoService.listaCurso());
+	        model.addAttribute("lista_ctPuesto", this.ctCursoService.list_ctCurso());
 	        return "redirect:/ctCurso";
 	    }
 	 

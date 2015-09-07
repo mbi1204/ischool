@@ -19,28 +19,26 @@
 				<td><form:input path="iIdGrupo" readonly="true" /></td>
 			</tr>
 			<tr>
-				<td><form:label path="cNomGrupo">
+				<td><form:label path="cNombre">
 						<spring:message text="Nombre del Grupo" />
 					</form:label></td>
-				<td><form:input path="cNomGrupo" /></td>
+				<td><form:input path="cNombre" /></td>
 			</tr>
 
+			<tr>		
+				<td><form:label path="iIdCurso">
+						<spring:message text="Curso" />
+					</form:label></td>
+				<td><form:select path="iIdCurso" items="${lista_ctCurso}"
+						itemValue="iIdCurso" itemLabel="cNombre"/></td>
+			</tr>
+			
 			<tr>
 				<td><form:label path="iIdProfesor">
 						<spring:message text="Profesor" />
 					</form:label></td>
-				<td><form:select path="iIdProfesor" item="${lista_ctProfesor}" 
+				<td><form:select path="iIdProfesor" items="${lista_ctProfesor}" 
 						itemValue="iIdProfesor" itemLabel="cNombre"/></td>
-
-			</tr>
-			
-			<tr>
-				<td><form:label path="iIdCurso">
-						<spring:message text="Curso" />
-					</form:label></td>
-				<td><form:select path="iIdCurso" item="${lista_ctCurso}"
-						itemValue="iIdCurso" itemLabel="cNombre"/></td>
-
 			</tr>
 			
 			  <tr>

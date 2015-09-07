@@ -17,7 +17,7 @@ public interface ctCursoService {
 	
 	public void remove_ctCurso(int c) throws Open4GLException, IOException;
 	
-	public List<ctCurso> listaCurso() throws Open4GLException, IOException;
+	public List<ctCurso> list_ctCurso() throws Open4GLException, IOException;
 
 	public ctCurso get_Curso(int id) throws RunTime4GLException, SystemErrorException, Open4GLException, IOException, SQLException;
 }

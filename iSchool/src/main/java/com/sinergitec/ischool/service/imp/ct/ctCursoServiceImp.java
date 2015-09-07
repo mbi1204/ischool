@@ -33,7 +33,7 @@ public class ctCursoServiceImp implements ctCursoService {
 		this.ctCursosDao.remove_ctCurso(c);
 	}
 	
-	public List<ctCurso> listaCurso() throws Open4GLException, IOException{
+	public List<ctCurso> list_ctCurso() throws Open4GLException, IOException{
 		List<ctCurso> Lista =new ArrayList<ctCurso>();
 		Lista = ctCursosDao.listaCurso();
 		return Lista;

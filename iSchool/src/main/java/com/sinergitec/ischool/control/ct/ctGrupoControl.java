@@ -35,7 +35,7 @@ public class ctGrupoControl {
 		
 		model.addAttribute("ctGrupo", new ctGrupo());
 		model.addAttribute("lista_ctGrupo", this.ctGrupoService.list_ctGrupo());
-		model.addAttribute("lista_ctCurso", this.ctCursoService.listaCurso());
+		model.addAttribute("lista_ctCurso", this.ctCursoService.list_ctCurso());
 		model.addAttribute("lista_ctProfesor", this.ctProfesorService.list_ctProfesor());
 		return"ctGrupo_List";
 	}

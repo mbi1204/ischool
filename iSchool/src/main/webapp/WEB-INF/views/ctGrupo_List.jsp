@@ -49,7 +49,7 @@ th {
 				<c:forEach items="${lista_ctGrupo}" var="ctGrupo">
 					<tr>
 						<td><c:out value="${ctGrupo.iIdGrupo}" /></td>
-						<td><c:out value="${ctGrupo.cNomGrupo}" /></td>
+						<td><c:out value="${ctGrupo.cNombre}" /></td>
 						<td><c:out value="${ctGrupo.iIdCurso}" /></td>
 						<td><c:out value="${ctGrupo.iIdProfesor}" /></td>
 						<td><c:out value="${ctGrupo.dtHorario}" /></td>
