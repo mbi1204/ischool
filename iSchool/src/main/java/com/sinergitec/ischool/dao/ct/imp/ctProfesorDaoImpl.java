@@ -53,10 +53,14 @@ public class ctProfesorDaoImpl implements ctProfesorDao {
 
 		try {		
 			app.as_ctProfesor_Inserta("SISIMB", ttProfesores, oplResultado, opcTexto);		
+			
+			System.out.println(opcTexto.getStringValue());
 
 			
 
 		} catch (Exception ex) {
+			System.out.println(ex);
+			
 			
 
 		} finally {
@@ -108,7 +112,7 @@ public class ctProfesorDaoImpl implements ctProfesorDao {
 
 		try {
 			
-			app.as_ctAlumno_Borra("SISIMB", id, oplResultado, opcTexto);
+			app.as_ctProfesor_Borra("SISIMB", id, oplResultado, opcTexto);
 			System.err.println(opcTexto.getValue());
 		} finally {
 			app._release();
@@ -143,8 +147,8 @@ public class ctProfesorDaoImpl implements ctProfesorDao {
 				obj.setcNombre(rs_tt_ctProfesor.getString("cNombre"));
 				obj.setcApellido(rs_tt_ctProfesor.getString("cApellido"));
 				obj.setcCalle(rs_tt_ctProfesor.getString("cCalle"));
-				obj.setiNumExt(rs_tt_ctProfesor.getString("iNumExt"));
-				obj.setiNumInt(rs_tt_ctProfesor.getString("iNumInt"));
+				obj.setcNumExt(rs_tt_ctProfesor.getString("cNumExt"));
+				obj.setcNumInt(rs_tt_ctProfesor.getString("cNumInt"));
 				obj.setcColonia(rs_tt_ctProfesor.getString("cColonia"));
 				obj.setcCP(rs_tt_ctProfesor.getString("cCP"));
 				obj.setcMunicipio(rs_tt_ctProfesor.getString("cMunicipio"));
@@ -161,6 +165,7 @@ public class ctProfesorDaoImpl implements ctProfesorDao {
 			}
 			
 		} catch (Exception ex) {
+			System.out.println(ex);
 			
 			Lista = null;
 		} finally {
