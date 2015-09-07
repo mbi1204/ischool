@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.progress.AppServer.AppServer;
@@ -14,15 +15,25 @@ import com.progress.open4gl.Open4GLException;
 import com.progress.open4gl.ResultSetHolder;
 import com.progress.open4gl.StringHolder;
 import com.progress.open4gl.javaproxy.Connection;
+import com.sinergitec.ischool.dao.ct.ctCursoDao;
 import com.sinergitec.ischool.dao.ct.ctGrupoDao;
+import com.sinergitec.ischool.dao.ct.ctProfesorDao;
 import com.sinergitec.ischool.model.ct.ctCurso;
 import com.sinergitec.ischool.model.ct.ctGrupo;
 import com.sinergitec.ischool.model.ct.ctProfesor;
+import com.sinergitec.ischool.service.ct.ctCursoService;
+import com.sinergitec.ischool.service.ct.ctProfesorService;
 import com.sinergitec.ischool.util.DBConexion;
 import com.sinergitec.ischool.util.VectorResultSet;
 
 @Repository
 public class ctGrupoDaoImpl implements ctGrupoDao {
+	
+	@Autowired
+	private ctCursoDao ctCursoDao;
+	
+	@Autowired
+	private ctProfesorDao ctProfesorDao;
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void add_ctGrupo(ctGrupo obj_Grupo) throws Open4GLException, IOException {
@@ -119,14 +130,11 @@ public List<ctGrupo> list_ctGrupo() throws Open4GLException, IOException{
 		BooleanHolder oplError = new BooleanHolder();
 		
 		List<ctGrupo> Lista = new ArrayList<ctGrupo>();
-		
-		List<ctProfesor> List_ctProfesor = new ArrayList<ctProfesor>();
-		
 		List<ctCurso> List_ctCurso = new ArrayList<ctCurso>();
+		List_ctCurso = ctCursoDao.list_ctCurso();
+		List<ctProfesor> List_ctProfesor = new ArrayList<ctProfesor>();
+		List_ctProfesor = ctProfesorDao.list_ctProfesor();
 		
-		
-		
-
 		Connection conexion = DBConexion.getConnection();
 		AppServer app = new AppServer(conexion);
 		
@@ -148,11 +156,13 @@ public List<ctGrupo> list_ctGrupo() throws Open4GLException, IOException{
 				obj.setiIdProfesor(rs_tt_ctGrupo.getInt("iIdProfesor"));
 				obj.setDtHorario(rs_tt_ctGrupo.getString("dtHorario"));
 				obj.setId(rs_tt_ctGrupo.getBytes("Id"));
-				System.out.println("LLega antes de los for");
+				
 				
 				for(ctCurso obj_ctCurso : List_ctCurso){
+					
+					System.out.println(obj_ctCurso.getiIdCurso());
 					if(obj_ctCurso.getiIdCurso().equals(obj.getiIdCurso())){
-						System.out.println("Entro al for curso");
+						
 						ctCurso obj_nctCurso = new ctCurso();
 						obj_nctCurso.setiIdCurso(obj_ctCurso.getiIdCurso());
 						obj_nctCurso.setcNombre(obj_ctCurso.getcNombre());
@@ -161,8 +171,10 @@ public List<ctGrupo> list_ctGrupo() throws Open4GLException, IOException{
 				}
 				
 				for(ctProfesor obj_ctProfesor : List_ctProfesor){
+					
+					System.out.println(obj_ctProfesor.getiIdProfesor());
 					if(obj_ctProfesor.getiIdProfesor().equals(obj.getiIdProfesor())){
-						System.out.println("Entro al for profesor");
+						
 						ctProfesor obj_nctProfesor = new ctProfesor();
 						obj_nctProfesor.setiIdProfesor(obj_ctProfesor.getiIdProfesor());
 						obj_nctProfesor.setcNombre(obj_ctProfesor.getcNombre());
