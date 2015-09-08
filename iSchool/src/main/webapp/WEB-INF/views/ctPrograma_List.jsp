@@ -84,11 +84,11 @@ th {
 									
 
 
-							<%-- 	<a class="pure-button pure-button-primary"
+							<a class="pure-button pure-button-primary"
 									onclick="return confirm('¿Desea Eliminar el puesto  selecionado?');"
 									href="remove_ctPrograma/${ctPrograma.iIdMenu}&${ctPrograma.iIdPrograma}"> <i
 									class="fa fa-times"></i>Eliminar
-								</a> --%> 	
+								</a>  	
 
 							</nobr></td>
 
