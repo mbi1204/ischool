@@ -5,20 +5,22 @@
 <c:url var="actionUrl" value="ctPrograma/add" />
 
 
-
 <form:form id="Form_ctPrograma" commandName="ctPrograma" method="post"
 	action="${actionUrl}" class="pure-form pure-form-aligned">
-
-
 
 	<fieldset>
 		<legend></legend>
 
+
 		<table>
 			<tr>
-				<td><form:label path="iIdPrograma">	<spring:message text="ID Programa" /></form:label></td>
+				<td><form:label path="iIdPrograma">
+						<spring:message text="ID Programa" />
+					</form:label></td>
 				<td><form:input path="iIdPrograma" readonly="true" /></td>
 			</tr>
+
+
 			<tr>
 				<c:choose>
 					<c:when test="${vlHabila_menu == true}">
@@ -43,30 +45,38 @@
 								disabled="${vlHabila_menu}" /></td>
 					</c:otherwise>
 				</c:choose>
+
+
 			</tr>
-							
+
+
 			<tr>
-				<td><form:label path="cNombre">	<spring:message text="Nombre" /></form:label></td>
+				<td><form:label path="cNombre">
+						<spring:message text="Nombre" />
+					</form:label></td>
 				<td><form:input path="cNombre" /></td>
 			</tr>
 
+
 			<tr>
-				<td><form:label path="cPrograma"><spring:message text="Programa" />	</form:label></td>
+				<td><form:label path="cPrograma">
+						<spring:message text="Programa" />
+					</form:label></td>
 				<td><form:input path="cPrograma" /></td>
 			</tr>
-			
-			
-			
+
+
 
 			<tr>
-				<td><form:label path="lActivo">	<spring:message text="Activo" /></form:label></td>
+				<td><form:label path="lActivo">
+						<spring:message text="Activo" />
+					</form:label></td>
 				<td><form:checkbox path="lActivo" /></td>
-			</tr>
 
+			</tr>
 		</table>
 
-
-		
 	</fieldset>
+
 
 </form:form>

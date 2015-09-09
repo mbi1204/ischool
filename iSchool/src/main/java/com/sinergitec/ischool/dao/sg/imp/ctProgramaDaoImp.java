@@ -138,8 +138,7 @@ public class ctProgramaDaoImp implements ctProgramaDao {
 				obj.setId(rs_tt_ctPrograma.getBytes("Id"));
 
 				for (ctMenu obj_ctMenu : Lista_ctMenu) {
-					if (obj_ctMenu.getiIdMenu().equals(obj.getiIdMenu())) {
-						System.out.print("entro al for");
+					if (obj_ctMenu.getiIdMenu().equals(obj.getiIdMenu())) {					
 						ctMenu obj_nctMenu = new ctMenu();
 						obj_nctMenu.setiIdMenu(obj_ctMenu.getiIdMenu());
 						obj_nctMenu.setcMenu(obj_ctMenu.getcMenu());

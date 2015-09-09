@@ -1,4 +1,5 @@
 function add_ctPrograma() {	
+
 	$.get("open_ctPrograma/",
 			function(result) {
 
@@ -8,6 +9,7 @@ function add_ctPrograma() {
 
 				// initializeDatePicker();
 			});
+	
 
 	
 }

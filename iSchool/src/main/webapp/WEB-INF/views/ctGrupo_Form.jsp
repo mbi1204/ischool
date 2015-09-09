@@ -37,8 +37,8 @@
 				<td><form:label path="iIdProfesor">
 						<spring:message text="Profesor" />
 					</form:label></td>
-				<td><form:select path="iIdProfesor" items="${lista_ctProfesor}" 
-						itemValue="iIdProfesor" itemLabel="cNombre"/></td>
+				<td><form:select path="iIdProfesor" items="${lista_ctMenu}" 
+						itemValue="iIdProfesor" itemLabel="cMenu"/></td>
 			</tr>
 			
 			  <!--  <tr>

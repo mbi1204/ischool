@@ -41,6 +41,8 @@ td {
 </head>
 <body onload="carga();">
 
+<%@ include file="/WEB-INF/views/templates/menu.jsp"%>
+	<div style="width: 95%; margin: 0 auto;">
 	<h1>Configuracion de Usuarios</h1>
 
 
@@ -72,7 +74,7 @@ td {
 	</button>
 
 
-	<table id="mytable" class="pure-table pure-table-bordered  ">
+	<table id="mytable" class="pure-table pure-table-bordered pure-table-striped ">
 		<thead>
 			<tr>
 				<th width="4%">ID</th>
@@ -108,7 +110,7 @@ td {
 		<tbody>
 		</tbody>
 	</table>
-
+</div>
 
 
 	<!--  It is advised to put the <script> tags at the end of the document body so they don't block rendering of the page -->
