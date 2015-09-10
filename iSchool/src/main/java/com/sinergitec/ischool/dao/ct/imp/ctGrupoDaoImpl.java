@@ -177,7 +177,7 @@ public List<ctGrupo> list_ctGrupo() throws Open4GLException, IOException{
 						
 						ctProfesor obj_nctProfesor = new ctProfesor();
 						obj_nctProfesor.setiIdProfesor(obj_ctProfesor.getiIdProfesor());
-						obj_nctProfesor.setcNombre(obj_ctProfesor.getcNombre());
+						obj_nctProfesor.setcNombre(obj_ctProfesor.getcNombre()+" "+obj_ctProfesor.getcApellido());
 						obj_nctProfesor.setcApellido(obj_ctProfesor.getcApellido());
 						obj.setProfesor(obj_nctProfesor);
 						}
