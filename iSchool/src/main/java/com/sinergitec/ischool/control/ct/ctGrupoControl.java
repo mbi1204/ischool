@@ -72,7 +72,8 @@ public class ctGrupoControl {
 
 		model.addAttribute("ctGrupo", this.ctGrupoService.get_Grupo(id));
 		//model.addAttribute("actionUrl", "edit_ctUsuario/");
-		//model.addAttribute("lista_ctGrupo", this.grupoService.list_ctGrupo());
+		model.addAttribute("lista_ctCurso", this.ctCursoService.list_ctCurso());
+		model.addAttribute("lista_ctProfesor", this.ctProfesorService.list_ctProfesor());
 
 		return "ctGrupo_Form";
 
