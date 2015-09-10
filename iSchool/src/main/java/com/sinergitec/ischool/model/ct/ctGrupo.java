@@ -1,5 +1,6 @@
 package com.sinergitec.ischool.model.ct;
 
+import java.sql.Timestamp;
 import java.util.Vector;
 
 public class ctGrupo {
@@ -68,15 +69,15 @@ public class ctGrupo {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Vector getVectorDatos(){
 		Vector vector = new Vector();
-		/*Timestamp conversion = Timestamp.valueOf(this.getDtFechaNac()+" 00:00:00.000000");
-		Date date= new java.util.Date();
+		Timestamp conversion = Timestamp.valueOf(this.getDtHorario()+" 00:00:00.000000");
+		/*Date date= new java.util.Date();
 		this.setDtFechaIns(new Timestamp(date.getTime()));*/
 		
 		vector.add(this.getiIdGrupo());
 		vector.add(this.getcNombre());
 		vector.add(this.getiIdCurso());
 		vector.add(this.getiIdProfesor());
-		vector.add(this.getDtHorario());
+		vector.add(conversion);
 		vector.add(this.getId());
 		
 		return vector;
