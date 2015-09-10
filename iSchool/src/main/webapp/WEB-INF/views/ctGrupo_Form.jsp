@@ -37,17 +37,17 @@
 				<td><form:label path="iIdProfesor">
 						<spring:message text="Profesor" />
 					</form:label></td>
-				<td><form:select path="iIdProfesor" items="${lista_ctMenu}" 
-						itemValue="iIdProfesor" itemLabel="cMenu"/></td>
+				<td><form:select path="iIdProfesor" items="${lista_ctProfesor}" 
+						itemValue="iIdProfesor" itemLabel="cNombre"/></td>
 			</tr>
 			
-			  <!--  <tr>
+			  <tr>
 				<td><form:label path="dtHorario">
 						<spring:message text="Horario" />
 					</form:label></td>
-				<td><form:input path="dtHorario" /></td>
+				<td><input type="date" name="dtHorario" /></td>
 
-			</tr> -->
+			</tr>
 
 		</table>
 
