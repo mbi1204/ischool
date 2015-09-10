@@ -54,7 +54,8 @@ th {
 					<tr>
 						<td><c:out value="${ctCurso.iIdCurso}" /></td>
 						<td><c:out value="${ctCurso.cNombre}" /></td>
-						<td><c:out value="${ctCurso.lEstatus}" /></td><!-- En vez de true poner activo o desactivo -->
+						<td><c:if test="${ctCurso.lEstatus == true}"><c:out value="Activo" /></c:if>
+						<c:if test="${ctCurso.lEstatus == false}"><c:out value="Desactivo" /></c:if></td>
 						<td><c:out value="${ctCurso.iMinCup}" /></td>
 						<td><c:out value="${ctCurso.iMaxCup}" /></td>
 						<td><c:out value="${ctCurso.dePrecio}" /></td>
