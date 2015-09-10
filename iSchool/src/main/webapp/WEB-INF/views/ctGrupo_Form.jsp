@@ -45,9 +45,25 @@
 				<td><form:label path="dtHorario">
 						<spring:message text="Horario" />
 					</form:label></td>
-				<td><input type="date" name="dtHorario" /></td>
+				<td><input type="datetime-local" name="dtHorario" /></td>
 
 			</tr>
+			<!--  Verificar la base de datos y determinar si es necesatio modificarla
+			<tr>
+				<td><form:label path="dtHorario">
+						<spring:message text="Horario" />
+					</form:label></td>
+				<td><input type="time" name="dtHorario" /></td>
+
+			</tr>
+			
+			<tr>
+				<td><form:label path="dtHorario">
+						<spring:message text="Horario" />
+					</form:label></td>
+				<td><input type="time" name="dtHorario" /></td>
+
+			</tr> -->
 
 		</table>
 
