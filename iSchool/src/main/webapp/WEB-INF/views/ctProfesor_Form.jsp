@@ -26,7 +26,8 @@
 				<td><form:label path="cNombre">
 						<spring:message text="Nombre" />
 					</form:label></td>
-				<td><form:input path="cNombre"  placeholder="Nombre del Profesor" size="20"  /></td>
+				<td><form:input path="cNombre"  placeholder="Nombre del Profesor" size="20" pattern= "[A-Z a-z]" /></td>
+				
 			</tr>
 			
 			<tr>
@@ -98,7 +99,7 @@
 				<td><form:label path="dtContrato">
 						<spring:message text="Fecha Contrato"/>
 					</form:label></td>
-				<td><input type="date" name="dtContrato">
+				<td><input type="date" name="dtContrato"  value= "2015-01-01">
 			</tr>
 			
 			
@@ -106,7 +107,7 @@
 				<td><form:label path="dtFechaNac">
 						<spring:message text="Fecha de Nacimiento" />
 					</form:label></td>
-				<td><input type="date" name="dtFechaNac">
+				<td><input type="date" name="dtFechaNac" value= "2015-01-01">
 			</tr>
 			
 			<tr>
@@ -116,8 +117,6 @@
 				<td><form:checkbox path="lEstatus"/></td>
 			</tr>
 			
-			
-
 
 		</table>
 		

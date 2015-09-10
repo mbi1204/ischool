@@ -155,8 +155,8 @@ public class ctProfesor {
 
 		Timestamp dtFechaNac = Timestamp.valueOf(this.getDtFechaNac() + " 00:00:00.000000");
 		Timestamp dtFechaContrato = Timestamp.valueOf(this.getDtContrato() + " 00:00:00.000000");
-		// this.setDtContrato(dtFechaContrato);
-		// this.setDtFechaNac(dtFechaNac);
+//		this.setDtContrato(dtFechaContrato);
+//		this.setDtFechaNac(dtFechaNac);
 
 		vector.add(this.getiIdProfesor());
 		vector.add(this.getcNombre());

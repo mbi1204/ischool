@@ -35,7 +35,6 @@ public class ctProfesorControl {
 		model.addAttribute("ctProfesor", new ctProfesor());
 		model.addAttribute("lista_ctProfesor", this.servProfesor.list_ctProfesor());
 	
-		
 
 		return "ctProfesor_List";
 	}
@@ -68,18 +67,18 @@ public class ctProfesorControl {
 
 	}
 
-	@RequestMapping("/get_ctProfesor/{cProfesor}")
-	public String get_ctProfesor(@PathVariable("cProfesor") int id,
+	@RequestMapping("/get_ctProfesor/{id}")
+	public String get_ctProfesor(@PathVariable("id") int id,
 			Model model) {
 		
 		model.addAttribute("ctProfesor", this.servProfesor.get_ctProfesor(id));
 	
-		return "ctProfesor_Form_Update";
+		return "ctProfesor_Form";
 
 	}
 
 	/*@RequestMapping(value = "/ctProfesor/update", method = RequestMethod.POST)
-	public String edit_ctProfesor(@ModelAttribute("ctProfesor") ctProfesor obj) {
+	public String edit_ctProfesor(@ModelAttribute("id") ctProfesor obj) {
 
 
 		this.servProfesor.update_ctProfesor(obj);
@@ -89,11 +88,11 @@ public class ctProfesorControl {
 	}*/
 	
 	@RequestMapping(value = "/ctProfesor/update", method = RequestMethod.POST)
-	public String edit_ctProfesor(@PathVariable("ctProfesor") int g, Model moldel){
+	public String edit_ctProfesor(@PathVariable("id") int id, Model moldel){
 		
 		
 		
-		moldel.addAttribute("ctProfesor",this.servProfesor.get_ctProfesor(g));
+		moldel.addAttribute("ctProfesor",this.servProfesor.get_ctProfesor(id));
 		return "redirect:/ctProfesor";
 	}
 	

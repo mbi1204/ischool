@@ -180,30 +180,41 @@ public class ctProfesorDaoImpl implements ctProfesorDao {
 
 	@Override
 	public ctProfesor get_ctProfesor(int id) throws Open4GLException, IOException {
-		// TODO Auto-generated method stub
-		/*BooleanHolder oplResultado = new BooleanHolder();
+		
+		BooleanHolder oplResultado = new BooleanHolder();
 		StringHolder opcTexto = new StringHolder();
 
 		ResultSetHolder tt_ctprofesor = new ResultSetHolder();
 		Connection conexion = DBConexion.getConnection();
 		AppServer app = new AppServer(conexion);
-		ctGrupo obj = new ctGrupo();
-		System.out.println("Truena aqui un paso antes de la conexion a BD");
+		ctProfesor obj = new ctProfesor();
+		
 		try {
+			
 			
 			app.as_ctProfesor_get("SISIMB", id, tt_ctprofesor, oplResultado, opcTexto);
 			
-			ResultSet rs_tt_ctGrupo = tt_ctGrupo.getResultSetValue();
+			ResultSet rs_tt_ctProfesor = tt_ctprofesor.getResultSetValue();
+			
 
-			while (rs_tt_ctGrupo.next()) {
+			while (rs_tt_ctProfesor.next()) {
+											
+				obj.setiIdProfesor(rs_tt_ctProfesor.getInt("iIdProfesor"));
+				obj.setcNombre(rs_tt_ctProfesor.getString("cNombre"));
+				obj.setcApellido(rs_tt_ctProfesor.getString("cApellido"));
+				obj.setcCalle(rs_tt_ctProfesor.getString("cCalle"));
+				obj.setcNumExt(rs_tt_ctProfesor.getString("cNumExt"));
+				obj.setcNumInt(rs_tt_ctProfesor.getString("cNumInt"));
+				obj.setcColonia(rs_tt_ctProfesor.getString("cColonia"));
+				obj.setcCP(rs_tt_ctProfesor.getString("cCP"));
+				obj.setcMunicipio(rs_tt_ctProfesor.getString("cMunicipio"));
+				obj.setcEdo(rs_tt_ctProfesor.getString("cEdo"));
+				obj.setcTelefono(rs_tt_ctProfesor.getString("cTelefono"));
+				obj.setlEstatus(rs_tt_ctProfesor.getBoolean("lEstatus"));
+				obj.setDtContrato(rs_tt_ctProfesor.getString("dtContrato"));
+				obj.setDtFechaNac(rs_tt_ctProfesor.getString("dtFechaNac"));
+				obj.setId(rs_tt_ctProfesor.getBytes("id"));	
 				
-				obj.setiIdGrupo(rs_tt_ctGrupo.getInt("iIdGrupo"));
-				obj.setcNomGrupo(rs_tt_ctGrupo.getString("cNomGrupo"));
-				obj.setiIdCur(rs_tt_ctGrupo.getInt("iIdCur"));
-				obj.setiIdProfesor(rs_tt_ctGrupo.getInt("iIdProfesor"));
-				obj.setDtHorario(rs_tt_ctGrupo.getString("dtHorario"));
-				 
-				obj.setId(rs_tt_ctGrupo.getBytes("id"));
 
 			}
 			
@@ -215,7 +226,7 @@ public class ctProfesorDaoImpl implements ctProfesorDao {
 			app._release();
 			DBConexion.closeConnection(conexion);
 		}
-		*/
-		return null;
+		
+		return obj;
 	}
 }

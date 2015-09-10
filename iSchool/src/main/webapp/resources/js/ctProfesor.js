@@ -9,10 +9,10 @@ function add_ctProfesor() {
 
 function edit_ctProfesor(id) {
 	
-	$.get("get/" + id, function(result) {
-		$("#UpdatectProfesor_Dialog").html(result);
-		$("#UpdatectProfesor_Dialog").dialog("option", "title", 'Editar Usuario');
-		$("#UpdatectProfesor_Dialog").dialog('open');
+	$.get("get_ctProfesor/" + id, function(result) {
+		$("#AddctProfesor_Dialog").html(result);
+		$("#AddctProfesor_Dialog").dialog("option", "title", 'Editar Usuario');
+		$("#AddctProfesor_Dialog").dialog('open');
 
 		// initializeDatePicker();
 	});
@@ -61,6 +61,6 @@ $(document).ready(function() {
 		}
 	});
 
-	
+	initializeDatePicker();
 	
 });
