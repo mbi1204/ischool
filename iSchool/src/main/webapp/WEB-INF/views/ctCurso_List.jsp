@@ -27,7 +27,7 @@ th {
 
 	<div style="width: 95%; margin: 0 auto;">
 	
-	<div id="AddCtPuesto_Dialog" style="display: none;">
+	<div id="AddCtCurso_Dialog" style="display: none;">
 			<%@ include file="ctCurso_Form.jsp"%>
 		</div>
 

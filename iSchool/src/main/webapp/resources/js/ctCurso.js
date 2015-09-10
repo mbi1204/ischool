@@ -1,7 +1,7 @@
 function add_ctCurso() {
 	
-	$('#AddCtPuesto_Dialog').dialog("option", "title", 'Agregar Curso');
-	$('#AddCtPuesto_Dialog').dialog('open');
+	$('#AddCtCurso_Dialog').dialog("option", "title", 'Agregar Curso');
+	$('#AddCtCurso_Dialog').dialog('open');
 
 
 }
@@ -9,9 +9,9 @@ function add_ctCurso() {
 function edit_ctCurso(id) {
 	
 	$.get("ctCurso/get/" + id, function(result) {
-		$("#AddCtPuesto_Dialog").html(result);
-		$("#AddCtPuesto_Dialog").dialog("option", "title", 'Editar Curso');
-		$("#AddCtPuesto_Dialog").dialog('open');
+		$("#AddCtCurso_Dialog").html(result);
+		$("#AddCtCurso_Dialog").dialog("option", "title", 'Editar Curso');
+		$("#AddCtCurso_Dialog").dialog('open');
 
 		// initializeDatePicker();
 	});
@@ -34,7 +34,7 @@ function resetDialog(form) {
 
 $(document).ready(function() {
 
-	$('#AddCtPuesto_Dialog').dialog({
+	$('#AddCtCurso_Dialog').dialog({
 
 		autoOpen : false,
 		position : 'center',
