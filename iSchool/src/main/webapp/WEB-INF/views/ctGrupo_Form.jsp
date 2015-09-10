@@ -30,7 +30,7 @@
 						<spring:message text="Curso" />
 					</form:label></td>
 				<td><form:select path="iIdCurso" items="${lista_ctCurso}"
-						itemValue="iIdCurso" itemLabel="cNombre+cApellido"/></td>
+						itemValue="iIdCurso" itemLabel="cNombre"/></td>
 			</tr>
 			
 			<tr>
