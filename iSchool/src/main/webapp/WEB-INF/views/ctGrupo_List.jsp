@@ -70,10 +70,6 @@ th {
 							</nobr></td> 
 					</tr>
 				</c:forEach>
-				
-				
-				
-				
 			</tbody>
 		</table>
 	</div>
