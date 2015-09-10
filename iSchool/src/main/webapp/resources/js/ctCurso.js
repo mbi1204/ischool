@@ -30,6 +30,7 @@ function initializeDatePicker() {
 function resetDialog(form) {
 
 	form.find("input").val("");
+	form.find("#iIdCurso").val("0");
 }
 
 $(document).ready(function() {
