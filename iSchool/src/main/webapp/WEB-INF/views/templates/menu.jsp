@@ -25,7 +25,7 @@
 
 						<c:choose>
 							<c:when test="${Menu.iIdMenu==Programa.iIdMenu}">
-								<li><a href="${Programa.cPrograma}"><span><c:out
+								<li><a href= <c:url value= "${Programa.cPrograma}" />><span><c:out
 												value="${Programa.cNombre}" /></span></a></li>
 							</c:when>
 						</c:choose>
@@ -35,6 +35,8 @@
 
 
 		</c:forEach>
+		
+		<li><a href='logout'>salir</a>
 	</ul>
 
 

@@ -21,10 +21,11 @@ public class ctUsuarioServiceImp implements ctUsuarioService {
 	private ctUsuarioDao dao;
 	
 	@Override
-	public void add_ctUsuario(ctUsuario obj) {
+	public String add_ctUsuario(String cUsuario,ctUsuario obj) {
 		// TODO Auto-generated method stub
+		String vlMensaje = null;
 		try {
-			dao.add_ctUsuario(obj);
+			  vlMensaje = dao.add_ctUsuario(cUsuario,obj);
 		} catch (RunTime4GLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -39,14 +40,15 @@ public class ctUsuarioServiceImp implements ctUsuarioService {
 			e.printStackTrace();
 		}
 
+		return vlMensaje;
 	}
 
 	@Override
-	public void update_ctUsuario(ctUsuario obj) {
+	public String update_ctUsuario(String cUsuario,ctUsuario obj) {
 		// TODO Auto-generated method stub
-		
+		String vlMensaje = null;
 		try {
-			dao.update_ctUsuario(obj);
+			vlMensaje = dao.update_ctUsuario(cUsuario,obj);
 		} catch (RunTime4GLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -60,6 +62,8 @@ public class ctUsuarioServiceImp implements ctUsuarioService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		return vlMensaje;
 
 	}
 
@@ -119,11 +123,11 @@ public class ctUsuarioServiceImp implements ctUsuarioService {
 	}
 
 	@Override
-	public void remove_ctUsuario(String id) {
+	public String  remove_ctUsuario(String cUsuario,String id) {
 		// TODO Auto-generated method stub
-		
+		String vlMensaje = null;
 		try {
-			dao.remove_ctUsuario(id);
+			vlMensaje = dao.remove_ctUsuario(cUsuario,id);
 		} catch (RunTime4GLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -137,6 +141,8 @@ public class ctUsuarioServiceImp implements ctUsuarioService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		return vlMensaje;
 
 	}
 

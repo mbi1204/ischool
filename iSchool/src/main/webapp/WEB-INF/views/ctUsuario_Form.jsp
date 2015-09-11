@@ -6,7 +6,7 @@
 
 
 
-<form:form id="Form_ctUsuario_Add" commandName="ctUsuario" method="post"
+<form:form id="Form_ctUsuario_Add" commandName="ctUsuario" method="POST"
 	action="${actionUrl}" class="pure-form pure-form-aligned">
 
 	<fieldset>

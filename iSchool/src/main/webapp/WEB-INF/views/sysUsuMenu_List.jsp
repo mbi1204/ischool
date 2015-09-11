@@ -74,7 +74,7 @@ td {
 	</button>
 
 
-	<table id="mytable" class="pure-table pure-table-bordered pure-table-striped ">
+	<table id="mytable" class="pure-table pure-table-bordered  ">
 		<thead>
 			<tr>
 				<th width="4%">ID</th>

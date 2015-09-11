@@ -34,6 +34,8 @@ th {
 		</div>
 
 		<h1>Lista de Programas</h1>
+		
+		
 
 		<button class="pure-button pure-button-primary"
 			onclick="add_ctPrograma()">

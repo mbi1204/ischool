@@ -6,6 +6,8 @@
 <head>
 <title>Usuario</title>
 
+
+
 <link rel="stylesheet"
 	href='<c:url value="/resources/css/pure-0.4.2.css"/>'>
 
@@ -22,9 +24,11 @@ th {
 </style>
 
 
+
+
 </head>
 
-<body>
+<body >
 
 <%@ include file="/WEB-INF/views/templates/menu.jsp"%>
 	<div style="width: 95%; margin: 0 auto;">
@@ -41,6 +45,10 @@ th {
 			<%@ include file="ctUsuario_Form_Update.jsp"%>
 		</div>
 
+
+
+                
+        <font color="red" > ${vcMensaje}</font>
 
 
 		<h1>Lista de Usuario</h1>
@@ -95,6 +103,12 @@ th {
 		</table>
 
 	</div>
+	
+	
+
+
+
+	
 
 	<!--  It is advised to put the <script> tags at the end of the document body so they don't block rendering of the page -->
 	<script type="text/javascript"
@@ -105,5 +119,10 @@ th {
 		src='<c:url value="/resources/js/lib/jquery.ui.datepicker.js"/>'></script>
 	<script type="text/javascript"
 		src='<c:url value="/resources/js/ctUsuario.js"/>'></script>
+		
+	
+
+		
+		
 </body>
 </html>

@@ -10,10 +10,10 @@ import com.progress.open4gl.SystemErrorException;
 import com.sinergitec.ischool.model.sg.ctUsuario;
 
 public interface ctUsuarioDao {
-	public void add_ctUsuario(ctUsuario obj)
+	public String add_ctUsuario(String cUsuario,ctUsuario obj)
 			throws RunTime4GLException, SystemErrorException, Open4GLException, IOException;
 
-	public void update_ctUsuario(ctUsuario obj)
+	public String update_ctUsuario(String cUsuario ,ctUsuario obj)
 			throws RunTime4GLException, SystemErrorException, Open4GLException, IOException;
 
 	public List<ctUsuario> list_ctUsuario()
@@ -22,7 +22,7 @@ public interface ctUsuarioDao {
 	public ctUsuario get_ctUsuario(String id)
 			throws RunTime4GLException, SystemErrorException, Open4GLException, IOException, SQLException;
 
-	public void remove_ctUsuario(String id)
+	public String remove_ctUsuario(String cUsuario ,String id)
 			throws RunTime4GLException, SystemErrorException, Open4GLException, IOException;
 
 	public String get_login(ctUsuario Obj)

@@ -6,6 +6,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +26,7 @@ import com.sinergitec.ischool.service.imp.sg.ctUsuarioServiceImp;
  * Handles requests for the application home page.
  */
 @Controller
-@SessionAttributes({"List_ctMenu" ,"List_ctPrograma"} )
+@SessionAttributes({"List_ctMenu" ,"List_ctPrograma" , "ctUsuarioSession" }  )
 
 
 
@@ -49,17 +51,18 @@ public class HomeController {
 		
 		String formattedDate = dateFormat.format(date);
 		
-		
+		model.addAttribute("ctUsuarioSession", new ctUsuario() );
 		
 		model.addAttribute("serverTime", formattedDate );
-		model.addAttribute("ctUsuario", new ctUsuario() );
+		
+		
 		
 		return "home";
 	}
 	
 	
 	@RequestMapping(value= "/Login", method = RequestMethod.POST)
-    public String cursoRegistro(@ModelAttribute("ctUsuario") ctUsuario  obj_ctUsuario, ModelMap model){		
+    public String cursoRegistro(@ModelAttribute("ctUsuarioSession") ctUsuario  obj_ctUsuario, ModelMap model){		
 	
 		String vcRespuesta ;
 		
@@ -86,6 +89,15 @@ public class HomeController {
 		}	
 	
 	}
+	
+	
+	@RequestMapping(value = "/logout" , method=RequestMethod.GET)
+	  public String logout(HttpSession session ,ModelMap model) {			
+		session.invalidate();
+		model.addAttribute("ctUsuarioSession", new ctUsuario() );
+	    return "home";
+	  }
+	
    
 	
 }

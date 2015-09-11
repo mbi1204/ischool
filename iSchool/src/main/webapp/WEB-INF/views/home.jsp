@@ -22,7 +22,7 @@
 
 
 
-	<form:form id="Form_Login" commandName="ctUsuario" method="post"
+	<form:form id="Form_Login" commandName="ctUsuarioSession" method="post"
 		action="${actionUrl}" class="pure-form pure-form-aligned">
 
 		<table style="margin: 0 auto;">

@@ -104,7 +104,7 @@ public class ctAlumnoDaoImpl implements ctAlumnoDao {
 		AppServer app = new AppServer(conexion);
 
 		try {		
-			System.out.println("Entro al metodo eliminar");
+			
 			app.as_ctAlumno_Borra("SISIMB", id , oplResultado, opcTexto);
 			System.err.println(opcTexto.getValue());
 		} finally {

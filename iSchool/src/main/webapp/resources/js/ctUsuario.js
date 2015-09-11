@@ -45,6 +45,10 @@ $(document).ready(function() {
 		buttons : {
 			"Save" : function() {
 				$('#Form_ctUsuario_Add').submit();
+				
+				
+				
+				
 			},
 			"Cancel" : function() {
 				$(this).dialog('close');
@@ -83,3 +87,5 @@ $(document).ready(function() {
 	});
 	
 });
+
+
