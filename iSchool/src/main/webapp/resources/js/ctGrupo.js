@@ -57,28 +57,6 @@ $(document).ready(function() {
 		}
 	});
 
-	/*$('#UpdateCtGrupo_Dialog').dialog({
-
-		autoOpen : false,
-		position : 'center',
-		modal : true,
-		resizable : false,
-		width : 800,
-		buttons : {
-			"Save" : function() {
-				$('#Form_ctGrupo').submit();
-			},
-			"Cancel" : function() {
-				$(this).dialog('close');
-			}
-		},
-		close : function() {
-
-			resetDialog($('#Form_ctGrupo'));
-
-			$(this).dialog('close');
-		}
-	});*/
 
 	initializeDatePicker();
 });
