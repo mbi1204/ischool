@@ -15,7 +15,7 @@
 				<td><form:label path="iIdCurso">
 						<spring:message text="ID" />
 					</form:label></td>
-				<td><form:input path="iIdCurso" readonly="true" /></td>
+				<td><form:input path="iIdCurso"  readonly="true" /></td>
 			</tr>
 			<tr>
 				<td><form:label path="cNombre">
@@ -61,4 +61,5 @@
 		</table>
 
 	</fieldset>
+	
 </form:form>
