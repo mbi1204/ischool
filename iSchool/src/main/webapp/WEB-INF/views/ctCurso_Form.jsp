@@ -21,7 +21,7 @@
 				<td><form:label path="cNombre">
 						<spring:message text="Curso" />
 					</form:label></td>
-				<td><form:input path="cNombre"   /></td>
+				<td><form:input path="cNombre" placeholder="Tango" onkeypress="return soloLetras(event)"  /></td>
 			</tr>
 
 			
@@ -29,7 +29,7 @@
 				<td><form:label path="iMinCup">
 						<spring:message text="Cupo Minimo" />
 					</form:label></td>
-				<td><form:input path="iMinCup" /></td>
+				<td><form:input path="iMinCup" placeholder="10" /></td>
 
 			</tr>
 			
@@ -37,7 +37,7 @@
 				<td><form:label path="iMaxCup">
 						<spring:message text="Cupo Maximo" />
 					</form:label></td>
-				<td><form:input path="iMaxCup" /></td>
+				<td><form:input path="iMaxCup" placeholder="15" /></td>
 
 			</tr>
 			
@@ -45,7 +45,7 @@
 				<td><form:label path="dePrecio">
 						<spring:message text="Precio del Curso" />
 					</form:label></td>
-				<td><form:input path="dePrecio" /></td>
+				<td><form:input path="dePrecio" placeholder="1000.00" /></td>
 
 			</tr>
 			
