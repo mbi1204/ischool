@@ -22,7 +22,7 @@ th {
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/templates/menu.jsp"%>
-<div style="width: 95%; margin: 0 auto;">
+	<div style="width: 95%; margin: 0 auto;">
 
 	<div id="AddCtGrupo_Dialog" style="display: none;">
 			<%@ include file="ctGrupo_Form.jsp"%>

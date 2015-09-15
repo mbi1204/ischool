@@ -1,7 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Cursos Registro, Actualizacion y Borrado</title>
 
 <link rel="stylesheet"
@@ -24,7 +25,6 @@ th {
 
 <body>
 <%@ include file="/WEB-INF/views/templates/menu.jsp"%>
-
 	<div style="width: 95%; margin: 0 auto;">
 	
 	<div id="AddCtCurso_Dialog" style="display: none;">
@@ -69,8 +69,8 @@ th {
 
 								<a class="pure-button pure-button-primary"
 									onclick="return confirm('¿Desea Eliminar el usuario  selecionado?');"
-									href="ctCurso/remove/${ctCurso.iIdCurso}"> <i
-									class="fa fa-times"></i>Eliminar
+									href="ctCurso/remove/${ctCurso.iIdCurso}"> 
+									<i class="fa fa-times"></i>Eliminar
 								</a>
 
 							</nobr></td>

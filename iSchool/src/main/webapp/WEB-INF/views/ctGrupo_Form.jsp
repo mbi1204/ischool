@@ -9,8 +9,6 @@
 
 	<fieldset>
 		<legend></legend>
-
-
 		<table>
 			<tr>
 				<td><form:label path="iIdGrupo">
