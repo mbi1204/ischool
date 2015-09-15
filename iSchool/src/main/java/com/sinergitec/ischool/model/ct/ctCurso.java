@@ -13,6 +13,12 @@ public class ctCurso {
 	private BigDecimal dePrecio;
 	byte[] id;
 	
+	public ctCurso(){
+		iIdCurso = 0 ;
+		
+		
+	}
+	
 	public Integer getiIdCurso() {
 		return iIdCurso;
 	}
