@@ -1,5 +1,4 @@
 function add_ctCurso() {
-	
 	$('#AddCtCurso_Dialog').dialog("option", "title", 'Agregar Curso');
 	$('#AddCtCurso_Dialog').dialog('open');
 
