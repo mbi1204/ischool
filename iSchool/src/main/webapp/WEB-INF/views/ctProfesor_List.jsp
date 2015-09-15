@@ -88,10 +88,11 @@ th {
 
 						<td><nobr>
 
-								<button class="pure-button pure-button-primary"
+								<button class="pure-button pure-button-primary" 
 									onclick="edit_ctProfesor('${ctProfesor.iIdProfesor}');">
 									<i class="fa fa-pencil"></i> Editar
 								</button>
+								
 
 
 

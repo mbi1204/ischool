@@ -26,22 +26,23 @@
 				<td><form:label path="cNombre">
 						<spring:message text="Nombre" />
 					</form:label></td>
-				<td><form:input path="cNombre"  placeholder="Nombre del Profesor" size="20" pattern= "[A-Z a-z]" /></td>
+				<td><form:input path="cNombre"  placeholder="Nombre del Profesor" size="20"  onkeypress="return soloLetras(event)"  /></td>
 				
 			</tr>
+			
 			
 			<tr>
 				<td><form:label path="cApellido">
 						<spring:message text="Apellidos" />
 					</form:label></td>
-				<td><form:input path="cApellido"  placeholder="Apellidos del Profesor" size="20"  /></td>
+				<td><form:input path="cApellido" placeholder="Apellidos del Profesor" size="20" onkeypress="return soloLetras(event)" /></td>
 			</tr>
 
 			<tr>
 				<td><form:label path="cCalle">
 						<spring:message text="Domicilio" />
 					</form:label></td>
-				<td><form:input path="cCalle" placeholder="Domicilio del Porfesor"  size="50" /></td>
+				<td><form:input path="cCalle" placeholder="Domicilio del Porfesor"  size="50"  /></td>
 			</tr>
 			
 			<tr>
@@ -77,7 +78,7 @@
 				<td><form:label path="cEdo">
 						<spring:message text="Estado"/>
 					</form:label></td>
-				<td><form:input path="cEdo" placeholder="Estado" size="10" /></td>
+				<td><form:input path="cEdo" placeholder="Estado" size="10" onkeypress="return soloLetras(event)" /></td>
 			</tr>
 			
 			<tr>
