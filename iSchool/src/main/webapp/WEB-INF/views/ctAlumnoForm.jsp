@@ -18,69 +18,60 @@
 
 <script>
 	alert("entro");
+	
+	
+	
+	function Add_curso(){		
+	alert("entro al add");
+	}
 
-	$(document)
-			.ready(
-					function() {
+	$(document).ready(function() {
+		function dataRow(value1, value2) {
+			this.id = value1;
+			this.nombre = value2;
+		}
+		
+		$('#out').click(function() {
+			// create array to hold your data
+			var dataArray = new Array();
+			// iterate through rows of table
+			// * Start from '2' to skip the header row *
+			for (var i = 2; i <= $("table tr").length; i++) {
+				dataArray.push(new dataRow($(
+						"table tr:nth-child("+ i + ") td").eq(0).html(), $(
+						"table tr:nth-child("+ i + ") td").eq(1).html(), $(
+						"table tr:nth-child("+ i + ") td").eq(2).html()));	
+				}
+			
+			var sJson = JSON.stringify(dataArray);
+			alert(sJson);
+			
+			$.ajax({
+				type : "GET",
+				url : "pruebaxx",
+				dataType : "json",
+				contentType : "application/json; charset=utf-8",				
+				data : {
+					cUsuario : 'israel mendoza',		
+					dataArray1: JSON.stringify([
+					                            {"firstName":"John", "lastName":"Doe"},
+					                            {"firstName":"Anna", "lastName":"Smith"},
+					                            {"firstName":"Peter","lastName": "Jones"}                   ]) ,
+				},	           
+				success : function(data, textStatus, jqXHR) {
 
-						function dataRow(value1, value2) {
-							this.id = value1;
-							this.nombre = value2;
+					alert (data);
+				},
+				error : function() {
+					error("al cargar la lista");
 
-						}
-
-						$('#out')
-								.click(
-										function() {
-
-											// create array to hold your data
-											var dataArray = new Array();
-
-											// iterate through rows of table
-											// * Start from '2' to skip the header row *
-											for (var i = 2; i <= $("table tr").length; i++) {
-												// create object and push to array
-												/*  dataArray.push(    
-												      new dataRow(
-												          $("table tr:nth-child(" + i + ") td").eq(0).html(),
-												          $("table tr:nth-child(" + i + ") td").eq(1).html(),
-												          $("table tr:nth-child(" + i + ") td").eq(2).html())
-												  );
-												 */
-
-												dataArray.push(new dataRow($(
-														"table tr:nth-child("
-																+ i + ") td")
-														.eq(0).html(), $(
-														"table tr:nth-child("
-																+ i + ") td")
-														.eq(1).html(), $(
-														"table tr:nth-child("
-																+ i + ") td")
-														.eq(2).html()));
-
-											}
-
-											var sJson = JSON.stringify(dataArray);
-
-											alert(sJson);
-
-											$
-													.ajax({
-														type : "POST",
-														url : "pruebaxx",
-														data : 	 JSON.stringify({id: 1, nombre: 'Doe'}),
-														dataType : "json",
-														contentType : "application/json; charset=utf-8",
-														async : false, //Cross-domain requests and dataType: "jsonp" requests do not support synchronous operation
-														cache : false, //This will force requested pages not to be cached by the browser  
-														processData : false, //To avoid making query String instead of JSON
-
-													});
-
-											// alert(sJson);
-										})
-					});
+				}
+			});
+			
+			
+			
+			})
+   });
 </script>
 
 
@@ -175,6 +166,9 @@
 								</select>
 							</ul>
 					</ul>
+					
+					<input type="button" name="Addcurso" value="Agregar Curso" onclick="Add_curso()">
+					
 					<ul>
 						<!-- Preguntar que hace esta linea vacia -->
 

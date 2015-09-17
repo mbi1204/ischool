@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,12 +17,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.gson.JsonArray;
+import com.google.gson.reflect.TypeToken;
 import com.progress.open4gl.Open4GLException;
 import com.progress.open4gl.RunTime4GLException;
 import com.progress.open4gl.SystemErrorException;
-import com.sinergitec.ischool.model.ct.Curso;
+import com.sinergitec.ischool.model.ct.Person;
 import com.sinergitec.ischool.model.ct.ctAlumno;
 import com.sinergitec.ischool.service.ct.ctAlumnoService;
+import java.lang.reflect.Type;
 
 @Controller
 public class ctAlumnoController {
@@ -78,16 +82,78 @@ public class ctAlumnoController {
 		return "ctAlumno";
 	}
 
-	@RequestMapping(value = "/pruebaxx", headers = "Accept=application/json", produces = "application/json", consumes = "application/json", method = RequestMethod.POST)
-	public String pruebaxx(@RequestBody List<Curso> dataArray) {
+	@RequestMapping(value = "/pruebaxx" , method = RequestMethod.GET)
+	
+//	public @ResponseBody String pruebaxx(String cUsuario ,@RequestParam("dataArray")  ArrayList<String> dataArray) {
+	
+	
+	public  String pruebaxx(String cUsuario , String dataArray1 ) {		
+		
+		System.out.println("Entro aqui--->"  + cUsuario);
+		System.out.println("Array1--->"       + dataArray1);
+		//System.out.println("Array2--->"       + dataArray2.size());
+		
+		
+		// ArrayList<String> dataArray
 
-		System.out.println("Entro aqui" + dataArray);
+		//System.out.println("Array" +  dataArray.size());		
+		//System.out.println("Array" +  dataArray.get(0));
+		//System.out.println("Array" +  dataArray.get(1));
+		//System.out.println("Array" +  dataArray.get(2));
+		
+		//System.out.println("Array" +  dataArray.get(3));
+		//System.out.println("Array" +  dataArray.get(4));
+		//System.out.println("Array" +  dataArray.get(5));
+		//System.out.println("Array" +  dataArray.get(6));
+		
+		
+		   
+		   
+		
+		//System.out.println("entro" + dataArray1.size());
+		
+		JSONArray jsonArray = new JSONArray(dataArray1);
+		
+		System.out.println(jsonArray.length());
+		
+		
+		List<String> list = new ArrayList<String>();
+		
+		for (int i=0; i<jsonArray.length(); i++) {
+		  //  System.out.println(jsonArray.getJSONObject(i));
+		   // System.out.println(  jsonArray.get(i).toString());
+		   // System.out.println(  jsonArray.get(i));
+		    
+		    String val = jsonArray.optString(i);
+		    
+		    System.out.println( jsonArray.getJSONObject(i).getString("firstName"));
+		    System.out.println( jsonArray.getJSONObject(i).getString("lastName"));
+		     
+		    
+		    
+		    
+		}
+		
+	
+		/*for (String obj : list ){
+			System.out.println(obj);
+			
+			
+		}*/
+		
+		
+		
+		/*for(String person : dataArray2){
+			System.out.println(person);
+		}*/
+		
+		
+		
+		  
+		
+		
 
-		System.out.println(dataArray.toArray());
-
-		System.out.println(dataArray.size());
-
-		return "x";
+		return "salio";
 	}
 
 }
