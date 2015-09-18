@@ -154,7 +154,7 @@ public List<ctGrupo> list_ctGrupo() throws Open4GLException, IOException{
 				obj.setiIdProfesor(rs_tt_ctGrupo.getInt("iIdProfesor"));
 				obj.setcDias(rs_tt_ctGrupo.getString("cDias"));
 				obj.setcHorario(rs_tt_ctGrupo.getString("cHorario"));
-				obj.setcHorario(rs_tt_ctGrupo.getString("lHabilitado"));
+				obj.setlHabilitado(rs_tt_ctGrupo.getBoolean("lHabilitado"));
 				obj.setId(rs_tt_ctGrupo.getBytes("Id"));
 				
 				
@@ -166,6 +166,7 @@ public List<ctGrupo> list_ctGrupo() throws Open4GLException, IOException{
 						ctCurso obj_nctCurso = new ctCurso();
 						obj_nctCurso.setiIdCurso(obj_ctCurso.getiIdCurso());
 						obj_nctCurso.setcNombre(obj_ctCurso.getcNombre());
+						obj_nctCurso.setDePrecio(obj_ctCurso.getDePrecio());
 						obj.setCurso(obj_nctCurso);
 						}
 				}
@@ -219,8 +220,9 @@ public List<ctGrupo> list_ctGrupo() throws Open4GLException, IOException{
 				obj.setiIdProfesor(rs_tt_ctGrupo.getInt("iIdProfesor"));
 				obj.setcDias(rs_tt_ctGrupo.getString("cDias"));
 				obj.setcHorario(rs_tt_ctGrupo.getString("cHorario"));
-				obj.setcHorario(rs_tt_ctGrupo.getString("lHabilitado"));
+				obj.setlHabilitado(rs_tt_ctGrupo.getBoolean("lHabilitado"));
 				obj.setId(rs_tt_ctGrupo.getBytes("Id"));
+				
 
 			}
 			

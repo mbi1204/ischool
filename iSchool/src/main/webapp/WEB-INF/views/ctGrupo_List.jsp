@@ -40,7 +40,9 @@ th {
 					<th width="4%">No.</th>
 					<th width="12%">Nombre del Grupo</th>
 					<th width="12%">Curso</th>
+					<th width="12%">Precio</th>
 					<th width="12%">Profesor</th>
+					<th width="12%">Dias</th>
 					<th width="12%">Horario</th>
 					<th width="48%"></th>
 				</tr>
@@ -51,7 +53,11 @@ th {
 						<td><c:out value="${ctGrupo.iIdGrupo}" /></td>
 						<td><c:out value="${ctGrupo.cNombre}" /></td>
 						<td><c:out value="${ctGrupo.curso.cNombre}" /></td>
-						<td><c:out value="${ctGrupo.profesor.cNombre}" /></td>
+						<td><c:out value="${ctGrupo.curso.dePrecio}" /></td>					
+						<td><c:out value="${ctGrupo.profesor.cNombreApellido}" /></td>
+						<td><c:out value="${ctGrupo.cDias}" /></td>
+						<td><c:out value="${ctGrupo.cHorario}" /></td>
+								
 						
 						
 						<td><nobr>

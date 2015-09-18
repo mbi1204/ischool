@@ -36,17 +36,24 @@
 						<spring:message text="Profesor" />
 					</form:label></td>
 				<td><form:select path="iIdProfesor" items="${lista_ctProfesor}" 
-						itemValue="iIdProfesor" itemLabel="cNombre"/></td>
+						itemValue="iIdProfesor" itemLabel="cNombreApellido"/></td>
 			</tr>
 			
-<%-- 			  <tr>
-				<td><form:label path="dtHorario">
+			
+			<tr>
+				<td><form:label path="cDias">
+						<spring:message text="Dias" />
+					</form:label></td>
+				<td><form:input path="cDias" /></td>
+			</tr>
+			
+			<tr>
+				<td><form:label path="cHorario">
 						<spring:message text="Horario" />
 					</form:label></td>
-				<td><input type="datetime-local" name="dtHorario" /></td>
-
+				<td><form:input path="cHorario" /></td>
 			</tr>
-			 --%>
+
 
 		</table>
 

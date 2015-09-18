@@ -20,7 +20,18 @@ public class ctProfesor {
 	Boolean lEstatus;
 	String dtContrato;
 	String dtFechaNac;
-	byte[] Id;
+	byte[] Id;	
+	String cNombreApellido;	
+	
+	
+
+	public String getcNombreApellido() {
+		return this.cNombre  + " " + this.cApellido;
+	}
+
+	public void setcNombreApellido(String cNombreApellido) {
+		this.cNombreApellido = cNombreApellido;
+	}
 
 	// Inicializar en 0
 	public ctProfesor() {

@@ -15,8 +15,6 @@ public class ctCurso {
 	
 	public ctCurso(){
 		iIdCurso = 0 ;
-		
-		
 	}
 	
 	public Integer getiIdCurso() {
