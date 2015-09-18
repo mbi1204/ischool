@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Grupos Registro, Actualizacion y Borrado</title>
+<title>Catalogo de Grupos</title>
 <link rel="stylesheet"
 	href='<c:url value="/resources/css/pure-0.4.2.css"/>'>
 
@@ -52,7 +52,7 @@ th {
 						<td><c:out value="${ctGrupo.cNombre}" /></td>
 						<td><c:out value="${ctGrupo.curso.cNombre}" /></td>
 						<td><c:out value="${ctGrupo.profesor.cNombre}" /></td>
-						<td><c:out value="${ctGrupo.dtHorario}" /></td>
+						
 						
 						<td><nobr>
 

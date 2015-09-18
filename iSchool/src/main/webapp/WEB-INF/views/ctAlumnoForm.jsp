@@ -17,13 +17,37 @@
 
 
 <script>
-	alert("entro");
 	
-	
-	
-	function Add_curso(){		
-	alert("entro al add");
+	function Add_curso(){
+		
+		
+		var valor ;
+		valor = $('select#combo').val();
+		
+		
+		if ($('#mytable tr > td:contains(' + valor + ')').length!=0)
+		{
+		    alert("ya existe el curso seleccionado.");
+		}else {
+			
+			$('#mytable > tbody').append('<tr>' + '<td>' + valor + '</td> <td>' + '<button class="btnDelete" onclick="Borrar();">Delete</button>' +  '</td> </tr>');
+			
+		}
 	}
+	
+	
+	
+	function Borrar(){
+		  
+		 $("#mytable").on('click','.btnDelete',function(){			 
+			$(this).closest('tr').remove();
+	     });
+		
+	}
+	
+	
+	
+	
 
 	$(document).ready(function() {
 		function dataRow(value1, value2) {
@@ -154,61 +178,41 @@
 				</fieldset>
 
 				<fieldset>
-					<legend>Curso</legend>
-					<ul>
-						<li><label for="cNomCurso">Curso:</label>
-							<ul>
-								<select>
-									<option value="cNomCurso">Salsa</option>
-									<option value="cNomCurso">Danzon</option>
-									<option value="cNomCurso">Baile Moderno</option>
-									<option value="cNomCurso">Danza</option>
+					<legend>Seleccion de  Cursos</legend>
+					
+						<label for="cNomCurso">Cursos Disponibles:</label>
+							
+								<select name="combo" id="combo">
+									<option value="Salsa">Salsa</option>
+									<option value="Danzon">Danzon</option>
+									<option value="Baile Moderno">Baile Moderno</option>
+									<option value="Danza">Danza</option>
 								</select>
-							</ul>
-					</ul>
+							
 					
-					<input type="button" name="Addcurso" value="Agregar Curso" onclick="Add_curso()">
-					
-					<ul>
-						<!-- Preguntar que hace esta linea vacia -->
 
+					<input type="button" name="Addcurso" value="Agregar Curso"
+						onclick="Add_curso()">
+						
+						
+						
+						<table id="mytable">
+							<thead>
+								<tr>
+									<th>Curso</th>									
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+						
 
-
-
-
-
-
-					</ul>
 
 				</fieldset>
 				<button class="submit" type="submit">Registrar</button>
 			</form>
 		</section>
 	</div>
-
-
-	<table border="2px solid black">
-		<tr id="header-row">
-			<th>id</th>
-			<th>nombre</th>
-		</tr>
-		<tr>
-			<td>2</td>
-			<td>Prueba 2</td>
-		</tr>
-		<tr>
-
-			<td>3</td>
-			<td>Prueba 3</td>
-		</tr>
-		<tr>
-
-			<td>4</td>
-			<td>prueba 4</td>
-		</tr>
-	</table>
-
-	<br />
-	<input type="button" value="Submit" id="out">
+	
 </body>
 </html>

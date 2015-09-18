@@ -11,21 +11,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.google.gson.JsonArray;
-import com.google.gson.reflect.TypeToken;
 import com.progress.open4gl.Open4GLException;
 import com.progress.open4gl.RunTime4GLException;
 import com.progress.open4gl.SystemErrorException;
-import com.sinergitec.ischool.model.ct.Person;
 import com.sinergitec.ischool.model.ct.ctAlumno;
 import com.sinergitec.ischool.service.ct.ctAlumnoService;
-import java.lang.reflect.Type;
+
 
 @Controller
 public class ctAlumnoController {
@@ -91,26 +84,7 @@ public class ctAlumnoController {
 		
 		System.out.println("Entro aqui--->"  + cUsuario);
 		System.out.println("Array1--->"       + dataArray1);
-		//System.out.println("Array2--->"       + dataArray2.size());
 		
-		
-		// ArrayList<String> dataArray
-
-		//System.out.println("Array" +  dataArray.size());		
-		//System.out.println("Array" +  dataArray.get(0));
-		//System.out.println("Array" +  dataArray.get(1));
-		//System.out.println("Array" +  dataArray.get(2));
-		
-		//System.out.println("Array" +  dataArray.get(3));
-		//System.out.println("Array" +  dataArray.get(4));
-		//System.out.println("Array" +  dataArray.get(5));
-		//System.out.println("Array" +  dataArray.get(6));
-		
-		
-		   
-		   
-		
-		//System.out.println("entro" + dataArray1.size());
 		
 		JSONArray jsonArray = new JSONArray(dataArray1);
 		
@@ -128,28 +102,10 @@ public class ctAlumnoController {
 		    
 		    System.out.println( jsonArray.getJSONObject(i).getString("firstName"));
 		    System.out.println( jsonArray.getJSONObject(i).getString("lastName"));
-		     
-		    
-		    
 		    
 		}
 		
 	
-		/*for (String obj : list ){
-			System.out.println(obj);
-			
-			
-		}*/
-		
-		
-		
-		/*for(String person : dataArray2){
-			System.out.println(person);
-		}*/
-		
-		
-		
-		  
 		
 		
 

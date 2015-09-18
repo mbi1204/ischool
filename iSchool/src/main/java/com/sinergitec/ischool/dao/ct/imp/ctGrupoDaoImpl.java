@@ -21,8 +21,6 @@ import com.sinergitec.ischool.dao.ct.ctProfesorDao;
 import com.sinergitec.ischool.model.ct.ctCurso;
 import com.sinergitec.ischool.model.ct.ctGrupo;
 import com.sinergitec.ischool.model.ct.ctProfesor;
-import com.sinergitec.ischool.service.ct.ctCursoService;
-import com.sinergitec.ischool.service.ct.ctProfesorService;
 import com.sinergitec.ischool.util.DBConexion;
 import com.sinergitec.ischool.util.VectorResultSet;
 
@@ -154,7 +152,9 @@ public List<ctGrupo> list_ctGrupo() throws Open4GLException, IOException{
 				obj.setcNombre(rs_tt_ctGrupo.getString("cNombre"));
 				obj.setiIdCurso(rs_tt_ctGrupo.getInt("iIdCurso"));
 				obj.setiIdProfesor(rs_tt_ctGrupo.getInt("iIdProfesor"));
-				obj.setDtHorario(rs_tt_ctGrupo.getString("dtHorario"));
+				obj.setcDias(rs_tt_ctGrupo.getString("cDias"));
+				obj.setcHorario(rs_tt_ctGrupo.getString("cHorario"));
+				obj.setcHorario(rs_tt_ctGrupo.getString("lHabilitado"));
 				obj.setId(rs_tt_ctGrupo.getBytes("Id"));
 				
 				
@@ -210,22 +210,17 @@ public List<ctGrupo> list_ctGrupo() throws Open4GLException, IOException{
 			
 			app.as_ctGrupo_get("SISIMB", g, tt_ctGrupo, oplResultado, opcTexto);
 			
-			ResultSet rs_tt_ctGrupo = tt_ctGrupo.getResultSetValue();
-
+			ResultSet rs_tt_ctGrupo = tt_ctGrupo.getResultSetValue();			
+			
 			while (rs_tt_ctGrupo.next()) {
-				
 				obj.setiIdGrupo(rs_tt_ctGrupo.getInt("iIdGrupo"));
 				obj.setcNombre(rs_tt_ctGrupo.getString("cNombre"));
 				obj.setiIdCurso(rs_tt_ctGrupo.getInt("iIdCurso"));
 				obj.setiIdProfesor(rs_tt_ctGrupo.getInt("iIdProfesor"));
-				obj.setDtHorario(rs_tt_ctGrupo.getString("dtHorario"));
-				 /* 
-				 * 
-				 * Por el momento comento esta linea, NOTA: Investigar como 
-				 * se manejan los horarios en progress y como hacer un tipo
-				 * calendario para que eligan los dias que toque clase asi
-				 * como la hora :)*/
-				obj.setId(rs_tt_ctGrupo.getBytes("id"));
+				obj.setcDias(rs_tt_ctGrupo.getString("cDias"));
+				obj.setcHorario(rs_tt_ctGrupo.getString("cHorario"));
+				obj.setcHorario(rs_tt_ctGrupo.getString("lHabilitado"));
+				obj.setId(rs_tt_ctGrupo.getBytes("Id"));
 
 			}
 			
