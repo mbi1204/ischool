@@ -42,6 +42,9 @@ th {
 			onclick="add_ctPuesto()">
 			<i class="fa fa-plus"></i> Agregar Puesto
 		</button>
+		<button class="pure-button pure-button-primary">
+			<i class="fa fa-plus"></i> Imprimir Datos
+		</button>
 		<br>
 		<table class="pure-table pure-table-bordered pure-table-striped">
 			<thead >
