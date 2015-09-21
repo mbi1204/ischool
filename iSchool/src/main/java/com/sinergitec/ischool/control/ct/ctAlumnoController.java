@@ -18,6 +18,7 @@ import com.progress.open4gl.RunTime4GLException;
 import com.progress.open4gl.SystemErrorException;
 import com.sinergitec.ischool.model.ct.ctAlumno;
 import com.sinergitec.ischool.service.ct.ctAlumnoService;
+import com.sinergitec.ischool.service.ct.ctGrupoService;
 
 
 @Controller
@@ -25,9 +26,17 @@ public class ctAlumnoController {
 
 	@Autowired
 	private ctAlumnoService alumnoService;
+	
+	@Autowired
+	private ctGrupoService grupoService;
+	
+	
 
 	@RequestMapping(value = "/ctAlumno", method = RequestMethod.GET)
 	public String alumno(Locale locale, Model model) {
+		
+		model.addAttribute("ctAlumno" , new ctAlumno());		
+		model.addAttribute("Lista_Grupo" , this.grupoService.list_ctGrupo());		
 
 		return "ctAlumnoForm";
 	}

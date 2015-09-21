@@ -5,8 +5,8 @@ import java.util.Date;
 import java.util.Vector;
 
 public class ctAlumno {
-	
-	private int iIdAlumno;
+
+	private Integer iIdAlumno;
 	private String cNombre;
 	private String cApellido;
 	private String dtFechaNac;
@@ -17,116 +17,163 @@ public class ctAlumno {
 	private String cCP;
 	private String cMunicipio;
 	private String cEstado;
-    private String cTel;
+	private String cTel;
 	private Boolean lEstatus;
 	private Timestamp dtFechaIns;
-	byte[] Id;
+	private String eMail;
+	private byte[] Id;
+	private ctGrupo grupo;
+
 	
+	
+	
+	
+
+	public String geteMail() {
+		return eMail;
+	}
+
+	public void seteMail(String eMail) {
+		this.eMail = eMail;
+	}
+
+	public ctGrupo getGrupo() {
+		return grupo;
+	}
+
+	public void setGrupo(ctGrupo grupo) {
+		this.grupo = grupo;
+	}
+
 	public byte[] getId() {
 		return Id;
 	}
+
 	public void setId(byte[] id) {
 		Id = id;
 	}
+
 	public int getiIdAlumno() {
 		return iIdAlumno;
 	}
-	public void setiIdAlumno(int iIdAlumno) {
+
+	public void setiIdAlumno(Integer iIdAlumno) {
 		this.iIdAlumno = iIdAlumno;
 	}
+
 	public String getcNombre() {
 		return cNombre;
 	}
+
 	public void setcNombre(String cNombre) {
 		this.cNombre = cNombre;
 	}
+
 	public String getcApellido() {
 		return cApellido;
 	}
+
 	public void setcApellido(String cApellido) {
 		this.cApellido = cApellido;
 	}
+
 	public String getDtFechaNac() {
 		return dtFechaNac;
 	}
-	public void setDtFechaNac(String dtFechaNac) {		
+
+	public void setDtFechaNac(String dtFechaNac) {
 		this.dtFechaNac = dtFechaNac;
 	}
+
 	public String getcCalle() {
 		return cCalle;
 	}
+
 	public void setcCalle(String cCalle) {
 		this.cCalle = cCalle;
 	}
+
 	public String getcNumExt() {
 		return cNumExt;
 	}
+
 	public void setcNumExt(String cNumExt) {
 		this.cNumExt = cNumExt;
 	}
+
 	public String getcNumInt() {
 		return cNumInt;
 	}
+
 	public void setcNumInt(String cNumInt) {
 		this.cNumInt = cNumInt;
 	}
+
 	public String getcColonia() {
 		return cColonia;
 	}
+
 	public void setcColonia(String cColonia) {
 		this.cColonia = cColonia;
 	}
+
 	public String getcCP() {
 		return cCP;
 	}
+
 	public void setcCP(String cCP) {
 		this.cCP = cCP;
 	}
+
 	public String getcMunicipio() {
 		return cMunicipio;
 	}
+
 	public void setcMunicipio(String cMunicipio) {
 		this.cMunicipio = cMunicipio;
 	}
 
 	public String getcTel() {
-        return cTel;
-    }
+		return cTel;
+	}
 
 	public void setcTel(String cTel) {
-        this.cTel = cTel;
-    }
-                
+		this.cTel = cTel;
+	}
+
 	public String getcEstado() {
 		return cEstado;
 	}
+
 	public void setcEstado(String cEstado) {
 		this.cEstado = cEstado;
 	}
+
 	public Boolean getlEstatus() {
 		return lEstatus;
 	}
+
 	public void setlEstatus(Boolean lEstatus) {
 		this.lEstatus = lEstatus;
 	}
+
 	public Timestamp getDtFechaIns() {
 		return dtFechaIns;
 	}
+
 	public void setDtFechaIns(Timestamp dtFechaIns) {
 		this.dtFechaIns = dtFechaIns;
 	}
-	
+
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public Vector getVectorDatos(){
+	public Vector getVectorDatos() {
 		Vector vector = new Vector();
-		
-		
-		Timestamp conversion = Timestamp.valueOf(this.getDtFechaNac()+" 00:00:00.000000");
-		
-		
-		Date date= new java.util.Date();
+
+		Timestamp conversion = Timestamp.valueOf(this.getDtFechaNac() + " 00:00:00.000000");
+
+		Date date = new java.util.Date();
 		this.setDtFechaIns(new Timestamp(date.getTime()));
-		
+
 		vector.add(this.getiIdAlumno());
 		vector.add(this.getcNombre());
 		vector.add(this.getcApellido());
