@@ -7,20 +7,15 @@
 <html>
 <head>
 <title>Home</title>
-
+<link rel="stylesheet" 
+	href='<c:url value="/resources/css/home.css"/>'>
 </head>
 <body>
-
-
-
+<div class="container">
+	<section id="content">
 	<h1>Sistema de Inscripciones</h1>
-
-
-
-
+	
 	<c:url var="actionUrl" value="Login" />
-
-
 
 	<form:form id="Form_Login" commandName="ctUsuarioSession" method="post"
 		action="${actionUrl}" class="pure-form pure-form-aligned">
@@ -28,10 +23,9 @@
 		<table style="margin: 0 auto;">
 			<tr>
 				<td colspan="2" style="text-align: center">
-					<h1>Iniciar sesión</h1>
+					<h2>Iniciar sesión</h2>
 				</td>
 			</tr>
-
 			<tr>
 				<td><form:label path="cUsuario">
 						<spring:message text="Usuario" />
@@ -49,15 +43,16 @@
 			</tr>
 
 
-			<tr>
+			  <tr>
 				<td colspan="2" align="center"><input type="submit"
 					name="aceptar" value="Aceptar"></td>
 			</tr>
 		</table>
-
+		<!--  <input type="submit"
+					name="aceptar" value="Aceptar">-->
 		<font color="red"> ${vcRespuesta}</font>
 	</form:form>
-
-
+		</section><!-- content -->
+</div><!-- container -->
 </body>
 </html>
