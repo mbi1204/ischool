@@ -30,8 +30,8 @@
 				<td><form:label path="cUsuario">
 						<spring:message text="Usuario" />
 					</form:label></td>
-				<td><form:input path="cUsuario" placeholder="Usuario" size="20"
-						maxlength="20" /></td>
+				<td><form:input type="text" path="cUsuario" placeholder="Usuario" size="20"
+						maxlength="20" id="username" /></td>
 			</tr>
 			<tr>
 				<td><form:label path="cPassword">
@@ -39,7 +39,7 @@
 					</form:label></td>
 
 				<td><form:input type="password" path="cPassword"
-						placeholder="Password" size="20" maxlength="20" /></td>
+						placeholder="Password" size="20" maxlength="20" id="password" /></td>
 			</tr>
 
 
