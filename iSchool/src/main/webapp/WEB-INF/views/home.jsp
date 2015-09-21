@@ -43,13 +43,13 @@
 			</tr>
 
 
-			  <tr>
+			  <!--  <tr>
 				<td colspan="2" align="center"><input type="submit"
 					name="aceptar" value="Aceptar"></td>
-			</tr>
+			</tr>-->
 		</table>
-		<!--  <input type="submit"
-					name="aceptar" value="Aceptar">-->
+		<input type="submit"
+					name="aceptar" value="Aceptar">
 		<font color="red"> ${vcRespuesta}</font>
 	</form:form>
 		</section><!-- content -->
