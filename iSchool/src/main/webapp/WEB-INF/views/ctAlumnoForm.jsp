@@ -1,4 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+
 <%@ page session="false"%>
 <html>
 <head>
@@ -16,87 +20,6 @@
 
 
 
-<script>
-	
-	function Add_curso(){
-		
-		
-		var valor ;
-		valor = $('select#combo').val();
-		
-		
-		if ($('#mytable tr > td:contains(' + valor + ')').length!=0)
-		{
-		    alert("ya existe el curso seleccionado.");
-		}else {
-			
-			$('#mytable > tbody').append('<tr>' + '<td>' + valor + '</td> <td>' + '<button class="btnDelete" onclick="Borrar();">Delete</button>' +  '</td> </tr>');
-			
-		}
-	}
-	
-	
-	
-	function Borrar(){
-		  
-		 $("#mytable").on('click','.btnDelete',function(){			 
-			$(this).closest('tr').remove();
-	     });
-		
-	}
-	
-	
-	
-	
-
-	$(document).ready(function() {
-		function dataRow(value1, value2) {
-			this.id = value1;
-			this.nombre = value2;
-		}
-		
-		$('#out').click(function() {
-			// create array to hold your data
-			var dataArray = new Array();
-			// iterate through rows of table
-			// * Start from '2' to skip the header row *
-			for (var i = 2; i <= $("table tr").length; i++) {
-				dataArray.push(new dataRow($(
-						"table tr:nth-child("+ i + ") td").eq(0).html(), $(
-						"table tr:nth-child("+ i + ") td").eq(1).html(), $(
-						"table tr:nth-child("+ i + ") td").eq(2).html()));	
-				}
-			
-			var sJson = JSON.stringify(dataArray);
-			alert(sJson);
-			
-			$.ajax({
-				type : "GET",
-				url : "pruebaxx",
-				dataType : "json",
-				contentType : "application/json; charset=utf-8",				
-				data : {
-					cUsuario : 'israel mendoza',		
-					dataArray1: JSON.stringify([
-					                            {"firstName":"John", "lastName":"Doe"},
-					                            {"firstName":"Anna", "lastName":"Smith"},
-					                            {"firstName":"Peter","lastName": "Jones"}                   ]) ,
-				},	           
-				success : function(data, textStatus, jqXHR) {
-
-					alert (data);
-				},
-				error : function() {
-					error("al cargar la lista");
-
-				}
-			});
-			
-			
-			
-			})
-   });
-</script>
 
 
 
@@ -108,111 +31,99 @@
 <body>
 	<div class="contenedor">
 		<header> </header>
+
 		<c:url var="addAction" value="/ctAlumno/add"></c:url>
-		<section>
-			<form class="registro" action="${addAction}" method="post"
-				name="registro">
-				<fieldset>
-					<legend>Datos Personales</legend>
-					<ul>
-						<li><label for="cNombre">Nombre:</label> <input type="text"
-							name="cNombre" placeholder="Ej. Bogar Elias" required
-							pattern="[a-z A-Z]*" /></li>
-					</ul>
-					<ul>
-						<li><label for="cApellido">Apellidos:</label> <input
-							type="text" name="cApellido" placeholder="Ej. Chavez Saavedra"
-							required pattern="[a-z A-Z]*" /></li>
-					</ul>
-					<ul>
-						<li><label for="dtFechaNac">Fecha de nacimiento:</label> <input
-							type="date" name="dtFechaNac" /></li>
-					</ul>
 
-				</fieldset>
-				<fieldset>
-					<legend>Domicilio</legend>
-					<ul>
-						<li><label for="cCalle">Calle:</label> <input type="text"
-							name="cCalle" placeholder="Ej. Saint Saenz" required
-							pattern="[a-z A-Z]*" /></li>
-					</ul>
-					<ul>
-						<li><label for="cNumExt">Numero Exterior:</label> <input
-							type="text" name="cNumExt" placeholder="Ej. 62 o  Lt 15 Mz 410"
-							required pattern=".{1,5}" /></li>
-					</ul>
-					<ul>
-						<li><label for="cNumInt">Numero Interior:</label> <input
-							type="text" name="cNumInt"
-							placeholder="Ej. 102 o Edificio H Dep.205" required
-							pattern=".{1,5}" /></li>
-					</ul>
-					<ul>
-						<li><label for="cColonia">Colonia:</label> <input type="text"
-							name="cColonia" placeholder="Ej. Vallejo" required
-							pattern="[a-zA-Z]*" /></li>
+		<form:form action="${actionUrl}" method="post" commandName="ctAlumno">
+			<fieldset>
+				<legend>Datos Personales</legend>
 
-					</ul>
-					<ul>
-						<li><label for="cCP">Codigo Postal:</label> <input
-							type="text" name="cCP" placeholder="Ej. 05555" maxlength="5"
-							required pattern="[0-9]{5}" /></li>
-
-					</ul>
-					<ul>
-						<li><label for="cMunicipio">Municipio o Delegacion:</label> <input
-							type="text" name="cMunicipio"
-							placeholder="Ej. Naucalpan o Gustavo a Madero" required
-							pattern="[a-z A-Z]*" /></li>
-					</ul>
-					<ul>
-						<li><label for="cEstado">Estado:</label> <input type="text"
-							name="cEstado" placeholder="Ej. Edo. Mex" required /></li>
-					</ul>
-					<ul>
-						<li><label for="cTel">Telefono:</label> <input type="text"
-							name="cTel" placeholder="Ej.(55)57395841 ext 45" required
-							pattern="[0-9].{1,8}" /></li>
-					</ul>
-				</fieldset>
-
-				<fieldset>
-					<legend>Seleccion de  Cursos</legend>
-					
-						<label for="cNomCurso">Cursos Disponibles:</label>
-							
-								<select name="combo" id="combo">
-									<option value="Salsa">Salsa</option>
-									<option value="Danzon">Danzon</option>
-									<option value="Baile Moderno">Baile Moderno</option>
-									<option value="Danza">Danza</option>
-								</select>
-							
-					
-
-					<input type="button" name="Addcurso" value="Agregar Curso"
-						onclick="Add_curso()">
-						
-						
-						
-						<table id="mytable">
-							<thead>
-								<tr>
-									<th>Curso</th>									
-								</tr>
-							</thead>
-							<tbody>
-							</tbody>
-						</table>
-						
+				<form:label path="cNombre">
+					<spring:message text="Nombre" />
+				</form:label>
+				<form:input path="cNombre" />
 
 
-				</fieldset>
-				<button class="submit" type="submit">Registrar</button>
-			</form>
-		</section>
+				<form:label path="cApellido">
+					<spring:message text="Apellidos" />
+				</form:label>
+				<form:input path="cApellido" />
+
+
+				<form:label path="dtFechaNac">
+					<spring:message text="Fecha de Nacimiento" />
+				</form:label>
+
+				<form:input type="date" path="dtFechaNac" />
+
+				<form:label path="cTel">
+					<spring:message text="Telefono" />
+				</form:label>
+				<form:input path="cTel" />
+				
+				<form:label path="eEmail">
+					<spring:message text="Email" />
+				</form:label>
+				
+				<form:input path="eEmail" /> 
+
+
+			</fieldset>
+
+			<fieldset>
+				<legend>Domicilio</legend>
+				<form:label path="cCalle">
+					<spring:message text="Calle" />
+				</form:label>
+				<form:input path="cCalle" /> 
+				<form:label path="cNumExt">
+					<spring:message text="NumExt" />
+				</form:label>
+				<form:input path="cNumExt" />
+
+				<form:label path="cNumInt">
+					<spring:message text="NumInt" />
+				</form:label>
+				<form:input path="cNumInt" />
+
+				<form:label path="cColonia">
+					<spring:message text="Colonia" />
+				</form:label>
+				<form:input path="cColonia" />
+
+				<form:label path="cCP">
+					<spring:message text="CP" />
+				</form:label>
+				<form:input path="cCP" />
+
+
+				<form:label path="cMunicipio">
+					<spring:message text="Municipio" />
+				</form:label>
+				<form:input path="cMunicipio" />
+
+
+				<form:label path="cEstado">
+					<spring:message text="Estado" />
+				</form:label>
+				<form:input path="cEstado" />
+
+				<form:label path="cMunicipio">
+					<spring:message text="Municipio" />
+				</form:label>
+				<form:input path="cMunicipio" />
+
+
+
+
+			</fieldset>
+
+
+		</form:form>
+
+
+
 	</div>
-	
+
 </body>
 </html>

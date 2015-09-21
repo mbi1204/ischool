@@ -17,29 +17,69 @@ public class ctGrupoServiceImp implements ctGrupoService {
 	@Autowired
 	private ctGrupoDao ctGrupoDao;
 
-	public void add_ctGrupo(ctGrupo obj_Grupo) throws Open4GLException, IOException{
-		this.ctGrupoDao.add_ctGrupo(obj_Grupo);
+	public void add_ctGrupo(ctGrupo obj_Grupo){
+		try {
+			this.ctGrupoDao.add_ctGrupo(obj_Grupo);
+		} catch (Open4GLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
-	public void update_ctGrupo(ctGrupo obj_ctGrupo) throws Open4GLException, IOException{
-		this.ctGrupoDao.update_ctGrupo(obj_ctGrupo);
+	public void update_ctGrupo(ctGrupo obj_ctGrupo){
+		try {
+			this.ctGrupoDao.update_ctGrupo(obj_ctGrupo);
+		} catch (Open4GLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
-	public void remove_ctGrupo(int id) throws Open4GLException, IOException{
-		this.ctGrupoDao.remove_ctGrupo(id);
+	public void remove_ctGrupo(int id){
+		try {
+			this.ctGrupoDao.remove_ctGrupo(id);
+		} catch (Open4GLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
-	public List<ctGrupo> list_ctGrupo() throws Open4GLException, IOException{
+	public List<ctGrupo> list_ctGrupo(){
 		
 		List<ctGrupo> Lista =new ArrayList<ctGrupo>();
-		Lista = ctGrupoDao.list_ctGrupo();
+		try {
+			Lista = ctGrupoDao.list_ctGrupo();
+		} catch (Open4GLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return Lista;
 	}
 
-	public ctGrupo get_Grupo(int g) throws Open4GLException, IOException{
+	public ctGrupo get_Grupo(int id){
 		
 		ctGrupo obj = new ctGrupo();
-		obj = ctGrupoDao.get_ctGrupo(g);
+		try {
+			obj = ctGrupoDao.get_ctGrupo(id);
+		} catch (Open4GLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return obj;
 	}
 }
