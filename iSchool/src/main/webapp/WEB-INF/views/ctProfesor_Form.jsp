@@ -49,14 +49,14 @@
 				<td><form:label path="cNumExt">
 						<spring:message text="NumeroExt" />
 					</form:label></td>
-				<td><form:input path="cNumExt" placeholder="Num Exterior" size="5" /></td>
+				<td><form:input path="cNumExt" placeholder="Num Exterior" size="5" onkeypress="return soloNumero(event)"/></td>
 			</tr>
 			
 			<tr>
 				<td><form:label path="cNumInt">
 						<spring:message text="NumeroInt" />
 					</form:label></td>
-				<td><form:input path="cNumInt" placeholder="Num Interior" size="5" /></td>
+				<td><form:input path="cNumInt" placeholder="Num Interior" size="5" onkeypress="return soloNumero(event)"/></td>
 			</tr>
 			
 			<tr>
@@ -85,7 +85,7 @@
 				<td><form:label path="cCP">
 						<spring:message text="Codigo Postal"/>
 					</form:label></td>
-				<td><form:input path="cCP" placeholder="Codigo Postal" size="11" /></td>
+				<td><form:input path="cCP" placeholder="Codigo Postal" size="11" onkeypress="return soloNumero(event)" pattern=".{5}"/></td>
 			</tr>
 
 			
@@ -93,14 +93,14 @@
 				<td><form:label path="cTelefono">
 						<spring:message text="Telefono"/>
 					</form:label></td>
-				<td><form:input path="cTelefono" placeholder="Telefono" size="10" /></td>
+				<td><form:input path="cTelefono" placeholder="Telefono" size="10" onkeypress="return soloNumero(event)"/></td>
 			</tr>
 			
 			<tr>
 				<td><form:label path="dtContrato">
 						<spring:message text="Fecha Contrato"/>
 					</form:label></td>
-				<td><input type="date" name="dtContrato"  value= "2015-01-01">
+				<td><input type="date" name="dtContrato" >
 			</tr>
 			
 			
@@ -108,7 +108,7 @@
 				<td><form:label path="dtFechaNac">
 						<spring:message text="Fecha de Nacimiento" />
 					</form:label></td>
-				<td><input type="date" name="dtFechaNac" value= "2015-01-01">
+				<td><input type="date" name="dtFechaNac"  >
 			</tr>
 			
 			<tr>

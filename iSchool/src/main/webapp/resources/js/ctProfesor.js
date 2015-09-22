@@ -1,4 +1,3 @@
-
 function soloLetras(e){
        key = e.keyCode || e.which;
        tecla = String.fromCharCode(key).toLowerCase();
@@ -18,6 +17,33 @@ function soloLetras(e){
         }
     }
 
+function soloNumero(n){
+    key = n.keyCode || n.which;
+    tecla = String.fromCharCode(key).toLowerCase();
+    numeros = " 0123456789 ";
+    especiales = "8-37-39-46";
+
+    tecla_especial = false
+    for(var i in especiales){
+         if(key == especiales[i]){
+             tecla_especial = true;
+             break;
+         }
+     }
+
+     if(numeros.indexOf(tecla)==-1 && !tecla_especial){
+         return false;
+     }
+ }
+
+function Fecha(){
+	
+	var f = new Date();
+	document.write(f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear());
+	
+	$('#Form_sysUsuMenu_ctMenu input#cUsuario').val
+}
+
 
 function add_ctProfesor() {
 	
@@ -36,11 +62,8 @@ function edit_ctProfesor(id) {
 		$("#AddctProfesor_Dialog").dialog('open');
 
 		// initializeDatePicker();
-	});
+	});	
 	
-	
-
-
 }
 
 function initializeDatePicker() {
@@ -55,6 +78,8 @@ function initializeDatePicker() {
 function resetDialog(form) {
 
 	form.find("input").val("");
+	form.find("#iIdProfesor").val("0");
+	
 }
 
 $(document).ready(function() {

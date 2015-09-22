@@ -77,15 +77,7 @@ public class ctProfesorControl {
 
 	}
 
-	/*@RequestMapping(value = "/ctProfesor/update", method = RequestMethod.POST)
-	public String edit_ctProfesor(@ModelAttribute("id") ctProfesor obj) {
-
-
-		this.servProfesor.update_ctProfesor(obj);
-		
 	
-		return "redirect:/ctProfesor";
-	}*/
 	
 	@RequestMapping(value = "/ctProfesor/update", method = RequestMethod.POST)
 	public String edit_ctProfesor(@PathVariable("id") int id, Model moldel){
