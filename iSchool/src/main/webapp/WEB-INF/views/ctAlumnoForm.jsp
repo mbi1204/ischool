@@ -17,14 +17,8 @@
 	src='<c:url value="/resources/js/lib/jquery-1.10.2.js"/>'></script>
 <script type="text/javascript"
 	src='<c:url value="/resources/js/lib/jquery-ui-1.10.4.custom.js"/>'></script>
-
-
-
-
-
-
-
-
+	
+	
 </head>
 
 
@@ -61,12 +55,13 @@
 				</form:label>
 				<form:input path="cTel" />
 				
-				<form:label path="eEmail">
-					<spring:message text="Email" />
-				</form:label>
 				
-				<form:input path="eEmail" /> 
-
+				<form:label path="cCorreo">
+					<spring:message text="Correo" />
+				</form:label>
+				<form:input path="cCorreo" />
+				
+			
 
 			</fieldset>
 
@@ -112,18 +107,37 @@
 					<spring:message text="Municipio" />
 				</form:label>
 				<form:input path="cMunicipio" />
-
-
-
-
 			</fieldset>
-
+			
+			<fieldset>
+				<legend>Cursos Grupos Disponibles</legend>
+				
+				<form:label path="grupo.iIdGrupo">
+					<spring:message text="Seleccione Grupo " />
+				</form:label>				
+				<form:select id = "idGrupo" path="grupo.iIdGrupo" items="${Lista_Grupo}"  	itemValue="iIdGrupo" itemLabel="cDescripcion"/>	
+				
+				<input type="button" name="Addcurso" value="Agregar Curso" 	onclick="Add_curso()">
+				<table id="mytable">
+					<thead>	
+					<tr> 
+						<th>ID</th> <th>Curso</th><th>Grupo</th> <th>Horario</th> <th>Precio</th>					
+					</tr>
+					</thead>
+					<tbody></tbody>
+				</table>				
+				
+				
+				
+			</fieldset>
 
 		</form:form>
 
 
 
 	</div>
+	<script type="text/javascript"
+		src='<c:url value="/resources/js/ctAlumno.js"/>'></script>
 
 </body>
 </html>

@@ -1,6 +1,5 @@
 package com.sinergitec.ischool.model.ct;
 
-
 import java.util.Vector;
 
 public class ctGrupo {
@@ -15,17 +14,17 @@ public class ctGrupo {
 	private byte[] Id;
 	private ctProfesor profesor;
 	private ctCurso curso;
-	
-	
-	public ctGrupo(){
-		this.iIdGrupo = 0 ;	
-		
+	private String cDescripcion;
+
+	public ctGrupo() {
+		this.iIdGrupo = 0;
+
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Vector getVectorDatos() {
 		Vector vector = new Vector();
-		
+
 		vector.add(this.getiIdGrupo());
 		vector.add(this.getcNombre());
 		vector.add(this.getiIdCurso());
@@ -35,6 +34,17 @@ public class ctGrupo {
 		vector.add(this.getlHabilitado());
 		vector.add(this.getId());
 		return vector;
+	}
+	
+	
+	
+
+	public String getcDescripcion() {
+		return ("Curso:" + cNombre  + " Grupo: "+  curso.getcNombre() + " Horario: " +  cDias  + " "+  cHorario + " Precio: $" + curso.getDePrecio()   );
+	}
+
+	public void setcDescripcion(String cDescripcion) {
+		this.cDescripcion = cDescripcion;
 	}
 
 	public Integer getiIdGrupo() {
