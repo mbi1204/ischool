@@ -205,7 +205,7 @@
 						<table id="mytable">
 							<thead>
 								<tr>
-									<th>Curso</th>									
+									<th>Curso</th><th>Grupo</th> <th>Horario</th> <th>Precio</th>										
 								</tr>
 							</thead>
 							<tbody>

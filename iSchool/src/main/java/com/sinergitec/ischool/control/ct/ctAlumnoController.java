@@ -13,30 +13,31 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.progress.open4gl.Open4GLException;
 import com.progress.open4gl.RunTime4GLException;
 import com.progress.open4gl.SystemErrorException;
 import com.sinergitec.ischool.model.ct.ctAlumno;
+import com.sinergitec.ischool.model.ct.ctGrupo;
 import com.sinergitec.ischool.service.ct.ctAlumnoService;
+import com.sinergitec.ischool.service.ct.ctCursoService;
 import com.sinergitec.ischool.service.ct.ctGrupoService;
-
 
 @Controller
 public class ctAlumnoController {
 
 	@Autowired
 	private ctAlumnoService alumnoService;
-	
+
 	@Autowired
 	private ctGrupoService grupoService;
-	
-	
 
 	@RequestMapping(value = "/ctAlumno", method = RequestMethod.GET)
 	public String alumno(Locale locale, Model model) {
-		
-		model.addAttribute("ctAlumno" , new ctAlumno());		
-		model.addAttribute("Lista_Grupo" , this.grupoService.list_ctGrupo());		
+
+		model.addAttribute("ctAlumno", new ctAlumno());
+		model.addAttribute("Lista_Grupo", this.grupoService.list_ctGrupo());
 
 		return "ctAlumnoForm";
 	}
@@ -67,56 +68,50 @@ public class ctAlumnoController {
 
 	}
 
-	@RequestMapping(value = "/edit/{cNombre}")
-	public String editPerson(@PathVariable("cNombre") String cCveCia, Model modelo) {
+	@RequestMapping(value = "/ctAlumno/getGrupo", method = RequestMethod.GET)
+	public @ResponseBody ctGrupo getGrupo(int id) {
 
-		// this.alumnoService.eliminarAlumno(iCliente);
+		System.out.println("entro");
 
-		return "ctAlumno";
+		ctGrupo obj = new ctGrupo();
+
+		obj = this.grupoService.get_Grupo(id);
+		
+		
+		
+		System.out.println("Nomre" + obj.getCurso().getcNombre());
+		System.out.println("Precio" + obj.getCurso().getDePrecio());
+
+		return obj;
 	}
 
-	@RequestMapping(value = "/remove/{cCveCia},{iCliente}", method = RequestMethod.GET)
-	public String doActions(@PathVariable("cCveCia") String cCveCia, @PathVariable("iCliente") int iCliente,
-			Model modelo) {
+	@RequestMapping(value = "/pruebaxx", method = RequestMethod.GET)
 
-		// this.alumnoService.eliminarAlumno(iCliente);
+	// public @ResponseBody String pruebaxx(String cUsuario
+	// ,@RequestParam("dataArray") ArrayList<String> dataArray) {
 
-		return "ctAlumno";
-	}
+	public String pruebaxx(String cUsuario, String dataArray1) {
 
-	@RequestMapping(value = "/pruebaxx" , method = RequestMethod.GET)
-	
-//	public @ResponseBody String pruebaxx(String cUsuario ,@RequestParam("dataArray")  ArrayList<String> dataArray) {
-	
-	
-	public  String pruebaxx(String cUsuario , String dataArray1 ) {		
-		
-		System.out.println("Entro aqui--->"  + cUsuario);
-		System.out.println("Array1--->"       + dataArray1);
-		
-		
+		System.out.println("Entro aqui--->" + cUsuario);
+		System.out.println("Array1--->" + dataArray1);
+
 		JSONArray jsonArray = new JSONArray(dataArray1);
-		
+
 		System.out.println(jsonArray.length());
-		
-		
+
 		List<String> list = new ArrayList<String>();
-		
-		for (int i=0; i<jsonArray.length(); i++) {
-		  //  System.out.println(jsonArray.getJSONObject(i));
-		   // System.out.println(  jsonArray.get(i).toString());
-		   // System.out.println(  jsonArray.get(i));
-		    
-		    String val = jsonArray.optString(i);
-		    
-		    System.out.println( jsonArray.getJSONObject(i).getString("firstName"));
-		    System.out.println( jsonArray.getJSONObject(i).getString("lastName"));
-		    
+
+		for (int i = 0; i < jsonArray.length(); i++) {
+			// System.out.println(jsonArray.getJSONObject(i));
+			// System.out.println( jsonArray.get(i).toString());
+			// System.out.println( jsonArray.get(i));
+
+			String val = jsonArray.optString(i);
+
+			System.out.println(jsonArray.getJSONObject(i).getString("firstName"));
+			System.out.println(jsonArray.getJSONObject(i).getString("lastName"));
+
 		}
-		
-	
-		
-		
 
 		return "salio";
 	}

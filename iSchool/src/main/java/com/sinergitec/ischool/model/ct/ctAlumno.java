@@ -20,40 +20,40 @@ public class ctAlumno {
 	private String cTel;
 	private Boolean lEstatus;
 	private Timestamp dtFechaIns;
-	private String eMail;
+	private String cCorreo;
 	private byte[] Id;
-	private ctGrupo grupo;
-
-	
-	
-	
+	private ctGrupo grupo;	
 	
 
-	public String geteMail() {
-		return eMail;
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public Vector getVectorDatos() {
+		Vector vector = new Vector();
+
+		Timestamp conversion = Timestamp.valueOf(this.getDtFechaNac() + " 00:00:00.000000");
+
+		Date date = new java.util.Date();
+		this.setDtFechaIns(new Timestamp(date.getTime()));
+
+		vector.add(this.getiIdAlumno());
+		vector.add(this.getcNombre());
+		vector.add(this.getcApellido());
+		vector.add(conversion);
+		vector.add(this.getcCalle());
+		vector.add(this.getcNumExt());
+		vector.add(this.getcNumInt());
+		vector.add(this.getcColonia());
+		vector.add(this.getcCP());
+		vector.add(this.getcMunicipio());
+		vector.add(this.getcEstado());
+		vector.add(this.getcTel());
+		vector.add(this.getlEstatus());
+		vector.add(this.getDtFechaIns());
+		vector.add(this.getId());
+
+		return vector;
 	}
 
-	public void seteMail(String eMail) {
-		this.eMail = eMail;
-	}
-
-	public ctGrupo getGrupo() {
-		return grupo;
-	}
-
-	public void setGrupo(ctGrupo grupo) {
-		this.grupo = grupo;
-	}
-
-	public byte[] getId() {
-		return Id;
-	}
-
-	public void setId(byte[] id) {
-		Id = id;
-	}
-
-	public int getiIdAlumno() {
+	public Integer getiIdAlumno() {
 		return iIdAlumno;
 	}
 
@@ -133,20 +133,20 @@ public class ctAlumno {
 		this.cMunicipio = cMunicipio;
 	}
 
-	public String getcTel() {
-		return cTel;
-	}
-
-	public void setcTel(String cTel) {
-		this.cTel = cTel;
-	}
-
 	public String getcEstado() {
 		return cEstado;
 	}
 
 	public void setcEstado(String cEstado) {
 		this.cEstado = cEstado;
+	}
+
+	public String getcTel() {
+		return cTel;
+	}
+
+	public void setcTel(String cTel) {
+		this.cTel = cTel;
 	}
 
 	public Boolean getlEstatus() {
@@ -164,32 +164,32 @@ public class ctAlumno {
 	public void setDtFechaIns(Timestamp dtFechaIns) {
 		this.dtFechaIns = dtFechaIns;
 	}
+	
+	
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public Vector getVectorDatos() {
-		Vector vector = new Vector();
 
-		Timestamp conversion = Timestamp.valueOf(this.getDtFechaNac() + " 00:00:00.000000");
 
-		Date date = new java.util.Date();
-		this.setDtFechaIns(new Timestamp(date.getTime()));
+	public String getcCorreo() {
+		return cCorreo;
+	}
 
-		vector.add(this.getiIdAlumno());
-		vector.add(this.getcNombre());
-		vector.add(this.getcApellido());
-		vector.add(conversion);
-		vector.add(this.getcCalle());
-		vector.add(this.getcNumExt());
-		vector.add(this.getcNumInt());
-		vector.add(this.getcColonia());
-		vector.add(this.getcCP());
-		vector.add(this.getcMunicipio());
-		vector.add(this.getcEstado());
-		vector.add(this.getcTel());
-		vector.add(this.getlEstatus());
-		vector.add(this.getDtFechaIns());
-		vector.add(this.getId());
+	public void setcCorreo(String cCorreo) {
+		this.cCorreo = cCorreo;
+	}
 
-		return vector;
+	public byte[] getId() {
+		return Id;
+	}
+
+	public void setId(byte[] id) {
+		Id = id;
+	}
+
+	public ctGrupo getGrupo() {
+		return grupo;
+	}
+
+	public void setGrupo(ctGrupo grupo) {
+		this.grupo = grupo;
 	}
 }

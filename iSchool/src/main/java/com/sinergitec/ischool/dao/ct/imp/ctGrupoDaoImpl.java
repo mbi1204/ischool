@@ -206,6 +206,12 @@ public List<ctGrupo> list_ctGrupo() throws Open4GLException, IOException{
 		Connection conexion = DBConexion.getConnection();
 		AppServer app = new AppServer(conexion);
 		ctGrupo obj = new ctGrupo();
+		
+		List<ctCurso> List_ctCurso = new ArrayList<ctCurso>();
+		List_ctCurso = ctCursoDao.list_ctCurso();
+		
+	
+		
 
 		try {
 			
@@ -222,6 +228,21 @@ public List<ctGrupo> list_ctGrupo() throws Open4GLException, IOException{
 				obj.setcHorario(rs_tt_ctGrupo.getString("cHorario"));
 				obj.setlHabilitado(rs_tt_ctGrupo.getBoolean("lHabilitado"));
 				obj.setId(rs_tt_ctGrupo.getBytes("Id"));
+				
+
+				for(ctCurso obj_ctCurso : List_ctCurso){
+					
+					
+					if(obj_ctCurso.getiIdCurso().equals(obj.getiIdCurso())){
+						
+						ctCurso obj_nctCurso = new ctCurso();
+						obj_nctCurso.setiIdCurso(obj_ctCurso.getiIdCurso());
+						obj_nctCurso.setcNombre(obj_ctCurso.getcNombre());
+						obj_nctCurso.setDePrecio(obj_ctCurso.getDePrecio());
+						obj.setCurso(obj_nctCurso);
+						}
+				}
+				
 				
 
 			}

@@ -70,8 +70,7 @@ public class ctGrupoControl {
 	public String get_ctGrupo(@PathVariable("id") int id,
 			Model model) throws Open4GLException, IOException {
 
-		model.addAttribute("ctGrupo", this.ctGrupoService.get_Grupo(id));
-		//model.addAttribute("actionUrl", "edit_ctUsuario/");
+		model.addAttribute("ctGrupo", this.ctGrupoService.get_Grupo(id));		
 		model.addAttribute("lista_ctCurso", this.ctCursoService.list_ctCurso());
 		model.addAttribute("lista_ctProfesor", this.ctProfesorService.list_ctProfesor());
 
@@ -80,12 +79,11 @@ public class ctGrupoControl {
 	}
 
 	@RequestMapping(value = "/ctGrupo/edit/{grupo}", method = RequestMethod.POST)
-	public String editarGrupo(@PathVariable("id") int g, Model moldel) throws Open4GLException, IOException {
+	public String editarGrupo(@PathVariable("id") int id, Model moldel) throws Open4GLException, IOException {
 		
-		/*java.util.Date date = new java.util.Date();
-		obj.setDtFechaAlta(new Timestamp(date.getTime()));*/
+	
 		
-		moldel.addAttribute("ctGrupo",this.ctGrupoService.get_Grupo(g));
+		moldel.addAttribute("ctGrupo",this.ctGrupoService.get_Grupo(id));
 		return "redirect:/ctGrupo";
 	}
 }
