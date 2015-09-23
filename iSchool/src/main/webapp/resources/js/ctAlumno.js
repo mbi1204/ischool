@@ -10,17 +10,6 @@ function Add_curso() {
 	
 	vlExiste  = false;
 	vdetotal  = 0;
-	alert("a");
-	var table = document.getElementById("mytable");
-    var row = table.insertRow(0);
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    var cell3 = row.insertCell(2);
-    var cell4 = row.insertCell(3);
-    var cell5 = row.insertCell(4);
-    alert("b");
-	
-	
 	
 	
 	 $.each($("#mytable tbody").find("tr"), function () {		 
@@ -43,11 +32,6 @@ function Add_curso() {
 		},
 		success : function(data, textStatus, jqXHR) {
 			
-			/*cell1.innerHTML = data.iTdGrupo;
-			cell2.innerHTML = data.cNombre;
-			cell3.innerHTML = data.curso.cNombre;
-			cell4.innerHTML = data.cHorario;
-			cell5.innerHTML = data.curso.dePrecio;*/
 			
 			$('#mytable > tbody')
 			.append(
@@ -77,7 +61,7 @@ function Add_curso() {
 			 vdetotal = 0 ;
 			 $.each($("#mytable tbody").find("tr"), function () {
 				 vdetotal = vdetotal  + parseInt($(this).closest("tr").find(".precio").text());				 
-				 alert("add " + parseInt($(this).closest("tr").find(".precio").text()));
+				 
 			 });
 			 
 			 $("#mytable > tfoot").empty();		
@@ -95,15 +79,7 @@ function Add_curso() {
 
 }
 
-function BorraRow(){
-	alert(1);
-	  $("#mytable").on('click','.btnDelete',function(){
-			 alert(3);		 
-			 $(this).closest('tr').remove();
-			 	// $(this).parent("tr").remove();			
-	  });	
-	
-}
+
 
 
 

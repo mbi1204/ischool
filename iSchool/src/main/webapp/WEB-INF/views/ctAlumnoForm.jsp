@@ -6,6 +6,25 @@
 <%@ page session="false"%>
 <html>
 <head>
+<style>
+
+fieldset{
+	height:150px;
+	width:1000px;
+	margin:auto;
+	
+}
+input{
+	
+	margin:15px;
+}
+
+	
+	
+	
+</style>
+
+<!--  <link rel="stylesheet" type="text/css" href="stylesheet.css"> -->
 <title>Registro</title>
 <meta name="viewport"
 	content="width=device-width, 
