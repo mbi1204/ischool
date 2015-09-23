@@ -78,24 +78,23 @@ function Add_curso() {
 
 
 
-function Borrar(){
-	  
-	 $("#mytable").on('click','.btnDelete',function(){			 
-	$(this).closest('tr').remove();
-		// $(this).parent("tr").remove();
+function Borrar(){	
+
+	 $("#mytable").on('click','.btnDelete',function(){
+		 $(this).closest('tr').remove();
+		
+		 vdetotal = 0 ;
+		 $("#mytable > tfoot").empty();
+		 
+		 $.each($("#mytable tbody").find("tr"), function () { 
+			 vdetotal = vdetotal  + parseInt($(this).closest("tr").find(".precio").text());		 
+		 });	 	 
+		
+		 if (vdetotal > 0) {
+			 $('#mytable > tfoot').append('<TR> <TH ALIGN=LEFT COLSPAN=4>Total a Pagar</TH> <TH>' + vdetotal +'</TH> </TR>');	 
+		 }
+		 
+		 
      });
-	 
-	 
-	 vdetotal = 0 ;
-	 $("#mytable > tfoot").empty();
-	 
-	 $.each($("#mytable tbody").find("tr"), function () {	 
-		 
-		 alert (parseInt($(this).closest("tr").find(".precio").text()));
-		 
-		 vdetotal = vdetotal  + parseInt($(this).closest("tr").find(".precio").text());		 
-	 });	 	 
-	
-	 $('#mytable > tfoot').append('<TR> <TH ALIGN=LEFT COLSPAN=4>Total a Pagar</TH> <TH>' + vdetotal +'</TH> </TR>');
 	
 }
