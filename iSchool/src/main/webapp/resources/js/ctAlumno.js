@@ -9,6 +9,7 @@ function Add_curso() {
 	vid = $('select#idGrupo option:selected').val();
 	
 	vlExiste  = false;
+	vdetotal  = 0;
 	
 	
 	
@@ -20,7 +21,6 @@ function Add_curso() {
 	 });
 	 
 	 if (vlExiste)  return;
-	 
 	 
 
 	
@@ -47,18 +47,30 @@ function Add_curso() {
 					+ '<td>'
 					+ data.cHorario
 					+ '</td>'
-					+ '<td>'
+					+ '<td class="precio">'
 					+ data.curso.dePrecio
 					+ '</td>'
 					+ '<td>'
 					+ '<button class="btnDelete" onclick="Borrar();">Quitar</button>'
 					+ '</td> </tr>');
 			
-				},
-				error : function() {
-					alert('error ');
-				}
-			});
+		
+			 vdetotal = 0 ;
+			 $.each($("#mytable tbody").find("tr"), function () {
+				 vdetotal = vdetotal  + parseInt($(this).closest("tr").find(".precio").text());
+			 });
+			
+			 $("#mytable > tfoot").empty();		
+			 $('#mytable > tfoot').append('<TR> <TH ALIGN=LEFT COLSPAN=4>Total a Pagar</TH> <TH>' + vdetotal +'</TH> </TR>');
+			 
+		
+			 
+		},
+		error : function() {
+			alert('error ');
+		}
+		
+	});
 
 
 }
@@ -69,7 +81,21 @@ function Add_curso() {
 function Borrar(){
 	  
 	 $("#mytable").on('click','.btnDelete',function(){			 
-		$(this).closest('tr').remove();
+	$(this).closest('tr').remove();
+		// $(this).parent("tr").remove();
      });
+	 
+	 
+	 vdetotal = 0 ;
+	 $("#mytable > tfoot").empty();
+	 
+	 $.each($("#mytable tbody").find("tr"), function () {	 
+		 
+		 alert (parseInt($(this).closest("tr").find(".precio").text()));
+		 
+		 vdetotal = vdetotal  + parseInt($(this).closest("tr").find(".precio").text());		 
+	 });	 	 
+	
+	 $('#mytable > tfoot').append('<TR> <TH ALIGN=LEFT COLSPAN=4>Total a Pagar</TH> <TH>' + vdetotal +'</TH> </TR>');
 	
 }
