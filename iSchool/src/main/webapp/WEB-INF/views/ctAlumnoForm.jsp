@@ -8,18 +8,65 @@
 <head>
 <style>
 
-fieldset{
-	height:150px;
-	width:1000px;
-	margin:auto;
+	fieldset{
+		margin-right: 200px;
+		margin-left: 200px;
+		
+		margin-top: 15px;
+		margin-bottom: 15px;
+		
+		padding: 10px;
+		background-color: white;
+		
+		border-style: double;
+		border-color: #3db2e1;
+		border-width: 5px;
+	}
 	
-}
-input{
+	input{		
+		margin: 10px;
+	}
 	
-	margin:15px;
-}
-
+	td{
+		margin: auto;
+	}
 	
+	body{
+		
+	  	
+	}	
+	
+	legend{
+		font-size: x-large;	
+		
+		background-color: white;
+		
+		font-family: Arial;
+	}
+	
+	
+	
+	
+	.textoLargo{
+		width: 300px;
+	}
+	
+	.btnAdd{
+		background-color: #FFBF00;		
+	}
+	
+	.tablaCurso{
+		border-bottom: 10px solid black;
+	}	
+	
+	
+	input:hover{
+		border-color:#81F7F3;
+	}
+	
+	button:hover{
+		border-color:#81F7F3;
+	}
 	
 	
 </style>
@@ -50,82 +97,124 @@ input{
 		<form:form action="${actionUrl}" method="post" commandName="ctAlumno">
 			<fieldset>
 				<legend>Datos Personales</legend>
-
-				<form:label path="cNombre">
-					<spring:message text="Nombre" />
-				</form:label>
-				<form:input path="cNombre" />
-
-
-				<form:label path="cApellido">
-					<spring:message text="Apellidos" />
-				</form:label>
-				<form:input path="cApellido" />
-
-
-				<form:label path="dtFechaNac">
-					<spring:message text="Fecha de Nacimiento" />
-				</form:label>
-
-				<form:input type="date" path="dtFechaNac" />
-
-				<form:label path="cTel">
-					<spring:message text="Telefono" />
-				</form:label>
-				<form:input path="cTel" />
-				
-				
-				<form:label path="cCorreo">
-					<spring:message text="Correo" />
-				</form:label>
-				<form:input path="cCorreo" />
-				
-			
-
+				<table>
+					<tr>
+						<td>
+							<form:label path="cNombre">
+								<spring:message text="Nombre" />
+							</form:label>											
+						</td>
+						<td>
+							<form:input path="cNombre" cssClass="textoLargo" />	
+						</td>
+						<td>		
+							<form:label path="cApellido">
+								<spring:message text="Apellidos" />
+							</form:label>							
+						</td>
+						<td>
+							<form:input path="cApellido" cssClass="textoLargo"/>
+						</td>
+					</tr>
+				</table>
+				<table>
+					<tr>						
+						<td>		
+							<form:label path="dtFechaNac">
+								<spring:message text="Fecha de Nacimiento" />
+							</form:label>							
+						</td>
+						<td>
+							<form:input type="date" path="dtFechaNac" />
+						</td>					
+						<td>
+							<form:label path="cTel">
+								<spring:message text="Telefono" />
+							</form:label>							
+						</td>
+						<td>
+							<form:input path="cTel" />
+						</td>
+						<td>				
+							<form:label path="cCorreo">
+								<spring:message text="Correo" />
+							</form:label>							
+						</td>
+						<td>
+							<form:input path="cCorreo"/>
+						</td>
+					</tr>
+				</table>
 			</fieldset>
 
 			<fieldset>
 				<legend>Domicilio</legend>
-				<form:label path="cCalle">
-					<spring:message text="Calle" />
-				</form:label>
-				<form:input path="cCalle" /> 
-				<form:label path="cNumExt">
-					<spring:message text="NumExt" />
-				</form:label>
-				<form:input path="cNumExt" />
-
-				<form:label path="cNumInt">
-					<spring:message text="NumInt" />
-				</form:label>
-				<form:input path="cNumInt" />
-
-				<form:label path="cColonia">
-					<spring:message text="Colonia" />
-				</form:label>
-				<form:input path="cColonia" />
-
-				<form:label path="cCP">
-					<spring:message text="CP" />
-				</form:label>
-				<form:input path="cCP" />
-
-
-				<form:label path="cMunicipio">
-					<spring:message text="Municipio" />
-				</form:label>
-				<form:input path="cMunicipio" />
-
-
-				<form:label path="cEstado">
-					<spring:message text="Estado" />
-				</form:label>
-				<form:input path="cEstado" />
-
-				<form:label path="cMunicipio">
-					<spring:message text="Municipio" />
-				</form:label>
-				<form:input path="cMunicipio" />
+				<table>
+					<tr>
+						<td>				
+							<form:label path="cCalle">
+								<spring:message text="Calle" />
+							</form:label>							 
+						</td>
+						<td>
+							<form:input path="cCalle" cssClass="textoLargo"/>
+						</td>
+					</tr>
+				</table>
+				<table>
+					<tr>
+						<td>
+							<form:label path="cNumExt">
+								<spring:message text="NumExt" />
+							</form:label>							
+						</td>
+						<td>
+							<form:input path="cNumExt" />
+						</td>
+						<td>			
+							<form:label path="cNumInt">
+								<spring:message text="NumInt" />
+							</form:label>							
+						</td>
+						<td>
+							<form:input path="cNumInt" />
+						</td>
+						<td>
+							<form:label path="cColonia">
+								<spring:message text="Colonia" />
+							</form:label>							
+						</td>
+						<td>
+							<form:input path="cColonia" />
+						</td>
+					</tr>
+					<tr>						
+						<td>
+							<form:label path="cCP">
+								<spring:message text="CP" />
+							</form:label>							
+						</td>
+						<td>
+							<form:input path="cCP" />
+						</td>
+						<td>
+							<form:label path="cMunicipio">
+								<spring:message text="Municipio" />
+							</form:label>							
+						</td>
+						<td>
+							<form:input path="cMunicipio" />
+						</td>
+						<td>
+							<form:label path="cEstado">
+								<spring:message text="Estado" />
+							</form:label>							
+						</td>
+						<td>
+							<form:input path="cEstado" />
+						</td>											
+					</tr>
+				</table>
 			</fieldset>
 			
 			<fieldset>
@@ -136,11 +225,11 @@ input{
 				</form:label>				
 				<form:select id = "idGrupo" path="grupo.iIdGrupo" items="${Lista_Grupo}"  	itemValue="iIdGrupo" itemLabel="cDescripcion"/>	
 				
-				<input type="button" name="Addcurso" value="Agregar Curso" 	onclick="Add_curso()">
+				<input type="button" name="Addcurso" value="Agregar Curso" 	onclick="Add_curso()" class="btnAdd">
 				<table id="mytable">
 					<thead>	
 					<tr> 
-						<th>ID</th> <th>Curso</th><th>Grupo</th> <th>Horario</th> <th>Precio</th>					
+						<th style="width:10px;">ID</th> <th style="width:100px;">Curso</th><th style="width:150px;">Grupo</th> <th style="width:50px;">Horario</th> <th style="width:50px;">Precio</th>					
 					</tr>
 					</thead>
 					<tbody></tbody>
