@@ -30,13 +30,16 @@ function Add_curso() {
 			
 			$('#mytable > tbody')
 			.append(
-					'<tr class="tablaCurso">'					
-					+ '<td>'
-					+ data.cNombre
+					'<tr class="tablaCurso">'	
+					+ '<td class= "grupoid">'
+					+ data.iIdGrupo
 					+ '</td>'
 					+ '<td>'
 					+ data.curso.cNombre
 					+ '</td>'
+					+ '<td>'
+					+ data.cNombre
+					+ '</td>'					
 					+ '<td>'
 					+ data.cHorario
 					+ '</td>'
@@ -45,7 +48,7 @@ function Add_curso() {
 					+ '</td>'
 					+ '<td>'
 					+ '<button class="btnDelete" onclick="Borrar();" style="background-color:#FF4000; color:black;">Quitar</button>'
-					+ '</td> </tr>');			
+					+ '</td> </tr>');		
 			
 		
 			 vdetotal = 0 ;
