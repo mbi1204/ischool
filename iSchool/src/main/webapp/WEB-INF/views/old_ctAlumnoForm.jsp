@@ -65,10 +65,10 @@
 			// iterate through rows of table
 			// * Start from '2' to skip the header row *
 			for (var i = 2; i <= $("table tr").length; i++) {
-				dataArray.push(new dataRow($(
-						"table tr:nth-child("+ i + ") td").eq(0).html(), $(
-						"table tr:nth-child("+ i + ") td").eq(1).html(), $(
-						"table tr:nth-child("+ i + ") td").eq(2).html()));	
+				dataArray.push(new dataRow(
+						$("table tr:nth-child("+ i + ") td").eq(0).html(),
+						$("table tr:nth-child("+ i + ") td").eq(1).html(), 
+						$("table tr:nth-child("+ i + ") td").eq(2).html()));	
 				}
 			
 			var sJson = JSON.stringify(dataArray);

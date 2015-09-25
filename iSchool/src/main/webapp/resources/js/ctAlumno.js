@@ -30,7 +30,7 @@ function Add_curso() {
 			
 			$('#mytable > tbody')
 			.append(
-					'<tr class="tablaCurso">'					
+					'<tr >'					
 					+ '<td>'
 					+ data.cNombre
 					+ '</td>'
@@ -53,9 +53,15 @@ function Add_curso() {
 				 vdetotal = vdetotal  + parseInt($(this).closest("tr").find(".precio").text());				 
 				 
 			 });
+			 			 
 			 
 			 $("#mytable > tfoot").empty();		
 			 $('#mytable > tfoot').append('<TR> <TH ALIGN=LEFT COLSPAN=4>Total a Pagar</TH> <TH>' + vdetotal +'</TH> </TR>');
+			 
+			
+			 
+			 alert("fin");
+			 
 			 
 		
 			 
@@ -90,28 +96,6 @@ function Borrar(){
 
 }
 
-function Submit() {
-	alert("entro al submit");
-}
-//
-//function Submit() {
-//	alert("entro");
-//
-//	$.ajax({
-//		type : "POST",
-//		url : "ctAlumno/agregar",		
-//		success : function(data, textStatus, jqXHR) {
-//			
-//			alert("vientos");
-//
-//		},
-//		error : function() {
-//			alert('error ');
-//		}
-//	});
-//	
-//
-//}
 
 
 

@@ -23,6 +23,7 @@ public abstract class AbstractITextPdfView extends AbstractView {
 
 	public AbstractITextPdfView() {
 		setContentType("application/pdf");
+
 	}
 
 	@Override

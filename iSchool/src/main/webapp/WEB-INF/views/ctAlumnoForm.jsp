@@ -25,16 +25,8 @@
 	
 	input{		
 		margin: 10px;
-	}
-	
-	td{
-		
-	}
-	
-	body{
-		
-	  	
 	}	
+		
 	
 	legend{
 		font-size: x-large;	
@@ -47,128 +39,6 @@
 	
 	
 	
-	.textoLargo{
-		width: 300px;
-	}
-	
-	.btnAdd{
-		background-color: #FFBF00;		
-	}
-	
-	.tablaCurso{
-		border-bottom: 10px solid black;
-	}	
-	
-	
-	input:hover{
-		border-color:#81F7F3;
-	}
-	
-	button:hover{
-		border-color:#81F7F3;
-	}
-	
-	th{		
-		background:-o-linear-gradient(bottom, #005fbf 5%, #003f7f 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #005fbf), color-stop(1, #003f7f) );
-		background:-moz-linear-gradient( center top, #005fbf 5%, #003f7f 100% );
-		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#005fbf", endColorstr="#003f7f");	background: -o-linear-gradient(top,#005fbf,003f7f);
-	
-		background-color:#005fbf;
-		border:0px solid #000000;
-		text-align:center;
-		border-width:0px 0px 1px 1px;
-		font-size:14px;
-		font-family:Arial;
-		font-weight:bold;
-		color:#ffffff;
-	}
-	
-	.CSSTableGenerator {
-		margin:0px;padding:0px;
-		width:100%;
-		
-		border:1px solid #000000;
-		
-		-moz-border-radius-bottomleft:0px;
-		-webkit-border-bottom-left-radius:0px;
-		border-bottom-left-radius:0px;
-		
-		-moz-border-radius-bottomright:0px;
-		-webkit-border-bottom-right-radius:0px;
-		border-bottom-right-radius:0px;
-		
-		-moz-border-radius-topright:0px;
-		-webkit-border-top-right-radius:0px;
-		border-top-right-radius:0px;
-		
-		-moz-border-radius-topleft:0px;
-		-webkit-border-top-left-radius:0px;
-		border-top-left-radius:0px;
-	}.CSSTableGenerator table{
-	    
-	    border-spacing: 0;
-		width:100%;
-		
-		margin:0px;padding:0px;
-	}.CSSTableGenerator tr:last-child td:last-child {
-		-moz-border-radius-bottomright:0px;
-		-webkit-border-bottom-right-radius:0px;
-		border-bottom-right-radius:0px;
-	}
-	.CSSTableGenerator table tr:first-child td:first-child {
-		-moz-border-radius-topleft:0px;
-		-webkit-border-top-left-radius:0px;
-		border-top-left-radius:0px;
-	}
-	.CSSTableGenerator table tr:first-child td:last-child {
-		-moz-border-radius-topright:0px;
-		-webkit-border-top-right-radius:0px;
-		border-top-right-radius:0px;
-	}.CSSTableGenerator tr:last-child td:first-child{
-		-moz-border-radius-bottomleft:0px;
-		-webkit-border-bottom-left-radius:0px;
-		border-bottom-left-radius:0px;
-	}.CSSTableGenerator tr:hover td{
-		
-	}
-	.CSSTableGenerator tr:nth-child(odd){ background-color:#aad4ff; }
-	.CSSTableGenerator tr:nth-child(even)    { background-color:#ffffff; }
-	.CSSTableGenerator td{
-		vertical-align:middle;
-		
-		
-		border:1px solid #000000;
-		border-width:0px 1px 1px 0px;
-		text-align:center;
-		padding:7px;
-		font-size:10px;
-		font-family:Arial;
-		font-weight:normal;
-		color:#000000;
-		
-	}.CSSTableGenerator tr:last-child td{		
-		border-width:0px 1px 0px 0px;
-	}.CSSTableGenerator tr td:last-child{
-		border-width:0px 0px 1px 0px;		
-	}.CSSTableGenerator tr:last-child td:last-child{
-		border-width:0px 0px 0px 0px;
-	}
-	.CSSTableGenerator tr:first-child td{		
-		border:0px solid #000000;
-		text-align:center;
-		border-width:0px 0px 1px 1px;
-				
-	}
-	.CSSTableGenerator tr:first-child:hover td{
-		
-	}
-	.CSSTableGenerator tr:first-child td:first-child{
-		border-width:0px 0px 1px 0px;
-	}
-	.CSSTableGenerator tr:first-child td:last-child{
-		border-width:0px 0px 1px 1px;
-	}
-	
 	
 	
 	
@@ -178,9 +48,7 @@
 
 <!--  <link rel="stylesheet" type="text/css" href="stylesheet.css"> -->
 <title>Registro</title>
-<meta name="viewport"
-	content="width=device-width, 
-              user-scalable=no, initial-scale=1.0, maximun-scale=1.0, minimum-scale=1.0">
+
 
 
 <!--  It is advised to put the <script> tags at the end of the document body so they don't block rendering of the page -->
@@ -336,7 +204,7 @@
 				<form:select id = "idGrupo" path="grupo.iIdGrupo" items="${Lista_Grupo}"  	itemValue="iIdGrupo" itemLabel="cDescripcion"/>	
 				
 				<input type="button" name="Addcurso" value="Agregar Curso" 	onclick="Add_curso()" class="btnAdd">
-				<div class="CSSTableGenerator">
+				
 					<table id="mytable">
 						<thead>	
 							<tr> 
@@ -346,18 +214,23 @@
 						<tbody></tbody>
 						<tfoot></tfoot>
 					</table>
-				</div>	
+					
 				
-				
+				<input type="text" id="txtCadena">
 			</fieldset>
 			
-			 <button onclick="Submit();">Guardar</button>
+			<button type="submit">Aceptar</button>
+			 <button type="button" onclick="Submit();">Registrar</button>  
+			
 
 		</form:form>
 
 
-
 	</div>
+	
+	<div style="color:#0000FF" id="targetDiv">
+	 <p>This is a paragraph.</p>
+	 </div>
 	
 
 </body>
