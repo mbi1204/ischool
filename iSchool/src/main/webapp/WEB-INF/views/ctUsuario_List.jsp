@@ -56,6 +56,13 @@ th {
 		<button class="pure-button pure-button-primary" onclick="add_ctUsuario()">
 			<i class="fa fa-plus"></i> Agregar Usuario
 		</button>
+		
+		
+		<a class="pure-button pure-button-primary"
+		href="downloadPDF"> 
+		<i	class="fa fa-plus"></i>Imprimir		</a>
+		
+		
 		<br>
 		<table class="pure-table pure-table-bordered pure-table-striped">
 			<thead>

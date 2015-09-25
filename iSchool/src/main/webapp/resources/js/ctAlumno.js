@@ -7,9 +7,7 @@ function Add_curso() {
 	vid = $('select#idGrupo option:selected').val();	
 	
 	vlExiste  = false;
-	vdetotal  = 0;
-	
-	
+	vdetotal  = 0;	
 	
 	 $.each($("#mytable tbody").find("tr"), function () {
 		 			
@@ -17,8 +15,7 @@ function Add_curso() {
 			vlExiste = true;			
 			alert ("el curso ya fue registrado");
 		}  
-	 });
-	 
+	 });	 
 	 
 	 
 	 if (vlExiste)  return;	
@@ -71,11 +68,7 @@ function Add_curso() {
 		}
 		
 	});
-
-
 }
-
-
 
 
 
@@ -99,3 +92,29 @@ function Borrar(){
 	 });	
 
 }
+
+function Submit() {
+	alert("entro al submit");
+}
+//
+//function Submit() {
+//	alert("entro");
+//
+//	$.ajax({
+//		type : "POST",
+//		url : "ctAlumno/agregar",		
+//		success : function(data, textStatus, jqXHR) {
+//			
+//			alert("vientos");
+//
+//		},
+//		error : function() {
+//			alert('error ');
+//		}
+//	});
+//	
+//
+//}
+
+
+

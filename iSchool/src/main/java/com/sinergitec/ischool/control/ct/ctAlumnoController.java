@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.progress.open4gl.Open4GLException;
 import com.progress.open4gl.RunTime4GLException;
@@ -42,31 +43,47 @@ public class ctAlumnoController {
 		return "ctAlumnoForm";
 	}
 
-	@RequestMapping(value = "/ctAlumno/add", method = RequestMethod.POST)
-	public String addPerson(@ModelAttribute("ctAlumno") ctAlumno obj)
-			throws RunTime4GLException, SystemErrorException, Open4GLException, IOException {
+	@RequestMapping(value = "/ctAlumno/agregar", method = RequestMethod.POST)
+	public ModelAndView addPerson(@ModelAttribute("ctAlumno") ctAlumno obj) {
 
-		if (obj.getiIdAlumno() == 0) {
-			// new person, add it
-			try {
+		try {
 
-				this.alumnoService.add_ctAlumno(obj);
-			} catch (Open4GLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-		} else {
-			// existing person, call update
-
+			this.alumnoService.add_ctAlumno(obj);
+		} catch (Open4GLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
-		return "ctAlumno";
+		return new ModelAndView("pdfView", "listBooks", null);
 
 	}
+
+	// @RequestMapping(value = "/ctAlumno/agregar" , method =
+	// RequestMethod.POST)
+	// public ModelAndView addPerson(@ModelAttribute("ctAlumno") ctAlumno obj) {
+	//
+	// System.out.println("entro");
+	//
+	//
+	//
+	// // new person, add it
+	// try {
+	//
+	// this.alumnoService.add_ctAlumno(obj);
+	// } catch (Open4GLException e) {
+	// // TODO Auto-generated catch block
+	// e.printStackTrace();
+	// } catch (IOException e) {
+	// // TODO Auto-generated catch block
+	// e.printStackTrace();
+	// }
+	//
+	//
+	// return new ModelAndView("pdfView", "listBooks", null);
+	// }
 
 	@RequestMapping(value = "/ctAlumno/getGrupo", method = RequestMethod.GET)
 	public @ResponseBody ctGrupo getGrupo(int id) {
@@ -76,9 +93,7 @@ public class ctAlumnoController {
 		ctGrupo obj = new ctGrupo();
 
 		obj = this.grupoService.get_Grupo(id);
-		
-		
-		
+
 		System.out.println("Nomre" + obj.getCurso().getcNombre());
 		System.out.println("Precio" + obj.getCurso().getDePrecio());
 

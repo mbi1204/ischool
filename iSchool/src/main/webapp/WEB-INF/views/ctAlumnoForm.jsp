@@ -84,6 +84,11 @@
 <script type="text/javascript"
 	src='<c:url value="/resources/js/lib/jquery-ui-1.10.4.custom.js"/>'></script>
 	
+<script type="text/javascript" 		src='<c:url value="/resources/js/ctAlumno.js"/>'></script>
+<script>
+
+
+</script>	
 	
 </head>
 
@@ -92,9 +97,9 @@
 	<div class="contenedor">
 		<header> </header>
 
-		<c:url var="addAction" value="/ctAlumno/add"></c:url>
+		<c:url var="addAction" value="/ctAlumno/agregar"></c:url>
 
-		<form:form action="${actionUrl}" method="post" commandName="ctAlumno">
+		<form:form action="${addAction}" method="POST" commandName="ctAlumno" id="Form_ctAlumno">
 			<fieldset>
 				<legend>Datos Personales</legend>
 				<table>
@@ -239,14 +244,15 @@
 				
 				
 			</fieldset>
+			
+			 <button onclick="Submit();">Guardar</button>
 
 		</form:form>
 
 
 
 	</div>
-	<script type="text/javascript"
-		src='<c:url value="/resources/js/ctAlumno.js"/>'></script>
+	
 
 </body>
 </html>

@@ -48,6 +48,7 @@ public class ctAlumno {
 		vector.add(this.getcTel());
 		vector.add(this.getlEstatus());
 		vector.add(this.getDtFechaIns());
+		vector.add(this.getcCorreo());
 		vector.add(this.getId());
 
 		return vector;

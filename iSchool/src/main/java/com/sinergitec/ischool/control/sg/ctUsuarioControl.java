@@ -111,5 +111,14 @@ public class ctUsuarioControl {
 		
 		return "redirect:/ctUsuario";
 	}
+	
+	@RequestMapping(value = "/downloadPDF", method = RequestMethod.GET)
+	public ModelAndView downloadPDF() {
+		
+	
+		return new ModelAndView("pdfView", "listBooks", null);
+	}
+	
+	
 
 }
