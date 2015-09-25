@@ -23,6 +23,7 @@ public class ctAlumno {
 	private String cCorreo;
 	private byte[] Id;
 	private ctGrupo grupo;	
+	private String cGrupo;
 	
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -193,4 +194,15 @@ public class ctAlumno {
 	public void setGrupo(ctGrupo grupo) {
 		this.grupo = grupo;
 	}
+
+	public String getcGrupo() {
+		return cGrupo;
+	}
+
+	public void setcGrupo(String cGrupo) {
+		this.cGrupo = cGrupo;
+	}
+	
+	
+	
 }

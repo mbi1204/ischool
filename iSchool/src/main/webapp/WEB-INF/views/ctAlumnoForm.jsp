@@ -216,7 +216,7 @@
 					</table>
 					
 				
-				<input type="text" id="txtCadena">
+					<form:input type="hidden" path="cGrupo" disabled="false" />
 			</fieldset>
 			
 			<button type="submit">Aceptar</button>

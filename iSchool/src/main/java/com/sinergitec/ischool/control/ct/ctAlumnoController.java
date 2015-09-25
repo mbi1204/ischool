@@ -44,12 +44,21 @@ public class ctAlumnoController {
 	}
 
 	@RequestMapping(value = "/ctAlumno/agregar", method = RequestMethod.POST)
-	public ModelAndView addPerson() {
+	public ModelAndView addPerson(@ModelAttribute("ctAlumno") ctAlumno obj) {
 		
-		System.out.println("enro al agregar");
 
 		
-		return new ModelAndView("pdfView", "listBooks", null);
+    	 ModelAndView miModelo = new ModelAndView("pdfView");
+    	 
+    	 miModelo.addObject("ctAlumno" ,  obj);
+    	 
+    	 
+    	 
+    	 
+
+		
+		//return new ModelAndView("pdfView", "listBooks", null);
+    	 return miModelo;
 
 	}
 
@@ -94,27 +103,14 @@ public class ctAlumnoController {
 
 	@RequestMapping(value = "/pruebaxx", method = RequestMethod.GET)
 
-	// public @ResponseBody String pruebaxx(String cUsuario
-	// ,@RequestParam("dataArray") ArrayList<String> dataArray) {
 
 	public String pruebaxx(String cUsuario, String dataArray1) {
-
-		System.out.println("Entro aqui--->" + cUsuario);
-		System.out.println("Array1--->" + dataArray1);
-
 		JSONArray jsonArray = new JSONArray(dataArray1);
-
-		System.out.println(jsonArray.length());
-
 		List<String> list = new ArrayList<String>();
 
 		for (int i = 0; i < jsonArray.length(); i++) {
-			// System.out.println(jsonArray.getJSONObject(i));
-			// System.out.println( jsonArray.get(i).toString());
-			// System.out.println( jsonArray.get(i));
-
+			
 			String val = jsonArray.optString(i);
-
 			System.out.println(jsonArray.getJSONObject(i).getString("firstName"));
 			System.out.println(jsonArray.getJSONObject(i).getString("lastName"));
 

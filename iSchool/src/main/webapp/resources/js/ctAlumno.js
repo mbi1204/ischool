@@ -11,7 +11,7 @@ function Add_curso() {
 	
 	 $.each($("#mytable tbody").find("tr"), function () {
 		 			
-		if( $(this).closest("tr").find(".grupoid").text() == vid ){			
+		if( $(this).closest("tr").find(".id_Grupo").text() == vid ){			
 			vlExiste = true;			
 			alert ("el curso ya fue registrado");
 		}  
@@ -31,19 +31,19 @@ function Add_curso() {
 			$('#mytable > tbody')
 			.append(
 					'<tr class="tablaCurso">'
-					+ '<td  class="grupoid" >' 
+					+ '<td  class="id_Grupo" >' 
 					+ data.iIdGrupo
-					+ '</td>'
-					+ '<td>'
+					+ '</td >'
+					+ '<td class="cNombre_Grupo">'
 					+ data.cNombre
 					+ '</td>'
-					+ '<td>'
+					+ '<td class="cNombre_Curso">'
 					+ data.curso.cNombre
 					+ '</td>'
-					+ '<td>'
+					+ '<td class="cHorario>'
 					+ data.cHorario
 					+ '</td>'
-					+ '<td class="precio">'
+					+ '<td class="dePrecio">'
 					+ data.curso.dePrecio
 					+ '</td>'
 					+ '<td>'
@@ -51,15 +51,47 @@ function Add_curso() {
 					+ '</td> </tr>');	
 
 			vdetotal = 0 ;
+			
 			 $.each($("#mytable tbody").find("tr"), function () {
-				 vdetotal = vdetotal  + parseInt($(this).closest("tr").find(".precio").text());				 
+				 vdetotal = vdetotal  + parseInt($(this).closest("tr").find(".dePrecio").text());
+				 								  
 				 
 			 });
+			 
+			 alert(vdetotal);
 			 			 
 			 
 			 $("#mytable > tfoot").empty();		
 			 $('#mytable > tfoot').append('<TR> <TH ALIGN=LEFT COLSPAN=4>Total a Pagar</TH> <TH>' + vdetotal +'</TH> </TR>');
 			 
+			 
+			 function dataRow(id_Grupo ,  cNombre_Grupo , cNombre_Curso ,cHorario, dePrecio) {
+				 this.id_Grupo = id_Grupo;
+				 this.cNombre_Grupo  = cNombre_Grupo;
+				 this.cNombre_Curso = cNombre_Curso ;
+				 this.cHorario = cHorario;
+				 this.dePrecio = dePrecio;
+				 
+				}
+			 
+			 
+			 var dataArray = new Array();
+				// iterate through rows of table
+				// * Start from '2' to skip the header row *
+			 $.each($("#mytable tbody").find("tr"), function () {
+				 dataArray.push(new dataRow($(this).closest("tr").find(".id_Grupo").text() ,
+						 					$(this).closest("tr").find(".cNombre_Grupo").text() , 
+						 					$(this).closest("tr").find(".cNombre_Curso").text() ,
+						 					$(this).closest("tr").find(".cHorario").text() ,
+						 					$(this).closest("tr").find(".dePrecio").text()  ));				 
+				 
+			 });
+				
+				var sJson = JSON.stringify(dataArray);
+				alert(sJson);
+			 
+				
+				$( "#cGrupo" ).val(sJson);
 
 		
 			 			 
@@ -83,12 +115,42 @@ function Borrar(){
 		 $("#mytable > tfoot").empty();
 		 
 		 $.each($("#mytable tbody").find("tr"), function () { 
-			 vdetotal = vdetotal  + parseInt($(this).closest("tr").find(".precio").text());		 
+			 vdetotal = vdetotal  + parseInt($(this).closest("tr").find(".dePrecio").text());		 
 		 });	 	 
 		
 		 if (vdetotal > 0) {
 			 $('#mytable > tfoot').append('<TR> <TH ALIGN=LEFT COLSPAN=4>Total a Pagar</TH> <TH>' + vdetotal +'</TH> </TR>');	 
 		 }
+		 
+		 
+		 function dataRow(id_Grupo ,  cNombre_Grupo , cNombre_Curso ,cHorario, dePrecio) {
+			 this.id_Grupo = id_Grupo;
+			 this.cNombre_Grupo  = cNombre_Grupo;
+			 this.cNombre_Curso = cNombre_Curso ;
+			 this.cHorario = cHorario;
+			 this.dePrecio = dePrecio;
+			 
+			}
+		 
+		 
+		 var dataArray = new Array();
+			// iterate through rows of table
+			// * Start from '2' to skip the header row *
+		 $.each($("#mytable tbody").find("tr"), function () {
+			 dataArray.push(new dataRow($(this).closest("tr").find(".id_Grupo").text() ,
+					 					$(this).closest("tr").find(".cNombre_Grupo").text() , 
+					 					$(this).closest("tr").find(".cNombre_Curso").text() ,
+					 					$(this).closest("tr").find(".cHorario").text() ,
+					 					$(this).closest("tr").find(".dePrecio").text()  ));				 
+			 
+		 });
+			
+			var sJson = JSON.stringify(dataArray);
+			alert(sJson);
+		 
+			
+			$( "#cGrupo" ).val(sJson);
+		 
 		 
 		 
 	 });	
