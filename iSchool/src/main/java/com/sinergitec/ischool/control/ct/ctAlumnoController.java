@@ -62,41 +62,14 @@ public class ctAlumnoController {
 
 	}
 
-	// @RequestMapping(value = "/ctAlumno/agregar" , method =
-	// RequestMethod.POST)
-	// public ModelAndView addPerson(@ModelAttribute("ctAlumno") ctAlumno obj) {
-	//
-	// System.out.println("entro");
-	//
-	//
-	//
-	// // new person, add it
-	// try {
-	//
-	// this.alumnoService.add_ctAlumno(obj);
-	// } catch (Open4GLException e) {
-	// // TODO Auto-generated catch block
-	// e.printStackTrace();
-	// } catch (IOException e) {
-	// // TODO Auto-generated catch block
-	// e.printStackTrace();
-	// }
-	//
-	//
-	// return new ModelAndView("pdfView", "listBooks", null);
-	// }
+	
 
 	@RequestMapping(value = "/ctAlumno/getGrupo", method = RequestMethod.GET)
 	public @ResponseBody ctGrupo getGrupo(int id) {
-
-		System.out.println("entro");
-
+	
 		ctGrupo obj = new ctGrupo();
 
 		obj = this.grupoService.get_Grupo(id);
-
-		System.out.println("Nomre" + obj.getCurso().getcNombre());
-		System.out.println("Precio" + obj.getCurso().getDePrecio());
 
 		return obj;
 	}
