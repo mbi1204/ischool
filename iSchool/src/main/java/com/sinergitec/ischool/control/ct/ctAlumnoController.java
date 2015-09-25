@@ -44,19 +44,11 @@ public class ctAlumnoController {
 	}
 
 	@RequestMapping(value = "/ctAlumno/agregar", method = RequestMethod.POST)
-	public ModelAndView addPerson(@ModelAttribute("ctAlumno") ctAlumno obj) {
+	public ModelAndView addPerson() {
+		
+		System.out.println("enro al agregar");
 
-		try {
-
-			this.alumnoService.add_ctAlumno(obj);
-		} catch (Open4GLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
+		
 		return new ModelAndView("pdfView", "listBooks", null);
 
 	}
