@@ -33,10 +33,7 @@ function Add_curso() {
 			
 			$('#mytable > tbody')
 			.append(
-					'<tr class="tablaCurso">'
-					+ '<td  class="grupoid" >' 
-					+ data.iIdGrupo
-					+ '</td>'
+					'<tr class="tablaCurso">'					
 					+ '<td>'
 					+ data.cNombre
 					+ '</td>'
