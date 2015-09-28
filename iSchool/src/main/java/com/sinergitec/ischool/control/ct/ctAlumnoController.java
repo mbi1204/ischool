@@ -1,6 +1,7 @@
 package com.sinergitec.ischool.control.ct;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -20,6 +21,7 @@ import com.progress.open4gl.Open4GLException;
 import com.progress.open4gl.RunTime4GLException;
 import com.progress.open4gl.SystemErrorException;
 import com.sinergitec.ischool.model.ct.ctAlumno;
+import com.sinergitec.ischool.model.ct.ctCurso;
 import com.sinergitec.ischool.model.ct.ctGrupo;
 import com.sinergitec.ischool.service.ct.ctAlumnoService;
 import com.sinergitec.ischool.service.ct.ctCursoService;
@@ -44,51 +46,42 @@ public class ctAlumnoController {
 	}
 
 	@RequestMapping(value = "/ctAlumno/agregar", method = RequestMethod.POST)
-	public ModelAndView addPerson(@ModelAttribute("ctAlumno") ctAlumno obj) {		
-    	 ModelAndView miModelo = new ModelAndView("pdfView");
-    	 
-   		JSONArray jsonArray = new JSONArray(obj.getcGrupo());
-   		List<String> list = new ArrayList<String>();
-   		
-   		for (int i = 0; i < jsonArray.length(); i++) {
-   			
-   			ctGrupo obj_Grupo = new ctGrupo();
-   			
-//   			obj_Grupo.setiIdGrupo((jsonArray.getJSONObject(i).getString("id_Grupo"));
-//   			obj_Grupo.setcNombre(jsonArray.getJSONObject(i).getString("cNombre_Grupo"));
-//   			
-//   			
-//   			
-//   			
-//   			
-//   			jsonArray.getJSONObject(i).getString("cNombre_Curso");
-//   			jsonArray.getJSONObject(i).getString("cHorario");
-//   			jsonArray.getJSONObject(i).getString("firdePreciostName");
-//   			
-   		  
-		 
-		  
-		 
-		  
+	public ModelAndView addPerson(@ModelAttribute("ctAlumno") ctAlumno obj) {
+		ModelAndView miModelo = new ModelAndView("pdfView");
 
+		JSONArray jsonArray = new JSONArray(obj.getcGrupo());
+		List<ctGrupo> listaGrupo = new ArrayList<ctGrupo>();
+
+		for (int i = 0; i < jsonArray.length(); i++) {
+
+			// ctGrupo obj_Grupo = new ctGrupo();
+
+			// obj_Grupo.setiIdGrupo((jsonArray.getJSONObject(i).getString("id_Grupo"));
+			// obj_Grupo.setcNombre(jsonArray.getJSONObject(i).getString("cNombre_Grupo"));
+
+			ctGrupo objGrupo = new ctGrupo();
+			ctCurso objCurso = new ctCurso();
+
+			objGrupo.setiIdGrupo(Integer.parseInt(jsonArray.getJSONObject(i).getString("id_Grupo")));
+			objGrupo.setcNombre(jsonArray.getJSONObject(i).getString("cNombre_Grupo"));
+			objGrupo.setcHorario(jsonArray.getJSONObject(i).getString("cHorario"));
+			objCurso.setcNombre(jsonArray.getJSONObject(i).getString("cNombre_Curso"));
+			BigDecimal precio = new BigDecimal(jsonArray.getJSONObject(i).getString("dePrecio"));
+			objCurso.setDePrecio(precio);
+			objGrupo.setCurso(objCurso);
+			listaGrupo.add(objGrupo);
 		}
-    	 
-    
-    	 
-    	 
-    	 
-    	 miModelo.addObject("ctAlumno" ,  obj);
-		
 
-    	 return miModelo;
+		miModelo.addObject("ctAlumno", obj);
+		miModelo.addObject("listaGrupo", listaGrupo);
+
+		return miModelo;
 
 	}
 
-	
-
 	@RequestMapping(value = "/ctAlumno/getGrupo", method = RequestMethod.GET)
 	public @ResponseBody ctGrupo getGrupo(int id) {
-	
+
 		ctGrupo obj = new ctGrupo();
 
 		obj = this.grupoService.get_Grupo(id);
@@ -98,13 +91,12 @@ public class ctAlumnoController {
 
 	@RequestMapping(value = "/pruebaxx", method = RequestMethod.GET)
 
-
 	public String pruebaxx(String cUsuario, String dataArray1) {
 		JSONArray jsonArray = new JSONArray(dataArray1);
 		List<String> list = new ArrayList<String>();
 
 		for (int i = 0; i < jsonArray.length(); i++) {
-			
+
 			String val = jsonArray.optString(i);
 			System.out.println(jsonArray.getJSONObject(i).getString("firstName"));
 			System.out.println(jsonArray.getJSONObject(i).getString("lastName"));

@@ -67,7 +67,7 @@
 		font-size:17px;
 		color:#ffffff;
 		margin-right: 600px;
-		margin-left: 600px;
+		margin-left: 500px;
 		<!-- position:absolute;
 		left:210px; -->		
 	}	

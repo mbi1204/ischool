@@ -32,16 +32,16 @@ function Add_curso() {
 			$('#mytable > tbody')
 			.append(
 					'<tr>'	
-					+ '<td>'
+					+ '<td class="id_Grupo">'
 					+ data.iIdGrupo
 					+ '</td>'
-					+ '<td>'
+					+ '<td class="cNombre_Curso">'
 					+ data.curso.cNombre
 					+ '</td>'
-					+ '<td>'
+					+ '<td class="cNombre_Grupo">'
 					+ data.cNombre
 					+ '</td>'					
-					+ '<td>'
+					+ '<td class="cHorario">'
 					+ data.cHorario
 					+ '</td>'
 					+ '<td class="dePrecio">'
@@ -60,6 +60,33 @@ function Add_curso() {
 			 
 			 $("#mytable > tfoot").empty();		
 			 $('#mytable > tfoot').append('<TR> <TH ALIGN=LEFT COLSPAN=4>Total a Pagar</TH> <TH>' + vdetotal + '</TH> </TR>');
+			 
+			 
+			 /*agregar json curso*/
+			 
+			 
+			 var dataArray = new Array();
+			 
+			 function dataRow(id_Grupo ,  cNombre_Grupo , cNombre_Curso ,cHorario, dePrecio) {
+				 this.id_Grupo = id_Grupo;
+				 this.cNombre_Grupo  = cNombre_Grupo;
+				 this.cNombre_Curso = cNombre_Curso ;
+				 this.cHorario = cHorario;
+				 this.dePrecio = dePrecio;
+				 
+				}
+			
+			 $.each($("#mytable tbody").find("tr"), function () {
+				 dataArray.push(new dataRow($(this).closest("tr").find(".id_Grupo").text() ,
+						 					$(this).closest("tr").find(".cNombre_Grupo").text() , 
+						 					$(this).closest("tr").find(".cNombre_Curso").text() ,
+						 					$(this).closest("tr").find(".cHorario").text() ,
+						 					$(this).closest("tr").find(".dePrecio").text()  ));				 
+				 
+			 });
+			 var sJson = JSON.stringify(dataArray);
+			
+			 $( "#cGrupo" ).val(sJson);
 			 
 		
 			 
