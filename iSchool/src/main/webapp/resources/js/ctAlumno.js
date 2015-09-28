@@ -31,17 +31,20 @@ function Add_curso() {
 			
 			$('#mytable > tbody')
 			.append(
-					'<tr class="tablaCurso">'					
+					'<tr>'	
 					+ '<td>'
-					+ data.cNombre
+					+ data.iIdGrupo
 					+ '</td>'
 					+ '<td>'
 					+ data.curso.cNombre
 					+ '</td>'
 					+ '<td>'
+					+ data.cNombre
+					+ '</td>'					
+					+ '<td>'
 					+ data.cHorario
 					+ '</td>'
-					+ '<td class="precio">'
+					+ '<td class="dePrecio">'
 					+ data.curso.dePrecio
 					+ '</td>'
 					+ '<td>'
@@ -51,12 +54,12 @@ function Add_curso() {
 		
 			 vdetotal = 0 ;
 			 $.each($("#mytable tbody").find("tr"), function () {
-				 vdetotal = vdetotal  + parseInt($(this).closest("tr").find(".precio").text());				 
+				 vdetotal = vdetotal  + parseInt($(this).closest("tr").find(".precio").val());				 
 				 
 			 });
 			 
 			 $("#mytable > tfoot").empty();		
-			 $('#mytable > tfoot').append('<TR> <TH ALIGN=LEFT COLSPAN=4>Total a Pagar</TH> <TH>' + vdetotal +'</TH> </TR>');
+			 $('#mytable > tfoot').append('<TR> <TH ALIGN=LEFT COLSPAN=4>Total a Pagar</TH> <TH>' + vdetotal + '</TH> </TR>');
 			 
 		
 			 
