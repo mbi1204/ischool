@@ -63,11 +63,13 @@
 		border-radius: 6px;
 		width:100px;
 		height:30px;
-		position:absolute;
-		left:210px;
 		font-family:Arial;
 		font-size:17px;
 		color:#ffffff;
+		margin-right: 600px;
+		margin-left: 600px;
+		<!-- position:absolute;
+		left:210px; -->		
 	}	
 	
 	

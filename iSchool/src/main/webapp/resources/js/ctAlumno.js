@@ -54,7 +54,7 @@ function Add_curso() {
 		
 			 vdetotal = 0 ;
 			 $.each($("#mytable tbody").find("tr"), function () {
-				 vdetotal = vdetotal  + parseInt($(this).closest("tr").find(".precio").val());				 
+				 vdetotal = vdetotal  + parseInt($(this).closest("tr").find(".dePrecio").text());					 
 				 
 			 });
 			 
@@ -82,7 +82,7 @@ function Borrar(){
 		 $("#mytable > tfoot").empty();
 		 
 		 $.each($("#mytable tbody").find("tr"), function () { 
-			 vdetotal = vdetotal  + parseInt($(this).closest("tr").find(".precio").text());		 
+			 vdetotal = vdetotal  + parseInt($(this).closest("tr").find(".dePrecio").text());			 
 		 });	 	 
 		
 		 if (vdetotal > 0) {
