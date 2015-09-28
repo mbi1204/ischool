@@ -56,6 +56,18 @@
 	
 	.tablaCurso{
 		border-bottom: 10px solid black;
+	}
+	
+	.botonAceptar{
+		background: rgb(28, 184, 65);
+		border-radius: 6px;
+		width:100px;
+		height:30px;
+		position:absolute;
+		left:210px;
+		font-family:Arial;
+		font-size:17px;
+		color:#ffffff;
 	}	
 	
 	
@@ -343,19 +355,10 @@
 					<form:input type="hidden" path="cGrupo" disabled="false" />
 			</fieldset>
 			
-			<button type="submit">Aceptar</button>
-			 <button type="button" onclick="Submit();">Registrar</button>  
-			
+			<button type="submit" class="botonAceptar">Registrar</button>		
 
 		</form:form>
-
-
 	</div>
-	
-	<div style="color:#0000FF" id="targetDiv">
-	 <p>This is a paragraph.</p>
-	 </div>
-	
 
 </body>
 </html>
