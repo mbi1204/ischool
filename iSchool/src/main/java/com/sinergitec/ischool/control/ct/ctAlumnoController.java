@@ -44,20 +44,42 @@ public class ctAlumnoController {
 	}
 
 	@RequestMapping(value = "/ctAlumno/agregar", method = RequestMethod.POST)
-	public ModelAndView addPerson(@ModelAttribute("ctAlumno") ctAlumno obj) {
-		
-
-		
+	public ModelAndView addPerson(@ModelAttribute("ctAlumno") ctAlumno obj) {		
     	 ModelAndView miModelo = new ModelAndView("pdfView");
     	 
-    	 miModelo.addObject("ctAlumno" ,  obj);
-    	 
-    	 
-    	 
-    	 
+   		JSONArray jsonArray = new JSONArray(obj.getcGrupo());
+   		List<String> list = new ArrayList<String>();
+   		
+   		for (int i = 0; i < jsonArray.length(); i++) {
+   			
+   			ctGrupo obj_Grupo = new ctGrupo();
+   			
+//   			obj_Grupo.setiIdGrupo((jsonArray.getJSONObject(i).getString("id_Grupo"));
+//   			obj_Grupo.setcNombre(jsonArray.getJSONObject(i).getString("cNombre_Grupo"));
+//   			
+//   			
+//   			
+//   			
+//   			
+//   			jsonArray.getJSONObject(i).getString("cNombre_Curso");
+//   			jsonArray.getJSONObject(i).getString("cHorario");
+//   			jsonArray.getJSONObject(i).getString("firdePreciostName");
+//   			
+   		  
+		 
+		  
+		 
+		  
 
+		}
+    	 
+    
+    	 
+    	 
+    	 
+    	 miModelo.addObject("ctAlumno" ,  obj);
 		
-		//return new ModelAndView("pdfView", "listBooks", null);
+
     	 return miModelo;
 
 	}
