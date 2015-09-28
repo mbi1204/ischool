@@ -45,7 +45,7 @@ public class PDFBuilder extends AbstractITextPdfView {
 		doc.add(new Paragraph("Datos Personales. ", fontTitulo));
 		
 		doc.add(tab);
-		doc.add(new Phrase("Nombre: ", fontCampo));
+		doc.add(new Phrase("Nombre(s): ", fontCampo));
 		doc.add(new Phrase(obj.getcNombre(), fontValor));
 		doc.add(p);		
 		
@@ -69,7 +69,47 @@ public class PDFBuilder extends AbstractITextPdfView {
 		doc.add(new Phrase(obj.getcCorreo(), fontValor));
 		doc.add(p);
 		
-		doc.bottomMargin();
+		
+		doc.add(new Paragraph("Domicilio. ", fontTitulo));
+		
+		doc.add(tab);
+		doc.add(new Phrase("Calle: ", fontCampo));
+		doc.add(new Phrase(obj.getcCalle(), fontValor));
+		doc.add(p);		
+		
+		doc.add(tab);
+		doc.add(new Phrase("Num Ext: ", fontCampo));
+		doc.add(new Phrase(obj.getcNumExt(), fontValor));
+		doc.add(p);
+		
+		doc.add(tab);
+		doc.add(new Phrase("Num Int: ", fontCampo));
+		doc.add(new Phrase(obj.getcNumInt(), fontValor));
+		doc.add(p);
+		
+		doc.add(tab);
+		doc.add(new Phrase("Colonia:", fontCampo));
+		doc.add(new Phrase(obj.getcColonia(), fontValor));
+		doc.add(p);
+		
+		doc.add(tab);
+		doc.add(new Phrase("CP: ", fontCampo));
+		doc.add(new Phrase(obj.getcCP(), fontValor));
+		doc.add(p);
+		
+		doc.add(tab);
+		doc.add(new Phrase("Delg o Munp: ", fontCampo));
+		doc.add(new Phrase(obj.getcMunicipio(), fontValor));
+		doc.add(p);
+		
+		doc.add(tab);
+		doc.add(new Phrase("Estado: ", fontCampo));
+		doc.add(new Phrase(obj.getcEstado(), fontValor));
+		doc.add(p);
+		
+		doc.add(new Paragraph("Curso(s) Registrado(s). ", fontTitulo));
+		
+		
 		
 		
 //		doc.add(new Paragraph("Nombre: "               +  obj.getcNombre()));
