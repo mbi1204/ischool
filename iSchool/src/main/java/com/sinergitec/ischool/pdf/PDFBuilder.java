@@ -46,167 +46,54 @@ public class PDFBuilder extends AbstractITextPdfView {
 
 		PdfPCell cellTitulo = new PdfPCell(new Paragraph("Escuela De Danza Profesional", fuenteTitulo));
 		PdfPCell cellForm = new PdfPCell(new Paragraph("Formulario De Inscripcion", fuenteForm));
-		PdfPCell cellSub1 = new PdfPCell(new Paragraph("Datos Del Alumno.", fontSub));
+		PdfPCell cellSub1 = new PdfPCell(new Paragraph("Datos Del Alumno:", fontSub));
+		PdfPCell cellSub2 = new PdfPCell(new Paragraph("Domicilio:", fontSub));
 		cellTitulo.setHorizontalAlignment(Element.ALIGN_CENTER);
 		cellForm.setHorizontalAlignment(Element.ALIGN_CENTER);
 
-		List listaDatos = new List();
-		listaDatos.add(new ListItem(new Phrase("Nombre(s): " + obj.getcNombre())));
-		listaDatos.add(new ListItem(new Phrase("Apellidos: " + obj.getcApellido())));
-		listaDatos.add(new ListItem(new Phrase("Fecha De Nacimiento: " + obj.getDtFechaNac())));
-		listaDatos.add(new ListItem(new Phrase("Telefono: " + obj.getcTel())));
-		listaDatos.add(new ListItem(new Phrase("Correo: " + obj.getcCorreo())));
 		
+		PdfPTable tablaDatos = new PdfPTable(2);
+		tablaDatos.addCell(new Phrase("Nombre(s): "));
+		tablaDatos.addCell(obj.getcNombre());
+		tablaDatos.addCell(new Phrase("Apellidos: "));
+		tablaDatos.addCell(obj.getcApellido());
+		tablaDatos.addCell(new Phrase("Fecha De Nacimiento: "));
+		tablaDatos.addCell(obj.getDtFechaNac());
+		tablaDatos.addCell(new Phrase("Telefono: "));
+		tablaDatos.addCell(obj.getcTel());
+		tablaDatos.addCell(new Phrase("Correo: "));
+		tablaDatos.addCell(obj.getcCorreo());
+		
+		PdfPTable tablaDomicilio = new PdfPTable(2);
+		tablaDomicilio.addCell(new Phrase("Calle: "));
+		tablaDomicilio.addCell(obj.getcCalle());
+		tablaDomicilio.addCell(new Phrase("Num. Ext: "));
+		tablaDomicilio.addCell(obj.getcNumExt());
+		tablaDomicilio.addCell(new Phrase("Num. Int: "));
+		tablaDomicilio.addCell(obj.getcNumInt());
+		tablaDomicilio.addCell(new Phrase("Colonia: "));
+		tablaDomicilio.addCell(obj.getcColonia());
+		tablaDomicilio.addCell(new Phrase("CP: "));
+		tablaDomicilio.addCell(obj.getcCP());
+		tablaDomicilio.addCell(new Phrase("Municipio: "));
+		tablaDomicilio.addCell(obj.getcMunicipio());
+		tablaDomicilio.addCell(new Phrase("Estado: "));
+		tablaDomicilio.addCell(obj.getcEstado());
+		
+		PdfPTable tablaDom = new PdfPTable(1);
+		tablaDom.addCell(cellSub2);
 
-		PdfPCell cellDatos = new PdfPCell();
-		cellDatos.addElement(listaDatos);
 
 		tablaPDF.addCell(cellTitulo);
 		tablaPDF.addCell(cellForm);
-		tablaPDF.addCell(cellSub1);
-		tablaPDF.addCell(cellDatos);		
+		tablaPDF.addCell(cellSub1);					
 
 		doc.add(tablaPDF);
+		doc.add(tablaDatos);		
+		doc.add(tablaDom);
+		doc.add(tablaDomicilio);
 
-		// ctAlumno obj = (ctAlumno ) model.get("ctAlumno");
-		//
-		// Font fontTitulo = new Font(Font.FontFamily.HELVETICA , 22,
-		// Font.BOLD);
-		// Font fontCampo = new Font(Font.FontFamily.HELVETICA , 16);
-		// Font fontValor = new Font(Font.FontFamily.TIMES_ROMAN , 16);
-		// Chunk tab = new Chunk(" ");
-		// Paragraph p = new Paragraph("");
-		//
-		// doc.add(new Paragraph("Datos Personales. ", fontTitulo));
-		//
-		// doc.add(tab);
-		// doc.add(new Phrase("Nombre(s): ", fontCampo));
-		// doc.add(new Phrase(obj.getcNombre(), fontValor));
-		// doc.add(p);
-		//
-		// doc.add(tab);
-		// doc.add(new Phrase("Apellidos: ", fontCampo));
-		// doc.add(new Phrase(obj.getcApellido(), fontValor));
-		// doc.add(p);
-		//
-		// doc.add(tab);
-		// doc.add(new Phrase("Fecha de Nacimiento: ", fontCampo));
-		// doc.add(new Phrase(obj.getDtFechaNac(), fontValor));
-		// doc.add(p);
-		//
-		// doc.add(tab);
-		// doc.add(new Phrase("Telefono: ", fontCampo));
-		// doc.add(new Phrase(obj.getcTel(), fontValor));
-		// doc.add(p);
-		//
-		// doc.add(tab);
-		// doc.add(new Phrase("Correo: ", fontCampo));
-		// doc.add(new Phrase(obj.getcCorreo(), fontValor));
-		// doc.add(p);
-		//
-		//
-		// doc.add(new Paragraph("Domicilio. ", fontTitulo));
-		//
-		// doc.add(tab);
-		// doc.add(new Phrase("Calle: ", fontCampo));
-		// doc.add(new Phrase(obj.getcCalle(), fontValor));
-		// doc.add(p);
-		//
-		// doc.add(tab);
-		// doc.add(new Phrase("Num Ext: ", fontCampo));
-		// doc.add(new Phrase(obj.getcNumExt(), fontValor));
-		// doc.add(p);
-		//
-		// doc.add(tab);
-		// doc.add(new Phrase("Num Int: ", fontCampo));
-		// doc.add(new Phrase(obj.getcNumInt(), fontValor));
-		// doc.add(p);
-		//
-		// doc.add(tab);
-		// doc.add(new Phrase("Colonia:", fontCampo));
-		// doc.add(new Phrase(obj.getcColonia(), fontValor));
-		// doc.add(p);
-		//
-		// doc.add(tab);
-		// doc.add(new Phrase("CP: ", fontCampo));
-		// doc.add(new Phrase(obj.getcCP(), fontValor));
-		// doc.add(p);
-		//
-		// doc.add(tab);
-		// doc.add(new Phrase("Delg o Munp: ", fontCampo));
-		// doc.add(new Phrase(obj.getcMunicipio(), fontValor));
-		// doc.add(p);
-		//
-		// doc.add(tab);
-		// doc.add(new Phrase("Estado: ", fontCampo));
-		// doc.add(new Phrase(obj.getcEstado(), fontValor));
-		// doc.add(p);
-		//
-		// doc.add(new Paragraph("Curso(s) Registrado(s). ", fontTitulo));
-		//
-
-		// doc.add(new Paragraph("Nombre: " + obj.getcNombre()));
-		// doc.add(new Paragraph("Apellidos: " + obj.getcApellido()));
-		// doc.add(new Paragraph("Fecha de Nacimiento: " +
-		// obj.getDtFechaNac()));
-		// doc.add(new Paragraph("Telefono: " + obj.getcTel()));
-		// doc.add(new Paragraph("Correo: " + obj.getcCorreo()));
-		//
-		// doc.add(new Paragraph("Calle: " + obj.getcCalle()));
-		// doc.add(new Paragraph("Num Ext: " + obj.getcNumExt()));
-		// doc.add(new Paragraph("Num Int: " + obj.getcNumInt()));
-		// doc.add(new Paragraph("Colonia: " + obj.getcColonia()));
-		// doc.add(new Paragraph("CP: " + obj.getcCP()));
-		// doc.add(new Paragraph("Delg o Munp: " + obj.getcMunicipio()));
-		// doc.add(new Paragraph("Estado: " + obj.getcEstado()));
-		//
-		//
-		//
-
-		// PdfPTable table = new PdfPTable(3); // 3 columns.
-		//
-		// PdfPCell cell1 = new PdfPCell(new Paragraph("Cell 1"));
-		// PdfPCell cell2 = new PdfPCell(new Paragraph("Cell 2"));
-		// PdfPCell cell3 = new PdfPCell(new Paragraph("Cell 3"));
-		//
-		// table.addCell(cell1);
-		// table.addCell(cell2);
-		// table.addCell(cell3);
-		//
-		// doc.add(table);
-
-		// PdfPTable table = new PdfPTable(5);
-		// table.setWidthPercentage(100.0f);
-		// table.setWidths(new float[] {3.0f, 2.0f, 2.0f, 2.0f, 1.0f});
-		// table.setSpacingBefore(10);
-		//
-		// // define font for table header row
-		// Font font = FontFactory.getFont(FontFactory.HELVETICA);
-		// font.setColor(BaseColor.WHITE);
-		//
-		// // define table header cell
-		// PdfPCell cell = new PdfPCell();
-		// cell.setBackgroundColor(BaseColor.BLUE);
-		// cell.setPadding(5);
-		//
-		// // write table header
-		// cell.setPhrase(new Phrase("Book Title", font));
-		// table.addCell(cell);
-		//
-		// cell.setPhrase(new Phrase("Author", font));
-		// table.addCell(cell);
-		//
-		// cell.setPhrase(new Phrase("ISBN", font));
-		// table.addCell(cell);
-		//
-		// cell.setPhrase(new Phrase("Published Date", font));
-		// table.addCell(cell);
-		//
-		// cell.setPhrase(new Phrase("Price", font));
-		// table.addCell(cell);
-		//
-		//
-		// doc.add(table);
+		
 
 	}
 
