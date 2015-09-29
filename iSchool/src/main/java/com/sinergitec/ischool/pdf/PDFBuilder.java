@@ -74,6 +74,7 @@ public class PDFBuilder extends AbstractITextPdfView {
 		tablaDatos.addCell(new Phrase("Fecha De Nacimiento: "));
 //		tablaDatos.addCell(Integer.toString(fechaDate.getDay()) + "/" + Integer.toString(fechaDate.getMonth()) + "/" + Integer.toString(fechaDate.getYear()));
 		tablaDatos.addCell(obj.getDtFechaNac());
+//		tablaDatos.addCell(fechaDate.toString());
 		tablaDatos.addCell(new Phrase("Telefono: "));
 		tablaDatos.addCell(obj.getcTel());
 		tablaDatos.addCell(new Phrase("Correo: "));

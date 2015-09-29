@@ -50,13 +50,7 @@ function Add_curso() {
 											+ '<button class="btnDelete" onclick="Borrar();" style="background-color:#FF4000; color:black;">Quitar</button>'
 											+ '</td> </tr>');
 
-					vdetotal = 0;
-					$.each($("#mytable tbody").find("tr"), function() {
-						vdetotal = vdetotal
-								+ parseInt($(this).closest("tr").find(
-										".dePrecio").text());
-
-					});
+					calculaTotal();
 
 					$("#mytable > tfoot").empty();
 					$('#mytable > tfoot').append(
@@ -64,33 +58,7 @@ function Add_curso() {
 									+ vdetotal + '</TH> </TR>');
 
 					/* agregar json curso */
-					var dataArray = new Array();
-
-					function dataRow(id_Grupo, cNombre_Grupo, cNombre_Curso,
-							cHorario, dePrecio) {
-						this.id_Grupo = id_Grupo;
-						this.cNombre_Grupo = cNombre_Grupo;
-						this.cNombre_Curso = cNombre_Curso;
-						this.cHorario = cHorario;
-						this.dePrecio = dePrecio;
-
-					}
-
-					$.each($("#mytable tbody").find("tr"), function() {
-						dataArray
-								.push(new dataRow($(this).closest("tr").find(
-										".id_Grupo").text(), $(this).closest(
-										"tr").find(".cNombre_Grupo").text(), $(
-										this).closest("tr").find(
-										".cNombre_Curso").text(),
-										$(this).closest("tr").find(".cHorario")
-												.text(), $(this).closest("tr")
-												.find(".dePrecio").text()));
-
-					});
-					var sJson = JSON.stringify(dataArray);
-
-					$("#cGrupo").val(sJson);
+					generaJson();
 
 				},
 				error : function() {
@@ -109,14 +77,9 @@ function Borrar() {
 			function() {
 				$(this).closest('tr').remove();
 
-				vdetotal = 0;
 				$("#mytable > tfoot").empty();
 
-				$.each($("#mytable tbody").find("tr"), function() {
-					vdetotal = vdetotal
-							+ parseInt($(this).closest("tr").find(".dePrecio")
-									.text());
-				});
+				calculaTotal();
 
 				if (vdetotal > 0) {
 					$('#mytable > tfoot').append(
@@ -124,5 +87,44 @@ function Borrar() {
 									+ vdetotal + '</TH> </TR>');
 				}
 
+				/* agregar json curso */
+				generaJson();
+
 			});
 }
+
+var generaJson = function() {
+
+	var dataArray = new Array();
+
+	function dataRow(id_Grupo, cNombre_Grupo, cNombre_Curso, cHorario, dePrecio) {
+		this.id_Grupo = id_Grupo;
+		this.cNombre_Grupo = cNombre_Grupo;
+		this.cNombre_Curso = cNombre_Curso;
+		this.cHorario = cHorario;
+		this.dePrecio = dePrecio;
+
+	}
+
+	$.each($("#mytable tbody").find("tr"), function() {
+		dataArray.push(new dataRow($(this).closest("tr").find(".id_Grupo")
+				.text(), $(this).closest("tr").find(".cNombre_Grupo").text(),
+				$(this).closest("tr").find(".cNombre_Curso").text(), $(this)
+						.closest("tr").find(".cHorario").text(), $(this)
+						.closest("tr").find(".dePrecio").text()));
+
+	});
+	var sJson = JSON.stringify(dataArray);
+
+	$("#cGrupo").val(sJson);
+};
+
+var calculaTotal = function() {
+
+	vdetotal = 0;
+	$.each($("#mytable tbody").find("tr"), function() {
+		vdetotal = vdetotal
+				+ parseInt($(this).closest("tr").find(".dePrecio").text());
+
+	});
+};
