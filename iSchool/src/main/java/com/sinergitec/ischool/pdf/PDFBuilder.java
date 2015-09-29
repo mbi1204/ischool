@@ -64,17 +64,14 @@ public class PDFBuilder extends AbstractITextPdfView {
 		cellSub2.setHorizontalAlignment(Element.ALIGN_CENTER);
 		cellSub3.setHorizontalAlignment(Element.ALIGN_CENTER);
 
-//		SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-//        Date fechaDate = formato.parse(obj.getDtFechaNac());
+		String fechaNac = obj.getDtFechaNac().substring(8, 10) + " / " + obj.getDtFechaNac().substring(5, 7) + " / " + obj.getDtFechaNac().substring(0, 4);		
 		PdfPTable tablaDatos = new PdfPTable(2);
 		tablaDatos.addCell(new Phrase("Nombre(s): "));
 		tablaDatos.addCell(obj.getcNombre());
 		tablaDatos.addCell(new Phrase("Apellidos: "));
 		tablaDatos.addCell(obj.getcApellido());
 		tablaDatos.addCell(new Phrase("Fecha De Nacimiento: "));
-//		tablaDatos.addCell(Integer.toString(fechaDate.getDay()) + "/" + Integer.toString(fechaDate.getMonth()) + "/" + Integer.toString(fechaDate.getYear()));
-		tablaDatos.addCell(obj.getDtFechaNac());
-//		tablaDatos.addCell(fechaDate.toString());
+		tablaDatos.addCell(fechaNac);		
 		tablaDatos.addCell(new Phrase("Telefono: "));
 		tablaDatos.addCell(obj.getcTel());
 		tablaDatos.addCell(new Phrase("Correo: "));
