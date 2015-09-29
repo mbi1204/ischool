@@ -1,6 +1,7 @@
 package com.sinergitec.ischool.pdf;
 
 import java.math.BigDecimal;
+import java.security.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -63,14 +64,15 @@ public class PDFBuilder extends AbstractITextPdfView {
 		cellSub2.setHorizontalAlignment(Element.ALIGN_CENTER);
 		cellSub3.setHorizontalAlignment(Element.ALIGN_CENTER);
 
-		// SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-		// Date fecha = formato.parse(obj.getDtFechaNac());
+//		SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+//        Date fechaDate = formato.parse(obj.getDtFechaNac());
 		PdfPTable tablaDatos = new PdfPTable(2);
 		tablaDatos.addCell(new Phrase("Nombre(s): "));
 		tablaDatos.addCell(obj.getcNombre());
 		tablaDatos.addCell(new Phrase("Apellidos: "));
 		tablaDatos.addCell(obj.getcApellido());
 		tablaDatos.addCell(new Phrase("Fecha De Nacimiento: "));
+//		tablaDatos.addCell(Integer.toString(fechaDate.getDay()) + "/" + Integer.toString(fechaDate.getMonth()) + "/" + Integer.toString(fechaDate.getYear()));
 		tablaDatos.addCell(obj.getDtFechaNac());
 		tablaDatos.addCell(new Phrase("Telefono: "));
 		tablaDatos.addCell(obj.getcTel());
