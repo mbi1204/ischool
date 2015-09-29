@@ -31,7 +31,7 @@ import com.sinergitec.ischool.service.ct.ctGrupoService;
 public class ctAlumnoController {
 
 	@Autowired
-	private ctAlumnoService alumnoService;
+	private ctAlumnoService alumnoService;	
 
 	@Autowired
 	private ctGrupoService grupoService;
@@ -71,6 +71,9 @@ public class ctAlumnoController {
 			objGrupo.setCurso(objCurso);
 			listaGrupo.add(objGrupo);
 		}
+		
+		
+		this.alumnoService.add_ctAlumno(obj, listaGrupo);
 
 		miModelo.addObject("ctAlumno", obj);
 		miModelo.addObject("listaGrupo", listaGrupo);

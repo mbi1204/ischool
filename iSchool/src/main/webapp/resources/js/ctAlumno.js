@@ -34,11 +34,11 @@ function Add_curso() {
 											+ '<td class="id_Grupo">'
 											+ data.iIdGrupo
 											+ '</td>'
-											+ '<td class="cNombre_Curso">'
-											+ data.curso.cNombre
-											+ '</td>'
 											+ '<td class="cNombre_Grupo">'
 											+ data.cNombre
+											+ '</td>'
+											+ '<td class="cNombre_Curso">'
+											+ data.curso.cNombre
 											+ '</td>'
 											+ '<td class="cHorario">'
 											+ data.cHorario
