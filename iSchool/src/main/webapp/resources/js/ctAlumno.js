@@ -100,25 +100,25 @@ var generaJson = function() {
 
 	var dataArray = new Array();
 
-	function dataRow(id_Grupo, cNombre_Grupo, cNombre_Curso, cHorario, dePrecio) {
+	function dataRow(id_Grupo, cNombre_Grupo, id_Curso, cNombre_Curso, cHorario, dePrecio) {
 		this.id_Grupo = id_Grupo;
-		this.cNombre_Grupo = cNombre_Grupo;
+		this.cNombre_Grupo = cNombre_Grupo;		
 		this.cNombre_Curso = cNombre_Curso;
 		this.cHorario = cHorario;
 		this.dePrecio = dePrecio;
-
+		this.id_Curso = id_Curso;		
 	}
 
 	$.each($("#mytable tbody").find("tr"), function() {
 		dataArray.push(new dataRow($(this).closest("tr").find(".id_Grupo")
-				.text(), $(this).closest("tr").find(".cNombre_Grupo").text(),
+				.text(), $(this).closest("tr").find(".cNombre_Grupo").text(), $(this).closest("tr").find(".id_Curso").text(),
 				$(this).closest("tr").find(".cNombre_Curso").text(), $(this)
 						.closest("tr").find(".cHorario").text(), $(this)
 						.closest("tr").find(".dePrecio").text()));
 
 	});
 	var sJson = JSON.stringify(dataArray);
-
+	alert(sJson);
 	$("#cGrupo").val(sJson);
 };
 
