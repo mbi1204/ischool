@@ -121,7 +121,6 @@ var generaJson = function() {
 
 	});
 	var sJson = JSON.stringify(dataArray);
-	alert(sJson);
 	$("#cGrupo").val(sJson);
 };
 
