@@ -37,6 +37,9 @@ function Add_curso() {
 											+ '<td class="cNombre_Grupo">'
 											+ data.cNombre
 											+ '</td>'
+											+ '<td class="id_Curso">'
+											+ data.curso.iIdCurso
+											+ '</td>'
 											+ '<td class="cNombre_Curso">'
 											+ data.curso.cNombre
 											+ '</td>'

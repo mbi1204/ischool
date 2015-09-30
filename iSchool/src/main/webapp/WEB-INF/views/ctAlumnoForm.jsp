@@ -343,11 +343,11 @@
 				<form:select id = "idGrupo" path="grupo.iIdGrupo" items="${Lista_Grupo}"  	itemValue="iIdGrupo" itemLabel="cDescripcion"/>	
 				
 				<input type="button" name="Addcurso" value="Agregar Curso" 	onclick="Add_curso()" class="btnAdd">
-				<div class="CSSTableGenerator">				
+				<div class="CSSTableGenerator">
 					<table id="mytable">
 						<thead>	
 							<tr> 
-								<th>ID</th><th>Grupo</th><th>Curso</th><th>Horario</th><th>Precio</th>					
+								<th>ID</th><th>Grupo</th><th>ID Curso</th><th>Curso</th><th>Horario</th><th>Precio</th>					
 							</tr>
 						</thead>
 						<tbody></tbody>
@@ -357,7 +357,7 @@
 					<form:input type="hidden" path="cGrupo" disabled="false" />
 			</fieldset>
 			
-			<button type="submit" class="botonAceptar">Registrar</button>		
+			<button type="submit" class="botonAceptar">Registrar</button>
 
 		</form:form>
 	</div>
