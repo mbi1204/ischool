@@ -56,7 +56,8 @@ public class ctAlumnoDaoImpl implements ctAlumnoDao {
 		ResultSetHolder ttGrupo = new ResultSetHolder(new VectorResultSet(vecTablaGrupo));
 
 		try {
-			app.as_ctAlumno_Inserta("SISIMB", ttAlumnos, oplResultado, opcTexto);
+			app.as_ctAlumno_Inserta("SISIMB", ttAlumnos, ttGrupo, oplResultado, opcTexto);
+
 
 			System.out.println(opcTexto.getValue());
 			System.out.println(oplResultado.getValue());
