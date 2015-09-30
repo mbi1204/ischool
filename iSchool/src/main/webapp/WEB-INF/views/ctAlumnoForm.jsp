@@ -354,7 +354,7 @@
 						<tfoot></tfoot>
 					</table>
 				</div>			
-					<form:input type="hidden" path="cGrupo" disabled="false" />
+					<form:input type="text" path="cGrupo" disabled="false" />
 			</fieldset>
 			
 			<button type="submit" class="botonAceptar">Registrar</button>
