@@ -58,8 +58,7 @@ function Add_curso() {
 					$("#mytable > tfoot").empty();
 					$('#mytable > tfoot').append(
 							'<TR> <TH ALIGN=LEFT COLSPAN=4>Total a Pagar</TH> <TH>'
-									+ vdetotal + '</TH> </TR>');
-					alert("por aqui paso el caballo");
+									+ vdetotal + '</TH> </TR>');					
 
 					/* agregar json curso */
 					generaJson();
