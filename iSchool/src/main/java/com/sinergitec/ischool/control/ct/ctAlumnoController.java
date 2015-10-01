@@ -35,6 +35,8 @@ public class ctAlumnoController {
 
 	@Autowired
 	private ctGrupoService grupoService;
+	
+	
 
 	@RequestMapping(value = "/ctAlumno", method = RequestMethod.GET)
 	public String alumno(Locale locale, Model model) {
