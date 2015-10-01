@@ -17,6 +17,51 @@ function soloLetras(e){
         }
     }
 
+function soloNumero(n){
+    key = n.keyCode || n.which;
+    tecla = String.fromCharCode(key).toLowerCase();
+    
+    numeros = " 0123456789.";
+    especiales = "8-37-39-46-44";
+
+    tecla_especial = false
+    for(var i in especiales){
+         if(key == especiales[i]){
+             tecla_especial = true;
+             break;
+         }
+     }
+
+     if(numeros.indexOf(tecla)==-1 && !tecla_especial){
+         return false;
+     }
+ }
+
+function Decimal()
+{
+   
+   var i,exceptions=[8,46,37,39,13,9]; 
+   var isException=false;
+   var isDot=(190==event.keyCode);      
+   var k=String.fromCharCode(event.keyCode);
+
+   for(i=0;i<exceptions.length;i++)
+      if(exceptions[i]==event.keyCode)
+	     isException=true;
+
+   if(isNaN(k) && (!isException) && (!isDot))
+      event.returnValue=false;
+   else{
+      var p=new String(currency.value+k).indexOf(".");
+      if((p<currency.value.length-2 || isDot) && p>-1 && (!isException))
+         event.returnValue=false;
+      else if(currency.value.length>=15 && (!isException))
+         event.returnValue=false;
+   }
+   
+}
+
+
 function add_ctCurso() {
 	$('#AddCtCurso_Dialog').dialog("option", "title", 'Agregar Curso');
 	$('#AddCtCurso_Dialog').dialog('open');
