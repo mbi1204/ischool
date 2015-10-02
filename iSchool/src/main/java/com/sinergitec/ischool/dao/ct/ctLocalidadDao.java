@@ -8,6 +8,6 @@ import com.sinergitec.ischool.model.ct.ctLocalidad;
 
 public interface ctLocalidadDao {
 	
-	public List<ctLocalidad> list_ctLocalidad(String cP) throws Open4GLException, IOException;
+	public List<ctLocalidad> list_ctLocalidad(String cCP) throws Open4GLException, IOException;
 	
 }

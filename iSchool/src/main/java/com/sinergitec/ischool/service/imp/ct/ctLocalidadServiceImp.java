@@ -1,6 +1,8 @@
 package com.sinergitec.ischool.service.imp.ct;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +19,21 @@ public class ctLocalidadServiceImp implements ctLocalidadService {
 	@Autowired
 	private ctLocalidadDao ctLocalidadDao;
 	
-	public List<ctLocalidad> list_ctLocalidades(String cP) throws Open4GLException, IOException{
+	public List<ctLocalidad> list_ctLocalidades(String cCP) {
 		
-		return ctLocalidadDao.list_ctLocalidad(cP);
+		List<ctLocalidad> lista = new ArrayList<ctLocalidad>(); 
+		
+		try {
+			lista = ctLocalidadDao.list_ctLocalidad(cCP);
+		} catch (Open4GLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return lista;
 	}
 
 }

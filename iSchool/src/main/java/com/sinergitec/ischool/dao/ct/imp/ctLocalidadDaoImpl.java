@@ -21,7 +21,9 @@ import com.sinergitec.ischool.util.DBConexion;
 @Repository
 public class ctLocalidadDaoImpl implements ctLocalidadDao {
 	
-	public List<ctLocalidad> list_ctLocalidad(String cP) throws Open4GLException, IOException{
+	public List<ctLocalidad> list_ctLocalidad(String cCP) throws Open4GLException, IOException{
+		
+		System.out.println("entro al dao");
 		
 		BooleanHolder oplResultado = new BooleanHolder();
 		StringHolder opcTexto = new StringHolder();
@@ -34,7 +36,7 @@ public class ctLocalidadDaoImpl implements ctLocalidadDao {
 		
 		try {
 		
-		app.as_ctLocalidades_carga(cP, tt_ctLocalidad, oplResultado, opcTexto);
+		app.as_ctLocalidades_carga(cCP, tt_ctLocalidad, oplResultado, opcTexto);
 
 		ResultSet rs_tt_ctLocalidad = tt_ctLocalidad.getResultSetValue();
 		
@@ -42,15 +44,17 @@ public class ctLocalidadDaoImpl implements ctLocalidadDao {
 			while(rs_tt_ctLocalidad.next()){
 				
 				ctLocalidad obj = new ctLocalidad();
+				
+				
+				
 				obj.setcLocalidad(rs_tt_ctLocalidad.getString("cLocalidad"));
 				obj.setcCP(rs_tt_ctLocalidad.getString("cCP"));
 				obj.setcCiudad(rs_tt_ctLocalidad.getString("cCiudad"));
 				obj.setcMunicipio(rs_tt_ctLocalidad.getString("cMunicipio"));
 				obj.setcEstado(rs_tt_ctLocalidad.getString("cEstado"));
-				obj.setcNomMunicipio(rs_tt_ctLocalidad.getString("cNomMunicipio"));
 				obj.setcNomEstado(rs_tt_ctLocalidad.getString("cNomEstado"));
-				obj.setId(rs_tt_ctLocalidad.getBytes("Id"));
-				
+				obj.setcNomMunicipio(rs_tt_ctLocalidad.getString("cNomMunicipio"));				
+				obj.setId(rs_tt_ctLocalidad.getBytes("Id"));				
 				Lista.add(obj);
 			}
 		} catch (SQLException e) {

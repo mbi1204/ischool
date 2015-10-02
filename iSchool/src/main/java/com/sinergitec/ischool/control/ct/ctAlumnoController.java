@@ -1,31 +1,25 @@
 package com.sinergitec.ischool.control.ct;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-
 import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.progress.open4gl.Open4GLException;
-import com.progress.open4gl.RunTime4GLException;
-import com.progress.open4gl.SystemErrorException;
 import com.sinergitec.ischool.model.ct.ctAlumno;
 import com.sinergitec.ischool.model.ct.ctCurso;
 import com.sinergitec.ischool.model.ct.ctGrupo;
+import com.sinergitec.ischool.model.ct.ctLocalidad;
 import com.sinergitec.ischool.service.ct.ctAlumnoService;
-import com.sinergitec.ischool.service.ct.ctCursoService;
 import com.sinergitec.ischool.service.ct.ctGrupoService;
+import com.sinergitec.ischool.service.imp.ct.ctLocalidadServiceImp;
 
 @Controller
 public class ctAlumnoController {
@@ -36,6 +30,8 @@ public class ctAlumnoController {
 	@Autowired
 	private ctGrupoService grupoService;
 	
+	@Autowired
+	private ctLocalidadServiceImp localidadService; 
 	
 
 	@RequestMapping(value = "/ctAlumno", method = RequestMethod.GET)
@@ -111,5 +107,36 @@ public class ctAlumnoController {
 
 		return "salio";
 	}
+	
+	/**/
+	
+	/*@RequestMapping(value = "/sysUsuMenu/add")
+	public  @ResponseBody List<sysUsuMenu> add_sysUsuMenu(String cUsuario , int iIdMenu,		
+			ModelMap model) {
+		
+		
+		sysUsuMenu obj = new sysUsuMenu();
+		
+		obj.setcUsuario(cUsuario);
+		obj.setiIdMenu(iIdMenu);
+		obj.setlActivo(true);
+		this.servSysMenu.add_sysUsuMenu(obj);
+		List<sysUsuMenu> lista = new ArrayList<sysUsuMenu>();
+		lista = this.servSysMenu.list_sysUsuMenu(cUsuario, true);
+		
+		return lista;
+
+	}*/
+	
+	
+	@RequestMapping(value = "/ctAlumno/getLocalidad")
+	public  @ResponseBody List<ctLocalidad> get_Localidad(String cCP) {		
+		List<ctLocalidad> lista = new ArrayList<ctLocalidad>();
+		lista = this.localidadService.list_ctLocalidades(cCP);		
+		return lista;
+		
+	}
+	
+	
 
 }
