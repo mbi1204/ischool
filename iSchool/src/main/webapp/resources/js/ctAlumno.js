@@ -226,7 +226,7 @@ $(document).ready(function() {
 	
 });
 
-function validaCampos(){
+function validaCampos(){	
 	
 	
 	if($('#Form_ctAlumno input#cNombre').val() == ""){
@@ -241,6 +241,9 @@ function validaCampos(){
 		alert("Fecha De Nacimiento Debe De Tener Un Valor");
 		return false; 
 		
+	}if($("#cGrupo").val() == "" || $("#cGrupo").val() == "[]"){
+		alert("Debe Inscribrise Por Lo Menos En Un Grupo");	
+		return false;
 	}	
 	
 	return true;

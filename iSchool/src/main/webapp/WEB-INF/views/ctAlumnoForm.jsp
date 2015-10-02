@@ -368,9 +368,5 @@ th {
 		</form:form>
 	</div>
 
-
-
-
-
 </body>
 </html>
