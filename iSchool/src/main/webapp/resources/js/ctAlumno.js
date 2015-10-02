@@ -19,56 +19,55 @@ function Add_curso() {
 	if (vlExiste)
 		return;
 
-	$
-			.ajax({
-				type : "GET",
-				url : "ctAlumno/getGrupo",
-				data : {
-					id : vid
-				},
-				success : function(data, textStatus, jqXHR) {
+	$.ajax({
+		type : "GET",
+		url : "ctAlumno/getGrupo",
+		data : {
+			id : vid
+		},
+		success : function(data, textStatus, jqXHR) {
 
-					$('#mytable > tbody')
-							.append(
-									'<tr>'
-											+ '<td class="id_Grupo">'
-											+ data.iIdGrupo
-											+ '</td>'
-											+ '<td class="cNombre_Grupo">'
-											+ data.cNombre
-											+ '</td>'
-											+ '<td class="id_Curso">'
-											+ data.curso.iIdCurso
-											+ '</td>'
-											+ '<td class="cNombre_Curso">'
-											+ data.curso.cNombre
-											+ '</td>'
-											+ '<td class="cHorario">'
-											+ data.cHorario
-											+ '</td>'
-											+ '<td class="dePrecio">'
-											+ data.curso.dePrecio
-											+ '</td>'
-											+ '<td>'
-											+ '<button class="btnDelete" onclick="Borrar();" style="background-color:#FF4000; color:black;">Quitar</button>'
-											+ '</td> </tr>');
+			$('#mytable > tbody')
+					.append(
+							'<tr>'
+									+ '<td class="id_Grupo">'
+									+ data.iIdGrupo
+									+ '</td>'
+									+ '<td class="cNombre_Grupo">'
+									+ data.cNombre
+									+ '</td>'
+									+ '<td class="id_Curso">'
+									+ data.curso.iIdCurso
+									+ '</td>'
+									+ '<td class="cNombre_Curso">'
+									+ data.curso.cNombre
+									+ '</td>'
+									+ '<td class="cHorario">'
+									+ data.cHorario
+									+ '</td>'
+									+ '<td class="dePrecio">'
+									+ data.curso.dePrecio
+									+ '</td>'
+									+ '<td>'
+									+ '<button class="btnDelete" onclick="Borrar();" style="background-color:#FF4000; color:black;">Quitar</button>'
+									+ '</td> </tr>');
+	
+			calculaTotal();
+	
+			$("#mytable > tfoot").empty();
+			$('#mytable > tfoot').append(
+					'<TR> <TH ALIGN=LEFT COLSPAN=5>Total a Pagar</TH> <TH>'
+							+ vdetotal + '</TH> </TR>');					
+	
+			/* agregar json curso */
+			generaJson();
 
-					calculaTotal();
+		},
+		error : function() {
+			alert('error ');
+		}
 
-					$("#mytable > tfoot").empty();
-					$('#mytable > tfoot').append(
-							'<TR> <TH ALIGN=LEFT COLSPAN=5>Total a Pagar</TH> <TH>'
-									+ vdetotal + '</TH> </TR>');					
-
-					/* agregar json curso */
-					generaJson();
-
-				},
-				error : function() {
-					alert('error ');
-				}
-
-			});
+	});
 
 }
 
@@ -128,8 +127,7 @@ var calculaTotal = function() {
 
 	vdetotal = 0;
 	$.each($("#mytable tbody").find("tr"), function() {
-		vdetotal = vdetotal
-				+ parseInt($(this).closest("tr").find(".dePrecio").text());
+		vdetotal = vdetotal + parseInt($(this).closest("tr").find(".dePrecio").text());
 
 	});
 };
@@ -225,10 +223,28 @@ $(document).ready(function() {
 		
 		
 	});
-
-
 	
 });
+
+function validaCampos(){
+	
+	
+	if($('#Form_ctAlumno input#cNombre').val() == ""){
+		alert("Nombre Debe De Tener Un Valor");
+		return false; 
+		
+	}if($('#Form_ctAlumno input#cApellido').val() == ""){
+		alert("Apellido Debe De Tener Un Valor");
+		return false; 
+		
+	}if($('#Form_ctAlumno input#dtFechaNac').val() == ""){
+		alert("Fecha De Nacimiento Debe De Tener Un Valor");
+		return false; 
+		
+	}	
+	
+	return true;
+}
 
 
 

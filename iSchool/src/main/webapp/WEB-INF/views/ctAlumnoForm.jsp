@@ -199,6 +199,7 @@ th {
 }
 </style>
 
+
 <!--  <link rel="stylesheet" type="text/css" href="stylesheet.css"> -->
 <title>Registro</title>
 
@@ -249,8 +250,8 @@ th {
 						<td><form:label path="cNombre">
 								<spring:message text="Nombre" />
 							</form:label></td>
-						<td><form:input path="cNombre" cssClass="textoLargo" /></td>
-					</tr>
+						<td><form:input path="cNombre" cssClass="textoLargo" id="cNombre" onchange="validaNombre()"/></td>
+					</tr>					
 					<tr>
 
 						<td><form:label path="cApellido">
@@ -362,7 +363,7 @@ th {
 				<form:input type="hidden" path="cGrupo" disabled="false" />
 			</fieldset>
 
-			<button type="submit" class="botonAceptar">Registrar</button>
+			<button type="submit" class="botonAceptar" onclick="return validaCampos()">Registrar</button>
 
 		</form:form>
 	</div>
