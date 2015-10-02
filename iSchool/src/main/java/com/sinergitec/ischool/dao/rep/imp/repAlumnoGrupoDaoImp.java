@@ -1,10 +1,13 @@
 package com.sinergitec.ischool.dao.rep.imp;
 
 import java.io.IOException;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.stereotype.Repository;
 
 import com.progress.AppServer.AppServer;
 import com.progress.open4gl.BooleanHolder;
@@ -17,7 +20,7 @@ import com.progress.open4gl.javaproxy.Connection;
 import com.sinergitec.ischool.dao.rep.repAlumnoGrupoDao;
 import com.sinergitec.ischool.model.ct.ctAlumno;
 import com.sinergitec.ischool.util.DBConexion;
-
+@Repository
 public class repAlumnoGrupoDaoImp implements repAlumnoGrupoDao {
 
 	@Override
