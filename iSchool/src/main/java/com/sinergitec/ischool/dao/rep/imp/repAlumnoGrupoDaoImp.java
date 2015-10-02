@@ -36,7 +36,8 @@ public class repAlumnoGrupoDaoImp implements repAlumnoGrupoDao {
 
 		Connection conexion = DBConexion.getConnection();
 		AppServer app = new AppServer(conexion);
-
+		
+		
 		try {
 			
 			app.as_repAlumnoGrupo(idGrupo, tt_ctAlumno, oplError, opcError);
@@ -54,18 +55,21 @@ public class repAlumnoGrupoDaoImp implements repAlumnoGrupoDao {
 				obj.setcCalle(rs_tt_ctAlumno.getString("cCalle"));
 				obj.setcNumExt(rs_tt_ctAlumno.getString("cNumExt"));
 				obj.setcNumInt(rs_tt_ctAlumno.getString("cNumInt"));
-				obj.setcColonia(rs_tt_ctAlumno.getString("cColonia"));
+				obj.setcColonia(rs_tt_ctAlumno.getString("cCol"));
 				obj.setcCP(rs_tt_ctAlumno.getString("cCP"));
 				obj.setcMunicipio(rs_tt_ctAlumno.getString("cMunicipio"));
-				obj.setcEstado(rs_tt_ctAlumno.getString("cEstado"));
+				obj.setcEstado(rs_tt_ctAlumno.getString("cEdo"));
 				obj.setcTel(rs_tt_ctAlumno.getString("cTel"));
 				obj.setlEstatus(rs_tt_ctAlumno.getBoolean("lEstatus"));
 				obj.setDtFechaIns(rs_tt_ctAlumno.getTimestamp("dtFechaIns"));
-				obj.setcCorreo(rs_tt_ctAlumno.getString("cCorreo"));
+				obj.setcCorreo(rs_tt_ctAlumno.getString("cEmail"));
+				obj.setId(rs_tt_ctAlumno.getBytes("Id"));				
 
-				Lista.add(obj);
+				Lista.add(obj);			
 
 			}
+			
+			System.out.println(opcError.getStringValue());
 
 		} catch (Exception ex) {
 			System.out.print(ex);
@@ -74,7 +78,7 @@ public class repAlumnoGrupoDaoImp implements repAlumnoGrupoDao {
 			app._release();
 			DBConexion.closeConnection(conexion);
 		}
-
+		
 		return Lista;
 	}
 	

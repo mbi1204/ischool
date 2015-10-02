@@ -46,32 +46,36 @@ td {
 	<h1>Reporte De Alumnos Por Grupo</h1>
 	
 
-	<c:url var="actionUrl" value="configUsuario" />
+	<c:url var="actionUrl" value="repAlumnoGrupo" />
 
-	<form:form id="Form_ctGrupo" commandName="ctGrupo" method="post"
-		action="${actionUrl}" class="pure-form pure-form-aligned">
+	<form:form id="Form_ctGrupo" commandName="ctGrupo" method="post"  
+		action="${actionUrl}"  class="pure-form pure-form-aligned">
 
-		<form:label path="ctGrupo">
+		<form:label path="cNombre">
 			<spring:message text="Grupo" />
 		</form:label>
-		<form:select path="cUsuario" items="${lista_ctGrupo}"
-			itemValue="cUsuario" itemLabel="cNombre"
-			onchange="carga_ctGrupo(value);" />
+		<form:select path="cNombre" items="${lista_ctGrupo}" 
+			itemValue="iIdGrupo" itemLabel="cNombre"
+			onchange="carga_repAlumno(value);" />
 
-	</form:form>
-
-	<button class="pure-button pure-button-primary"
-		onclick="add_sysUsuMenu()">
-		<i class="fa fa-plus"></i> Agregar Menu
-	</button>
+	</form:form>	
 
 
 	<table id="mytable" class="pure-table pure-table-bordered  ">
 		<thead>
 			<tr>
 				<th width="4%">ID</th>
-				<th width="12%">Menu</th>
-				<th width="12%">Activo</th>
+				<th width="12%">Nombre</th>
+				<th width="12%">Apellido</th>
+				<th width="12%">Fecha De Nacimiento</th>
+				<th width="12%">Calle</th>
+				<th width="12%">Num. Ext</th>
+				<th width="12%">Num. Int</th>
+				<th width="12%">Colonia</th>
+				<th width="12%">CP</th>
+				<th width="12%">Municipio</th>
+				<th width="12%">Estado</th>
+				<th width="12%">Telefono</th>				
 				<th width="48%"></th>
 
 			</tr>
@@ -79,13 +83,7 @@ td {
 
 		<tbody>
 		</tbody>
-	</table>
-
-
-	<button class="pure-button pure-button-primary"
-		onclick="add_sysPrograma()">
-		<i class="fa fa-plus"></i> Agregar Programa
-	</button>
+	</table>	
 	
 </div>
 
@@ -100,7 +98,7 @@ td {
 
 
 	<script type="text/javascript"
-		src='<c:url value="/resources/js/configUsuario.js"/>'></script>
+		src='<c:url value="/resources/js/repAlumnoGrupo.js"/>'></script>
 
 
 </body>
