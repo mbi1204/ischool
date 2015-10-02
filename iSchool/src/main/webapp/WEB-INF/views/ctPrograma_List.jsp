@@ -29,6 +29,8 @@ th {
 <body>
 	<%@ include file="/WEB-INF/views/templates/menu.jsp"%>
 		<div style="width: 95%; margin: 0 auto;">
+		
+		
 		<div id="AddCtPrograma_Dialog">
 			<%@ include file="ctPrograma_Form.jsp"%>
 		</div>
