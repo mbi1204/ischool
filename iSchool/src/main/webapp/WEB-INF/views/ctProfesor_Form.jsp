@@ -49,21 +49,21 @@
 				<td><form:label path="cNumExt">
 						<spring:message text="NumeroExt" />
 					</form:label></td>
-				<td><form:input path="cNumExt" placeholder="Num Exterior" size="5" onkeypress="return soloNumero(event)"/></td>
+				<td><form:input path="cNumExt" placeholder="Num Exterior" size="5" /></td>
 			</tr>
 			
 			<tr>
 				<td><form:label path="cNumInt">
 						<spring:message text="NumeroInt" />
 					</form:label></td>
-				<td><form:input path="cNumInt" placeholder="Num Interior" size="5" onkeypress="return soloNumero(event)"/></td>
+				<td><form:input path="cNumInt" placeholder="Num Interior" size="5" /></td>
 			</tr>
 			
 			<tr>
 				<td><form:label path="cColonia">
 						<spring:message text="Colonia" />
 					</form:label></td>
-				<td><form:input path="cColonia"  placeholder="Colonia" size="10" /></td>
+				<td><form:input path="cColonia"  placeholder="Colonia" size="20" /></td>
 			</tr>
 		
 			
@@ -71,14 +71,14 @@
 				<td><form:label path="cMunicipio">
 						<spring:message text="Municipio"/>
 					</form:label></td>
-				<td><form:input path="cMunicipio" placeholder="Municipio" size="10" /></td>
+				<td><form:input path="cMunicipio" placeholder="Municipio" size="20" /></td>
 			</tr>
 			
 			<tr>
 				<td><form:label path="cEdo">
 						<spring:message text="Estado"/>
 					</form:label></td>
-				<td><form:input path="cEdo" placeholder="Estado" size="10" onkeypress="return soloLetras(event)" /></td>
+				<td><form:input path="cEdo" placeholder="Estado" size="20" onkeypress="return soloLetras(event)" /></td>
 			</tr>
 			
 			<tr>
