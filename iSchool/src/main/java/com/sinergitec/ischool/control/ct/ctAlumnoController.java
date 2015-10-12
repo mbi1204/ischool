@@ -45,6 +45,7 @@ public class ctAlumnoController {
 
 	@RequestMapping(value = "/ctAlumno/agregar", method = RequestMethod.POST)
 	public ModelAndView addPerson(@ModelAttribute("ctAlumno") ctAlumno obj) {
+		
 		ModelAndView miModelo = new ModelAndView("pdfView");
 
 		JSONArray jsonArray = new JSONArray(obj.getcGrupo());

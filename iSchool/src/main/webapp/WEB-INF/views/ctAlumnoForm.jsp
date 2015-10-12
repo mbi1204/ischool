@@ -250,7 +250,7 @@ th {
 						<td><form:label path="cNombre">
 								<spring:message text="Nombre" />
 							</form:label></td>
-						<td><form:input path="cNombre" cssClass="textoLargo" id="cNombre" onchange="validaNombre()"/></td>
+						<td><form:input path="cNombre" cssClass="textoLargo"  /></td>
 					</tr>					
 					<tr>
 
