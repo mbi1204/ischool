@@ -56,10 +56,13 @@ td {
 		</form:label>
 		<form:select path="cNombre" items="${lista_ctGrupo}" 
 			itemValue="iIdGrupo" itemLabel="cNombre"
-			onchange="carga_repAlumno(value);" />
-			
+			onchange="carga_repAlumno(value);" />			
 						
 		
+	</form:form>	
+	
+	<form:form id="repAlumnoGrupo" method="post" action="repAlumnoGrupo/pdf">
+		<button>PDF</button>
 	</form:form>
 
 	<table id="mytable" class="pure-table pure-table-bordered  ">
