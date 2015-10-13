@@ -6,15 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.progress.open4gl.Open4GLException;
 import com.progress.open4gl.RunTime4GLException;
 import com.progress.open4gl.SystemErrorException;
 import com.sinergitec.ischool.dao.rep.repSaldoAlumnoDao;
 import com.sinergitec.ischool.model.cb.cbAlumnoSaldo;
-import com.sinergitec.ischool.model.ct.ctAlumno;
 import com.sinergitec.ischool.service.rep.repSaldoAlumnoService;
 
+@Service
 public class repSaldoAlumnoServiceImp implements repSaldoAlumnoService {
 	
 	@Autowired
