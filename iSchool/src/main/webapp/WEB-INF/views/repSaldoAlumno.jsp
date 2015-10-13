@@ -43,13 +43,9 @@ td {
 
 <%@ include file="/WEB-INF/views/templates/menu.jsp"%>
 	<div style="width: 95%; margin: 0 auto;">
-	<h1>Reporte De Alumnos Por Grupo</h1>
-	
-	<form:form id="repAlumnoGrupo" method="post" action="repAlumnoGrupo/pdf">
-		<button>PDF</button>
-	</form:form>	
+	<h1>Reporte De Saldo De Alumnos</h1>		
 
-	<c:url var="actionUrl" value="repAlumnoGrupo" />
+	<c:url var="actionUrl" value="repSaldoAlumno" />
 
 	<form:form id="Form_ctGrupo" commandName="ctGrupo" method="post"  
 		action="${actionUrl}"  class="pure-form pure-form-aligned">
@@ -67,16 +63,10 @@ td {
 			<tr>
 				<th width="4%">ID</th>
 				<th width="12%">Nombre</th>
-				<th width="12%">Apellido</th>
-				<th width="12%">Fecha De Nacimiento</th>
-				<th width="12%">Calle</th>
-				<th width="12%">Num. Ext</th>
-				<th width="12%">Num. Int</th>
-				<th width="12%">Colonia</th>
-				<th width="12%">CP</th>
-				<th width="12%">Municipio</th>
-				<th width="12%">Estado</th>
-				<th width="12%">Telefono</th>				
+				<th width="12%">Apellido</th>				
+				<th width="12%">Telefono</th>
+				<th width="12%">Email</th>				
+				<th width="12%">Por Pagar</th>
 				<th width="48%"></th>
 			</tr>
 		</thead>
@@ -98,7 +88,7 @@ td {
 
 
 	<script type="text/javascript"
-		src='<c:url value="/resources/js/repAlumnoGrupo.js"/>'></script>
+		src='<c:url value="/resources/js/repSaldoAlumno.js"/>'></script>
 
 
 </body>
