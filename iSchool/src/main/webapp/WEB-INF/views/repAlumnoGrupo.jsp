@@ -38,6 +38,13 @@ td {
 }
 </style>
 
+<script type="text/javascript">
+function check(){	 		 
+	 var vGrupo = $('select option:selected').text();	 
+	 $("#grupo").val(vGrupo);
+}
+</script>
+
 </head>
 <body onload="carga();">
 
@@ -46,7 +53,8 @@ td {
 	<h1>Reporte De Alumnos Por Grupo</h1>
 	
 	<form:form id="repAlumnoGrupo" method="post" action="repAlumnoGrupo/pdf">
-		<button>PDF</button>
+		<button type="submit" onclick="return check()">PDF</button>
+		<input id="grupo" name="grupo" type="hidden"/>
 	</form:form>	
 
 	<c:url var="actionUrl" value="repAlumnoGrupo" />
@@ -59,7 +67,7 @@ td {
 		</form:label>
 		<form:select path="cNombre" items="${lista_ctGrupo}" 
 			itemValue="iIdGrupo" itemLabel="cNombre"
-			onchange="carga_repAlumno(value);" />		
+			onchange="carga_repAlumno(value);" id="ctGrupo"/>		
 	</form:form>	
 
 	<table id="mytable" class="pure-table pure-table-bordered  ">

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -53,13 +54,12 @@ public class repAlumnoGrupoControl {
 	}
 	
 	@RequestMapping(value = "/repAlumnoGrupo/pdf", method = RequestMethod.POST)
-	public ModelAndView getList(HttpServletRequest req) {
-		
-		System.out.println(req.getParameter("ctGrupo"));		
+	public ModelAndView getList(@RequestParam("grupo") String grupo) {						
 		
 		ModelAndView miModelo = new ModelAndView("pdfViewRepAlumnoGrupo");
 		
-		miModelo.addObject("listaAlumno", list);		
+		miModelo.addObject("listaAlumno", list);
+		miModelo.addObject("grupo", grupo);
 		
 		return miModelo;
 	

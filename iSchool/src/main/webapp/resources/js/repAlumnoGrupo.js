@@ -1,7 +1,5 @@
 function carga_repAlumno(viIdGrupo) {
 
-	
-
 	$.ajax({
 		type : "GET",
 		url : "repAlumnoGrupo/getAlumnos",
@@ -43,9 +41,7 @@ function carga_repAlumno(viIdGrupo) {
 
 	});
 	
-	var check = function(){
-		alert($("ctGrupo").val);
-	}
+	 
 
 }
 

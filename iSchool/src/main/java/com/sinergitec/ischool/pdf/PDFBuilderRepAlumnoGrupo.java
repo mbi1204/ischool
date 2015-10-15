@@ -8,14 +8,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.itextpdf.text.Document;
-
+import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.ColumnText;
 import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfPageEventHelper;
 import com.itextpdf.text.pdf.PdfWriter;
 
 public class PDFBuilderRepAlumnoGrupo extends AbstractITextPdfView {	
+	
+	public class MembreteHeaderiText extends  PdfPageEventHelper {
+		 
+		 @Override
+		 public void onStartPage(PdfWriter writer, Document document) {
+		  ColumnText.showTextAligned(writer.getDirectContent(), Element.ALIGN_CENTER, new Phrase("Inicio de Pagina - El lado oscuro de Java"), 200,830,0);
+		 }
+	}
 	 
 
 	@Override
@@ -27,10 +37,12 @@ public class PDFBuilderRepAlumnoGrupo extends AbstractITextPdfView {
 		
 		@SuppressWarnings("unchecked")
 		ArrayList<ctAlumno> listaAlumno = (ArrayList<ctAlumno>)model.get("listaAlumno");
+		String grupo = (String)model.get("grupo");		
 		
 		PdfPTable tablaPDF = new PdfPTable(11); // 11 columns.
 		Font fuenteTabla = new Font(Font.FontFamily.UNDEFINED, 12, Font.BOLD);
 		Font fuenteCelda = new Font(Font.FontFamily.UNDEFINED, 11);
+		Font fuenteGrupo = new Font(Font.FontFamily.UNDEFINED, 24);	
 		
 		
 		tablaPDF.addCell(new Phrase("Nombre", fuenteTabla));
@@ -59,9 +71,13 @@ public class PDFBuilderRepAlumnoGrupo extends AbstractITextPdfView {
 			tablaPDF.addCell(new Phrase(ctAlumno.getcTel(), fuenteCelda));
 		}
 		
+		MembreteHeaderiText header = new MembreteHeaderiText();
+		writer.setPageEvent(header);
 		tablaPDF.setWidthPercentage(100);		
-		doc.newPage();		
+		doc.open();
+		doc.add(new Phrase(grupo, fuenteGrupo));
 		doc.add(tablaPDF);
+		doc.close();
 		
 		
 	}
