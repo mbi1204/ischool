@@ -51,7 +51,9 @@ public class repAlumnoGrupoControl {
 	}
 	
 	@RequestMapping(value = "/repAlumnoGrupo/pdf", method = RequestMethod.POST)
-	public ModelAndView getList() {		
+	public ModelAndView getList(@ModelAttribute("ctGrupo") ctGrupo obj) {
+		
+		System.out.println(obj.getcNombre());
 		
 		ModelAndView miModelo = new ModelAndView("pdfViewRepAlumnoGrupo");
 		
