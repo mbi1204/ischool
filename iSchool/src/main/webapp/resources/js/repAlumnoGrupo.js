@@ -42,6 +42,10 @@ function carga_repAlumno(viIdGrupo) {
 		}
 
 	});
+	
+	var check = function(){
+		alert($("ctGrupo").val);
+	}
 
 }
 

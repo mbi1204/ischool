@@ -3,6 +3,8 @@ package com.sinergitec.ischool.control.rep;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -51,9 +53,9 @@ public class repAlumnoGrupoControl {
 	}
 	
 	@RequestMapping(value = "/repAlumnoGrupo/pdf", method = RequestMethod.POST)
-	public ModelAndView getList(@ModelAttribute("ctGrupo") ctGrupo obj) {
+	public ModelAndView getList(HttpServletRequest req) {
 		
-		System.out.println(obj.getiIdGrupo());
+		System.out.println(req.getParameter("ctGrupo"));		
 		
 		ModelAndView miModelo = new ModelAndView("pdfViewRepAlumnoGrupo");
 		

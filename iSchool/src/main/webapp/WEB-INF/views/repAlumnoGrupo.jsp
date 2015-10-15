@@ -52,7 +52,7 @@ td {
 	<c:url var="actionUrl" value="repAlumnoGrupo" />
 
 	<form:form id="Form_ctGrupo" commandName="ctGrupo" method="post"  
-		action="${actionUrl}"  class="pure-form pure-form-aligned" modelAttribute="ctGrupo">
+		action="${actionUrl}"  class="pure-form pure-form-aligned">
 
 		<form:label path="cNombre">
 			<spring:message text="Grupo" />
