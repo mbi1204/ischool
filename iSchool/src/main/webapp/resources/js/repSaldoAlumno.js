@@ -44,6 +44,12 @@ function getGrupo(){
 	 $("#grupo").val(vGrupo);
 }
 
+function carga() {
+	$(document).ready(function() {
+		carga_repAlumno($('#Form_ctGrupo select#iIdGrupo').val());
+	});
+}
+
 
 
 

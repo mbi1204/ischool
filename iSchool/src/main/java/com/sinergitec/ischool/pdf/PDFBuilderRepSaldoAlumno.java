@@ -42,9 +42,7 @@ public class PDFBuilderRepSaldoAlumno extends AbstractITextPdfView {
 	@Override
 	protected void buildPdfDocument(Map<String, Object> model, Document doc, PdfWriter writer,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// TODO Auto-generated method stub
-		
-		System.out.println("pdf");
+		// TODO Auto-generated method stub		
 		
 		@SuppressWarnings("unchecked")
 		ArrayList<cbAlumnoSaldo> listaAlumno = (ArrayList<cbAlumnoSaldo>)model.get("listaAlumno");
