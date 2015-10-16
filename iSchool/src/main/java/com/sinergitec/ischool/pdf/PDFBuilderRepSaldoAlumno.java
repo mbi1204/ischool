@@ -44,6 +44,8 @@ public class PDFBuilderRepSaldoAlumno extends AbstractITextPdfView {
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
 		
+		System.out.println("pdf");
+		
 		@SuppressWarnings("unchecked")
 		ArrayList<cbAlumnoSaldo> listaAlumno = (ArrayList<cbAlumnoSaldo>)model.get("listaAlumno");
 		grupo = (String)model.get("grupo");		
@@ -55,29 +57,18 @@ public class PDFBuilderRepSaldoAlumno extends AbstractITextPdfView {
 		
 		tablaPDF.addCell(new Phrase("Nombre", fuenteTabla));
 		tablaPDF.addCell(new Phrase("Apellido", fuenteTabla));
-		tablaPDF.addCell(new Phrase("Fecha De Nacimiento", fuenteTabla));
-		tablaPDF.addCell(new Phrase("Calle", fuenteTabla));
-		tablaPDF.addCell(new Phrase("Num. Ext", fuenteTabla));
-		tablaPDF.addCell(new Phrase("Num. Int", fuenteTabla));
-		tablaPDF.addCell(new Phrase("Colonia", fuenteTabla));
-		tablaPDF.addCell(new Phrase("CP", fuenteTabla));
-		tablaPDF.addCell(new Phrase("Municipio", fuenteTabla));
-		tablaPDF.addCell(new Phrase("Estado", fuenteTabla));
 		tablaPDF.addCell(new Phrase("Telefono", fuenteTabla));
+		tablaPDF.addCell(new Phrase("Email", fuenteTabla));
+		tablaPDF.addCell(new Phrase("Saldo", fuenteTabla));
 		
-//		for (ctAlumno ctAlumno : listaAlumno) {
-//			tablaPDF.addCell(new Phrase(ctAlumno.getcNombre(), fuenteCelda));
-//			tablaPDF.addCell(new Phrase(ctAlumno.getcApellido(), fuenteCelda));
-//			tablaPDF.addCell(new Phrase(ctAlumno.getDtFechaNac(), fuenteCelda));
-//			tablaPDF.addCell(new Phrase(ctAlumno.getcCalle(), fuenteCelda));
-//			tablaPDF.addCell(new Phrase(ctAlumno.getcNumExt(), fuenteCelda));
-//			tablaPDF.addCell(new Phrase(ctAlumno.getcNumInt(), fuenteCelda));
-//			tablaPDF.addCell(new Phrase(ctAlumno.getcColonia(), fuenteCelda));
-//			tablaPDF.addCell(new Phrase(ctAlumno.getcCP(), fuenteCelda));
-//			tablaPDF.addCell(new Phrase(ctAlumno.getcMunicipio(), fuenteCelda));
-//			tablaPDF.addCell(new Phrase(ctAlumno.getcEstado(), fuenteCelda));
-//			tablaPDF.addCell(new Phrase(ctAlumno.getcTel(), fuenteCelda));
-//		}
+		
+		for (cbAlumnoSaldo cbAlumno : listaAlumno) {
+			tablaPDF.addCell(new Phrase(cbAlumno.getcNombre(), fuenteCelda));
+			tablaPDF.addCell(new Phrase(cbAlumno.getcApellido(), fuenteCelda));			
+			tablaPDF.addCell(new Phrase(cbAlumno.getcTel(), fuenteCelda));
+			tablaPDF.addCell(new Phrase(cbAlumno.getcCorreo(), fuenteCelda));
+			tablaPDF.addCell(new Phrase(Double.toString(cbAlumno.getDeSaldo()), fuenteCelda));
+		}
 		
 		tablaPDF.setWidthPercentage(100);
         Rectangle rect = new Rectangle(60, 30, 600, 800);
