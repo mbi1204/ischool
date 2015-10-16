@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.progress.AppServer.AppServer;
+
 import com.progress.open4gl.BooleanHolder;
 import com.progress.open4gl.Open4GLException;
 import com.progress.open4gl.ResultSetHolder;
@@ -47,10 +48,9 @@ public List<ctGrupo> list_ctGrupo() throws Open4GLException, IOException{
 		Connection conexion = DBConexion.getConnection();
 		AppServer app = new AppServer(conexion);
 		
-		try {
+		try {			
 			
-		
-			app.as_ctGrupo_Carga(true, tt_ctGrupo, oplError, opcError);
+			app.as_ctGrupoDisponible_Carga(true, tt_ctGrupo, oplError, opcError);
 
 			ResultSet rs_tt_ctGrupo = tt_ctGrupo.getResultSetValue();
 			
