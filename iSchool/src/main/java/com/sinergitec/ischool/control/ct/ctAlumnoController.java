@@ -19,7 +19,6 @@ import com.sinergitec.ischool.model.ct.ctGrupo;
 import com.sinergitec.ischool.model.ct.ctLocalidad;
 import com.sinergitec.ischool.service.ct.ctAlumnoService;
 import com.sinergitec.ischool.service.ct.ctGrupoDisponibleService;
-import com.sinergitec.ischool.service.ct.ctGrupoService;
 import com.sinergitec.ischool.service.imp.ct.ctLocalidadServiceImp;
 
 @Controller
@@ -40,6 +39,10 @@ public class ctAlumnoController {
 
 		model.addAttribute("ctAlumno", new ctAlumno());
 		model.addAttribute("Lista_Grupo", this.grupoService.list_ctGrupo());
+		ArrayList<ctGrupo> lista = (ArrayList<ctGrupo>) this.grupoService.list_ctGrupo();
+		for (ctGrupo ctGrupo : lista) {
+			System.out.println(ctGrupo.getcNombre());
+		}
 
 		return "ctAlumnoForm";
 	}
