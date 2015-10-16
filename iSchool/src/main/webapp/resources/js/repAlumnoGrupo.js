@@ -45,6 +45,10 @@ function carga_repAlumno(viIdGrupo) {
 
 }
 
+function getGrupo(){	 		 
+	 var vGrupo = $('select option:selected').text();	 
+	 $("#grupo").val(vGrupo);
+}
 
 
 

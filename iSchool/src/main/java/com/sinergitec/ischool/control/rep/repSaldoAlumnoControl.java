@@ -9,7 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.progress.open4gl.Open4GLException;
 import com.sinergitec.ischool.model.cb.cbAlumnoSaldo;
@@ -41,13 +43,21 @@ public class repSaldoAlumnoControl {
 	public @ResponseBody List<cbAlumnoSaldo> list_repAlumnoGrupo(int iIdGrupo) {
 		
 		list = this.repService.list_cbAlumno(iIdGrupo);
-//		for (cbAlumnoSaldo cbAlumnoSaldo : list) {
-//			System.out.println("control");
-//			System.out.println("email " + cbAlumnoSaldo.getcCorreo());
-//			System.out.println("saldo " + cbAlumnoSaldo.getDeSaldo());
-//		}
+
 
 		return list;
+	}
+	
+	@RequestMapping(value = "/repAlumnoGrupo/pdf", method = RequestMethod.POST)
+	public ModelAndView getList(@RequestParam("grupo") String grupo) {						
+		
+		ModelAndView miModelo = new ModelAndView("pdfViewRepSaldoAlumno");
+		
+		miModelo.addObject("listaAlumno", list);
+		miModelo.addObject("grupo", grupo);
+		
+		return miModelo;
+	
 	}
 
 }

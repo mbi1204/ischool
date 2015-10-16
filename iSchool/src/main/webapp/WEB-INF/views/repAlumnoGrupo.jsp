@@ -38,13 +38,6 @@ td {
 }
 </style>
 
-<script type="text/javascript">
-function check(){	 		 
-	 var vGrupo = $('select option:selected').text();	 
-	 $("#grupo").val(vGrupo);
-}
-</script>
-
 </head>
 <body onload="carga();">
 
@@ -53,7 +46,7 @@ function check(){
 	<h1>Reporte De Alumnos Por Grupo</h1>
 	
 	<form:form id="repAlumnoGrupo" method="post" action="repAlumnoGrupo/pdf">
-		<button type="submit" onclick="return check()">PDF</button>
+		<button type="submit" onclick="return getGrupo()">Imprimr Reporte</button>
 		<input id="grupo" name="grupo" type="hidden"/>
 	</form:form>	
 

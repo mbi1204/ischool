@@ -52,11 +52,7 @@ public class repSaldoAlumnoDaoImp implements repSaldoAlumnoDao {
 				obj.setcApellido(rs_tt_cbAlumno.getString("cApellido"));
 				obj.setcTel(rs_tt_cbAlumno.getString("cTel"));
 				obj.setcCorreo(rs_tt_cbAlumno.getString("cEmail"));
-				obj.setDeSaldo(rs_tt_cbAlumno.getDouble("deSaldo"));
-//				System.out.println("dao");
-//				System.out.println("email " + obj.getcCorreo());
-//				System.out.println("saldo " + obj.getDeSaldo());
-				
+				obj.setDeSaldo(rs_tt_cbAlumno.getDouble("deSaldo"));				
 
 				Lista.add(obj);
 			}
