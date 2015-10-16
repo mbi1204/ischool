@@ -18,6 +18,7 @@ import com.sinergitec.ischool.model.ct.ctCurso;
 import com.sinergitec.ischool.model.ct.ctGrupo;
 import com.sinergitec.ischool.model.ct.ctLocalidad;
 import com.sinergitec.ischool.service.ct.ctAlumnoService;
+import com.sinergitec.ischool.service.ct.ctGrupoDisponibleService;
 import com.sinergitec.ischool.service.ct.ctGrupoService;
 import com.sinergitec.ischool.service.imp.ct.ctLocalidadServiceImp;
 
@@ -28,7 +29,7 @@ public class ctAlumnoController {
 	private ctAlumnoService alumnoService;	
 
 	@Autowired
-	private ctGrupoService grupoService;
+	private ctGrupoDisponibleService grupoService;
 	
 	@Autowired
 	private ctLocalidadServiceImp localidadService; 

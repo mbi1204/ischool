@@ -52,7 +52,7 @@ function getGrupo(){
 
 function carga() {
 	$(document).ready(function() {
-		carga_repAlumno($('#Form_ctGrupo select#iIdGrupo').val());
+		carga_repAlumno($('select option:selected').val());
 	});
 }
 
