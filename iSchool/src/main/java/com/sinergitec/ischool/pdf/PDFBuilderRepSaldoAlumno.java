@@ -50,7 +50,7 @@ public class PDFBuilderRepSaldoAlumno extends AbstractITextPdfView {
 		ArrayList<cbAlumnoSaldo> listaAlumno = (ArrayList<cbAlumnoSaldo>)model.get("listaAlumno");
 		grupo = (String)model.get("grupo");		
 		
-		PdfPTable tablaPDF = new PdfPTable(11); // 11 columns.
+		PdfPTable tablaPDF = new PdfPTable(5); // 5 columns.
 		Font fuenteTabla = new Font(Font.FontFamily.UNDEFINED, 12, Font.BOLD);
 		Font fuenteCelda = new Font(Font.FontFamily.UNDEFINED, 11);
 		Font fuenteGrupo = new Font(Font.FontFamily.UNDEFINED, 24);		
@@ -59,7 +59,7 @@ public class PDFBuilderRepSaldoAlumno extends AbstractITextPdfView {
 		tablaPDF.addCell(new Phrase("Apellido", fuenteTabla));
 		tablaPDF.addCell(new Phrase("Telefono", fuenteTabla));
 		tablaPDF.addCell(new Phrase("Email", fuenteTabla));
-		tablaPDF.addCell(new Phrase("Saldo", fuenteTabla));
+		tablaPDF.addCell(new Phrase("Por Pagar", fuenteTabla));
 		
 		
 		for (cbAlumnoSaldo cbAlumno : listaAlumno) {

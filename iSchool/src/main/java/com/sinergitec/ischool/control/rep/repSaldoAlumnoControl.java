@@ -48,7 +48,7 @@ public class repSaldoAlumnoControl {
 		return list;
 	}
 	
-	@RequestMapping(value = "/repAlumnoGrupo/pdf", method = RequestMethod.POST)
+	@RequestMapping(value = "/repSaldoAlumno/pdf", method = RequestMethod.POST)
 	public ModelAndView getList(@RequestParam("grupo") String grupo) {						
 		
 		ModelAndView miModelo = new ModelAndView("pdfViewRepSaldoAlumno");
