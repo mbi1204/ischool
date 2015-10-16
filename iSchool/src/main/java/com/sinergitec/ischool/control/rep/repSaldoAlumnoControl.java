@@ -3,6 +3,7 @@ package com.sinergitec.ischool.control.rep;
 import java.io.IOException;
 import java.util.List;
 
+import org.apache.jasper.tagplugins.jstl.core.ForEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,6 +41,11 @@ public class repSaldoAlumnoControl {
 	public @ResponseBody List<cbAlumnoSaldo> list_repAlumnoGrupo(int iIdGrupo) {
 		
 		list = this.repService.list_cbAlumno(iIdGrupo);
+//		for (cbAlumnoSaldo cbAlumnoSaldo : list) {
+//			System.out.println("control");
+//			System.out.println("email " + cbAlumnoSaldo.getcCorreo());
+//			System.out.println("saldo " + cbAlumnoSaldo.getDeSaldo());
+//		}
 
 		return list;
 	}

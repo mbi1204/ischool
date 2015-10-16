@@ -21,7 +21,8 @@ function carga_repAlumno(viIdGrupo) {
 						+ '<td>' + data[item].cNombre + '</td>'
 						+ '<td>' + data[item].cApellido + '</td>'						
 						+ '<td>' + data[item].cTel + '</td>'
-						+ '<td>' + data[item].cEmail + '</td>'
+						+ '<td>' + data[item].cCorreo + '</td>'
+						+ '<td>' + data[item].deSaldo + '</td>'
 						+ '</tr>');
 
 			}
