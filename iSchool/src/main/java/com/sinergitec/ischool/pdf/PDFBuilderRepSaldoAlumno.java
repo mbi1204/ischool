@@ -11,7 +11,6 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.PageSize;
-import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.ColumnText;
@@ -50,8 +49,7 @@ public class PDFBuilderRepSaldoAlumno extends AbstractITextPdfView {
 		
 		PdfPTable tablaPDF = new PdfPTable(5); // 5 columns.
 		Font fuenteTabla = new Font(Font.FontFamily.UNDEFINED, 12, Font.BOLD);
-		Font fuenteCelda = new Font(Font.FontFamily.UNDEFINED, 11);
-		Font fuenteGrupo = new Font(Font.FontFamily.UNDEFINED, 24);		
+		Font fuenteCelda = new Font(Font.FontFamily.UNDEFINED, 11);				
 		
 		tablaPDF.addCell(new Phrase("Nombre", fuenteTabla));
 		tablaPDF.addCell(new Phrase("Apellido", fuenteTabla));

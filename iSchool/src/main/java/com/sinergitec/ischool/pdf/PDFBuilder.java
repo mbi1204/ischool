@@ -54,15 +54,14 @@ public class PDFBuilder extends AbstractITextPdfView {
 		cellSub1.setHorizontalAlignment(Element.ALIGN_CENTER);
 		cellSub2.setHorizontalAlignment(Element.ALIGN_CENTER);
 		cellSub3.setHorizontalAlignment(Element.ALIGN_CENTER);
-
-		String fechaNac = obj.getDtFechaNac().substring(8, 10) + " / " + obj.getDtFechaNac().substring(5, 7) + " / " + obj.getDtFechaNac().substring(0, 4);		
+				
 		PdfPTable tablaDatos = new PdfPTable(2);
 		tablaDatos.addCell(new Phrase("Nombre(s): "));
 		tablaDatos.addCell(obj.getcNombre());
 		tablaDatos.addCell(new Phrase("Apellidos: "));
 		tablaDatos.addCell(obj.getcApellido());
-		tablaDatos.addCell(new Phrase("Fecha De Nacimiento: "));
-		tablaDatos.addCell(fechaNac);		
+		tablaDatos.addCell(new Phrase("Edad: "));
+		tablaDatos.addCell(obj.getcEdad());		
 		tablaDatos.addCell(new Phrase("Telefono: "));
 		tablaDatos.addCell(obj.getcTel());
 		tablaDatos.addCell(new Phrase("Correo: "));

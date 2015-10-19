@@ -51,7 +51,7 @@ public class repAlumnoGrupoDaoImp implements repAlumnoGrupoDao {
 				obj.setiIdAlumno((rs_tt_ctAlumno.getInt("iIdAlumno")));
 				obj.setcNombre(rs_tt_ctAlumno.getString("cNombre"));
 				obj.setcApellido(rs_tt_ctAlumno.getString("cApellido"));
-				obj.setDtFechaNac(rs_tt_ctAlumno.getString("dtFechaNac").substring(0, 10));				
+				obj.setcEdad(rs_tt_ctAlumno.getString("cEdad"));				
 				obj.setcCalle(rs_tt_ctAlumno.getString("cCalle"));
 				obj.setcNumExt(rs_tt_ctAlumno.getString("cNumExt"));
 				obj.setcNumInt(rs_tt_ctAlumno.getString("cNumInt"));

@@ -1,7 +1,6 @@
 package com.sinergitec.ischool.model.ct;
 
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.Vector;
 
 public class ctAlumno {
@@ -9,7 +8,7 @@ public class ctAlumno {
 	private Integer iIdAlumno;
 	private String cNombre;
 	private String cApellido;
-	private String dtFechaNac;
+	private String cEdad;
 	private String cCalle;
 	private String cNumExt;
 	private String cNumInt;
@@ -22,23 +21,30 @@ public class ctAlumno {
 	private Timestamp dtFechaIns;
 	private String cCorreo;
 	private byte[] Id;
-	private ctGrupo grupo;	
+	private ctGrupo grupo;
 	private String cGrupo;
-	
+	private String cNombreFiscal;
+	private String cCalleFiscal;
+	private String cNumeroFiscal;
+	private String cColoniaFiscal;
+	private String cMunicipioFiscal;
+	private String cCPFiscal;
+	private String cCiudadFiscal;
+	private String cEstadoFiscal;
+	private String cRfcFiscal;
+	private String cTelEmergencia;
+	private Boolean lGenero;
+	private Boolean lSeguro;
+	private Boolean lFactura;
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Vector getVectorDatos() {
 		Vector vector = new Vector();
 
-		Timestamp conversion = Timestamp.valueOf(this.getDtFechaNac() + " 00:00:00.000000");
-
-		Date date = new java.util.Date();
-		this.setDtFechaIns(new Timestamp(date.getTime()));
-
 		vector.add(this.getiIdAlumno());
 		vector.add(this.getcNombre());
 		vector.add(this.getcApellido());
-		vector.add(conversion);
+		vector.add(this.getcEdad());
 		vector.add(this.getcCalle());
 		vector.add(this.getcNumExt());
 		vector.add(this.getcNumInt());
@@ -48,10 +54,21 @@ public class ctAlumno {
 		vector.add(this.getcEstado());
 		vector.add(this.getcTel());
 		vector.add(this.getlEstatus());
-		vector.add(this.getDtFechaIns());
 		vector.add(this.getcCorreo());
 		vector.add(this.getId());
-
+		vector.add(this.getcNombreFiscal());
+		vector.add(this.getcCalleFiscal());
+		vector.add(this.getcNumeroFiscal());
+		vector.add(this.getcColoniaFiscal());
+		vector.add(this.getcMunicipioFiscal());
+		vector.add(this.getcCPFiscal());
+		vector.add(this.getcCiudadFiscal());
+		vector.add(this.getcEstadoFiscal());
+		vector.add(this.getcRfcFiscal());
+		vector.add(this.getcTelEmergencia());
+		vector.add(this.getlGenero());
+		vector.add(this.getlSeguro());
+		vector.add(this.getlFactura());
 		return vector;
 	}
 
@@ -77,14 +94,6 @@ public class ctAlumno {
 
 	public void setcApellido(String cApellido) {
 		this.cApellido = cApellido;
-	}
-
-	public String getDtFechaNac() {
-		return dtFechaNac;
-	}
-
-	public void setDtFechaNac(String dtFechaNac) {
-		this.dtFechaNac = dtFechaNac;
 	}
 
 	public String getcCalle() {
@@ -159,18 +168,6 @@ public class ctAlumno {
 		this.lEstatus = lEstatus;
 	}
 
-	public Timestamp getDtFechaIns() {
-		return dtFechaIns;
-	}
-
-	public void setDtFechaIns(Timestamp dtFechaIns) {
-		this.dtFechaIns = dtFechaIns;
-	}
-	
-	
-
-
-
 	public String getcCorreo() {
 		return cCorreo;
 	}
@@ -202,7 +199,127 @@ public class ctAlumno {
 	public void setcGrupo(String cGrupo) {
 		this.cGrupo = cGrupo;
 	}
+
+	public String getcEdad() {
+		return cEdad;
+	}
+
+	public void setcEdad(String cEdad) {
+		this.cEdad = cEdad;
+	}
+
+	public String getcNombreFiscal() {
+		return cNombreFiscal;
+	}
+
+	public void setcNombreFiscal(String cNombreFiscal) {
+		this.cNombreFiscal = cNombreFiscal;
+	}
+
+	public String getcCalleFiscal() {
+		return cCalleFiscal;
+	}
+
+	public void setcCalleFiscal(String cCalleFiscal) {
+		this.cCalleFiscal = cCalleFiscal;
+	}
+
+	public String getcNumeroFiscal() {
+		return cNumeroFiscal;
+	}
+
+	public void setcNumeroFiscal(String cNumeroFiscal) {
+		this.cNumeroFiscal = cNumeroFiscal;
+	}
+
+	public String getcColoniaFiscal() {
+		return cColoniaFiscal;
+	}
+
+	public void setcColoniaFiscal(String cColoniaFiscal) {
+		this.cColoniaFiscal = cColoniaFiscal;
+	}
+
+	public String getcMunicipioFiscal() {
+		return cMunicipioFiscal;
+	}
+
+	public void setcMunicipioFiscal(String cMunicipioFiscal) {
+		this.cMunicipioFiscal = cMunicipioFiscal;
+	}
+
+	public String getcCPFiscal() {
+		return cCPFiscal;
+	}
+
+	public void setcCPFiscal(String cCPFiscal) {
+		this.cCPFiscal = cCPFiscal;
+	}
+
+	public String getcCiudadFiscal() {
+		return cCiudadFiscal;
+	}
+
+	public void setcCiudadFiscal(String cCiudadFiscal) {
+		this.cCiudadFiscal = cCiudadFiscal;
+	}
+
+	public String getcEstadoFiscal() {
+		return cEstadoFiscal;
+	}
+
+	public void setcEstadoFiscal(String cEstadoFiscal) {
+		this.cEstadoFiscal = cEstadoFiscal;
+	}
+
+	public String getcRfcFiscal() {
+		return cRfcFiscal;
+	}
+
+	public void setcRfcFiscal(String cRfcFiscal) {
+		this.cRfcFiscal = cRfcFiscal;
+	}
+
+	public String getcTelEmergencia() {
+		return cTelEmergencia;
+	}
+
+	public void setcTelEmergencia(String cTelEmergencia) {
+		this.cTelEmergencia = cTelEmergencia;
+	}
+
+	public Boolean getlGenero() {
+		return lGenero;
+	}
+
+	public void setlGenero(boolean lGenero) {
+		this.lGenero = lGenero;
+	}
+
+	public Boolean getlSeguro() {
+		return lSeguro;
+	}
+
+	public void setlSeguro(boolean lSeguro) {
+		this.lSeguro = lSeguro;
+	}
+
+	public Boolean getlFactura() {
+		return lFactura;
+	}
+
+	public void setlFactura(boolean lFactura) {
+		this.lFactura = lFactura;
+	}
+
+	public Timestamp getDtFechaIns() {
+		return dtFechaIns;
+	}
+
+	public void setDtFechaIns(Timestamp dtFechaIns) {
+		this.dtFechaIns = dtFechaIns;
+	}
 	
 	
-	
+
 }

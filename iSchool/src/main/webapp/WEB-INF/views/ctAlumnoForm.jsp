@@ -261,10 +261,10 @@ th {
 					</tr>
 
 					<tr>
-						<td><form:label path="dtFechaNac">
-								<spring:message text="Fecha de Nacimiento" />
+						<td><form:label path="cEdad">
+								<spring:message text="Edad" />
 							</form:label></td>
-						<td><form:input type="date" path="dtFechaNac" /></td>
+						<td><form:input path="cEdad" /></td>
 					</tr>
 					<tr>
 						<td><form:label path="cTel">
