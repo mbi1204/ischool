@@ -69,7 +69,7 @@ td {
 				<th width="4%">ID</th>
 				<th width="12%">Nombre</th>
 				<th width="12%">Apellido</th>
-				<th width="12%">Fecha De Nacimiento</th>
+				<th width="12%">Edad</th>
 				<th width="12%">Calle</th>
 				<th width="12%">Num. Ext</th>
 				<th width="12%">Num. Int</th>
