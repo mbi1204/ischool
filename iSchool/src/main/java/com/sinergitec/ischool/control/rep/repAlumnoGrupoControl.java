@@ -46,8 +46,7 @@ public class repAlumnoGrupoControl {
 
 	@RequestMapping(value = "/repAlumnoGrupo/getAlumnos", headers = "Accept=application/json")
 	public @ResponseBody List<ctAlumno> list_repAlumnoGrupo(int iIdGrupo) {
-
-//		List<ctAlumno> list = new ArrayList<ctAlumno>();		
+		
 		list = this.repService.list_ctAlumno(iIdGrupo);
 
 		return list;

@@ -26,7 +26,7 @@ public class repAlumnoGrupoDaoImp implements repAlumnoGrupoDao {
 	@Override
 	public List<ctAlumno> list_ctAlumno(int idGrupo)
 			throws RunTime4GLException, SystemErrorException, Open4GLException, IOException, SQLException {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub		
 
 		ResultSetHolder tt_ctAlumno = new ResultSetHolder();
 
@@ -35,16 +35,17 @@ public class repAlumnoGrupoDaoImp implements repAlumnoGrupoDao {
 		List<ctAlumno> Lista = new ArrayList<ctAlumno>();
 
 		Connection conexion = DBConexion.getConnection();
-		AppServer app = new AppServer(conexion);
+		AppServer app = new AppServer(conexion);		
 		
-		
-		try {
+		try {		
 			
 			app.as_repAlumnoGrupo(idGrupo, tt_ctAlumno, oplError, opcError);
 			
 			ResultSet rs_tt_ctAlumno = tt_ctAlumno.getResultSetValue();
 
 			while (rs_tt_ctAlumno.next()) {
+				
+				System.out.println("dentro while");
 
 				ctAlumno obj = new ctAlumno();
 
@@ -78,7 +79,7 @@ public class repAlumnoGrupoDaoImp implements repAlumnoGrupoDao {
 			app._release();
 			DBConexion.closeConnection(conexion);
 		}
-		
+		System.out.println("despues try");
 		return Lista;
 	}
 	
