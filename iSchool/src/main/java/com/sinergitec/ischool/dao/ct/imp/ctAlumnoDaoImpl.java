@@ -29,8 +29,8 @@ public class ctAlumnoDaoImpl implements ctAlumnoDao {
 	public void add_ctAlumno(ctAlumno obj, List<ctGrupo> listaGrupo) throws Open4GLException, IOException {
 		
 		System.out.println("dao");
-		System.out.println(obj.getcApellido());
-		System.out.println(obj.getcEdad());
+		System.out.println(obj.getcGenero());
+		
 
 		List<ctAlumno> Lista = new ArrayList<ctAlumno>();
 		Lista.add(obj);

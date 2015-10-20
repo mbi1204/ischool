@@ -277,7 +277,18 @@ th {
 								<spring:message text="Correo" />
 							</form:label></td>
 						<td><form:input path="cCorreo" /></td>
-					</tr>
+					</tr>					
+					<tr>
+						<td><form:label path="cGenero">
+								<spring:message text="Sexo"></spring:message>
+							</form:label></td>
+						<td>							
+							<form:radiobutton path="cGenero" value="Hombre"/>Hombre
+								
+							<form:radiobutton path="cGenero" value="Mujer"/>Mujer
+								
+						</td>
+					<tr>
 
 				</table>
 			</fieldset>

@@ -34,7 +34,7 @@ public class ctAlumno {
 	private String cEstadoFiscal;
 	private String cRfcFiscal;
 	private String cTelEmergencia;
-	private Boolean lGenero;
+	private String cGenero;
 	private Boolean lSeguro;
 	private Boolean lFactura;
 
@@ -68,11 +68,11 @@ public class ctAlumno {
 		vector.add(this.getcCiudadFiscal());
 		vector.add(this.getcEstadoFiscal());
 		vector.add(this.getcRfcFiscal());
-		vector.add(this.getcEdad());
-		vector.add(this.getlGenero());
+		vector.add(this.getcEdad());		
 		vector.add(this.getcTelEmergencia());
 		vector.add(this.getlSeguro());
 		vector.add(this.getlFactura());
+		vector.add(this.getcGenero());
 		vector.add(this.getId());		
 		return vector;
 	}
@@ -293,12 +293,12 @@ public class ctAlumno {
 		this.cTelEmergencia = cTelEmergencia;
 	}
 
-	public Boolean getlGenero() {
-		return lGenero;
+	public String getcGenero() {
+		return cGenero;
 	}
 
-	public void setlGenero(boolean lGenero) {
-		this.lGenero = lGenero;
+	public void setcGenero(String cGenero) {
+		this.cGenero = cGenero;
 	}
 
 	public Boolean getlSeguro() {
