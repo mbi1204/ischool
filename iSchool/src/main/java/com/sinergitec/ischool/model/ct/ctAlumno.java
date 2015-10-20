@@ -1,6 +1,7 @@
 package com.sinergitec.ischool.model.ct;
 
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Vector;
 
 public class ctAlumno {
@@ -39,7 +40,10 @@ public class ctAlumno {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Vector getVectorDatos() {
-		Vector vector = new Vector();
+		Vector vector = new Vector();		
+		
+		Date date = new java.util.Date();
+		this.setDtFechaIns(new Timestamp(date.getTime()));
 
 		vector.add(this.getiIdAlumno());
 		vector.add(this.getcNombre());
@@ -54,6 +58,7 @@ public class ctAlumno {
 		vector.add(this.getcEstado());
 		vector.add(this.getcTel());
 		vector.add(this.getlEstatus());
+		vector.add(this.getDtFechaIns());
 		vector.add(this.getcCorreo());
 		vector.add(this.getId());
 		vector.add(this.getcNombreFiscal());

@@ -39,16 +39,16 @@ public class ctAlumnoController {
 
 		model.addAttribute("ctAlumno", new ctAlumno());
 		model.addAttribute("Lista_Grupo", this.grupoService.list_ctGrupo());
-		ArrayList<ctGrupo> lista = (ArrayList<ctGrupo>) this.grupoService.list_ctGrupo();
-		for (ctGrupo ctGrupo : lista) {
-			System.out.println(ctGrupo.getcNombre());
-		}
+		ArrayList<ctGrupo> lista = (ArrayList<ctGrupo>) this.grupoService.list_ctGrupo();		
 
 		return "ctAlumnoForm";
 	}
 
 	@RequestMapping(value = "/ctAlumno/agregar", method = RequestMethod.POST)
 	public ModelAndView addPerson(@ModelAttribute("ctAlumno") ctAlumno obj) {
+		
+		System.out.println("control");
+		System.out.println(obj.getcNombre());
 		
 		ModelAndView miModelo = new ModelAndView("pdfView");
 

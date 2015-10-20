@@ -67,10 +67,7 @@ public List<ctGrupo> list_ctGrupo() throws Open4GLException, IOException{
 				obj.setcHorario(rs_tt_ctGrupo.getString("cHorario"));
 				obj.setlHabilitado(rs_tt_ctGrupo.getBoolean("lHabilitado"));
 				obj.setId(rs_tt_ctGrupo.getBytes("Id"));
-				System.out.println("dao");
-				System.out.println(obj.getcNombre());
-				
-				
+								
 				for(ctCurso obj_ctCurso : List_ctCurso){
 					
 					

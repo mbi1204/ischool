@@ -45,14 +45,13 @@ public class repAlumnoGrupoDaoImp implements repAlumnoGrupoDao {
 
 			while (rs_tt_ctAlumno.next()) {
 				
-				System.out.println("dentro while");
+				
 
 				ctAlumno obj = new ctAlumno();
 
 				obj.setiIdAlumno((rs_tt_ctAlumno.getInt("iIdAlumno")));
 				obj.setcNombre(rs_tt_ctAlumno.getString("cNombre"));
-				obj.setcApellido(rs_tt_ctAlumno.getString("cApellido"));
-				obj.setcEdad(rs_tt_ctAlumno.getString("cEdad"));				
+				obj.setcApellido(rs_tt_ctAlumno.getString("cApellido"));								
 				obj.setcCalle(rs_tt_ctAlumno.getString("cCalle"));
 				obj.setcNumExt(rs_tt_ctAlumno.getString("cNumExt"));
 				obj.setcNumInt(rs_tt_ctAlumno.getString("cNumInt"));
@@ -64,7 +63,8 @@ public class repAlumnoGrupoDaoImp implements repAlumnoGrupoDao {
 				obj.setlEstatus(rs_tt_ctAlumno.getBoolean("lEstatus"));
 				obj.setDtFechaIns(rs_tt_ctAlumno.getTimestamp("dtFechaIns"));
 				obj.setcCorreo(rs_tt_ctAlumno.getString("cEmail"));
-				obj.setId(rs_tt_ctAlumno.getBytes("Id"));				
+				obj.setcEdad(rs_tt_ctAlumno.getString("cEdad"));
+				obj.setId(rs_tt_ctAlumno.getBytes("Id"));			
 
 				Lista.add(obj);			
 
@@ -79,7 +79,7 @@ public class repAlumnoGrupoDaoImp implements repAlumnoGrupoDao {
 			app._release();
 			DBConexion.closeConnection(conexion);
 		}
-		System.out.println("despues try");
+		
 		return Lista;
 	}
 	
