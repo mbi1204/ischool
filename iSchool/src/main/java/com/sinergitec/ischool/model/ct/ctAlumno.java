@@ -47,8 +47,7 @@ public class ctAlumno {
 
 		vector.add(this.getiIdAlumno());
 		vector.add(this.getcNombre());
-		vector.add(this.getcApellido());
-		vector.add(this.getcEdad());
+		vector.add(this.getcApellido());		
 		vector.add(this.getcCalle());
 		vector.add(this.getcNumExt());
 		vector.add(this.getcNumInt());
@@ -60,7 +59,6 @@ public class ctAlumno {
 		vector.add(this.getlEstatus());
 		vector.add(this.getDtFechaIns());
 		vector.add(this.getcCorreo());
-		vector.add(this.getId());
 		vector.add(this.getcNombreFiscal());
 		vector.add(this.getcCalleFiscal());
 		vector.add(this.getcNumeroFiscal());
@@ -70,10 +68,12 @@ public class ctAlumno {
 		vector.add(this.getcCiudadFiscal());
 		vector.add(this.getcEstadoFiscal());
 		vector.add(this.getcRfcFiscal());
-		vector.add(this.getcTelEmergencia());
+		vector.add(this.getcEdad());
 		vector.add(this.getlGenero());
+		vector.add(this.getcTelEmergencia());
 		vector.add(this.getlSeguro());
 		vector.add(this.getlFactura());
+		vector.add(this.getId());		
 		return vector;
 	}
 

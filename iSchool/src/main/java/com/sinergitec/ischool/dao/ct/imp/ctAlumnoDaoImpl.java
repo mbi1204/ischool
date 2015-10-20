@@ -30,6 +30,7 @@ public class ctAlumnoDaoImpl implements ctAlumnoDao {
 		
 		System.out.println("dao");
 		System.out.println(obj.getcApellido());
+		System.out.println(obj.getcEdad());
 
 		List<ctAlumno> Lista = new ArrayList<ctAlumno>();
 		Lista.add(obj);
