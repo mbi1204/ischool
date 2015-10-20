@@ -289,6 +289,22 @@ th {
 								
 						</td>
 					<tr>
+					<tr>
+						<td><form:label path="lSeguro">
+								<spring:message text="¿Tiene seguro?"></spring:message>
+							</form:label></td>
+						<td>
+							<form:checkbox path="lSeguro"/>
+						</td>
+					</tr>
+					<tr>
+						<td><form:label path="lFactura">
+								<spring:message text="¿Requiere factura?"></spring:message>
+							</form:label></td>
+						<td>
+							<form:checkbox path="lFactura"/>
+						</td>
+					</tr>
 
 				</table>
 			</fieldset>

@@ -48,7 +48,8 @@ public class ctAlumnoController {
 	public ModelAndView addPerson(@ModelAttribute("ctAlumno") ctAlumno obj) {
 		
 		System.out.println("control");
-		System.out.println(obj.getcGenero());
+		System.out.println("seguro " + obj.getlSeguro());
+		System.out.println("factura " + obj.getlFactura());
 		
 		ModelAndView miModelo = new ModelAndView("pdfView");
 
