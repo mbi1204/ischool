@@ -273,6 +273,12 @@ th {
 						<td><form:input path="cTel" /></td>
 					</tr>
 					<tr>
+						<td><form:label path="cTelEmergencia">
+								<spring:message text="Telefono de emergencias"/>
+							</form:label>
+						<td><form:input path="cTelEmergencia"/>
+					</tr>
+					<tr>
 						<td><form:label path="cCorreo">
 								<spring:message text="Correo" />
 							</form:label></td>
@@ -294,14 +300,14 @@ th {
 								<spring:message text="¿Tiene seguro?"></spring:message>
 							</form:label></td>
 						<td>
-							<form:checkbox path="lSeguro"/>
+							<form:checkbox path="lSeguro" />
 						</td>
 					</tr>
 					<tr>
 						<td><form:label path="lFactura">
 								<spring:message text="¿Requiere factura?"></spring:message>
 							</form:label></td>
-						<td><form:checkbox path="lFactura" /></td>
+						<td><form:checkbox path="lFactura" onclick="factura();"/></td>
 					</tr>
 
 				</table>
@@ -353,6 +359,65 @@ th {
 								<spring:message text="Estado" />
 							</form:label></td>
 						<td><form:input path="cEstado" /></td>
+					</tr>
+				</table>
+			</fieldset>
+			
+			<fieldset><legend>Datos para facturacion</legend>					
+				<table>
+					<tr>
+						<td><form:label path="cNombreFiscal">
+								<spring:message text="Razon Social" />
+							</form:label></td>
+						<td><form:input path="cNombreFiscal" cssClass="textoLargo"/></td>							
+					</tr>
+					<tr>
+						<td><form:label path="cCalleFiscal">
+								<spring:message text="Calle" />
+							</form:label></td>
+						<td><form:input path="cCalleFiscal" cssClass="textoLargo"/>
+					</tr>
+					<tr>
+						<td><form:label path="cNumeroFiscal">
+								<spring:message text="Numero Ext"/>
+							</form:label></td>
+						<td><form:input path="cNumeroFiscal"/></td>
+					</tr>
+					<tr>
+						<td><form:label path="cColoniaFiscal">
+								<spring:message text="Colonia"/>
+							</form:label></td>
+						<td><form:input path="cColoniaFiscal"/></td>
+					</tr>
+					<tr>
+						<td><form:label path="cMunicipioFiscal">
+								<spring:message text="Municipio"/>
+							</form:label></td>
+						<td><form:input path="cMunicipioFiscal"/></td>
+					</tr>
+					<tr>
+						<td><form:label path="cCPFiscal">
+								<spring:message text="CP"/>
+							</form:label></td>
+						<td><form:input path="cCPFiscal"/></td>
+					</tr>
+					<tr>
+						<td><form:label path="cCiudadFiscal">
+								<spring:message text="Ciudad"/>
+							</form:label></td>
+						<td><form:input path="cCiudadFiscal"/></td>
+					</tr>
+					<tr>
+						<td><form:label path="cEstadoFiscal">
+								<spring:message text="Estado"/>
+							</form:label></td>
+						<td><form:input path="cEstadoFiscal"/></td>
+					</tr>
+					<tr>
+						<td><form:label path="cRfcFiscal">
+								<spring:message text="RFC"/>
+							</form:label></td>
+						<td><form:input path="cRfcFiscal"/></td>
 					</tr>
 				</table>
 			</fieldset>

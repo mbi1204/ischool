@@ -249,5 +249,14 @@ function validaCampos(){
 	return true;
 }
 
+function factura(){
+	alert($('#lFactura').checked);
+	if($('#lFactura').is(':checked')){
+		alert("factura");
+	}else{
+		alert("no factura");
+	}		
+}
+
 
 

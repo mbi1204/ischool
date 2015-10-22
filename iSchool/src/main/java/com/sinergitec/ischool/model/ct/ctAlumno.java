@@ -305,7 +305,7 @@ public class ctAlumno {
 		return lSeguro;
 	}
 
-	public void setlSeguro(boolean lSeguro) {
+	public void setlSeguro(Boolean lSeguro) {
 		this.lSeguro = lSeguro;
 	}
 
@@ -313,7 +313,7 @@ public class ctAlumno {
 		return lFactura;
 	}
 
-	public void setlFactura(boolean lFactura) {
+	public void setlFactura(Boolean lFactura) {
 		this.lFactura = lFactura;
 	}
 
