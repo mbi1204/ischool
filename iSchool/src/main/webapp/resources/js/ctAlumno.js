@@ -281,6 +281,42 @@ $(document).ready(function() {
 	
 });
 
+$(document).ready(function() {
+
+	$('#LocalidadesFactura_Dialog').dialog({
+
+		autoOpen : false,
+		position : 'center',
+		modal : true,
+		resizable : false,
+		width : 800,
+		buttons : {			
+			"Cancel" : function() {
+				$(this).dialog('close');
+			}
+		},
+		close : function() {
+			
+			$(this).dialog('close');
+		}
+
+	});
+	
+
+	$('#tableLoc').on('dblclick','tr',function() {
+		$(this).addClass('selected').siblings().removeClass('selected');
+		//var value = $(this).find('td:fisrt').html();
+		
+		$('#Form_ctAlumno input#cColoniaFiscal').val($(this).closest("tr").find(".cLocalidad").text() );
+	    $('#Form_ctAlumno input#cMunicipioFiscal').val($(this).closest("tr").find(".cNomMunicipio").text() );				    
+		$('#Form_ctAlumno input#cEstadoFiscal').val($(this).closest("tr").find(".cNomEstado").text() );	
+		$("#LocalidadesFactura_Dialog").dialog('close');
+		
+		
+	});
+	
+});
+
 function validaCampos(){	
 	
 	
