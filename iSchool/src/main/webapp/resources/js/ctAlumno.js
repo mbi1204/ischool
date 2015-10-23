@@ -216,11 +216,11 @@ function get_localidadFactura(){
 				
 			
 				
-				$("#tableFac > tbody").empty();
+				$("#tableLocFac > tbody").empty();
 				
 				for ( var item in data) {
 				
-				$('#tableFac > tbody').append(
+				$('#tableLocFac > tbody').append(
 						'<tr>' + '<td class ="cLocalidadFiscal">'     + data[item].cLocalidad    + '</td>' 
 						       + '<td class = "cNomMunicipioFiscal">' + data[item].cNomMunicipio + '</td>' 
 						       + '<td class = "cNomEstadoFiscal">'    + data[item].cNomEstado    + '</td>' 
@@ -229,8 +229,8 @@ function get_localidadFactura(){
 				
 				
 				
-				$('#Localidades_Dialog').dialog("option", "title", 'Localidades (Doble clic Seleccionar)');
-				$('#Localidades_Dialog').dialog('open');
+				$('#LocalidadesFac_Dialog').dialog("option", "title", 'Localidades (Doble clic Seleccionar)');
+				$('#LocalidadesFac_Dialog').dialog('open');
 			}
 			
 			

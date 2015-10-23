@@ -233,6 +233,10 @@ th {
 	<div id="Localidades_Dialog" style="display: none;">
 		<%@ include file="ctLocalidades_Form.jsp"%>
 	</div>
+	
+	<div id="LocalidadesFac_Dialog" style="display: none;">
+		<%@ include file="ctLocalidadesFactura_Form.jsp"%>
+	</div>
 
 
 
@@ -412,7 +416,7 @@ th {
 			</fieldset>
 			
 			<fieldset id="formFactura"><legend>Datos para facturacion</legend>					
-				<table id="tableFac">
+				<table>
 					<tr>
 						<td><form:label path="cNombreFiscal">
 								<spring:message text="Razon Social" />
