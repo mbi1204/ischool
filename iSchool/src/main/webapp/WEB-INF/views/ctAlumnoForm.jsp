@@ -220,10 +220,6 @@ th {
 	src='<c:url value="/resources/js/ctAlumno.js"/>'></script>
 
 
-<script>
-	
-</script>
-
 </head>
 
 
@@ -453,7 +449,7 @@ th {
 							</form:label></td>
 						<td><form:input path="cCPFiscal"/>
 							<input type="button" name="AddLocalidadFac" value="Buscar Domicilio"
-							onclick="get_localidadFactura();" class="btnAdd"></td></td>
+							onclick="get_localidadFactura();" class="btnAdd"></td>
 					</tr>
 					<tr>
 						<td><form:label path="cCiudadFiscal">

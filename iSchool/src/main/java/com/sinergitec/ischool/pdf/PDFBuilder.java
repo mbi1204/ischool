@@ -64,8 +64,12 @@ public class PDFBuilder extends AbstractITextPdfView {
 		tablaDatos.addCell(obj.getcEdad());		
 		tablaDatos.addCell(new Phrase("Telefono: "));
 		tablaDatos.addCell(obj.getcTel());
+		tablaDatos.addCell(new Phrase("Telefono de emergencias: "));
+		tablaDatos.addCell(obj.getcTelEmergencia());
+		tablaDatos.addCell(new Phrase("Sexo: "));
+		tablaDatos.addCell(obj.getcGenero());
 		tablaDatos.addCell(new Phrase("Correo: "));
-		tablaDatos.addCell(obj.getcCorreo());
+		tablaDatos.addCell(obj.getcCorreo());		
 		
 		tablaDatos.addCell(new Phrase("Alergias: "));
 		if (obj.getlAlergia())
@@ -88,6 +92,12 @@ public class PDFBuilder extends AbstractITextPdfView {
 		tablaDatos.addCell(new Phrase("Tratamientos: "));
 		if(obj.getlTratamiento())
 			tablaDatos.addCell(obj.getcTratamiento());
+		else
+			tablaDatos.addCell("No");
+		
+		tablaDatos.addCell(new Phrase("Seguro: "));
+		if(obj.getlSeguro())
+			tablaDatos.addCell("Si");
 		else
 			tablaDatos.addCell("No");
 		
