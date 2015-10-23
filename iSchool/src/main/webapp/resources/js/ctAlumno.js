@@ -190,6 +190,61 @@ function get_localidad(){
 	});	
 }
 
+function get_localidadFactura(){
+	
+	vcCp = $('#Form_ctAlumno input#cCPFiscal').val();
+	
+	
+	$.ajax({
+		type : "GET",
+		url : "ctAlumno/getLocalidad",
+		dataType : "json",
+		contentType : "application/json; charset=utf-8",
+		data : {
+			cCP : vcCp
+		},
+		success : function(data, textStatus, jqXHR) {			
+			
+			if (data.length == 1) {	
+				for ( var item in data) {
+					$('#Form_ctAlumno input#cColoniaFiscal').val( data[item].cLocalidad );
+					 $('#Form_ctAlumno input#cMunicipioFiscal').val( data[item].cNomMunicipio );				    
+					 $('#Form_ctAlumno input#cEstadoFiscal').val( data[item].cNomEstado );
+				}				
+				
+			} else if (data.length > 1)  {
+				
+			
+				
+				$("#tableFac > tbody").empty();
+				
+				for ( var item in data) {
+				
+				$('#tableFac > tbody').append(
+						'<tr>' + '<td class ="cLocalidadFiscal">'     + data[item].cLocalidad    + '</td>' 
+						       + '<td class = "cNomMunicipioFiscal">' + data[item].cNomMunicipio + '</td>' 
+						       + '<td class = "cNomEstadoFiscal">'    + data[item].cNomEstado    + '</td>' 
+						       + '<td>'	 + '</tr>');
+				}
+				
+				
+				
+				$('#Localidades_Dialog').dialog("option", "title", 'Localidades (Doble clic Seleccionar)');
+				$('#Localidades_Dialog').dialog('open');
+			}
+			
+			
+			
+			
+
+		},
+		error : function() {
+			alert("erro al ejecutar el BuscaMenu" + textStatus);
+		}
+
+	});	
+}
+
 $(document).ready(function() {
 
 	$('#Localidades_Dialog').dialog({
