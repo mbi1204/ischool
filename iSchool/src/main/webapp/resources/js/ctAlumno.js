@@ -279,10 +279,6 @@ $(document).ready(function() {
 		
 	});
 	
-});
-
-$(document).ready(function() {
-
 	$('#LocalidadesFactura_Dialog').dialog({
 
 		autoOpen : false,
@@ -303,7 +299,7 @@ $(document).ready(function() {
 	});
 	
 
-	$('#tableLoc').on('dblclick','tr',function() {
+	$('#tableLocFac').on('dblclick','tr',function() {
 		$(this).addClass('selected').siblings().removeClass('selected');
 		//var value = $(this).find('td:fisrt').html();
 		
@@ -316,6 +312,7 @@ $(document).ready(function() {
 	});
 	
 });
+
 
 function validaCampos(){	
 	

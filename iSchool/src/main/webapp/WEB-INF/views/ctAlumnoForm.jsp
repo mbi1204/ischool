@@ -293,7 +293,7 @@ th {
 								<spring:message text="Sexo"></spring:message>
 							</form:label></td>
 						<td>							
-							<form:radiobutton path="cGenero" value="Hombre"/>Hombre
+							<form:radiobutton path="cGenero" value="Hombre" checked="true"/>Hombre
 								
 							<form:radiobutton path="cGenero" value="Mujer"/>Mujer
 								

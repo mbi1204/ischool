@@ -66,6 +66,31 @@ public class PDFBuilder extends AbstractITextPdfView {
 		tablaDatos.addCell(obj.getcTel());
 		tablaDatos.addCell(new Phrase("Correo: "));
 		tablaDatos.addCell(obj.getcCorreo());
+		
+		tablaDatos.addCell(new Phrase("Alergias: "));
+		if (obj.getlAlergia())
+			tablaDatos.addCell(obj.getcAlergia());
+		else
+			tablaDatos.addCell("No");
+		
+		tablaDatos.addCell(new Phrase("Medicamentos: "));
+		if(obj.getlMedicamento())
+			tablaDatos.addCell(obj.getcMedicamento());
+		else
+			tablaDatos.addCell("No");
+		
+		tablaDatos.addCell(new Phrase("Lesiones: "));
+		if(obj.getlLesion())
+			tablaDatos.addCell(obj.getcLesion());
+		else
+			tablaDatos.addCell("No");
+		
+		tablaDatos.addCell(new Phrase("Tratamientos: "));
+		if(obj.getlTratamiento())
+			tablaDatos.addCell(obj.getcTratamiento());
+		else
+			tablaDatos.addCell("No");
+		
 
 		PdfPTable tablaDomicilio = new PdfPTable(2);
 		tablaDomicilio.addCell(new Phrase("Calle: "));
@@ -112,6 +137,14 @@ public class PDFBuilder extends AbstractITextPdfView {
 		tablaPDF.addCell(cellTitulo);
 		tablaPDF.addCell(cellForm);
 		tablaPDF.addCell(cellSub1);
+		
+		tablaPDF.setWidthPercentage(100);
+		tablaDatos.setWidthPercentage(100);
+		tituloDom.setWidthPercentage(100);
+		tablaDomicilio.setWidthPercentage(100);
+		tituloCurso.setWidthPercentage(100);
+		tablaCurso.setWidthPercentage(100);
+		tablaTotal.setWidthPercentage(100);
 
 		doc.add(tablaPDF);
 		doc.add(tablaDatos);
