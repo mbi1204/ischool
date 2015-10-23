@@ -37,6 +37,14 @@ public class ctAlumno {
 	private String cGenero;
 	private Boolean lSeguro;
 	private Boolean lFactura;
+	private Boolean lAlergia;
+	private String cAlergia;
+	private Boolean lMedicamento;
+	private String cMedicamento;
+	private Boolean lLesion;
+	private String cLesion;
+	private Boolean lTratamiento;
+	private String cTratamiento;
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Vector getVectorDatos() {
@@ -73,6 +81,14 @@ public class ctAlumno {
 		vector.add(this.getlSeguro());
 		vector.add(this.getlFactura());
 		vector.add(this.getcGenero());
+		vector.add(this.getlAlergia());
+		vector.add(this.getcAlergia());
+		vector.add(this.getlMedicamento());
+		vector.add(this.getcMedicamento());
+		vector.add(this.getlLesion());
+		vector.add(this.getcLesion());
+		vector.add(this.getlTratamiento());
+		vector.add(this.getcTratamiento());
 		vector.add(this.getId());		
 		return vector;
 	}
@@ -324,7 +340,69 @@ public class ctAlumno {
 	public void setDtFechaIns(Timestamp dtFechaIns) {
 		this.dtFechaIns = dtFechaIns;
 	}
-	
-	
+
+	public Boolean getlAlergia() {
+		return lAlergia;
+	}
+
+	public void setlAlergia(Boolean lAlergia) {
+		this.lAlergia = lAlergia;
+	}
+
+	public String getcAlergia() {
+		return cAlergia;
+	}
+
+	public void setcAlergia(String cAlergia) {
+		this.cAlergia = cAlergia;
+	}
+
+	public Boolean getlMedicamento() {
+		return lMedicamento;
+	}
+
+	public void setlMedicamento(Boolean lMedicamento) {
+		this.lMedicamento = lMedicamento;
+	}
+
+	public String getcMedicamento() {
+		return cMedicamento;
+	}
+
+	public void setcMedicamento(String cMedicamento) {
+		this.cMedicamento = cMedicamento;
+	}
+
+	public Boolean getlLesion() {
+		return lLesion;
+	}
+
+	public void setlLesion(Boolean lLesion) {
+		this.lLesion = lLesion;
+	}
+
+	public String getcLesion() {
+		return cLesion;
+	}
+
+	public void setcLesion(String cLesion) {
+		this.cLesion = cLesion;
+	}
+
+	public Boolean getlTratamiento() {
+		return lTratamiento;
+	}
+
+	public void setlTratamiento(Boolean lTratamiento) {
+		this.lTratamiento = lTratamiento;
+	}
+
+	public String getcTratamiento() {
+		return cTratamiento;
+	}
+
+	public void setcTratamiento(String cTratamiento) {
+		this.cTratamiento = cTratamiento;
+	}	
 
 }

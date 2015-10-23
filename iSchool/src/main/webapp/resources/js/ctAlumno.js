@@ -250,13 +250,58 @@ function validaCampos(){
 }
 
 function factura(){
-	alert($('#lFactura').checked);
+	
 	if($('#lFactura').is(':checked')){
-		alert("factura");
+		$('#formFactura').show();
 	}else{
-		alert("no factura");
+		$('#formFactura').hide();
 	}		
 }
+
+function carga(){
+	$('#formFactura').hide();
+	$('#textAlergia').hide();
+	$('#textMedicamento').hide();
+	$('#textLesion').hide();
+	$('#textTratamiento').hide();
+}
+
+function showAlergia(){
+	
+	if($('#checkAlergia').is(':checked'))
+		$('#textAlergia').show();
+	else
+		$('#textAlergia').hide();
+	
+}
+
+function showMedicamento(){
+	
+	if($('#checkMedicamento').is(':checked'))
+		$('#textMedicamento').show();
+	else
+		$('#textMedicamento').hide();
+	
+}
+
+function showLesion(){
+	
+	if($('#checkLesion').is(':checked'))
+		$('#textLesion').show();
+	else
+		$('#textLesion').hide();
+	
+}
+
+function showTratamiento(){
+	
+	if($('#checkTratamiento').is(':checked'))
+		$('#textTratamiento').show();
+	else
+		$('#textTratamiento').hide();
+	
+}
+
 
 
 

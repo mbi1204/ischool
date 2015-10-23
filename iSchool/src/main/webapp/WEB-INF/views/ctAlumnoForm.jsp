@@ -227,7 +227,7 @@ th {
 </head>
 
 
-<body>
+<body onload="carga();">
 
 
 	<div id="Localidades_Dialog" style="display: none;">
@@ -294,7 +294,7 @@ th {
 							<form:radiobutton path="cGenero" value="Mujer"/>Mujer
 								
 						</td>
-					<tr>
+					</tr>					
 					<tr>
 						<td><form:label path="lSeguro">
 								<spring:message text="¿Tiene seguro?"></spring:message>
@@ -307,7 +307,55 @@ th {
 						<td><form:label path="lFactura">
 								<spring:message text="¿Requiere factura?"></spring:message>
 							</form:label></td>
-						<td><form:checkbox path="lFactura" onclick="factura();"/></td>
+						<td><form:checkbox path="lFactura" onclick="factura();" id="lFactura"/></td>
+					</tr>
+					<tr>
+						<td><form:label path="lAlergia">
+								<spring:message text="¿Tiene alergias?" />
+							</form:label></td>
+						<td><form:checkbox path="lAlergia" id="checkAlergia" onclick="showAlergia();"/></td>						
+					</tr>
+					<tr id="textAlergia">
+						<td><form:label path="cAlergia">
+								<spring:message text="Describa" />
+							</form:label></td>
+						<td><form:textarea path="cAlergia"/></td>
+					</tr>
+					<tr>
+						<td><form:label path="lMedicamento">
+								<spring:message text="¿Usa Medicamento controlado?" />
+							</form:label></td>
+						<td><form:checkbox path="lMedicamento" id="checkMedicamento" onclick="showMedicamento();"/></td>						
+					</tr>
+					<tr id="textMedicamento">
+						<td><form:label path="cMedicamento">
+								<spring:message text="Describa" />
+							</form:label></td>
+						<td><form:textarea path="cMedicamento"/></td>
+					</tr>
+					<tr>
+						<td><form:label path="lLesion">
+								<spring:message text="¿Tiene alguna lesion?" />
+							</form:label></td>
+						<td><form:checkbox path="lLesion" id="checkLesion" onclick="showLesion();"/></td>						
+					</tr>
+					<tr id="textLesion">
+						<td><form:label path="cLesion">
+								<spring:message text="Describa" />
+							</form:label></td>
+						<td><form:textarea path="cLesion"/></td>
+					</tr>
+					<tr>
+						<td><form:label path="lTratamiento">
+								<spring:message text="¿Esta en algun tratamiento?" />
+							</form:label></td>
+						<td><form:checkbox path="lTratamiento" id="checkTratamiento" onclick="showTratamiento();"/></td>						
+					</tr>
+					<tr id="textTratamiento">
+						<td><form:label path="cTratamiento">
+								<spring:message text="Describa" />
+							</form:label></td>
+						<td><form:textarea path="cTratamiento"/></td>
 					</tr>
 
 				</table>
@@ -363,7 +411,7 @@ th {
 				</table>
 			</fieldset>
 			
-			<fieldset><legend>Datos para facturacion</legend>					
+			<fieldset id="formFactura"><legend>Datos para facturacion</legend>					
 				<table>
 					<tr>
 						<td><form:label path="cNombreFiscal">
