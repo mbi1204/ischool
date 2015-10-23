@@ -6,7 +6,7 @@
 
 
 
-<form:form id="Form_ctPuesto" commandName="ctPuesto" method="post"
+<form:form id="Form_ctPuestoFac" commandName="ctPuestoFac" method="post"
 	action="${actionUrl}" class="pure-form pure-form-aligned">
 	
 	<table id="tableLocFac"  border="1">
