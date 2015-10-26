@@ -190,6 +190,61 @@ function get_localidad(){
 	});	
 }
 
+function get_localidadFactura(){
+	
+	vcCp = $('#Form_ctAlumno input#cCPFiscal').val();
+	
+	
+	$.ajax({
+		type : "GET",
+		url : "ctAlumno/getLocalidad",
+		dataType : "json",
+		contentType : "application/json; charset=utf-8",
+		data : {
+			cCP : vcCp
+		},
+		success : function(data, textStatus, jqXHR) {			
+			
+			if (data.length == 1) {	
+				for ( var item in data) {
+					$('#Form_ctAlumno input#cColoniaFiscal').val( data[item].cLocalidad );
+					 $('#Form_ctAlumno input#cMunicipioFiscal').val( data[item].cNomMunicipio );				    
+					 $('#Form_ctAlumno input#cEstadoFiscal').val( data[item].cNomEstado );
+				}				
+				
+			} else if (data.length > 1)  {
+						
+				$("#tableLocFac > tbody").empty();
+				
+				for ( var item in data) {
+					
+					
+				
+				$('#tableLocFac > tbody').append(
+						'<tr>' + '<td class ="cLocalidadFiscal">'     + data[item].cLocalidad    + '</td>' 
+						       + '<td class = "cNomMunicipioFiscal">' + data[item].cNomMunicipio + '</td>' 
+						       + '<td class = "cNomEstadoFiscal">'    + data[item].cNomEstado    + '</td>' 
+						       + '<td>'	 + '</tr>');
+				}
+				
+				
+				
+				$('#LocalidadesFac_Dialog').dialog("option", "title", 'Localidades (Doble clic Seleccionar)');
+				$('#LocalidadesFac_Dialog').dialog('open');
+			}
+			
+			
+			
+			
+
+		},
+		error : function() {
+			alert("erro al ejecutar el BuscaMenu" + textStatus);
+		}
+
+	});	
+}
+
 $(document).ready(function() {
 
 	$('#Localidades_Dialog').dialog({
@@ -216,15 +271,54 @@ $(document).ready(function() {
 		$(this).addClass('selected').siblings().removeClass('selected');
 		//var value = $(this).find('td:fisrt').html();
 		
-		$('#Form_ctAlumno input#cColonia').val($(this).closest("tr").find(".cLocalidad").text() );
-	    $('#Form_ctAlumno input#cMunicipio').val($(this).closest("tr").find(".cNomMunicipio").text() );				    
-		$('#Form_ctAlumno input#cEstado').val($(this).closest("tr").find(".cNomEstado").text() );	
+		alert($(this).closest("tr").find(".cLocalidad").text());
+		
+		$('#Form_ctAlumno input#cColonia').val($(this).closest("tr").find(".cLocalidadFiscal").text() );
+	    $('#Form_ctAlumno input#cMunicipio').val($(this).closest("tr").find(".cNomMunicipioFiscal").text() );				    
+		$('#Form_ctAlumno input#cEstado').val($(this).closest("tr").find(".cNomEstadoFiscal").text() );	
 		$("#Localidades_Dialog").dialog('close');
 		
 		
 	});
 	
+	$('#LocalidadesFac_Dialog').dialog({
+
+		autoOpen : false,
+		position : 'center',
+		modal : true,
+		resizable : false,
+		width : 800,
+		buttons : {			
+			"Cancel" : function() {
+				$(this).dialog('close');
+			}
+		},
+		close : function() {
+			
+			$(this).dialog('close');
+		}
+
+	});
+	
+
+	$('#tableLocFac').on('dblclick','tr',function() {
+		
+		
+		$(this).addClass('selected').siblings().removeClass('selected');
+		//var value = $(this).find('td:fisrt').html();
+		
+		alert($(this).closest("tr").find(".cLocalidad").text());
+		
+		$('#cColoniaFiscal').val($(this).closest("tr").find(".cLocalidad").text() );
+	    $('#cMunicipioFiscal').val($(this).closest("tr").find(".cNomMunicipio").text() );				    
+		$('#cEstadoFiscal').val($(this).closest("tr").find(".cNomEstado").text() );	
+		$("#LocalidadesFac_Dialog").dialog('close');
+		
+		
+	});
+	
 });
+
 
 function validaCampos(){	
 	
@@ -248,6 +342,60 @@ function validaCampos(){
 	
 	return true;
 }
+
+function factura(){
+	
+	if($('#lFactura').is(':checked')){
+		$('#formFactura').show();
+	}else{
+		$('#formFactura').hide();
+	}		
+}
+
+function carga(){
+	$('#formFactura').hide();
+	$('#textAlergia').hide();
+	$('#textMedicamento').hide();
+	$('#textLesion').hide();
+	$('#textTratamiento').hide();
+}
+
+function showAlergia(){
+	
+	if($('#checkAlergia').is(':checked'))
+		$('#textAlergia').show();
+	else
+		$('#textAlergia').hide();
+	
+}
+
+function showMedicamento(){
+	
+	if($('#checkMedicamento').is(':checked'))
+		$('#textMedicamento').show();
+	else
+		$('#textMedicamento').hide();
+	
+}
+
+function showLesion(){
+	
+	if($('#checkLesion').is(':checked'))
+		$('#textLesion').show();
+	else
+		$('#textLesion').hide();
+	
+}
+
+function showTratamiento(){
+	
+	if($('#checkTratamiento').is(':checked'))
+		$('#textTratamiento').show();
+	else
+		$('#textTratamiento').hide();
+	
+}
+
 
 
 

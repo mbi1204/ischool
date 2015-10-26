@@ -26,7 +26,7 @@ public class repAlumnoGrupoDaoImp implements repAlumnoGrupoDao {
 	@Override
 	public List<ctAlumno> list_ctAlumno(int idGrupo)
 			throws RunTime4GLException, SystemErrorException, Open4GLException, IOException, SQLException {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub		
 
 		ResultSetHolder tt_ctAlumno = new ResultSetHolder();
 
@@ -35,23 +35,23 @@ public class repAlumnoGrupoDaoImp implements repAlumnoGrupoDao {
 		List<ctAlumno> Lista = new ArrayList<ctAlumno>();
 
 		Connection conexion = DBConexion.getConnection();
-		AppServer app = new AppServer(conexion);
+		AppServer app = new AppServer(conexion);		
 		
-		
-		try {
+		try {		
 			
 			app.as_repAlumnoGrupo(idGrupo, tt_ctAlumno, oplError, opcError);
 			
 			ResultSet rs_tt_ctAlumno = tt_ctAlumno.getResultSetValue();
 
 			while (rs_tt_ctAlumno.next()) {
+				
+				
 
 				ctAlumno obj = new ctAlumno();
 
 				obj.setiIdAlumno((rs_tt_ctAlumno.getInt("iIdAlumno")));
 				obj.setcNombre(rs_tt_ctAlumno.getString("cNombre"));
-				obj.setcApellido(rs_tt_ctAlumno.getString("cApellido"));
-				obj.setDtFechaNac(rs_tt_ctAlumno.getString("dtFechaNac"));
+				obj.setcApellido(rs_tt_ctAlumno.getString("cApellido"));								
 				obj.setcCalle(rs_tt_ctAlumno.getString("cCalle"));
 				obj.setcNumExt(rs_tt_ctAlumno.getString("cNumExt"));
 				obj.setcNumInt(rs_tt_ctAlumno.getString("cNumInt"));
@@ -63,7 +63,8 @@ public class repAlumnoGrupoDaoImp implements repAlumnoGrupoDao {
 				obj.setlEstatus(rs_tt_ctAlumno.getBoolean("lEstatus"));
 				obj.setDtFechaIns(rs_tt_ctAlumno.getTimestamp("dtFechaIns"));
 				obj.setcCorreo(rs_tt_ctAlumno.getString("cEmail"));
-				obj.setId(rs_tt_ctAlumno.getBytes("Id"));				
+				obj.setcEdad(rs_tt_ctAlumno.getString("cEdad"));
+				obj.setId(rs_tt_ctAlumno.getBytes("Id"));			
 
 				Lista.add(obj);			
 

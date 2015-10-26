@@ -46,7 +46,8 @@ td {
 	<h1>Reporte De Alumnos Por Grupo</h1>
 	
 	<form:form id="repAlumnoGrupo" method="post" action="repAlumnoGrupo/pdf">
-		<button>PDF</button>
+		<button type="submit" onclick="return getGrupo()">Imprimr Reporte</button>
+		<input id="grupo" name="grupo" type="hidden"/>
 	</form:form>	
 
 	<c:url var="actionUrl" value="repAlumnoGrupo" />
@@ -59,7 +60,7 @@ td {
 		</form:label>
 		<form:select path="cNombre" items="${lista_ctGrupo}" 
 			itemValue="iIdGrupo" itemLabel="cNombre"
-			onchange="carga_repAlumno(value);" />		
+			onchange="carga_repAlumno(value);" id="ctGrupo"/>		
 	</form:form>	
 
 	<table id="mytable" class="pure-table pure-table-bordered  ">
@@ -68,7 +69,7 @@ td {
 				<th width="4%">ID</th>
 				<th width="12%">Nombre</th>
 				<th width="12%">Apellido</th>
-				<th width="12%">Fecha De Nacimiento</th>
+				<th width="12%">Edad</th>
 				<th width="12%">Calle</th>
 				<th width="12%">Num. Ext</th>
 				<th width="12%">Num. Int</th>

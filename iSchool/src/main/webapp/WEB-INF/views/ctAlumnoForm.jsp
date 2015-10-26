@@ -220,18 +220,18 @@ th {
 	src='<c:url value="/resources/js/ctAlumno.js"/>'></script>
 
 
-<script>
-	
-</script>
-
 </head>
 
 
-<body>
+<body onload="carga();">
 
 
 	<div id="Localidades_Dialog" style="display: none;">
 		<%@ include file="ctLocalidades_Form.jsp"%>
+	</div>
+	
+	<div id="LocalidadesFac_Dialog" style="display: none;">
+		<%@ include file="ctLocalidadesFactura_Form.jsp"%>
 	</div>
 
 
@@ -261,10 +261,10 @@ th {
 					</tr>
 
 					<tr>
-						<td><form:label path="dtFechaNac">
-								<spring:message text="Fecha de Nacimiento" />
+						<td><form:label path="cEdad">
+								<spring:message text="Edad" />
 							</form:label></td>
-						<td><form:input type="date" path="dtFechaNac" /></td>
+						<td><form:input path="cEdad" /></td>
 					</tr>
 					<tr>
 						<td><form:label path="cTel">
@@ -273,10 +273,89 @@ th {
 						<td><form:input path="cTel" /></td>
 					</tr>
 					<tr>
+						<td><form:label path="cTelEmergencia">
+								<spring:message text="Telefono de emergencias"/>
+							</form:label>
+						<td><form:input path="cTelEmergencia"/>
+					</tr>
+					<tr>
 						<td><form:label path="cCorreo">
 								<spring:message text="Correo" />
 							</form:label></td>
 						<td><form:input path="cCorreo" /></td>
+					</tr>					
+					<tr>
+						<td><form:label path="cGenero">
+								<spring:message text="Sexo"></spring:message>
+							</form:label></td>
+						<td>							
+							<form:radiobutton path="cGenero" value="Hombre" checked="true"/>Hombre
+								
+							<form:radiobutton path="cGenero" value="Mujer"/>Mujer
+								
+						</td>
+					</tr>					
+					<tr>
+						<td><form:label path="lAlergia">
+								<spring:message text="¿Tiene alergias?" />
+							</form:label></td>
+						<td><form:checkbox path="lAlergia" id="checkAlergia" onclick="showAlergia();"/></td>						
+					</tr>
+					<tr id="textAlergia">
+						<td><form:label path="cAlergia">
+								<spring:message text="Describa" />
+							</form:label></td>
+						<td><form:textarea path="cAlergia" cols="45" rows="5"/></td>
+					</tr>
+					<tr>
+						<td><form:label path="lMedicamento">
+								<spring:message text="¿Usa Medicamento controlado?" />
+							</form:label></td>
+						<td><form:checkbox path="lMedicamento" id="checkMedicamento" onclick="showMedicamento();"/></td>						
+					</tr>
+					<tr id="textMedicamento">
+						<td><form:label path="cMedicamento">
+								<spring:message text="Describa" />
+							</form:label></td>
+						<td><form:textarea path="cMedicamento" cols="45" rows="5"/></td>
+					</tr>
+					<tr>
+						<td><form:label path="lLesion">
+								<spring:message text="¿Tiene alguna lesion?" />
+							</form:label></td>
+						<td><form:checkbox path="lLesion" id="checkLesion" onclick="showLesion();"/></td>						
+					</tr>
+					<tr id="textLesion">
+						<td><form:label path="cLesion">
+								<spring:message text="Describa" />
+							</form:label></td>
+						<td><form:textarea path="cLesion" cols="45" rows="5"/></td>
+					</tr>
+					<tr>
+						<td><form:label path="lTratamiento">
+								<spring:message text="¿Esta en algun tratamiento?" />
+							</form:label></td>
+						<td><form:checkbox path="lTratamiento" id="checkTratamiento" onclick="showTratamiento();"/></td>						
+					</tr>
+					<tr id="textTratamiento">
+						<td><form:label path="cTratamiento">
+								<spring:message text="Describa" />
+							</form:label></td>
+						<td><form:textarea path="cTratamiento" cols="45" rows="5"/></td>
+					</tr>
+					<tr>
+						<td><form:label path="lSeguro">
+								<spring:message text="¿Tiene seguro?"></spring:message>
+							</form:label></td>
+						<td>
+							<form:checkbox path="lSeguro" />
+						</td>
+					</tr>
+					<tr>
+						<td><form:label path="lFactura">
+								<spring:message text="¿Requiere factura?"></spring:message>
+							</form:label></td>
+						<td><form:checkbox path="lFactura" onclick="factura();" id="lFactura"/></td>
 					</tr>
 
 				</table>
@@ -328,6 +407,67 @@ th {
 								<spring:message text="Estado" />
 							</form:label></td>
 						<td><form:input path="cEstado" /></td>
+					</tr>
+				</table>
+			</fieldset>
+			
+			<fieldset id="formFactura"><legend>Datos para facturacion</legend>					
+				<table>
+					<tr>
+						<td><form:label path="cNombreFiscal">
+								<spring:message text="Razon Social" />
+							</form:label></td>
+						<td><form:input path="cNombreFiscal" cssClass="textoLargo"/></td>							
+					</tr>
+					<tr>
+						<td><form:label path="cCalleFiscal">
+								<spring:message text="Calle" />
+							</form:label></td>
+						<td><form:input path="cCalleFiscal" cssClass="textoLargo"/>
+					</tr>
+					<tr>
+						<td><form:label path="cNumeroFiscal">
+								<spring:message text="Numero Ext"/>
+							</form:label></td>
+						<td><form:input path="cNumeroFiscal"/></td>
+					</tr>
+					<tr>
+						<td><form:label path="cColoniaFiscal">
+								<spring:message text="Colonia"/>
+							</form:label></td>
+						<td><form:input path="cColoniaFiscal" id="cColoniaFiscal"/></td>
+					</tr>
+					<tr>
+						<td><form:label path="cMunicipioFiscal">
+								<spring:message text="Municipio"/>
+							</form:label></td>
+						<td><form:input path="cMunicipioFiscal" id="cMunicipioFiscal"/></td>
+					</tr>
+					<tr>
+						<td><form:label path="cCPFiscal">
+								<spring:message text="CP"/>
+							</form:label></td>
+						<td><form:input path="cCPFiscal"/>
+							<input type="button" name="AddLocalidadFac" value="Buscar Domicilio"
+							onclick="get_localidadFactura();" class="btnAdd"></td>
+					</tr>
+					<tr>
+						<td><form:label path="cCiudadFiscal">
+								<spring:message text="Ciudad"/>
+							</form:label></td>
+						<td><form:input path="cCiudadFiscal"/></td>
+					</tr>
+					<tr>
+						<td><form:label path="cEstadoFiscal">
+								<spring:message text="Estado"/>
+							</form:label></td>
+						<td><form:input path="cEstadoFiscal" id="cEstadoFiscal"/></td>
+					</tr>
+					<tr>
+						<td><form:label path="cRfcFiscal">
+								<spring:message text="RFC"/>
+							</form:label></td>
+						<td><form:input path="cRfcFiscal"/></td>
 					</tr>
 				</table>
 			</fieldset>

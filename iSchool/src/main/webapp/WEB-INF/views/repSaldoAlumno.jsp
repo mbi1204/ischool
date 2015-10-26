@@ -43,7 +43,12 @@ td {
 
 <%@ include file="/WEB-INF/views/templates/menu.jsp"%>
 	<div style="width: 95%; margin: 0 auto;">
-	<h1>Reporte De Saldo De Alumnos</h1>		
+	<h1>Reporte De Saldo De Alumnos</h1>
+	
+	<form:form id="repAlumnoGrupo" method="post" action="repSaldoAlumno/pdf">
+		<button type="submit" onclick="return getGrupo()">Imprimr Reporte</button>
+		<input id="grupo" name="grupo" type="hidden"/>
+	</form:form>		
 
 	<c:url var="actionUrl" value="repSaldoAlumno" />
 

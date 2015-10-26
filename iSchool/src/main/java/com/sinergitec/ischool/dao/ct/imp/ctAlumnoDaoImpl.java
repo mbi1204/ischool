@@ -26,8 +26,8 @@ import com.sinergitec.ischool.util.VectorResultSet;
 public class ctAlumnoDaoImpl implements ctAlumnoDao {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public void add_ctAlumno(ctAlumno obj, List<ctGrupo> listaGrupo) throws Open4GLException, IOException {
-
+	public void add_ctAlumno(ctAlumno obj, List<ctGrupo> listaGrupo) throws Open4GLException, IOException {		
+		
 		List<ctAlumno> Lista = new ArrayList<ctAlumno>();
 		Lista.add(obj);
 
@@ -53,13 +53,14 @@ public class ctAlumnoDaoImpl implements ctAlumnoDao {
 			vecTablaGrupo.add(vecRow2);
 
 		}
+		
 
 		ResultSetHolder ttAlumnos = new ResultSetHolder(new VectorResultSet(vecTabla1));
 		ResultSetHolder ttGrupo = new ResultSetHolder(new VectorResultSet(vecTablaGrupo));
 
-		try {
-			app.as_ctAlumno_Inserta("SISIMB", ttAlumnos, ttGrupo, oplResultado, opcTexto);
+		try {			
 
+			app.as_ctAlumno_Inserta("SISIMB", ttAlumnos, ttGrupo, oplResultado, opcTexto);			
 
 			System.out.println(opcTexto.getValue());
 			System.out.println(oplResultado.getValue());

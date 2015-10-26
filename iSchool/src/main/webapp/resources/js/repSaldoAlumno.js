@@ -21,7 +21,8 @@ function carga_repAlumno(viIdGrupo) {
 						+ '<td>' + data[item].cNombre + '</td>'
 						+ '<td>' + data[item].cApellido + '</td>'						
 						+ '<td>' + data[item].cTel + '</td>'
-						+ '<td>' + data[item].cEmail + '</td>'
+						+ '<td>' + data[item].cCorreo + '</td>'
+						+ '<td>' + data[item].deSaldo + '</td>'
 						+ '</tr>');
 
 			}
@@ -36,6 +37,17 @@ function carga_repAlumno(viIdGrupo) {
 
 	});
 
+}
+
+function getGrupo(){	 		 
+	 var vGrupo = $('select option:selected').text();	 
+	 $("#grupo").val(vGrupo);
+}
+
+function carga() {
+	$(document).ready(function() {
+		carga_repAlumno($('select option:selected').val());
+	});
 }
 
 

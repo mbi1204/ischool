@@ -3,12 +3,15 @@ package com.sinergitec.ischool.control.rep;
 import java.io.IOException;
 import java.util.List;
 
+import org.apache.jasper.tagplugins.jstl.core.ForEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.progress.open4gl.Open4GLException;
 import com.sinergitec.ischool.model.cb.cbAlumnoSaldo;
@@ -41,7 +44,20 @@ public class repSaldoAlumnoControl {
 		
 		list = this.repService.list_cbAlumno(iIdGrupo);
 
+
 		return list;
+	}
+	
+	@RequestMapping(value = "/repSaldoAlumno/pdf", method = RequestMethod.POST)
+	public ModelAndView getList(@RequestParam("grupo") String grupo) {						
+		
+		ModelAndView miModelo = new ModelAndView("pdfViewRepSaldoAlumno");
+		
+		miModelo.addObject("listaAlumno", list);
+		miModelo.addObject("grupo", grupo);
+		
+		return miModelo;
+	
 	}
 
 }

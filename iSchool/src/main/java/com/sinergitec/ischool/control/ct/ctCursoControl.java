@@ -42,7 +42,7 @@ public class ctCursoControl {
 	}
 	
 	@RequestMapping(value= "/ctCurso/add", method = RequestMethod.POST)
-    public String cursoRegistro(@ModelAttribute("ctCurso") ctCurso c) throws RunTime4GLException, SystemErrorException, Open4GLException, IOException{
+    public String cursoRegistro(@ModelAttribute("ctCurso") ctCurso c) throws RunTime4GLException, SystemErrorException, Open4GLException, IOException{		
     	
         if(c.getiIdCurso() == 0){
             //new person, add it

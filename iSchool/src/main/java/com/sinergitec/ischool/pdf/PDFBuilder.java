@@ -54,19 +54,53 @@ public class PDFBuilder extends AbstractITextPdfView {
 		cellSub1.setHorizontalAlignment(Element.ALIGN_CENTER);
 		cellSub2.setHorizontalAlignment(Element.ALIGN_CENTER);
 		cellSub3.setHorizontalAlignment(Element.ALIGN_CENTER);
-
-		String fechaNac = obj.getDtFechaNac().substring(8, 10) + " / " + obj.getDtFechaNac().substring(5, 7) + " / " + obj.getDtFechaNac().substring(0, 4);		
+				
 		PdfPTable tablaDatos = new PdfPTable(2);
 		tablaDatos.addCell(new Phrase("Nombre(s): "));
 		tablaDatos.addCell(obj.getcNombre());
 		tablaDatos.addCell(new Phrase("Apellidos: "));
 		tablaDatos.addCell(obj.getcApellido());
-		tablaDatos.addCell(new Phrase("Fecha De Nacimiento: "));
-		tablaDatos.addCell(fechaNac);		
+		tablaDatos.addCell(new Phrase("Edad: "));
+		tablaDatos.addCell(obj.getcEdad());		
 		tablaDatos.addCell(new Phrase("Telefono: "));
 		tablaDatos.addCell(obj.getcTel());
+		tablaDatos.addCell(new Phrase("Telefono de emergencias: "));
+		tablaDatos.addCell(obj.getcTelEmergencia());
+		tablaDatos.addCell(new Phrase("Sexo: "));
+		tablaDatos.addCell(obj.getcGenero());
 		tablaDatos.addCell(new Phrase("Correo: "));
-		tablaDatos.addCell(obj.getcCorreo());
+		tablaDatos.addCell(obj.getcCorreo());		
+		
+		tablaDatos.addCell(new Phrase("Alergias: "));
+		if (obj.getlAlergia())
+			tablaDatos.addCell(obj.getcAlergia());
+		else
+			tablaDatos.addCell("No");
+		
+		tablaDatos.addCell(new Phrase("Medicamentos: "));
+		if(obj.getlMedicamento())
+			tablaDatos.addCell(obj.getcMedicamento());
+		else
+			tablaDatos.addCell("No");
+		
+		tablaDatos.addCell(new Phrase("Lesiones: "));
+		if(obj.getlLesion())
+			tablaDatos.addCell(obj.getcLesion());
+		else
+			tablaDatos.addCell("No");
+		
+		tablaDatos.addCell(new Phrase("Tratamientos: "));
+		if(obj.getlTratamiento())
+			tablaDatos.addCell(obj.getcTratamiento());
+		else
+			tablaDatos.addCell("No");
+		
+		tablaDatos.addCell(new Phrase("Seguro: "));
+		if(obj.getlSeguro())
+			tablaDatos.addCell("Si");
+		else
+			tablaDatos.addCell("No");
+		
 
 		PdfPTable tablaDomicilio = new PdfPTable(2);
 		tablaDomicilio.addCell(new Phrase("Calle: "));
@@ -113,6 +147,14 @@ public class PDFBuilder extends AbstractITextPdfView {
 		tablaPDF.addCell(cellTitulo);
 		tablaPDF.addCell(cellForm);
 		tablaPDF.addCell(cellSub1);
+		
+		tablaPDF.setWidthPercentage(100);
+		tablaDatos.setWidthPercentage(100);
+		tituloDom.setWidthPercentage(100);
+		tablaDomicilio.setWidthPercentage(100);
+		tituloCurso.setWidthPercentage(100);
+		tablaCurso.setWidthPercentage(100);
+		tablaTotal.setWidthPercentage(100);
 
 		doc.add(tablaPDF);
 		doc.add(tablaDatos);

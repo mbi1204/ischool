@@ -1,7 +1,5 @@
 function carga_repAlumno(viIdGrupo) {
 
-	
-
 	$.ajax({
 		type : "GET",
 		url : "repAlumnoGrupo/getAlumnos",
@@ -20,7 +18,7 @@ function carga_repAlumno(viIdGrupo) {
 						+ '<td>' + data[item].iIdAlumno + '</td>'  
 						+ '<td>' + data[item].cNombre + '</td>'
 						+ '<td>' + data[item].cApellido + '</td>'
-						+ '<td>' + data[item].dtFechaNac + '</td>'
+						+ '<td>' + data[item].cEdad + '</td>'
 						+ '<td>' + data[item].cCalle + '</td>'
 						+ '<td>' + data[item].cNumExt + '</td>'
 						+ '<td>' + data[item].cNumInt + '</td>'
@@ -42,9 +40,21 @@ function carga_repAlumno(viIdGrupo) {
 		}
 
 	});
+	
+	 
 
 }
 
+function getGrupo(){	 		 
+	 var vGrupo = $('select option:selected').text();	 
+	 $("#grupo").val(vGrupo);
+}
+
+function carga() {
+	$(document).ready(function() {
+		carga_repAlumno($('select option:selected').val());
+	});
+}
 
 
 

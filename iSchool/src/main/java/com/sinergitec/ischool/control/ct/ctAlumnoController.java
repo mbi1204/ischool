@@ -18,7 +18,7 @@ import com.sinergitec.ischool.model.ct.ctCurso;
 import com.sinergitec.ischool.model.ct.ctGrupo;
 import com.sinergitec.ischool.model.ct.ctLocalidad;
 import com.sinergitec.ischool.service.ct.ctAlumnoService;
-import com.sinergitec.ischool.service.ct.ctGrupoService;
+import com.sinergitec.ischool.service.ct.ctGrupoDisponibleService;
 import com.sinergitec.ischool.service.imp.ct.ctLocalidadServiceImp;
 
 @Controller
@@ -28,7 +28,7 @@ public class ctAlumnoController {
 	private ctAlumnoService alumnoService;	
 
 	@Autowired
-	private ctGrupoService grupoService;
+	private ctGrupoDisponibleService grupoService;
 	
 	@Autowired
 	private ctLocalidadServiceImp localidadService; 
@@ -39,12 +39,14 @@ public class ctAlumnoController {
 
 		model.addAttribute("ctAlumno", new ctAlumno());
 		model.addAttribute("Lista_Grupo", this.grupoService.list_ctGrupo());
+		ArrayList<ctGrupo> lista = (ArrayList<ctGrupo>) this.grupoService.list_ctGrupo();		
 
 		return "ctAlumnoForm";
 	}
 
 	@RequestMapping(value = "/ctAlumno/agregar", method = RequestMethod.POST)
-	public ModelAndView addPerson(@ModelAttribute("ctAlumno") ctAlumno obj) {
+	public ModelAndView addPerson(@ModelAttribute("ctAlumno") ctAlumno obj) {	
+		
 		
 		ModelAndView miModelo = new ModelAndView("pdfView");
 
