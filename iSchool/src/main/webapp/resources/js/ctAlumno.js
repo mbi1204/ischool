@@ -213,12 +213,12 @@ function get_localidadFactura(){
 				}				
 				
 			} else if (data.length > 1)  {
-				
-			
-				
+						
 				$("#tableLocFac > tbody").empty();
 				
 				for ( var item in data) {
+					
+					
 				
 				$('#tableLocFac > tbody').append(
 						'<tr>' + '<td class ="cLocalidadFiscal">'     + data[item].cLocalidad    + '</td>' 
@@ -271,15 +271,17 @@ $(document).ready(function() {
 		$(this).addClass('selected').siblings().removeClass('selected');
 		//var value = $(this).find('td:fisrt').html();
 		
-		$('#Form_ctAlumno input#cColonia').val($(this).closest("tr").find(".cLocalidad").text() );
-	    $('#Form_ctAlumno input#cMunicipio').val($(this).closest("tr").find(".cNomMunicipio").text() );				    
-		$('#Form_ctAlumno input#cEstado').val($(this).closest("tr").find(".cNomEstado").text() );	
+		alert($(this).closest("tr").find(".cLocalidad").text());
+		
+		$('#Form_ctAlumno input#cColonia').val($(this).closest("tr").find(".cLocalidadFiscal").text() );
+	    $('#Form_ctAlumno input#cMunicipio').val($(this).closest("tr").find(".cNomMunicipioFiscal").text() );				    
+		$('#Form_ctAlumno input#cEstado').val($(this).closest("tr").find(".cNomEstadoFiscal").text() );	
 		$("#Localidades_Dialog").dialog('close');
 		
 		
 	});
 	
-	$('#LocalidadesFactura_Dialog').dialog({
+	$('#LocalidadesFac_Dialog').dialog({
 
 		autoOpen : false,
 		position : 'center',
@@ -300,13 +302,17 @@ $(document).ready(function() {
 	
 
 	$('#tableLocFac').on('dblclick','tr',function() {
+		
+		
 		$(this).addClass('selected').siblings().removeClass('selected');
 		//var value = $(this).find('td:fisrt').html();
 		
-		$('#Form_ctAlumno input#cColoniaFiscal').val($(this).closest("tr").find(".cLocalidad").text() );
-	    $('#Form_ctAlumno input#cMunicipioFiscal').val($(this).closest("tr").find(".cNomMunicipio").text() );				    
-		$('#Form_ctAlumno input#cEstadoFiscal').val($(this).closest("tr").find(".cNomEstado").text() );	
-		$("#LocalidadesFactura_Dialog").dialog('close');
+		alert($(this).closest("tr").find(".cLocalidad").text());
+		
+		$('#cColoniaFiscal').val($(this).closest("tr").find(".cLocalidad").text() );
+	    $('#cMunicipioFiscal').val($(this).closest("tr").find(".cNomMunicipio").text() );				    
+		$('#cEstadoFiscal').val($(this).closest("tr").find(".cNomEstado").text() );	
+		$("#LocalidadesFac_Dialog").dialog('close');
 		
 		
 	});

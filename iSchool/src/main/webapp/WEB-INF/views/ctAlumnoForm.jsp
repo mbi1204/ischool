@@ -435,13 +435,13 @@ th {
 						<td><form:label path="cColoniaFiscal">
 								<spring:message text="Colonia"/>
 							</form:label></td>
-						<td><form:input path="cColoniaFiscal"/></td>
+						<td><form:input path="cColoniaFiscal" id="cColoniaFiscal"/></td>
 					</tr>
 					<tr>
 						<td><form:label path="cMunicipioFiscal">
 								<spring:message text="Municipio"/>
 							</form:label></td>
-						<td><form:input path="cMunicipioFiscal"/></td>
+						<td><form:input path="cMunicipioFiscal" id="cMunicipioFiscal"/></td>
 					</tr>
 					<tr>
 						<td><form:label path="cCPFiscal">
@@ -461,7 +461,7 @@ th {
 						<td><form:label path="cEstadoFiscal">
 								<spring:message text="Estado"/>
 							</form:label></td>
-						<td><form:input path="cEstadoFiscal"/></td>
+						<td><form:input path="cEstadoFiscal" id="cEstadoFiscal"/></td>
 					</tr>
 					<tr>
 						<td><form:label path="cRfcFiscal">
