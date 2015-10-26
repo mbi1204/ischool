@@ -269,13 +269,12 @@ $(document).ready(function() {
 
 	$('#tableLoc').on('dblclick','tr',function() {
 		$(this).addClass('selected').siblings().removeClass('selected');
-		//var value = $(this).find('td:fisrt').html();
+		//var value = $(this).find('td:fisrt').html();	
 		
-		alert($(this).closest("tr").find(".cLocalidad").text());
 		
-		$('#Form_ctAlumno input#cColonia').val($(this).closest("tr").find(".cLocalidadFiscal").text() );
-	    $('#Form_ctAlumno input#cMunicipio').val($(this).closest("tr").find(".cNomMunicipioFiscal").text() );				    
-		$('#Form_ctAlumno input#cEstado').val($(this).closest("tr").find(".cNomEstadoFiscal").text() );	
+		$('#Form_ctAlumno input#cColonia').val($(this).closest("tr").find(".cLocalidad").text() );
+	    $('#Form_ctAlumno input#cMunicipio').val($(this).closest("tr").find(".cNomMunicipio").text() );				    
+		$('#Form_ctAlumno input#cEstado').val($(this).closest("tr").find(".cNomEstado").text() );	
 		$("#Localidades_Dialog").dialog('close');
 		
 		
@@ -305,13 +304,11 @@ $(document).ready(function() {
 		
 		
 		$(this).addClass('selected').siblings().removeClass('selected');
-		//var value = $(this).find('td:fisrt').html();
+		//var value = $(this).find('td:fisrt').html();		
 		
-		alert($(this).closest("tr").find(".cLocalidad").text());
-		
-		$('#cColoniaFiscal').val($(this).closest("tr").find(".cLocalidad").text() );
-	    $('#cMunicipioFiscal').val($(this).closest("tr").find(".cNomMunicipio").text() );				    
-		$('#cEstadoFiscal').val($(this).closest("tr").find(".cNomEstado").text() );	
+		$('#cColoniaFiscal').val($(this).closest("tr").find(".cLocalidadFiscal").text() );
+	    $('#cMunicipioFiscal').val($(this).closest("tr").find(".cNomMunicipioFiscal").text() );				    
+		$('#cEstadoFiscal').val($(this).closest("tr").find(".cNomEstadoFiscal").text() );	
 		$("#LocalidadesFac_Dialog").dialog('close');
 		
 		
