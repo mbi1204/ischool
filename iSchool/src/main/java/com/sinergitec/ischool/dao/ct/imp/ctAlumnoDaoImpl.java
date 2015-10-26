@@ -40,6 +40,8 @@ public class ctAlumnoDaoImpl implements ctAlumnoDao {
 
 		Connection conexion = DBConexion.getConnection();
 		AppServer app = new AppServer(conexion);
+		
+		
 
 		for (ctAlumno obj_ctAlumno : Lista) {
 			vecRow1 = obj_ctAlumno.getVectorDatos();
