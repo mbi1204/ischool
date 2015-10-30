@@ -506,13 +506,15 @@ th {
 								<th>Curso</th>
 								<th>Horario</th>
 								<th>Precio</th>
+								<th>Descuento</th>
+								<th>Total</th>
 							</tr>
 						</thead>
 						<tbody></tbody>
 						<tfoot></tfoot>
 					</table>
 				</div>
-				<form:input type="hidden" path="cGrupo" disabled="false" />
+				<form:input type="text" path="cGrupo" disabled="false" />
 			</fieldset>
 
 			<button type="submit" class="botonAceptar" onclick="return validaCampos()">Registrar</button>

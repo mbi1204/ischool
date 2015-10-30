@@ -3,6 +3,9 @@
  */
 
 function Add_curso() {
+	
+	var descuento = $('#Form_ctAlumno input#deDescuento').val();	
+	var total;
 
 	vid = $('select#idGrupo option:selected').val();
 
@@ -48,6 +51,12 @@ function Add_curso() {
 									+ '<td class="dePrecio">'
 									+ data.curso.dePrecio
 									+ '</td>'
+									+ '<td class="deDescuento">'
+									+ data.curso.dePrecio * (descuento / 100)
+									+ '</td>'
+									+ '<td class="dePrecioReal">'
+									+ (data.curso.dePrecio - (data.curso.dePrecio * (descuento / 100)))
+									+ '</td>'										
 									+ '<td>'
 									+ '<button class="btnDelete" onclick="Borrar();" style="background-color:#FF4000; color:black;">Quitar</button>'
 									+ '</td> </tr>');
@@ -57,7 +66,7 @@ function Add_curso() {
 	
 			$("#mytable > tfoot").empty();
 			$('#mytable > tfoot').append(
-					'<TR> <TH ALIGN=LEFT COLSPAN=5>Total a Pagar</TH> <TH>'
+					'<TR> <TH ALIGN=LEFT COLSPAN=7>Total a Pagar</TH> <TH>'
 							+ vdetotal + '</TH> </TR>');					
 	
 			/* agregar json curso */
@@ -117,7 +126,7 @@ var generaJson = function() {
 				$(this).closest("tr").find(".id_Curso").text(), 
 				$(this).closest("tr").find(".cNombre_Curso").text(), 
 				$(this).closest("tr").find(".cHorario").text(), 
-				$(this).closest("tr").find(".dePrecio").text()));
+				$(this).closest("tr").find(".dePrecioReal").text()));
 
 	});
 	var sJson = JSON.stringify(dataArray);
@@ -128,14 +137,11 @@ var calculaTotal = function() {
 
 	vdetotal = 0;
 	$.each($("#mytable tbody").find("tr"), function() {
-		vdetotal = vdetotal + parseInt($(this).closest("tr").find(".dePrecio").text());
-		alert(vdetotal);
-
-	});
+		vdetotal = vdetotal + parseInt($(this).closest("tr").find(".dePrecio").text());		
+	});	
 	
-	
-	if($('#Form_ctAlumno input#cDescuento').val() != "");
-	vdetotal = vdetotal * ($('#Form_ctAlumno input#cDescuento').val() / 100);
+	if($('#Form_ctAlumno input#deDescuento').val() != "");
+	vdetotal = vdetotal - (vdetotal *(parseInt($('#Form_ctAlumno input#deDescuento').val()) / 100));
 };
 
 
