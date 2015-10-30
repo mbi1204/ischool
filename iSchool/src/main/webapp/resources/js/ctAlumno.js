@@ -52,7 +52,7 @@ function Add_curso() {
 									+ '<button class="btnDelete" onclick="Borrar();" style="background-color:#FF4000; color:black;">Quitar</button>'
 									+ '</td> </tr>');
 			
-			alert("total");
+			
 			calculaTotal();
 	
 			$("#mytable > tfoot").empty();
@@ -128,11 +128,12 @@ var calculaTotal = function() {
 
 	vdetotal = 0;
 	$.each($("#mytable tbody").find("tr"), function() {
-		vdetotal = vdetotal + parseInt($(this).closest("tr").find(".dePrecio").text());	
+		vdetotal = vdetotal + parseInt($(this).closest("tr").find(".dePrecio").text());
+		alert(vdetotal);
 
 	});
 	
-	alert(vdetotal);
+	
 	if($('#Form_ctAlumno input#cDescuento').val() != "");
 	vdetotal = vdetotal * ($('#Form_ctAlumno input#cDescuento').val() / 100);
 };

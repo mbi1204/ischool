@@ -355,7 +355,7 @@ th {
 						<td><form:label path="lFactura">
 								<spring:message text="¿Requiere factura?" />
 							</form:label></td>
-						<td><form:checkbox path="lFactura" onclick="factura();" id="lFactura"/></td>
+						<td><form:checkbox path="lFactura" onclick="factura();" id="lFactura" /></td>
 					</tr>
 					<tr>
 						<td><form:label path="deDescuento">
