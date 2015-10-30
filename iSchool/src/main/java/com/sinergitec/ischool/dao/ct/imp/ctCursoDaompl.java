@@ -147,6 +147,7 @@ public class ctCursoDaompl implements ctCursoDao {
 				obj.setDeIva(rs_tt_ctCurso.getBigDecimal("deIva"));
 				obj.setDeTotal(rs_tt_ctCurso.getBigDecimal("deTotal"));
 				obj.setId(rs_tt_ctCurso.getBytes("id"));
+				
 
 				Lista.add(obj);
 				}
