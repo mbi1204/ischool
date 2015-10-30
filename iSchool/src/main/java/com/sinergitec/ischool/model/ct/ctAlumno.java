@@ -1,5 +1,6 @@
 package com.sinergitec.ischool.model.ct;
 
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Vector;
@@ -45,6 +46,8 @@ public class ctAlumno {
 	private String cLesion;
 	private Boolean lTratamiento;
 	private String cTratamiento;
+	private BigDecimal deDescuento;
+	private String cMotivoDesc;
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Vector getVectorDatos() {
@@ -88,7 +91,9 @@ public class ctAlumno {
 		vector.add(this.getlLesion());
 		vector.add(this.getcLesion());
 		vector.add(this.getlTratamiento());
-		vector.add(this.getcTratamiento());
+		vector.add(this.getcTratamiento());	
+		vector.add(this.getDeDescuento());
+		vector.add(this.getcMotivoDesc());
 		vector.add(this.getId());		
 		return vector;
 	}
@@ -403,6 +408,24 @@ public class ctAlumno {
 
 	public void setcTratamiento(String cTratamiento) {
 		this.cTratamiento = cTratamiento;
-	}	
+	}
+
+	public BigDecimal getDeDescuento() {
+		return deDescuento;
+	}
+
+	public void setDeDescuento(BigDecimal deDescuento) {
+		this.deDescuento = deDescuento;
+	}
+
+	public String getcMotivoDesc() {
+		return cMotivoDesc;
+	}
+
+	public void setcMotivoDesc(String cMotivoDesc) {
+		this.cMotivoDesc = cMotivoDesc;
+	}
+	
+	
 
 }

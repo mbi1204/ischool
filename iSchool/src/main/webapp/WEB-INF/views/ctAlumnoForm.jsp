@@ -345,7 +345,7 @@ th {
 					</tr>
 					<tr>
 						<td><form:label path="lSeguro">
-								<spring:message text="¿Tiene seguro?"></spring:message>
+								<spring:message text="¿Tiene seguro?" />
 							</form:label></td>
 						<td>
 							<form:checkbox path="lSeguro" />
@@ -353,10 +353,22 @@ th {
 					</tr>
 					<tr>
 						<td><form:label path="lFactura">
-								<spring:message text="¿Requiere factura?"></spring:message>
+								<spring:message text="¿Requiere factura?" />
 							</form:label></td>
 						<td><form:checkbox path="lFactura" onclick="factura();" id="lFactura"/></td>
 					</tr>
+					<tr>
+						<td><form:label path="deDescuento">
+								<spring:message text="Descuento"/>
+							</form:label></td>
+						<td><form:input path="deDescuento"/>
+					</tr>
+					<tr>
+						<td><form:label path="cMotivoDesc">
+								<spring:message text="Motivo"/>
+							</form:label></td>
+						<td><form:input path="cMotivoDesc"/></td>
+					<tr>
 
 				</table>
 			</fieldset>
