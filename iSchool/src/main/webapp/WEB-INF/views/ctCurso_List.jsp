@@ -46,6 +46,8 @@ th {
 					<th width="12%">Cupo Minimo</th>
 					<th width="12%">Cupo Maximo</th>
 					<th width="12%">Precio del curso</th>
+					<th width="12%">IVA</th>
+					<th width="12%">Total</th>
 					<th width="36%"></th>
 				</tr>
 			</thead>
@@ -59,6 +61,8 @@ th {
 						<td><c:out value="${ctCurso.iMinCup}" /></td>
 						<td><c:out value="${ctCurso.iMaxCup}" /></td>
 						<td><c:out value="${ctCurso.dePrecio}" /></td>
+						<td><c:out value="${ctCurso.deIva}" /></td>
+						<td><c:out value="${ctCurso.deTotal}" /></td>
 
 						<td><nobr>
 
