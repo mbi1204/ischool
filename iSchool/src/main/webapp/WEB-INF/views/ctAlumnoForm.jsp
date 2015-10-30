@@ -361,13 +361,13 @@ th {
 						<td><form:label path="deDescuento">
 								<spring:message text="Descuento"/>
 							</form:label></td>
-						<td><form:input path="deDescuento"/>
+						<td><form:input path="deDescuento"/> %
 					</tr>
 					<tr>
 						<td><form:label path="cMotivoDesc">
 								<spring:message text="Motivo"/>
 							</form:label></td>
-						<td><form:input path="cMotivoDesc"/></td>
+						<td><form:input path="cMotivoDesc"/>
 					<tr>
 
 				</table>

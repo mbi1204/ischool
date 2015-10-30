@@ -51,7 +51,8 @@ function Add_curso() {
 									+ '<td>'
 									+ '<button class="btnDelete" onclick="Borrar();" style="background-color:#FF4000; color:black;">Quitar</button>'
 									+ '</td> </tr>');
-	
+			
+			alert("total");
 			calculaTotal();
 	
 			$("#mytable > tfoot").empty();
@@ -127,9 +128,13 @@ var calculaTotal = function() {
 
 	vdetotal = 0;
 	$.each($("#mytable tbody").find("tr"), function() {
-		vdetotal = vdetotal + parseInt($(this).closest("tr").find(".dePrecio").text());
+		vdetotal = vdetotal + parseInt($(this).closest("tr").find(".dePrecio").text());	
 
 	});
+	
+	alert(vdetotal);
+	if($('#Form_ctAlumno input#cDescuento').val() != "");
+	vdetotal = vdetotal * ($('#Form_ctAlumno input#cDescuento').val() / 100);
 };
 
 
@@ -328,8 +333,8 @@ function validaCampos(){
 		alert("Apellido Debe De Tener Un Valor");
 		return false; 
 		
-	}if($('#Form_ctAlumno input#dtFechaNac').val() == ""){
-		alert("Fecha De Nacimiento Debe De Tener Un Valor");
+	}if($('#Form_ctAlumno input#cEdad').val() == ""){
+		alert("Edad Debe De Tener Un Valor");
 		return false; 
 		
 	}if($("#cGrupo").val() == "" || $("#cGrupo").val() == "[]"){
