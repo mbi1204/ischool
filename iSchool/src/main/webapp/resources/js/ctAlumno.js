@@ -3,6 +3,9 @@
  */
 
 function Add_curso() {
+	
+	var descuento = $('#Form_ctAlumno input#deDescuento').val();	
+	var total;
 
 	vid = $('select#idGrupo option:selected').val();
 
@@ -48,15 +51,22 @@ function Add_curso() {
 									+ '<td class="dePrecio">'
 									+ data.curso.dePrecio
 									+ '</td>'
+									+ '<td class="deDescuento">'
+									+ data.curso.dePrecio * (descuento / 100)
+									+ '</td>'
+									+ '<td class="dePrecioReal">'
+									+ (data.curso.dePrecio - (data.curso.dePrecio * (descuento / 100)))
+									+ '</td>'										
 									+ '<td>'
 									+ '<button class="btnDelete" onclick="Borrar();" style="background-color:#FF4000; color:black;">Quitar</button>'
 									+ '</td> </tr>');
-	
+			
+			
 			calculaTotal();
 	
 			$("#mytable > tfoot").empty();
 			$('#mytable > tfoot').append(
-					'<TR> <TH ALIGN=LEFT COLSPAN=5>Total a Pagar</TH> <TH>'
+					'<TR> <TH ALIGN=LEFT COLSPAN=7>Total a Pagar</TH> <TH>'
 							+ vdetotal + '</TH> </TR>');					
 	
 			/* agregar json curso */
@@ -116,7 +126,7 @@ var generaJson = function() {
 				$(this).closest("tr").find(".id_Curso").text(), 
 				$(this).closest("tr").find(".cNombre_Curso").text(), 
 				$(this).closest("tr").find(".cHorario").text(), 
-				$(this).closest("tr").find(".dePrecio").text()));
+				$(this).closest("tr").find(".dePrecioReal").text()));
 
 	});
 	var sJson = JSON.stringify(dataArray);
@@ -127,9 +137,11 @@ var calculaTotal = function() {
 
 	vdetotal = 0;
 	$.each($("#mytable tbody").find("tr"), function() {
-		vdetotal = vdetotal + parseInt($(this).closest("tr").find(".dePrecio").text());
-
-	});
+		vdetotal = vdetotal + parseInt($(this).closest("tr").find(".dePrecio").text());		
+	});	
+	
+	if($('#Form_ctAlumno input#deDescuento').val() != "");
+	vdetotal = vdetotal - (vdetotal *(parseInt($('#Form_ctAlumno input#deDescuento').val()) / 100));
 };
 
 
@@ -269,13 +281,12 @@ $(document).ready(function() {
 
 	$('#tableLoc').on('dblclick','tr',function() {
 		$(this).addClass('selected').siblings().removeClass('selected');
-		//var value = $(this).find('td:fisrt').html();
+		//var value = $(this).find('td:fisrt').html();	
 		
-		alert($(this).closest("tr").find(".cLocalidad").text());
 		
-		$('#Form_ctAlumno input#cColonia').val($(this).closest("tr").find(".cLocalidadFiscal").text() );
-	    $('#Form_ctAlumno input#cMunicipio').val($(this).closest("tr").find(".cNomMunicipioFiscal").text() );				    
-		$('#Form_ctAlumno input#cEstado').val($(this).closest("tr").find(".cNomEstadoFiscal").text() );	
+		$('#Form_ctAlumno input#cColonia').val($(this).closest("tr").find(".cLocalidad").text() );
+	    $('#Form_ctAlumno input#cMunicipio').val($(this).closest("tr").find(".cNomMunicipio").text() );				    
+		$('#Form_ctAlumno input#cEstado').val($(this).closest("tr").find(".cNomEstado").text() );	
 		$("#Localidades_Dialog").dialog('close');
 		
 		
@@ -305,13 +316,11 @@ $(document).ready(function() {
 		
 		
 		$(this).addClass('selected').siblings().removeClass('selected');
-		//var value = $(this).find('td:fisrt').html();
+		//var value = $(this).find('td:fisrt').html();		
 		
-		alert($(this).closest("tr").find(".cLocalidad").text());
-		
-		$('#cColoniaFiscal').val($(this).closest("tr").find(".cLocalidad").text() );
-	    $('#cMunicipioFiscal').val($(this).closest("tr").find(".cNomMunicipio").text() );				    
-		$('#cEstadoFiscal').val($(this).closest("tr").find(".cNomEstado").text() );	
+		$('#cColoniaFiscal').val($(this).closest("tr").find(".cLocalidadFiscal").text() );
+	    $('#cMunicipioFiscal').val($(this).closest("tr").find(".cNomMunicipioFiscal").text() );				    
+		$('#cEstadoFiscal').val($(this).closest("tr").find(".cNomEstadoFiscal").text() );	
 		$("#LocalidadesFac_Dialog").dialog('close');
 		
 		
@@ -331,8 +340,8 @@ function validaCampos(){
 		alert("Apellido Debe De Tener Un Valor");
 		return false; 
 		
-	}if($('#Form_ctAlumno input#dtFechaNac').val() == ""){
-		alert("Fecha De Nacimiento Debe De Tener Un Valor");
+	}if($('#Form_ctAlumno input#cEdad').val() == ""){
+		alert("Edad Debe De Tener Un Valor");
 		return false; 
 		
 	}if($("#cGrupo").val() == "" || $("#cGrupo").val() == "[]"){

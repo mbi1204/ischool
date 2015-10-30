@@ -345,7 +345,7 @@ th {
 					</tr>
 					<tr>
 						<td><form:label path="lSeguro">
-								<spring:message text="¿Tiene seguro?"></spring:message>
+								<spring:message text="¿Tiene seguro?" />
 							</form:label></td>
 						<td>
 							<form:checkbox path="lSeguro" />
@@ -353,10 +353,22 @@ th {
 					</tr>
 					<tr>
 						<td><form:label path="lFactura">
-								<spring:message text="¿Requiere factura?"></spring:message>
+								<spring:message text="¿Requiere factura?" />
 							</form:label></td>
-						<td><form:checkbox path="lFactura" onclick="factura();" id="lFactura"/></td>
+						<td><form:checkbox path="lFactura" onclick="factura();" id="lFactura" /></td>
 					</tr>
+					<tr>
+						<td><form:label path="deDescuento">
+								<spring:message text="Descuento"/>
+							</form:label></td>
+						<td><form:input path="deDescuento"/> %
+					</tr>
+					<tr>
+						<td><form:label path="cMotivoDesc">
+								<spring:message text="Motivo"/>
+							</form:label></td>
+						<td><form:input path="cMotivoDesc"/>
+					<tr>
 
 				</table>
 			</fieldset>
@@ -494,13 +506,15 @@ th {
 								<th>Curso</th>
 								<th>Horario</th>
 								<th>Precio</th>
+								<th>Descuento</th>
+								<th>Total</th>
 							</tr>
 						</thead>
 						<tbody></tbody>
 						<tfoot></tfoot>
 					</table>
 				</div>
-				<form:input type="hidden" path="cGrupo" disabled="false" />
+				<form:input type="text" path="cGrupo" disabled="false" />
 			</fieldset>
 
 			<button type="submit" class="botonAceptar" onclick="return validaCampos()">Registrar</button>

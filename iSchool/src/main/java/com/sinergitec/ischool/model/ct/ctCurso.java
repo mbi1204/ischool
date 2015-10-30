@@ -11,6 +11,8 @@ public class ctCurso {
 	private Integer iMinCup;
 	private Integer iMaxCup;
 	private BigDecimal dePrecio;
+	private BigDecimal deIva;
+	private BigDecimal deTotal;
 	byte[] id;
 	
 	public ctCurso(){
@@ -59,11 +61,21 @@ public class ctCurso {
 	public void setId(byte[] id) {
 		this.id = id;
 	}
+	public BigDecimal getDeIva() {
+		return deIva;
+	}
 
+	public void setDeIva(BigDecimal deIva) {
+		this.deIva = deIva;
+	}
 
+	public BigDecimal getDeTotal() {
+		return deTotal;
+	}
 
-
-
+	public void setDeTotal(BigDecimal deTotal) {
+		this.deTotal = deTotal;
+	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Vector getVectorDatos(){
@@ -78,6 +90,8 @@ public class ctCurso {
 		vector.add(this.getiMinCup());
 		vector.add(this.getiMaxCup());
 		vector.add(this.getDePrecio());
+		vector.add(this.getDeIva());
+		vector.add(this.getDeTotal());
 		vector.add(this.getId());
 		
 		return vector;

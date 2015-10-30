@@ -68,7 +68,7 @@ public class ctAlumnoController {
 			objGrupo.setcHorario(jsonArray.getJSONObject(i).getString("cHorario"));
 			objGrupo.setiIdCurso(Integer.parseInt(jsonArray.getJSONObject(i).getString("id_Curso")));
 			objCurso.setcNombre(jsonArray.getJSONObject(i).getString("cNombre_Curso"));			
-			BigDecimal precio = new BigDecimal(jsonArray.getJSONObject(i).getString("dePrecio"));
+			BigDecimal precio = new BigDecimal(jsonArray.getJSONObject(i).getString("dePrecio"));			
 			objCurso.setDePrecio(precio);
 			objGrupo.setCurso(objCurso);
 			listaGrupo.add(objGrupo);
