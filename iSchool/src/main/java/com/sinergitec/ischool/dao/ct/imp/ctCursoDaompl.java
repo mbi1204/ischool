@@ -144,6 +144,8 @@ public class ctCursoDaompl implements ctCursoDao {
 				obj.setiMinCup(rs_tt_ctCurso.getInt("iMinCup"));
 				obj.setiMaxCup(rs_tt_ctCurso.getInt("iMaxCup"));
 				obj.setDePrecio(rs_tt_ctCurso.getBigDecimal("dePrecio"));
+				obj.setDeIva(rs_tt_ctCurso.getBigDecimal("deIva"));
+				obj.setDeTotal(rs_tt_ctCurso.getBigDecimal("deTotal"));
 				obj.setId(rs_tt_ctCurso.getBytes("id"));
 
 				Lista.add(obj);
