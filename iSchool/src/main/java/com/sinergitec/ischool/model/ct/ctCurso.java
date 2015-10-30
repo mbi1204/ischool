@@ -90,6 +90,8 @@ public class ctCurso {
 		vector.add(this.getiMinCup());
 		vector.add(this.getiMaxCup());
 		vector.add(this.getDePrecio());
+		vector.add(this.getDeIva());
+		vector.add(this.getDeTotal());
 		vector.add(this.getId());
 		
 		return vector;
