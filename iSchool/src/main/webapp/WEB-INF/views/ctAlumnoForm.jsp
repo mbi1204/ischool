@@ -514,7 +514,7 @@ th {
 						<tfoot></tfoot>
 					</table>
 				</div>
-				<form:input type="text" path="cGrupo" disabled="false" />
+				<form:input type="hidden" path="cGrupo" disabled="false" />
 			</fieldset>
 
 			<button type="submit" class="botonAceptar" onclick="return validaCampos()">Registrar</button>
