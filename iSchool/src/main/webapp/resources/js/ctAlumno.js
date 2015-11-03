@@ -147,8 +147,8 @@ var calculaTotal = function() {
 		vdetotal = vdetotal + parseFloat($(this).closest("tr").find(".dePrecio").text());		
 	});	
 	
-	
-	vdetotal = vdetotal - (vdetotal *(parseInt($('#Form_ctAlumno input#deDescuento').val()) / 100));
+	if($('#Form_ctAlumno input#deDescuento').val() != "")
+		vdetotal = vdetotal - (vdetotal *(parseInt($('#Form_ctAlumno input#deDescuento').val()) / 100));
 };
 
 
