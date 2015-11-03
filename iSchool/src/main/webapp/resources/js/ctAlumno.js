@@ -144,10 +144,7 @@ var generaJson = function() {
 	$("#cGrupo").val(sJson);
 
 
-	if ($("#cGrupo").val() == "" || $("#cGrupo").val() == "[]")
-		$('#Form_ctAlumno input#deDescuento').prop('disabled', false);
-	else 
-		$('#Form_ctAlumno input#deDescuento').prop('disabled', true);
+	
 };
 
 var calculaTotal = function() {
