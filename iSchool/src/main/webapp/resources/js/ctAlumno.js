@@ -144,11 +144,9 @@ var calculaTotal = function() {
 
 	vdetotal = 0;
 	$.each($("#mytable tbody").find("tr"), function() {
-		vdetotal = vdetotal + parseFloat($(this).closest("tr").find(".dePrecio").text());		
-	});	
+		vdetotal = vdetotal + parseFloat($(this).closest("tr").find(".dePrecioReal").text());		
+	});
 	
-	if($('#Form_ctAlumno input#deDescuento').val() != "")
-		vdetotal = vdetotal - (vdetotal *(parseInt($('#Form_ctAlumno input#deDescuento').val()) / 100));
 };
 
 
