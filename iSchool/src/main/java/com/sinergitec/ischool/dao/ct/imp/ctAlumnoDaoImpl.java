@@ -48,8 +48,7 @@ public class ctAlumnoDaoImpl implements ctAlumnoDao {
 			vecTabla1.add(vecRow1);
 		}
 
-		for (ctGrupo objGrupo : listaGrupo) {
-			System.out.println("Este es el precio " + objGrupo.getCurso().getDePrecio());
+		for (ctGrupo objGrupo : listaGrupo) {			
 			vecRow2 = objGrupo.getVectorDatos();
 			vecTablaGrupo.add(vecRow2);
 

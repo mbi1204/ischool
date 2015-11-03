@@ -367,7 +367,7 @@ th {
 						<td><form:label path="cMotivoDesc">
 								<spring:message text="Motivo"/>
 							</form:label></td>
-						<td><form:input path="cMotivoDesc"/>
+						<td><form:textarea path="cMotivoDesc" cols="45" rows="5"/>
 					<tr>
 
 				</table>
@@ -514,7 +514,7 @@ th {
 						<tfoot></tfoot>
 					</table>
 				</div>
-				<form:input type="text" path="cGrupo" disabled="false" />
+				<form:input type="hidden" path="cGrupo" disabled="false" />
 			</fieldset>
 
 			<button type="submit" class="botonAceptar" onclick="return validaCampos()">Registrar</button>

@@ -4,7 +4,7 @@
 
 function Add_curso() {
 	
-	var descuento = $('#Form_ctAlumno input#deDescuento').val();	
+	var descuento; 	
 	var total;
 
 	vid = $('select#idGrupo option:selected').val();
@@ -21,6 +21,12 @@ function Add_curso() {
 
 	if (vlExiste)
 		return;
+	
+	if($('#Form_ctAlumno input#deDescuento').val() != "")
+		descuento = $('#Form_ctAlumno input#deDescuento').val();
+	else 
+		descuento = 0;
+	
 
 	$.ajax({
 		type : "GET",
@@ -49,13 +55,13 @@ function Add_curso() {
 									+ data.cHorario
 									+ '</td>'
 									+ '<td class="dePrecio">'
-									+ data.curso.dePrecio
+									+ parseFloat(data.curso.dePrecio).toFixed(2)
 									+ '</td>'
 									+ '<td class="deDescuento">'
-									+ data.curso.dePrecio * (descuento / 100)
+									+ parseFloat(data.curso.dePrecio * (descuento / 100)).toFixed(2)
 									+ '</td>'
 									+ '<td class="dePrecioReal">'
-									+ (data.curso.dePrecio - (data.curso.dePrecio * (descuento / 100)))
+									+ parseFloat(data.curso.dePrecio - (data.curso.dePrecio * (descuento / 100))).toFixed(2)
 									+ '</td>'										
 									+ '<td>'
 									+ '<button class="btnDelete" onclick="Borrar();" style="background-color:#FF4000; color:black;">Quitar</button>'
@@ -67,7 +73,7 @@ function Add_curso() {
 			$("#mytable > tfoot").empty();
 			$('#mytable > tfoot').append(
 					'<TR> <TH ALIGN=LEFT COLSPAN=7>Total a Pagar</TH> <TH>'
-							+ vdetotal + '</TH> </TR>');					
+							+ vdetotal.toFixed(2) + '</TH> </TR>');					
 	
 			/* agregar json curso */
 			generaJson();
@@ -78,10 +84,14 @@ function Add_curso() {
 		}
 
 	});
+	
+	
 
 }
 
 function Borrar() {
+	
+	
 
 	$("#mytable").on(
 			'click',
@@ -95,14 +105,15 @@ function Borrar() {
 
 				if (vdetotal > 0) {
 					$('#mytable > tfoot').append(
-							'<TR> <TH ALIGN=LEFT COLSPAN=5>Total a Pagar</TH> <TH>'
-									+ vdetotal + '</TH> </TR>');
+							'<TR> <TH ALIGN=LEFT COLSPAN=7>Total a Pagar</TH> <TH>'
+									+ vdetotal.toFixed(2) + '</TH> </TR>');
 				}
 
 				/* agregar json curso */
 				generaJson();
 
 			});
+	
 }
 
 var generaJson = function() {
@@ -131,17 +142,21 @@ var generaJson = function() {
 	});
 	var sJson = JSON.stringify(dataArray);
 	$("#cGrupo").val(sJson);
+
+
+	if ($("#cGrupo").val() == "" || $("#cGrupo").val() == "[]")
+		$('#Form_ctAlumno input#deDescuento').prop('disabled', false);
+	else 
+		$('#Form_ctAlumno input#deDescuento').prop('disabled', true);
 };
 
 var calculaTotal = function() {
 
 	vdetotal = 0;
 	$.each($("#mytable tbody").find("tr"), function() {
-		vdetotal = vdetotal + parseInt($(this).closest("tr").find(".dePrecio").text());		
-	});	
+		vdetotal = vdetotal + parseFloat($(this).closest("tr").find(".dePrecioReal").text());		
+	});
 	
-	if($('#Form_ctAlumno input#deDescuento').val() != "");
-	vdetotal = vdetotal - (vdetotal *(parseInt($('#Form_ctAlumno input#deDescuento').val()) / 100));
 };
 
 
@@ -367,6 +382,7 @@ function carga(){
 	$('#textMedicamento').hide();
 	$('#textLesion').hide();
 	$('#textTratamiento').hide();
+	
 }
 
 function showAlergia(){
