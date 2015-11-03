@@ -25,7 +25,7 @@ function Add_curso() {
 	if($('#Form_ctAlumno input#deDescuento').val() != "")
 		descuento = $('#Form_ctAlumno input#deDescuento').val();
 	else 
-		descuento = 0;	
+		descuento = 0;
 	
 
 	$.ajax({
@@ -84,10 +84,14 @@ function Add_curso() {
 		}
 
 	});
+	
+	
 
 }
 
 function Borrar() {
+	
+	
 
 	$("#mytable").on(
 			'click',
@@ -101,14 +105,15 @@ function Borrar() {
 
 				if (vdetotal > 0) {
 					$('#mytable > tfoot').append(
-							'<TR> <TH ALIGN=LEFT COLSPAN=5>Total a Pagar</TH> <TH>'
-									+ vdetotal + '</TH> </TR>');
+							'<TR> <TH ALIGN=LEFT COLSPAN=7>Total a Pagar</TH> <TH>'
+									+ vdetotal.toFixed(2) + '</TH> </TR>');
 				}
 
 				/* agregar json curso */
 				generaJson();
 
 			});
+	
 }
 
 var generaJson = function() {
@@ -137,6 +142,12 @@ var generaJson = function() {
 	});
 	var sJson = JSON.stringify(dataArray);
 	$("#cGrupo").val(sJson);
+
+
+	if ($("#cGrupo").val() == "" || $("#cGrupo").val() == "[]")
+		$('#Form_ctAlumno input#deDescuento').prop('disabled', false);
+	else 
+		$('#Form_ctAlumno input#deDescuento').prop('disabled', true);
 };
 
 var calculaTotal = function() {
@@ -371,6 +382,7 @@ function carga(){
 	$('#textMedicamento').hide();
 	$('#textLesion').hide();
 	$('#textTratamiento').hide();
+	
 }
 
 function showAlergia(){

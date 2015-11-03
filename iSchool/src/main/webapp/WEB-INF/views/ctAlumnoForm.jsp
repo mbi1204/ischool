@@ -367,7 +367,7 @@ th {
 						<td><form:label path="cMotivoDesc">
 								<spring:message text="Motivo"/>
 							</form:label></td>
-						<td><form:input path="cMotivoDesc"/>
+						<td><form:textarea path="cMotivoDesc" cols="45" rows="5"/>
 					<tr>
 
 				</table>
