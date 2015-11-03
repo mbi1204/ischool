@@ -4,7 +4,7 @@
 
 function Add_curso() {
 	
-	var descuento = $('#Form_ctAlumno input#deDescuento').val();	
+	var descuento; 	
 	var total;
 
 	vid = $('select#idGrupo option:selected').val();
@@ -21,6 +21,8 @@ function Add_curso() {
 
 	if (vlExiste)
 		return;
+	if($('#Form_ctAlumno input#deDescuento').val() != "")
+		descuento == $('#Form_ctAlumno input#deDescuento').val();
 
 	$.ajax({
 		type : "GET",
@@ -140,7 +142,7 @@ var calculaTotal = function() {
 		vdetotal = vdetotal + parseFloat($(this).closest("tr").find(".dePrecio").text());		
 	});	
 	
-	if($('#Form_ctAlumno input#deDescuento').val() != "");
+	
 	vdetotal = vdetotal - (vdetotal *(parseInt($('#Form_ctAlumno input#deDescuento').val()) / 100));
 };
 
