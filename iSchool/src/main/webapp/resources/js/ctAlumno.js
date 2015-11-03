@@ -56,13 +56,13 @@ function Add_curso() {
 									+ data.cHorario
 									+ '</td>'
 									+ '<td class="dePrecio">'
-									+ data.curso.dePrecio
+									+ parseFloat(data.curso.dePrecio).toFixed(2)
 									+ '</td>'
 									+ '<td class="deDescuento">'
-									+ data.curso.dePrecio * (descuento / 100)
+									+ parseFloat(data.curso.dePrecio * (descuento / 100)).toFixed(2)
 									+ '</td>'
 									+ '<td class="dePrecioReal">'
-									+ (data.curso.dePrecio - (data.curso.dePrecio * (descuento / 100)))
+									+ parseFloat(data.curso.dePrecio - (data.curso.dePrecio * (descuento / 100))).toFixed(2)
 									+ '</td>'										
 									+ '<td>'
 									+ '<button class="btnDelete" onclick="Borrar();" style="background-color:#FF4000; color:black;">Quitar</button>'
@@ -144,7 +144,7 @@ var calculaTotal = function() {
 
 	vdetotal = 0;
 	$.each($("#mytable tbody").find("tr"), function() {
-		vdetotal = vdetotal + parseFloat($(this).closest("tr").find(".dePrecioReal").text());		
+		vdetotal = vdetotal + parseFloat($(this).closest("tr").find(".dePrecioReal").text()).toFixed(2);		
 	});
 	
 };
