@@ -26,6 +26,8 @@ function Add_curso() {
 		descuento == $('#Form_ctAlumno input#deDescuento').val();
 	else 
 		descuento = 0;
+	
+	alert(descuento);
 
 	$.ajax({
 		type : "GET",
