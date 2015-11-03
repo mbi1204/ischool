@@ -101,11 +101,6 @@ public class PDFBuilder extends AbstractITextPdfView {
 		else
 			tablaDatos.addCell("No");
 		
-		tablaDatos.addCell(new Phrase("Descuento: "));
-		tablaDatos.addCell(obj.getDeDescuento().toString() + " %");
-		tablaDatos.addCell(new Phrase("Motivo: "));
-		tablaDatos.addCell(obj.getcMotivoDesc());
-		
 
 		PdfPTable tablaDomicilio = new PdfPTable(2);
 		tablaDomicilio.addCell(new Phrase("Calle: "));
