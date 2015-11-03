@@ -1,6 +1,5 @@
 package com.sinergitec.ischool.pdf;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 
 import java.util.Map;
@@ -106,7 +105,6 @@ public class PDFBuilder extends AbstractITextPdfView {
 		tablaDatos.addCell(obj.getDeDescuento().toString() + " %");
 		tablaDatos.addCell(new Phrase("Motivo: "));
 		tablaDatos.addCell(obj.getcMotivoDesc());
-		
 		
 
 		PdfPTable tablaDomicilio = new PdfPTable(2);
