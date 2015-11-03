@@ -21,8 +21,11 @@ function Add_curso() {
 
 	if (vlExiste)
 		return;
+	
 	if($('#Form_ctAlumno input#deDescuento').val() != "")
 		descuento == $('#Form_ctAlumno input#deDescuento').val();
+	else 
+		descuento = 0;
 
 	$.ajax({
 		type : "GET",
