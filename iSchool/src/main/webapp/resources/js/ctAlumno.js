@@ -23,7 +23,7 @@ function Add_curso() {
 		return;
 	
 	if($('#Form_ctAlumno input#deDescuento').val() != "")
-		descuento == $('#Form_ctAlumno input#deDescuento').val();
+		descuento = $('#Form_ctAlumno input#deDescuento').val();
 	else 
 		descuento = 0;
 	
