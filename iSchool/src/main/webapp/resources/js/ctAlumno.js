@@ -25,9 +25,8 @@ function Add_curso() {
 	if($('#Form_ctAlumno input#deDescuento').val() != "")
 		descuento = $('#Form_ctAlumno input#deDescuento').val();
 	else 
-		descuento = 0;
+		descuento = 0;	
 	
-	alert(descuento);
 
 	$.ajax({
 		type : "GET",
@@ -74,7 +73,7 @@ function Add_curso() {
 			$("#mytable > tfoot").empty();
 			$('#mytable > tfoot').append(
 					'<TR> <TH ALIGN=LEFT COLSPAN=7>Total a Pagar</TH> <TH>'
-							+ vdetotal + '</TH> </TR>');					
+							+ vdetotal.toFixed(2) + '</TH> </TR>');					
 	
 			/* agregar json curso */
 			generaJson();
@@ -144,7 +143,7 @@ var calculaTotal = function() {
 
 	vdetotal = 0;
 	$.each($("#mytable tbody").find("tr"), function() {
-		vdetotal = vdetotal + parseFloat($(this).closest("tr").find(".dePrecioReal").text()).toFixed(2);		
+		vdetotal = vdetotal + parseFloat($(this).closest("tr").find(".dePrecioReal").text());		
 	});
 	
 };
