@@ -23,6 +23,10 @@ import com.sinergitec.ischool.model.ct.Cobro;
  */
 @Controller
 public class FileUploadController {
+	
+	
+	
+	
 
 	private static final Logger logger = LoggerFactory.getLogger(FileUploadController.class);
 
@@ -30,8 +34,13 @@ public class FileUploadController {
 	 * Upload single file using Spring Controller
 	 */
 	
+	@RequestMapping(value = "/uploadFile", method = RequestMethod.GET)
+	public String upload(){
+		return "upload";
+	}
+	
 	 
-	@RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
+	@RequestMapping(value = "/upload", method = RequestMethod.GET)
 	public @ResponseBody String uploadFileHandler(@RequestParam("name") String name,
 			@RequestParam("file") MultipartFile file) {
 
@@ -65,70 +74,19 @@ public class FileUploadController {
 			        	 cobro.setSaldo(cobro.getSaldo().replaceAll("\\s", ""));
 			        	 cobro.setReferencia(cobro.getReferencia().replaceAll("\\s", ""));
 			        	 cobro.setConcepto(cobro.getConcepto().replaceAll("\\s", ""));
-			        	 System.out.println(cobro.toString());
-			        	 
-//			        	 Pelicula peli = new Pelicula(new String(result[i]).split(new String(",".getBytes())));			        	 
-//			        	 System.out.println(peli.toString());
-			        	 
-//			        	 System.out.println(a.length);
-//			        	 for (int j = 0; j < a.length; j++) {
-//			        		 System.out.println(j);
-//							System.out.println(a[j]);
-//						}
-//			        	 System.out.println(result[i]);
-			         }
+			        	 System.out.println(cobro.toString());			        	 
+			        	
+			         }          
 			         
 			         
 			         
-			         
-			         
-//			         System.out.println(bytes.length);
-//			         for (int i = 0; i < bytes.length; i++)
-//			         {
-//			        	 System.out.println(i);
-//			        	 System.out.print((char) bytes[i]);
-//			         }
+
 			      }
 			      catch (Exception e)
 			      {
 			         e.printStackTrace();
 			      }
-
-//				// Creating the directory to store file
-//				String rootPath = System.getProperty("catalina.home");
-//				File dir = new File(rootPath + File.separator + "tmpFiles");
-//				if (!dir.exists())
-//					dir.mkdirs();
-//
-//				// Create the file on server				
-//				File serverFile = new File(dir.getAbsolutePath() + File.separator + name);				
-//				BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(serverFile));				
-//				stream.write(bytes);
-//				stream.close();
-//				
-//				logger.info("Server File Location=" + serverFile.getAbsolutePath());				
-//
-//				Scanner read = null;
-//				try {
-//					read = new Scanner(serverFile);					
-//				} catch (FileNotFoundException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}
-//				read.useDelimiter(",");
-//				String title, category, runningTime, year, price;			
-//
-//				while (read.hasNext()) {
-//					title = read.next();
-//					category = read.next();
-//					runningTime = read.next();
-//					year = read.next();
-//					price = read.next();
-//					System.out.println(title + " " + category + " " + runningTime + " " + year + " " + price + "\n"); // just
-//																														// for
-//																														// debugging
-//				}
-//				read.close();				
+					
 				
 				return "You successfully uploaded file=" + name;
 			} catch (Exception e) {
