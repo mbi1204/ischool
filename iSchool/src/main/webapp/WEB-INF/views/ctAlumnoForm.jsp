@@ -264,7 +264,7 @@ th {
 						<td><form:label path="cEdad">
 								<spring:message text="Edad" />
 							</form:label></td>
-						<td><form:input path="cEdad" /></td>
+						<td><form:input path="cEdad" type="number" min="0"/></td>
 					</tr>
 					<tr>
 						<td><form:label path="cTel">
@@ -361,7 +361,7 @@ th {
 						<td><form:label path="deDescuento">
 								<spring:message text="Descuento"/>
 							</form:label></td>
-						<td><form:input path="deDescuento"/> %
+						<td><form:input path="deDescuento" value="0" type="number" min="0" max="100"/> %
 					</tr>
 					<tr>
 						<td><form:label path="cMotivoDesc">
