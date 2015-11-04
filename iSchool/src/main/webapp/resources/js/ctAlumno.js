@@ -344,16 +344,16 @@ $(document).ready(function() {
 function validaCampos(){	
 	
 	
-	if($('#Form_ctAlumno input#cNombre').val() == ""){
-		alert("Nombre Debe De Tener Un Valor");
+	if($('#Form_ctAlumno input#cNombre').val() == ""){		
+		$('#Form_ctAlumno input#cNombre').focus();
 		return false; 
 		
-	}if($('#Form_ctAlumno input#cApellido').val() == ""){
-		alert("Apellido Debe De Tener Un Valor");
+	}if($('#Form_ctAlumno input#cApellido').val() == ""){		
+		$('#Form_ctAlumno input#cApellido').focus();
 		return false; 
 		
 	}if($('#Form_ctAlumno input#cEdad').val() == ""){
-		alert("Edad Debe De Tener Un Valor");
+		$('#Form_ctAlumno input#cEdad').focus();
 		return false; 
 		
 	}if($("#cGrupo").val() == "" || $("#cGrupo").val() == "[]"){
@@ -373,7 +373,7 @@ function factura(){
 	}		
 }
 
-function carga(){
+function carga(){	
 	$('#formFactura').hide();
 	$('#textAlergia').hide();
 	$('#textMedicamento').hide();
