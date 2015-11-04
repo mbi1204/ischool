@@ -48,6 +48,7 @@ public class ctAlumno {
 	private String cTratamiento;
 	private BigDecimal deDescuento;
 	private String cMotivoDesc;
+	private String cReferencia;
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Vector getVectorDatos() {
@@ -94,6 +95,7 @@ public class ctAlumno {
 		vector.add(this.getcTratamiento());	
 		vector.add(this.getDeDescuento());
 		vector.add(this.getcMotivoDesc());
+		vector.add(this.getcReferencia());
 		vector.add(this.getId());		
 		return vector;
 	}
@@ -425,6 +427,16 @@ public class ctAlumno {
 	public void setcMotivoDesc(String cMotivoDesc) {
 		this.cMotivoDesc = cMotivoDesc;
 	}
+
+	public String getcReferencia() {
+		return cReferencia;
+	}
+
+	public void setcReferencia(String cReferencia) {
+		this.cReferencia = cReferencia;
+	}
+	
+	
 	
 	
 
