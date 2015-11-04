@@ -40,7 +40,7 @@ public class FileUploadController {
 	}
 	
 	 
-	@RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
+	@RequestMapping(value = "/uploadFile", method = RequestMethod.GET)
 	public @ResponseBody String uploadFileHandler(@RequestParam("file") MultipartFile file) {
 
 		if (!file.isEmpty()) {
