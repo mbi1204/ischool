@@ -40,9 +40,8 @@ public class FileUploadController {
 	}
 	
 	 
-	@RequestMapping(value = "/uploadFile", method = RequestMethod.GET)
-	public @ResponseBody String uploadFileHandler(@RequestParam("name") String name,
-			@RequestParam("file") MultipartFile file) {
+	@RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
+	public @ResponseBody String uploadFileHandler(@RequestParam("file") MultipartFile file) {
 
 		if (!file.isEmpty()) {
 			try {
@@ -88,12 +87,12 @@ public class FileUploadController {
 			      }
 					
 				
-				return "You successfully uploaded file=" + name;
+				return "You successfully uploaded file";
 			} catch (Exception e) {
-				return "You failed to upload " + name + " => " + e.getMessage();
+				return "You failed to upload " +  e.getMessage();
 			}
 		} else {
-			return "You failed to upload " + name + " because the file was empty.";
+			return "You failed to upload  because the file was empty.";
 		}
 	}
 
