@@ -6,12 +6,14 @@
 </head>
 <body>
 
-<%@ include file="/WEB-INF/views/templates/menu.jsp"%>	
+<%@ include file="/WEB-INF/views/templates/menu.jsp"%>
+
+<h1>Carga de pagos</h1>	
 
 	<form method="POST" action="uploadFile" enctype="multipart/form-data">
 		Archivo de pagos: <input type="file" name="file"><br /> 
 		<br /> <br /> 
-		<input type="submit" value="Upload"> Press here to upload the file!
+		<input type="submit" value="Procesar"> Presione aquí para cargar el archivo!
 	</form>
 	
 </body>
