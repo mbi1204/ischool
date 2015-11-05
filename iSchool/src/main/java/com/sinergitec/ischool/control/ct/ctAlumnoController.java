@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.sinergitec.ischool.model.ct.AlumnoError;
 import com.sinergitec.ischool.model.ct.ctAlumno;
 import com.sinergitec.ischool.model.ct.ctCurso;
 import com.sinergitec.ischool.model.ct.ctGrupo;
@@ -47,6 +48,10 @@ public class ctAlumnoController {
 	@RequestMapping(value = "/ctAlumno/agregar", method = RequestMethod.POST)
 	public ModelAndView addPerson(@ModelAttribute("ctAlumno") ctAlumno obj, RedirectAttributes redirectAttrs) {
 		String vcError;
+		
+		ctAlumno objAlumno = new ctAlumno(); 
+		
+		AlumnoError alumnoError = new AlumnoError();
 
 		ModelAndView miModelo = new ModelAndView("pdfView");
 
@@ -71,7 +76,11 @@ public class ctAlumnoController {
 			listaGrupo.add(objGrupo);
 		}
 
-		vcError = this.alumnoService.add_ctAlumno(obj, listaGrupo);
+//		vcError = this.alumnoService.add_ctAlumno(obj, listaGrupo);
+		alumnoError = this.alumnoService.add_ctAlumno(obj, listaGrupo);
+		vcError = alumnoError.getError();
+		objAlumno = alumnoError.getAlumno();
+		
 		
 		
 		System.out.println( vcError + "->"+vcError.isEmpty());
@@ -79,7 +88,7 @@ public class ctAlumnoController {
 		
 		if (vcError.isEmpty()) {
 			System.out.println("if Empty ");
-			miModelo.addObject("ctAlumno", obj);
+			miModelo.addObject("ctAlumno", objAlumno);
 			miModelo.addObject("listaGrupo", listaGrupo);
 
 			return miModelo;
