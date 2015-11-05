@@ -7,6 +7,6 @@ import com.sinergitec.ischool.model.ct.ctGrupo;
 
 public interface ctAlumnoService {
 
-	public void add_ctAlumno(ctAlumno obj, List<ctGrupo> listaGrupo);
+	public String add_ctAlumno(ctAlumno obj, List<ctGrupo> listaGrupo);
 
 }

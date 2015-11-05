@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import com.sinergitec.ischool.model.ct.ctAlumno;
 import com.sinergitec.ischool.model.ct.ctCurso;
 import com.sinergitec.ischool.model.ct.ctGrupo;
@@ -25,39 +27,35 @@ import com.sinergitec.ischool.service.imp.ct.ctLocalidadServiceImp;
 public class ctAlumnoController {
 
 	@Autowired
-	private ctAlumnoService alumnoService;	
+	private ctAlumnoService alumnoService;
 
 	@Autowired
 	private ctGrupoDisponibleService grupoService;
-	
+
 	@Autowired
-	private ctLocalidadServiceImp localidadService; 
-	
+	private ctLocalidadServiceImp localidadService;
 
 	@RequestMapping(value = "/ctAlumno", method = RequestMethod.GET)
 	public String alumno(Locale locale, Model model) {
 
 		model.addAttribute("ctAlumno", new ctAlumno());
 		model.addAttribute("Lista_Grupo", this.grupoService.list_ctGrupo());
-		ArrayList<ctGrupo> lista = (ArrayList<ctGrupo>) this.grupoService.list_ctGrupo();		
 
 		return "ctAlumnoForm";
 	}
 
 	@RequestMapping(value = "/ctAlumno/agregar", method = RequestMethod.POST)
-	public ModelAndView addPerson(@ModelAttribute("ctAlumno") ctAlumno obj) {		
-		
+	public ModelAndView addPerson(@ModelAttribute("ctAlumno") ctAlumno obj, RedirectAttributes redirectAttrs) {
+		String vcError;
+
 		ModelAndView miModelo = new ModelAndView("pdfView");
+
+		
 
 		JSONArray jsonArray = new JSONArray(obj.getcGrupo());
 		List<ctGrupo> listaGrupo = new ArrayList<ctGrupo>();
 
 		for (int i = 0; i < jsonArray.length(); i++) {
-
-			// ctGrupo obj_Grupo = new ctGrupo();
-
-			// obj_Grupo.setiIdGrupo((jsonArray.getJSONObject(i).getString("id_Grupo"));
-			// obj_Grupo.setcNombre(jsonArray.getJSONObject(i).getString("cNombre_Grupo"));
 
 			ctGrupo objGrupo = new ctGrupo();
 			ctCurso objCurso = new ctCurso();
@@ -66,20 +64,32 @@ public class ctAlumnoController {
 			objGrupo.setcNombre(jsonArray.getJSONObject(i).getString("cNombre_Grupo"));
 			objGrupo.setcHorario(jsonArray.getJSONObject(i).getString("cHorario"));
 			objGrupo.setiIdCurso(Integer.parseInt(jsonArray.getJSONObject(i).getString("id_Curso")));
-			objCurso.setcNombre(jsonArray.getJSONObject(i).getString("cNombre_Curso"));			
-			BigDecimal precio = new BigDecimal(jsonArray.getJSONObject(i).getString("dePrecio"));						
+			objCurso.setcNombre(jsonArray.getJSONObject(i).getString("cNombre_Curso"));
+			BigDecimal precio = new BigDecimal(jsonArray.getJSONObject(i).getString("dePrecio"));
 			objCurso.setDePrecio(precio);
 			objGrupo.setCurso(objCurso);
 			listaGrupo.add(objGrupo);
 		}
+
+		vcError = this.alumnoService.add_ctAlumno(obj, listaGrupo);
 		
 		
-		this.alumnoService.add_ctAlumno(obj, listaGrupo);
+		System.out.println( vcError + "->"+vcError.isEmpty());
 
-		miModelo.addObject("ctAlumno", obj);
-		miModelo.addObject("listaGrupo", listaGrupo);
+		
+		if (vcError.isEmpty()) {
+			System.out.println("if Empty ");
+			miModelo.addObject("ctAlumno", obj);
+			miModelo.addObject("listaGrupo", listaGrupo);
 
-		return miModelo;
+			return miModelo;
+
+		} else {
+			System.out.println("else Empty ");
+			System.out.println(vcError);	
+			redirectAttrs.addFlashAttribute("errors", vcError);
+			return new ModelAndView(vcError);
+		}
 
 	}
 
@@ -93,52 +103,12 @@ public class ctAlumnoController {
 		return obj;
 	}
 
-	@RequestMapping(value = "/pruebaxx", method = RequestMethod.GET)
-
-	public String pruebaxx(String cUsuario, String dataArray1) {
-		JSONArray jsonArray = new JSONArray(dataArray1);
-		List<String> list = new ArrayList<String>();
-
-		for (int i = 0; i < jsonArray.length(); i++) {
-
-			String val = jsonArray.optString(i);
-			System.out.println(jsonArray.getJSONObject(i).getString("firstName"));
-			System.out.println(jsonArray.getJSONObject(i).getString("lastName"));
-
-		}
-
-		return "salio";
-	}
-	
-	/**/
-	
-	/*@RequestMapping(value = "/sysUsuMenu/add")
-	public  @ResponseBody List<sysUsuMenu> add_sysUsuMenu(String cUsuario , int iIdMenu,		
-			ModelMap model) {
-		
-		
-		sysUsuMenu obj = new sysUsuMenu();
-		
-		obj.setcUsuario(cUsuario);
-		obj.setiIdMenu(iIdMenu);
-		obj.setlActivo(true);
-		this.servSysMenu.add_sysUsuMenu(obj);
-		List<sysUsuMenu> lista = new ArrayList<sysUsuMenu>();
-		lista = this.servSysMenu.list_sysUsuMenu(cUsuario, true);
-		
-		return lista;
-
-	}*/
-	
-	
 	@RequestMapping(value = "/ctAlumno/getLocalidad")
-	public  @ResponseBody List<ctLocalidad> get_Localidad(String cCP) {		
+	public @ResponseBody List<ctLocalidad> get_Localidad(String cCP) {
 		List<ctLocalidad> lista = new ArrayList<ctLocalidad>();
-		lista = this.localidadService.list_ctLocalidades(cCP);		
+		lista = this.localidadService.list_ctLocalidades(cCP);
 		return lista;
-		
+
 	}
-	
-	
 
 }

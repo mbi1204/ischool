@@ -26,9 +26,10 @@ import com.sinergitec.ischool.util.VectorResultSet;
 public class ctAlumnoDaoImpl implements ctAlumnoDao {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public void add_ctAlumno(ctAlumno obj, List<ctGrupo> listaGrupo) throws Open4GLException, IOException {	
-		
-		
+	public String add_ctAlumno(ctAlumno obj, List<ctGrupo> listaGrupo) throws Open4GLException, IOException {
+
+		String vcError = null;
+
 		List<ctAlumno> Lista = new ArrayList<ctAlumno>();
 		Lista.add(obj);
 
@@ -47,31 +48,32 @@ public class ctAlumnoDaoImpl implements ctAlumnoDao {
 			vecTabla1.add(vecRow1);
 		}
 
-		for (ctGrupo objGrupo : listaGrupo) {			
+		for (ctGrupo objGrupo : listaGrupo) {
 			vecRow2 = objGrupo.getVectorDatos();
 			vecTablaGrupo.add(vecRow2);
 
 		}
-		
 
 		ResultSetHolder ttAlumnos = new ResultSetHolder(new VectorResultSet(vecTabla1));
 		ResultSetHolder ttGrupo = new ResultSetHolder(new VectorResultSet(vecTablaGrupo));
 
-		try {			
+		try {
 
-			app.as_ctAlumno_Inserta("SISIMB", ttAlumnos, ttGrupo, oplResultado, opcTexto);			
+			app.as_ctAlumno_Inserta("SISIMB", ttAlumnos, ttGrupo, oplResultado, opcTexto);
 
-			System.out.println(opcTexto.getValue());
-			System.out.println(oplResultado.getValue());
+			vcError = (String) opcTexto.getValue();
 
 		} catch (Exception ex) {
-			System.err.println(ex);
+
+			vcError = ex.getMessage();
 
 		} finally {
 			app._release();
 			DBConexion.closeConnection(conexion);
 
 		}
+
+		return vcError;
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })

@@ -18,16 +18,22 @@ public class ctAlumnoServiceImp implements ctAlumnoService {
 	@Autowired
 	private ctAlumnoDao ctAlumnoDao;
 
-	public void add_ctAlumno(ctAlumno obj, List<ctGrupo> listaGrupo) {
+	public String   add_ctAlumno(ctAlumno obj, List<ctGrupo> listaGrupo) {
+		String vcError = null;
 		try {
-			this.ctAlumnoDao.add_ctAlumno(obj, listaGrupo);
+			vcError = this.ctAlumnoDao.add_ctAlumno(obj, listaGrupo);
+			
 		} catch (Open4GLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			vcError   = e.getMessage();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			vcError   = e.getMessage();
 		}
+		
+		return vcError;
 	}
 
 }
