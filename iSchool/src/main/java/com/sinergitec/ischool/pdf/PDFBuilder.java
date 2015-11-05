@@ -38,6 +38,9 @@ public class PDFBuilder extends AbstractITextPdfView {
 		ArrayList<ctGrupo> listaGrupo = (ArrayList<ctGrupo>) model.get("listaGrupo");
 		
 		System.out.println("referencia " + obj.getcReferencia());
+		System.out.println("banco " + obj.getcBanco());
+		System.out.println("cuenta " + obj.getcCuenta());
+		System.out.println("fechav " + obj.getcFechaV());
 
 		PdfPTable tablaPDF = new PdfPTable(1); // 1 columns.
 
