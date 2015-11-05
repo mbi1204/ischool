@@ -11,7 +11,7 @@ import com.sinergitec.ischool.model.ct.ctGrupo;;
 
 public interface ctAlumnoDao {
 
-	public void add_ctAlumno(ctAlumno obj, List<ctGrupo> listaGrupo) throws Open4GLException, IOException;
+	public String add_ctAlumno(ctAlumno obj, List<ctGrupo> listaGrupo) throws Open4GLException, IOException;
 
 	public void update_ctAlumno(ctAlumno obj) throws Open4GLException, IOException;
 
