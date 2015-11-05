@@ -36,24 +36,28 @@ public class PDFBuilder extends AbstractITextPdfView {
 
 		ctAlumno obj = (ctAlumno) model.get("ctAlumno");
 		ArrayList<ctGrupo> listaGrupo = (ArrayList<ctGrupo>) model.get("listaGrupo");
+		
+		System.out.println("referencia " + obj.getcReferencia());
 
 		PdfPTable tablaPDF = new PdfPTable(1); // 1 columns.
 
-		Font fuenteTitulo = new Font(Font.FontFamily.COURIER, 22, Font.BOLD);
+		Font fuenteTitulo = new Font(Font.FontFamily.COURIER, 20, Font.BOLD);
 		Font fuenteForm = new Font(Font.FontFamily.HELVETICA, 16);
 		Font fuentetSub = new Font(Font.FontFamily.UNDEFINED, 16, Font.BOLD);
 		Font fuenteTabla = new Font(Font.FontFamily.UNDEFINED, 13, Font.BOLD);
 
-		PdfPCell cellTitulo = new PdfPCell(new Paragraph("Escuela De Danza Profesional", fuenteTitulo));
-		PdfPCell cellForm = new PdfPCell(new Paragraph("Formulario De Inscripcion", fuenteForm));
+		PdfPCell cellTitulo = new PdfPCell(new Paragraph("Seminario del Taller Coreografico Universitario", fuenteTitulo));
+		PdfPCell cellForm = new PdfPCell(new Paragraph("Inscripcion", fuenteForm));
 		PdfPCell cellSub1 = new PdfPCell(new Paragraph("Datos Del Alumno:", fuentetSub));
 		PdfPCell cellSub2 = new PdfPCell(new Paragraph("Domicilio:", fuentetSub));
 		PdfPCell cellSub3 = new PdfPCell(new Paragraph("Cursos:", fuentetSub));
+		PdfPCell cellSub4 = new PdfPCell(new Paragraph("Datos Bancarios:", fuentetSub));
 		cellTitulo.setHorizontalAlignment(Element.ALIGN_CENTER);
 		cellForm.setHorizontalAlignment(Element.ALIGN_CENTER);
 		cellSub1.setHorizontalAlignment(Element.ALIGN_CENTER);
 		cellSub2.setHorizontalAlignment(Element.ALIGN_CENTER);
 		cellSub3.setHorizontalAlignment(Element.ALIGN_CENTER);
+		cellSub4.setHorizontalAlignment(Element.ALIGN_CENTER);
 				
 		PdfPTable tablaDatos = new PdfPTable(2);
 		tablaDatos.addCell(new Phrase("Nombre(s): "));

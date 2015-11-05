@@ -49,6 +49,9 @@ public class ctAlumno {
 	private BigDecimal deDescuento;
 	private String cMotivoDesc;
 	private String cReferencia;
+	private String cBanco;
+	private String cCuenta;
+	private String cFechaV;
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Vector getVectorDatos() {
@@ -435,6 +438,32 @@ public class ctAlumno {
 	public void setcReferencia(String cReferencia) {
 		this.cReferencia = cReferencia;
 	}
+
+	public String getcBanco() {
+		return cBanco;
+	}
+
+	public void setcBanco(String cBanco) {
+		this.cBanco = cBanco;
+	}
+
+	public String getcCuenta() {
+		return cCuenta;
+	}
+
+	public void setcCuenta(String cCuenta) {
+		this.cCuenta = cCuenta;
+	}
+
+	public String getcFechaV() {
+		return cFechaV;
+	}
+
+	public void setcFechaV(String cFechaV) {
+		this.cFechaV = cFechaV;
+	}
+	
+	
 	
 	
 	
