@@ -63,6 +63,7 @@ public class ctAlumnoDaoImpl implements ctAlumnoDao {
 			
 			ResultSet rs = ttAlumnos.getResultSetValue();
 			while(rs.next()){
+				System.out.println(rs.getString("cNombre"));
 				System.out.println(rs.getString("cReferencia"));
 			}
 			
