@@ -99,6 +99,9 @@ public class ctAlumno {
 		vector.add(this.getDeDescuento());
 		vector.add(this.getcMotivoDesc());
 		vector.add(this.getcReferencia());
+		vector.add(this.getcBanco());
+		vector.add(this.getcCuenta());
+		vector.add(this.getcFechaV());
 		vector.add(this.getId());		
 		return vector;
 	}
