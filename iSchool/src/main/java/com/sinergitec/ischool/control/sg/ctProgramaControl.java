@@ -44,8 +44,7 @@ public class ctProgramaControl {
 
 		} else {
 			// existing person, call update
-			System.out.print(obj.getiIdMenu());
-			System.out.print(obj.getiIdPrograma());
+			
 			
 			this.serv.update_ctPrograma(obj);
 

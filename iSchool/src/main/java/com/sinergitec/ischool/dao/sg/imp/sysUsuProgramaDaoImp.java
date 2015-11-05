@@ -26,11 +26,10 @@ public class sysUsuProgramaDaoImp implements sysUsuProgramaDao {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	public void add_sysUsuPrograma(sysUsuPrograma obj_sysUsuPrograma) throws RunTime4GLException,
-			SystemErrorException, Open4GLException, IOException {
+	public void add_sysUsuPrograma(sysUsuPrograma obj_sysUsuPrograma)
+			throws RunTime4GLException, SystemErrorException, Open4GLException, IOException {
 		// TODO Auto-generated method stub
-		
-		
+
 		List<sysUsuPrograma> ListNuevos = new ArrayList<sysUsuPrograma>();
 		ListNuevos.add(obj_sysUsuPrograma);
 		Vector vecTabla1, vecRow1;
@@ -46,13 +45,12 @@ public class sysUsuProgramaDaoImp implements sysUsuProgramaDao {
 			vecRow1 = obj.getVectorDatos();
 			vecTabla1.add(vecRow1);
 		}
-		ResultSetHolder tt_Nuevos = new ResultSetHolder(new VectorResultSet(
-				vecTabla1));
+		ResultSetHolder tt_Nuevos = new ResultSetHolder(new VectorResultSet(vecTabla1));
 
 		try {
-			
+
 			app.as_sysUsuPrograma_Inserta("SISIMB", tt_Nuevos, ps_Resultado, ps_Texto);
-			
+
 			System.out.print(ps_Texto.getStringValue());
 		} catch (Exception ex) {
 
@@ -64,17 +62,17 @@ public class sysUsuProgramaDaoImp implements sysUsuProgramaDao {
 	}
 
 	@Override
-	public void update_sysUsuPrograma(sysUsuPrograma obj) throws RunTime4GLException,
-			SystemErrorException, Open4GLException, IOException {
+	public void update_sysUsuPrograma(sysUsuPrograma obj)
+			throws RunTime4GLException, SystemErrorException, Open4GLException, IOException {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public List<sysUsuPrograma> list_sysUsuPrograma(String cUsuario ,int iMenu, Boolean lTodos) throws RunTime4GLException,
-			SystemErrorException, Open4GLException, IOException, SQLException {
+	public List<sysUsuPrograma> list_sysUsuPrograma(String cUsuario, int iMenu, Boolean lTodos)
+			throws RunTime4GLException, SystemErrorException, Open4GLException, IOException, SQLException {
 		// TODO Auto-generated method stub
-		
+
 		ResultSetHolder tt_sysUsuPrograma = new ResultSetHolder();
 		StringHolder opcError = new StringHolder();
 		BooleanHolder oplError = new BooleanHolder();
@@ -84,15 +82,13 @@ public class sysUsuProgramaDaoImp implements sysUsuProgramaDao {
 		AppServer app = new AppServer(conexion);
 
 		try {
-			
-			app.as_sysUsuPrograma_Carga(cUsuario,iMenu, false,  tt_sysUsuPrograma, oplError, opcError);
-			
-			ResultSet rs_tt_sysUsuPrograma = tt_sysUsuPrograma.getResultSetValue();
-			
-		
 
-			while (rs_tt_sysUsuPrograma.next()) {				
-				
+			app.as_sysUsuPrograma_Carga(cUsuario, iMenu, false, tt_sysUsuPrograma, oplError, opcError);
+
+			ResultSet rs_tt_sysUsuPrograma = tt_sysUsuPrograma.getResultSetValue();
+
+			while (rs_tt_sysUsuPrograma.next()) {
+
 				sysUsuPrograma obj = new sysUsuPrograma();
 				obj.setcUsuario(rs_tt_sysUsuPrograma.getString("cUsuario"));
 				obj.setiIdMenu(rs_tt_sysUsuPrograma.getInt("iIdMenu"));
@@ -101,17 +97,14 @@ public class sysUsuProgramaDaoImp implements sysUsuProgramaDao {
 				obj.setcObs(rs_tt_sysUsuPrograma.getString("cObs"));
 				obj.setcPrograma(rs_tt_sysUsuPrograma.getString("cPrograma"));
 				obj.setcNombre(rs_tt_sysUsuPrograma.getString("cNombre"));
-				obj.setId(rs_tt_sysUsuPrograma.getBytes("Id"));				
-				
-				
+				obj.setId(rs_tt_sysUsuPrograma.getBytes("Id"));
+
 				Lista.add(obj);
-				
-				
 
 			}
 
 		} catch (Exception ex) {
-			
+
 			System.out.print(ex);
 
 			Lista = null;
@@ -124,16 +117,16 @@ public class sysUsuProgramaDaoImp implements sysUsuProgramaDao {
 	}
 
 	@Override
-	public sysUsuPrograma get_sysUsuPrograma(int id) throws RunTime4GLException,
-			SystemErrorException, Open4GLException, IOException, SQLException {
+	public sysUsuPrograma get_sysUsuPrograma(int id)
+			throws RunTime4GLException, SystemErrorException, Open4GLException, IOException, SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void remove_sysUsuPrograma(String cUsuario , int iMenu, int iPrograma) throws RunTime4GLException,
-			SystemErrorException, Open4GLException, IOException {
-		
+	public void remove_sysUsuPrograma(String cUsuario, int iMenu, int iPrograma)
+			throws RunTime4GLException, SystemErrorException, Open4GLException, IOException {
+
 		BooleanHolder oplResultado = new BooleanHolder();
 		StringHolder opcTexto = new StringHolder();
 
@@ -149,8 +142,7 @@ public class sysUsuProgramaDaoImp implements sysUsuProgramaDao {
 			app._release();
 			DBConexion.closeConnection(conexion);
 		}
-		
-		
+
 	}
 
 	@Override
@@ -162,13 +154,10 @@ public class sysUsuProgramaDaoImp implements sysUsuProgramaDao {
 		StringHolder opcError = new StringHolder();
 		BooleanHolder oplError = new BooleanHolder();
 		List<ctPrograma> Lista = new ArrayList<ctPrograma>();
-		
 
 		Connection conexion = DBConexion.getConnection();
 		AppServer app = new AppServer(conexion);
-		
-		
-		
+
 		try {
 			app.as_ctProgXctMenu_Carga(cUsuario, iMenu, lTodos, tt_ctPrograma, oplError, opcError);
 			ResultSet rs_tt_ctPrograma = tt_ctPrograma.getResultSetValue();
@@ -182,10 +171,6 @@ public class sysUsuProgramaDaoImp implements sysUsuProgramaDao {
 				obj.setlActivo(rs_tt_ctPrograma.getBoolean("lActivo"));
 				obj.setcNombre(rs_tt_ctPrograma.getString("cNombre"));
 				obj.setId(rs_tt_ctPrograma.getBytes("Id"));
-				
-				
-
-						
 
 				Lista.add(obj);
 
@@ -202,11 +187,7 @@ public class sysUsuProgramaDaoImp implements sysUsuProgramaDao {
 		}
 
 		return Lista;
-		
-		
-		
-		
+
 	}
-		
-	
+
 }
