@@ -60,6 +60,12 @@ public class ctAlumnoDaoImpl implements ctAlumnoDao {
 		try {
 
 			app.as_ctAlumno_Inserta("SISIMB", ttAlumnos, ttGrupo, oplResultado, opcTexto);
+			
+			ResultSet rs = ttAlumnos.getResultSetValue();
+			while(rs.next()){
+				System.out.println(rs.getString("cReferencia"));
+			}
+			
 
 			vcError = (String) opcTexto.getValue();
 
