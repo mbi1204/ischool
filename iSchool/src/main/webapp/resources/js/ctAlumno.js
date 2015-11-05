@@ -373,7 +373,8 @@ function factura(){
 	}		
 }
 
-function carga(){	
+function carga(){
+	alert("carga");
 	$('#formFactura').hide();
 	$('#textAlergia').hide();
 	$('#textMedicamento').hide();
