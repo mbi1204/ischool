@@ -98,6 +98,9 @@ public class ctAlumnoDaoImpl implements ctAlumnoDao {
 				objAlumno.setDeDescuento(rsAlumno.getBigDecimal("deDescuento"));
 				objAlumno.setcMotivoDesc(rsAlumno.getString("cMotivoDesc"));
 				objAlumno.setcReferencia(rsAlumno.getString("cReferencia"));
+				objAlumno.setcReferencia(rsAlumno.getString("cBanco"));
+				objAlumno.setcReferencia(rsAlumno.getString("cCuenta"));
+				objAlumno.setcReferencia(rsAlumno.getString("cFechaV"));
 				objAlumno.setId(rsAlumno.getBytes("Id"));
 				alumnoError.setAlumno(objAlumno);
 				
