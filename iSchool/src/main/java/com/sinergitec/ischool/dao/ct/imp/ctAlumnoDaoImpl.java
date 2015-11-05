@@ -60,27 +60,13 @@ public class ctAlumnoDaoImpl implements ctAlumnoDao {
 
 		try {
 
-//			app.as_ctAlumno_Inserta("SISIMB", ttAlumnos, ttGrupo, oplResultado, opcTexto);
-			app.as_ctAlumno_Inserta("SISIMB", ttAlumnos, ttGrupo, opcReferencia, oplResultado, opcTexto);
+			app.as_ctAlumno_Inserta("SISIMB", ttAlumnos, ttGrupo, oplResultado, opcTexto);
 			
-//			ResultSet rs = ttAlumnos.getResultSetValue();
-//			while(rs.next()){
-//				System.out.println(rs.getInt("iIdAlumno"));
-//				System.out.println(rs.getString("cNombre"));
-//				System.out.println(rs.getString("cApellido"));
-//				System.out.println(rs.getString("cCalle"));
-//				System.out.println(rs.getString("cNumExt"));
-//				System.out.println(rs.getString("cNumInt"));
-//				System.out.println(rs.getString("cCol"));
-//				System.out.println(rs.getString("cCP"));
-//				System.out.println(rs.getString("cMunicipio"));
-//				System.out.println(rs.getString("cEdo"));
-//				System.out.println(rs.getString("cTel"));
-//				System.out.println(rs.getBoolean("lEstatus"));
-//				System.out.println(rs.getTimestamp("dtFechaIns"));
-//				System.out.println(rs.getString("cEmail"));
-//				System.out.println(rs.getString("cReferencia"));
-//			}
+			
+			ResultSet rs = ttAlumnos.getResultSetValue();
+			while(rs.next()){				
+				System.out.println(rs.getString("cReferencia"));
+			}
 			
 			System.out.println((String) opcReferencia.getValue());
 
