@@ -302,7 +302,7 @@ public class ctUsuarioDaoImp implements ctUsuarioDao {
 				obj.setcNombre(rs_tt_ctPrograma.getString("cNombre"));
 				obj.setId(rs_tt_ctPrograma.getBytes("Id"));				
 			
-				System.out.println(	obj.toString());
+			
 				//obj.setMenu(null);
 				Lista_ctPrograma.add(obj);
 			}			

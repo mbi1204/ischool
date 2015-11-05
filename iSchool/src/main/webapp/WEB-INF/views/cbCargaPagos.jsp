@@ -1,13 +1,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<%@ page session="true" %>
 <html>
 <head>
-<title>Upload File Request Page</title>
+<title>Carga Pagos Alumno</title>
 </head>
 <body>
 
+<%@ include file="/WEB-INF/views/templates/menu.jsp"%>	
+
 	<form method="POST" action="uploadFile" enctype="multipart/form-data">
-		File to upload: <input type="file" name="file"><br /> 
+		Archivo de pagos: <input type="file" name="file"><br /> 
 		<br /> <br /> 
 		<input type="submit" value="Upload"> Press here to upload the file!
 	</form>

@@ -34,14 +34,17 @@ public class FileUploadController {
 	 * Upload single file using Spring Controller
 	 */
 	
-	@RequestMapping(value = "/upload", method = RequestMethod.GET)
+	@RequestMapping(value = "/cbCargaPagos", method = RequestMethod.GET)
 	public String upload(){
-		return "upload";
+		return "cbCargaPagos";
 	}
 	
 	 
 	@RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
 	public @ResponseBody String uploadFileHandler(@RequestParam("file") MultipartFile file) {
+		
+		
+		System.out.println("entro al upload File");
 
 		if (!file.isEmpty()) {
 			try {
