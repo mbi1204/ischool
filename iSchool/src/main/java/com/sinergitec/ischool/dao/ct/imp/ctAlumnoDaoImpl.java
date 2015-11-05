@@ -38,8 +38,7 @@ public class ctAlumnoDaoImpl implements ctAlumnoDao {
 		vecTablaGrupo = new Vector();
 
 		BooleanHolder oplResultado = new BooleanHolder();
-		StringHolder opcTexto = new StringHolder();
-		StringHolder opcReferencia = new StringHolder();
+		StringHolder opcTexto = new StringHolder();		
 
 		Connection conexion = DBConexion.getConnection();
 		AppServer app = new AppServer(conexion);
@@ -63,12 +62,35 @@ public class ctAlumnoDaoImpl implements ctAlumnoDao {
 			app.as_ctAlumno_Inserta("SISIMB", ttAlumnos, ttGrupo, oplResultado, opcTexto);
 			
 			
-			ResultSet rs = ttAlumnos.getResultSetValue();
-			while(rs.next()){				
-				System.out.println(rs.getString("cReferencia"));
+			ResultSet rsAlumno = ttAlumnos.getResultSetValue();
+			while(rsAlumno.next()){
+				ctAlumno objAlumno = new ctAlumno();
+				
+				objAlumno.setiIdAlumno(rsAlumno.getInt("iIdAlumno"));
+				objAlumno.setcNombre(rsAlumno.getString("cNombre"));
+				objAlumno.setcApellido(rsAlumno.getString("cApellido"));
+				objAlumno.setcCalle(rsAlumno.getString("cCalle"));
+				objAlumno.setcNumExt(rsAlumno.getString("cNumExt"));
+				objAlumno.setcNumInt(rsAlumno.getString("cNumInt"));
+				objAlumno.setcColonia(rsAlumno.getString("cCol"));
+				objAlumno.setcCP(rsAlumno.getString("cCP"));
+				objAlumno.setcMunicipio(rsAlumno.getString("cMunicipio"));
+				objAlumno.setcEstado(rsAlumno.getString("cEdo"));
+				objAlumno.setlEstatus(rsAlumno.getBoolean("lEstatus"));
+				objAlumno.setDtFechaIns(rsAlumno.getTimestamp("dtFechaIns"));
+				objAlumno.setcCorreo(rsAlumno.getString("cEmail"));
+				objAlumno.setcEdad(rsAlumno.getString("cEdad"));
+				objAlumno.setcTelEmergencia(rsAlumno.getString("cTelEmergencia"));
+				objAlumno.setcEstado(rsAlumno.getString("cEdo"));
+				objAlumno.setcEstado(rsAlumno.getString("cEdo"));
+				objAlumno.setcEstado(rsAlumno.getString("cEdo"));
+				
+				
+				
+				
 			}
 			
-			System.out.println((String) opcReferencia.getValue());
+			
 
 			vcError = (String) opcTexto.getValue();
 
