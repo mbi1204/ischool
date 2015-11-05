@@ -72,8 +72,12 @@ public class ctAlumnoController {
 		}
 
 		vcError = this.alumnoService.add_ctAlumno(obj, listaGrupo);
+		
+		
+		System.out.println( vcError + "->"+vcError.isEmpty());
 
-		if (vcError == "") {
+		
+		if (vcError.isEmpty()) {
 			System.out.println("if Empty ");
 			miModelo.addObject("ctAlumno", obj);
 			miModelo.addObject("listaGrupo", listaGrupo);
@@ -82,14 +86,9 @@ public class ctAlumnoController {
 
 		} else {
 			System.out.println("else Empty ");
-
+			System.out.println(vcError);	
 			redirectAttrs.addFlashAttribute("errors", vcError);
-			return new ModelAndView("redirect:ctAlumnoForm");
-
-			// return new ModelAndView(vcError);
-			
-		  
-
+			return new ModelAndView(vcError);
 		}
 
 	}

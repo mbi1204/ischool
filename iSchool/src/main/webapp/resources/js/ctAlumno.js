@@ -344,15 +344,18 @@ $(document).ready(function() {
 function validaCampos(){	
 	
 	
-	if($('#Form_ctAlumno input#cNombre').val() == ""){		
+	if($('#Form_ctAlumno input#cNombre').val() == ""){
+		alert("El nombre debe tener un valor");
 		$('#Form_ctAlumno input#cNombre').focus();
 		return false; 
 		
-	}if($('#Form_ctAlumno input#cApellido').val() == ""){		
+	}if($('#Form_ctAlumno input#cApellido').val() == ""){
+		alert("El Apellido debe tener un valor");
 		$('#Form_ctAlumno input#cApellido').focus();
 		return false; 
 		
 	}if($('#Form_ctAlumno input#cEdad').val() == ""){
+		alert("la edad debe tener un valor");
 		$('#Form_ctAlumno input#cEdad').focus();
 		return false; 
 		
