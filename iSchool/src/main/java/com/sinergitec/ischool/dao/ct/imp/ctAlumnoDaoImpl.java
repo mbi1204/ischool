@@ -17,6 +17,7 @@ import com.progress.open4gl.StringHolder;
 import com.progress.open4gl.SystemErrorException;
 import com.progress.open4gl.javaproxy.Connection;
 import com.sinergitec.ischool.dao.ct.ctAlumnoDao;
+import com.sinergitec.ischool.model.ct.AlumnoError;
 import com.sinergitec.ischool.model.ct.ctAlumno;
 import com.sinergitec.ischool.model.ct.ctGrupo;
 import com.sinergitec.ischool.util.DBConexion;
@@ -26,9 +27,10 @@ import com.sinergitec.ischool.util.VectorResultSet;
 public class ctAlumnoDaoImpl implements ctAlumnoDao {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public String add_ctAlumno(ctAlumno obj, List<ctGrupo> listaGrupo) throws Open4GLException, IOException {
+	public AlumnoError add_ctAlumno(ctAlumno obj, List<ctGrupo> listaGrupo) throws Open4GLException, IOException {
 
-		String vcError = null;
+//		String vcError = null;
+		AlumnoError alumnoError = new AlumnoError();
 
 		List<ctAlumno> Lista = new ArrayList<ctAlumno>();
 		Lista.add(obj);
@@ -38,8 +40,7 @@ public class ctAlumnoDaoImpl implements ctAlumnoDao {
 		vecTablaGrupo = new Vector();
 
 		BooleanHolder oplResultado = new BooleanHolder();
-		StringHolder opcTexto = new StringHolder();
-		StringHolder opcReferencia = new StringHolder();
+		StringHolder opcTexto = new StringHolder();		
 
 		Connection conexion = DBConexion.getConnection();
 		AppServer app = new AppServer(conexion);
@@ -63,18 +64,61 @@ public class ctAlumnoDaoImpl implements ctAlumnoDao {
 			app.as_ctAlumno_Inserta("SISIMB", ttAlumnos, ttGrupo, oplResultado, opcTexto);
 			
 			
-			ResultSet rs = ttAlumnos.getResultSetValue();
-			while(rs.next()){				
-				System.out.println(rs.getString("cReferencia"));
+			ResultSet rsAlumno = ttAlumnos.getResultSetValue();
+			while(rsAlumno.next()){
+				ctAlumno objAlumno = new ctAlumno();
+				
+				objAlumno.setiIdAlumno(rsAlumno.getInt("iIdAlumno"));
+				objAlumno.setcNombre(rsAlumno.getString("cNombre"));
+				objAlumno.setcApellido(rsAlumno.getString("cApellido"));
+				objAlumno.setcCalle(rsAlumno.getString("cCalle"));
+				objAlumno.setcNumExt(rsAlumno.getString("cNumExt"));
+				objAlumno.setcNumInt(rsAlumno.getString("cNumInt"));
+				objAlumno.setcColonia(rsAlumno.getString("cCol"));
+				objAlumno.setcCP(rsAlumno.getString("cCP"));
+				objAlumno.setcMunicipio(rsAlumno.getString("cMunicipio"));
+				objAlumno.setcEstado(rsAlumno.getString("cEdo"));
+				objAlumno.setcTel(rsAlumno.getString("cTel"));
+				objAlumno.setlEstatus(rsAlumno.getBoolean("lEstatus"));
+				objAlumno.setDtFechaIns(rsAlumno.getTimestamp("dtFechaIns"));
+				objAlumno.setcCorreo(rsAlumno.getString("cEmail"));
+				objAlumno.setcEdad(rsAlumno.getString("cEdad"));
+				objAlumno.setcTelEmergencia(rsAlumno.getString("cTelEmergencia"));
+				objAlumno.setlSeguro(rsAlumno.getBoolean("lSeguro"));
+				objAlumno.setlFactura(rsAlumno.getBoolean("lFactura"));
+				objAlumno.setcGenero(rsAlumno.getString("cGenero"));
+				objAlumno.setlAlergia(rsAlumno.getBoolean("lAlergia"));
+				objAlumno.setcAlergia(rsAlumno.getString("cAlergia"));
+				objAlumno.setlMedicamento(rsAlumno.getBoolean("lMedicamento"));
+				objAlumno.setcMedicamento(rsAlumno.getString("cMedicamento"));
+				objAlumno.setlLesion(rsAlumno.getBoolean("lLesion"));
+				objAlumno.setcLesion(rsAlumno.getString("cLesion"));
+				objAlumno.setlTratamiento(rsAlumno.getBoolean("lTratamiento"));
+				objAlumno.setcTratamiento(rsAlumno.getString("cTratamiento"));
+				objAlumno.setDeDescuento(rsAlumno.getBigDecimal("deDescuento"));
+				objAlumno.setcMotivoDesc(rsAlumno.getString("cMotivoDesc"));
+				objAlumno.setcReferencia(rsAlumno.getString("cReferencia"));
+				objAlumno.setcBanco(rsAlumno.getString("cBanco"));
+				objAlumno.setcCuenta(rsAlumno.getString("cCuenta"));
+				objAlumno.setcFechaV(rsAlumno.getString("cFechaV"));
+				objAlumno.setId(rsAlumno.getBytes("Id"));
+				alumnoError.setAlumno(objAlumno);
+				
+				
 			}
 			
-			System.out.println((String) opcReferencia.getValue());
+			
+			
+			alumnoError.setError((String) opcTexto.getValue());
+			
+			
 
-			vcError = (String) opcTexto.getValue();
+//			vcError = (String) opcTexto.getValue();
 
 		} catch (Exception ex) {
 
-			vcError = ex.getMessage();
+//			vcError = ex.getMessage();
+			alumnoError.setError(ex.getMessage());
 
 		} finally {
 			app._release();
@@ -82,7 +126,7 @@ public class ctAlumnoDaoImpl implements ctAlumnoDao {
 
 		}
 
-		return vcError;
+		return alumnoError;
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })

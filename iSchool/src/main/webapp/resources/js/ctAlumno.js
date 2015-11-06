@@ -389,7 +389,7 @@ function factura() {
 
 function carga() {
 	
-	if($('#Form_ctAlumno input#cApellido').val() != "" || $('#Form_ctAlumno input#cEdad').val() != "" || $('#Form_ctAlumno input#cEdad').val() != "")
+	if($('#Form_ctAlumno input#cApellido').val() != "" && $('#Form_ctAlumno input#cEdad').val() != "" && $('#Form_ctAlumno input#cEdad').val() != "")
 		location.reload();
 
 	$('#formFactura').hide();
