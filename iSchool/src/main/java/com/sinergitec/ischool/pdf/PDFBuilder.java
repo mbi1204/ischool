@@ -1,5 +1,6 @@
 package com.sinergitec.ischool.pdf;
 
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
@@ -153,8 +154,7 @@ public class PDFBuilder extends AbstractITextPdfView {
 			vdeTotal += objGrupo.getCurso().getDePrecio().doubleValue();
 		}
 		
-		DecimalFormat df = new DecimalFormat("#.##");
-		vdeTotal = Double.valueOf(df.format(vdeTotal));
+		BigDecimal vbdTotal = new BigDecimal(vdeTotal);
 		PdfPTable tablaBanco = new PdfPTable(2);
 		tablaBanco.addCell(new Phrase("Banco: "));
 		tablaBanco.addCell(obj.getcBanco());
@@ -165,9 +165,9 @@ public class PDFBuilder extends AbstractITextPdfView {
 		tablaBanco.addCell(new Phrase("Fecha de vencimiento: "));
 		tablaBanco.addCell(obj.getcFechaV());
 		tablaBanco.addCell(new Phrase("Total a pagar: "));
-		tablaBanco.addCell(Double.toString(vdeTotal));
+		tablaBanco.addCell(vbdTotal.setScale(2,BigDecimal.ROUND_UP).toString());
 
-		PdfPCell cellTotal = new PdfPCell(new Paragraph(Double.toString(vdeTotal), fuenteTabla));
+		PdfPCell cellTotal = new PdfPCell(new Paragraph(vbdTotal.setScale(2,BigDecimal.ROUND_UP).toString(), fuenteTabla));
 		cellTotal.setHorizontalAlignment(Element.ALIGN_RIGHT);
 		PdfPTable tablaTotal = new PdfPTable(2);
 		tablaTotal.addCell(new Phrase("Total($):", fuenteTabla));
