@@ -45,6 +45,7 @@ public class FileUploadController {
 
 		String vcMensaje, vcFecha = null, vcHora = null, vcTipo = null;
 		ArrayList<cbPago> listPago = new ArrayList<cbPago>();
+		java.util.Date daFecha= new java.util.Date();
 
 		if (!file.isEmpty()) {
 
@@ -97,8 +98,14 @@ public class FileUploadController {
 						cal.set(Calendar.YEAR, Integer.parseInt(vcFecha.substring(5, 9)));
 						cal.set(Calendar.HOUR_OF_DAY, Integer.parseInt(vcHora.substring(1, 3)));
 						cal.set(Calendar.MINUTE, Integer.parseInt(vcHora.substring(3, 5)));
-
+						
+						
 						obj.setDtFechaPago(new Timestamp(cal.getTimeInMillis()));
+						obj.setDtFechaAplicacion(new Timestamp(daFecha.getTime()));
+						obj.setDeMontoXAplicar(new BigDecimal("0"));
+						obj.setlEstado(true);
+						obj.setiIdPago(i);
+						
 
 						/* conversion de fecha */
 

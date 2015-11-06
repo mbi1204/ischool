@@ -23,7 +23,7 @@ import com.sinergitec.ischool.util.DBConexion;
 import com.sinergitec.ischool.util.VectorResultSet;
 
 @Repository
-public class ctCursoDaompl implements ctCursoDao {
+public class ctCursoDaoImpl implements ctCursoDao {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void add_ctCurso(ctCurso obj_ctCurso) throws Open4GLException, IOException {
