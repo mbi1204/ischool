@@ -46,6 +46,7 @@ public class PDFBuilder extends AbstractITextPdfView {
 		Font fuenteForm = new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD);
 		Font fuentetSub = new Font(Font.FontFamily.UNDEFINED, 16, Font.BOLD);
 		Font fuenteTabla = new Font(Font.FontFamily.UNDEFINED, 13, Font.BOLD);
+		Font fuenteBanco = new Font(Font.FontFamily.UNDEFINED, 11, Font.BOLD);
 
 		PdfPCell cellTitulo = new PdfPCell(new Paragraph("Seminario del Taller Coreográfico Universitario", fuenteTitulo));
 		PdfPCell cellForm = new PdfPCell(new Paragraph("Inscripción", fuenteForm));
@@ -55,10 +56,10 @@ public class PDFBuilder extends AbstractITextPdfView {
 		PdfPCell cellSub4 = new PdfPCell(new Paragraph("Datos Bancarios:", fuentetSub));
 		cellTitulo.setHorizontalAlignment(Element.ALIGN_CENTER);
 		cellForm.setHorizontalAlignment(Element.ALIGN_CENTER);
-		cellSub1.setHorizontalAlignment(Element.ALIGN_CENTER);
+		cellSub1.setHorizontalAlignment(Element.ALIGN_LEFT);
 		cellSub2.setHorizontalAlignment(Element.ALIGN_CENTER);
-		cellSub3.setHorizontalAlignment(Element.ALIGN_CENTER);
-		cellSub4.setHorizontalAlignment(Element.ALIGN_CENTER);
+		cellSub3.setHorizontalAlignment(Element.ALIGN_LEFT);
+		cellSub4.setHorizontalAlignment(Element.ALIGN_LEFT);
 				
 		PdfPTable tablaDatos = new PdfPTable(2);
 		tablaDatos.addCell(new Phrase("Nombre(s): "));
@@ -157,15 +158,15 @@ public class PDFBuilder extends AbstractITextPdfView {
 		BigDecimal vbdTotal = new BigDecimal(vdeTotal);
 		PdfPTable tablaBanco = new PdfPTable(2);
 		tablaBanco.addCell(new Phrase("Banco: "));
-		tablaBanco.addCell(obj.getcBanco());
+		tablaBanco.addCell(new Phrase(obj.getcBanco(), fuenteBanco));
 		tablaBanco.addCell(new Phrase("Cuenta: "));
-		tablaBanco.addCell(obj.getcCuenta());
+		tablaBanco.addCell(new Phrase(obj.getcCuenta(), fuenteBanco));
 		tablaBanco.addCell(new Phrase("Referencia: "));
-		tablaBanco.addCell(obj.getcReferencia());
+		tablaBanco.addCell(new Phrase(obj.getcReferencia(), fuenteBanco));
 		tablaBanco.addCell(new Phrase("Fecha de vencimiento: "));
-		tablaBanco.addCell(obj.getcFechaV());
+		tablaBanco.addCell(new Phrase(obj.getcFechaV(), fuenteBanco));
 		tablaBanco.addCell(new Phrase("Total a pagar: "));
-		tablaBanco.addCell(vbdTotal.setScale(2,BigDecimal.ROUND_DOWN).toString());
+		tablaBanco.addCell(new Phrase(vbdTotal.setScale(2,BigDecimal.ROUND_DOWN).toString(), fuenteBanco));
 
 		PdfPCell cellTotal = new PdfPCell(new Paragraph(vbdTotal.setScale(2,BigDecimal.ROUND_DOWN).toString(), fuenteTabla));
 		cellTotal.setHorizontalAlignment(Element.ALIGN_RIGHT);
