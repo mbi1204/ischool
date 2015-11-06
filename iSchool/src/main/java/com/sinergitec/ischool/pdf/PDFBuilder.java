@@ -35,12 +35,8 @@ public class PDFBuilder extends AbstractITextPdfView {
 		// get data model which is passed by the Spring container
 
 		ctAlumno obj = (ctAlumno) model.get("ctAlumno");
-		ArrayList<ctGrupo> listaGrupo = (ArrayList<ctGrupo>) model.get("listaGrupo");
+		ArrayList<ctGrupo> listaGrupo = (ArrayList<ctGrupo>) model.get("listaGrupo");		
 		
-		System.out.println("referencia " + obj.getcReferencia());
-		System.out.println("banco " + obj.getcBanco());
-		System.out.println("cuenta " + obj.getcCuenta());
-		System.out.println("fechav " + obj.getcFechaV());
 
 		PdfPTable tablaPDF = new PdfPTable(1); // 1 columns.
 
@@ -108,6 +104,11 @@ public class PDFBuilder extends AbstractITextPdfView {
 		else
 			tablaDatos.addCell("No");
 		
+		tablaDatos.addCell(new Phrase("Descuento: "));
+		tablaDatos.addCell(obj.getDeDescuento().toString());
+		tablaDatos.addCell(new Phrase("Motivo: "));
+		tablaDatos.addCell(obj.getcMotivoDesc());
+		
 
 		PdfPTable tablaDomicilio = new PdfPTable(2);
 		tablaDomicilio.addCell(new Phrase("Calle: "));
@@ -124,12 +125,18 @@ public class PDFBuilder extends AbstractITextPdfView {
 		tablaDomicilio.addCell(obj.getcMunicipio());
 		tablaDomicilio.addCell(new Phrase("Estado: "));
 		tablaDomicilio.addCell(obj.getcEstado());
+		
+		PdfPTable tituloAlumno = new PdfPTable(1);
+		tituloAlumno.addCell(cellSub1);
 
 		PdfPTable tituloDom = new PdfPTable(1);
 		tituloDom.addCell(cellSub2);
 
 		PdfPTable tituloCurso = new PdfPTable(1);
 		tituloCurso.addCell(cellSub3);
+		
+		PdfPTable tituloBanco = new PdfPTable(1);
+		tituloBanco.addCell(cellSub4);
 
 		double vdeTotal = 0;
 		PdfPTable tablaCurso = new PdfPTable(4);
@@ -144,6 +151,16 @@ public class PDFBuilder extends AbstractITextPdfView {
 			tablaCurso.addCell(objGrupo.getCurso().getDePrecio().toString());
 			vdeTotal += objGrupo.getCurso().getDePrecio().doubleValue();
 		}
+		
+		PdfPTable tablaBanco = new PdfPTable(2);
+		tablaBanco.addCell(new Phrase("Banco: "));
+		tablaBanco.addCell(obj.getcBanco());
+		tablaBanco.addCell(new Phrase("Cuenta: "));
+		tablaBanco.addCell(obj.getcCuenta());
+		tablaBanco.addCell(new Phrase("Referencia: "));
+		tablaBanco.addCell(obj.getcReferencia());
+		tablaBanco.addCell(new Phrase("Fecha de vencimiento: "));
+		tablaBanco.addCell(obj.getcFechaV());
 
 		PdfPCell cellTotal = new PdfPCell(new Paragraph(Double.toString(vdeTotal), fuenteTabla));
 		cellTotal.setHorizontalAlignment(Element.ALIGN_RIGHT);
@@ -153,7 +170,7 @@ public class PDFBuilder extends AbstractITextPdfView {
 
 		tablaPDF.addCell(cellTitulo);
 		tablaPDF.addCell(cellForm);
-		tablaPDF.addCell(cellSub1);
+//		tablaPDF.addCell(cellSub1);
 		
 		tablaPDF.setWidthPercentage(100);
 		tablaDatos.setWidthPercentage(100);
@@ -162,8 +179,14 @@ public class PDFBuilder extends AbstractITextPdfView {
 		tituloCurso.setWidthPercentage(100);
 		tablaCurso.setWidthPercentage(100);
 		tablaTotal.setWidthPercentage(100);
+		tituloAlumno.setWidthPercentage(100);
+		tablaBanco.setWidthPercentage(100);
+		tituloBanco.setWidthPercentage(100);
 
 		doc.add(tablaPDF);
+		doc.add(tituloBanco);
+		doc.add(tablaBanco);
+		doc.add(tituloAlumno);
 		doc.add(tablaDatos);
 		doc.add(tituloDom);
 		doc.add(tablaDomicilio);
