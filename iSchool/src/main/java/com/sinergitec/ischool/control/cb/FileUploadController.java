@@ -1,4 +1,4 @@
-package com.sinergitec.ischool.control.ct;
+package com.sinergitec.ischool.control.cb;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -11,6 +11,7 @@ import java.util.GregorianCalendar;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.sinergitec.ischool.model.cb.cbPago;
+import com.sinergitec.ischool.service.cb.cbPagosService;
 
 /**
  * Handles requests for the application file upload requests
@@ -28,6 +30,8 @@ import com.sinergitec.ischool.model.cb.cbPago;
 public class FileUploadController {
 
 	private static final Logger logger = LoggerFactory.getLogger(FileUploadController.class);
+	@Autowired
+	private cbPagosService cobPagoServ;
 
 	/**
 	 * Upload single file using Spring Controller
@@ -45,7 +49,7 @@ public class FileUploadController {
 
 		String vcMensaje, vcFecha = null, vcHora = null, vcTipo = null;
 		ArrayList<cbPago> listPago = new ArrayList<cbPago>();
-		java.util.Date daFecha= new java.util.Date();
+		java.util.Date daFecha = new java.util.Date();
 
 		if (!file.isEmpty()) {
 
@@ -68,26 +72,28 @@ public class FileUploadController {
 						for (int j = 0; j < a.length; j++) {
 							/* 0 Cuenta */
 							if (j == 0) {
-								obj.setcCuenta(a[j].replaceAll("\\s", "").trim());
+								obj.setcCuenta(new String(a[j].replaceAll("\"", "")).trim());
 							} else if (j == 1) { /* fecha */
 								vcFecha = a[j].replaceAll("\\s", "").trim();
 							} else if (j == 2) { /* hora */
 								vcHora = a[j].replaceAll("\\s", "").trim();
 							} else if (j == 3) {/* sucursal */
-								obj.setcSucursal(a[j].replaceAll("\\s", "").trim());
+								obj.setcSucursal(new String(a[j].replaceAll("\"", "")).trim());
 							} else if (j == 4) { /* Descripcion */
-								obj.setcDescripcion(a[j].replaceAll("\\s", "").trim());
+								obj.setcDescripcion(new String(a[j].replaceAll("\"", "")).trim());
 							} else if (j == 5) { /* Cargo/Abono */
 								vcTipo = a[j].replaceAll("\\s", "").trim();
 							} else if (j == 6) { /* Importe */
-								obj.setDeMontoPago(new BigDecimal(a[j].replaceAll("\\s", "").trim()));
+								obj.setDeMontoPago(new BigDecimal(a[j].replaceAll("\"", "")));
+								obj.setDeMontoXAplicar(new BigDecimal(a[j].replaceAll("\"", "")));
+
 							} else if (j == 7) { /* Saldo */
 
 							} else if (j == 8) { /* Referencia */
-								obj.setcReferencia(a[j].replaceAll("\\s", "").trim());
+								obj.setcReferencia(new String(a[j].replaceAll("\"", "")).trim());
 								/* Concepto ReferenciaInterbancaria */
 							} else if (j == 9) {
-								obj.setcConcepto(a[j].replaceAll("\\s", "").trim());
+								obj.setcConcepto(new String(a[j].replaceAll("\"", "")).trim());
 							}
 						}
 
@@ -98,14 +104,11 @@ public class FileUploadController {
 						cal.set(Calendar.YEAR, Integer.parseInt(vcFecha.substring(5, 9)));
 						cal.set(Calendar.HOUR_OF_DAY, Integer.parseInt(vcHora.substring(1, 3)));
 						cal.set(Calendar.MINUTE, Integer.parseInt(vcHora.substring(3, 5)));
-						
-						
+
 						obj.setDtFechaPago(new Timestamp(cal.getTimeInMillis()));
 						obj.setDtFechaAplicacion(new Timestamp(daFecha.getTime()));
-						obj.setDeMontoXAplicar(new BigDecimal("0"));
 						obj.setlEstado(true);
 						obj.setiIdPago(i);
-						
 
 						/* conversion de fecha */
 
@@ -117,16 +120,13 @@ public class FileUploadController {
 
 					}
 
-					for (cbPago lista : listPago) {
-						System.out.println(lista.toString());
-					}
+					vcMensaje = cobPagoServ.add_cbPagos(listPago);
 
 				} catch (Exception e) {
 					e.printStackTrace();
 					vcMensaje = "ERROR - Cargar El Archivo" + e.getMessage();
 				}
 
-				vcMensaje = "Archivo Cargado con éxito ";
 			} catch (Exception e) {
 				vcMensaje = "ERROR - Cargar El Archivo" + e.getMessage();
 			}
@@ -134,6 +134,7 @@ public class FileUploadController {
 			vcMensaje = "ERROR - El archivo se encuentra vacío.";
 		}
 
+		System.out.println("Mensaje Controller" + vcMensaje);
 		model.addAttribute("vlMensaje", vcMensaje);
 
 		return "Mensaje";

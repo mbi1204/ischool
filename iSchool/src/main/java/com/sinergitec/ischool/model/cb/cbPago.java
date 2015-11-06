@@ -19,6 +19,7 @@ public class cbPago {
 	private String     cDescripcion;
 	private String     cSucursal;
 	private String     cCuenta;
+	byte[] Id;
 
 	public Integer getiIdPago() {
 		return iIdPago;
@@ -124,6 +125,16 @@ public class cbPago {
 	public void setcCuenta(String cCuenta) {
 		this.cCuenta = cCuenta;
 	}
+	
+	
+
+	public byte[] getId() {
+		return Id;
+	}
+
+	public void setId(byte[] id) {
+		Id = id;
+	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Vector getVectorDatos() {
@@ -131,17 +142,17 @@ public class cbPago {
 		vector.add(this.getiIdPago());
 		vector.add(this.getDeMontoPago());
 		vector.add(this.getlEstado());
-		vector.add(this.cObs);
+		vector.add(this.getcObs());
 		vector.add(this.getDtFechaPago());
 		vector.add(this.getDtFechaAplicacion());
 		vector.add(this.getDeMontoXAplicar());
 		vector.add(this.getiIdAlumno());
-		vector.add(this.getlEstado());
 		vector.add(this.getcReferencia());
 		vector.add(this.getcConcepto());
 		vector.add(this.getcDescripcion());
 		vector.add(this.getcSucursal());
 		vector.add(this.getcCuenta());		
+		vector.add(this.getId());
 		
 		return vector;
 	}
