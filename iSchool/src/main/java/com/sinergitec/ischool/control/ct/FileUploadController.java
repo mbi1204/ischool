@@ -43,9 +43,8 @@ public class FileUploadController {
 	// MultipartFile file) {
 	public String uploadFileHandler(@RequestParam("file") MultipartFile file, Model model) {
 
-		String vcMensaje  ,vcFecha = null ,vcHora = null;
+		String vcMensaje, vcFecha = null, vcHora = null, vcTipo = null;
 		ArrayList<cbPago> listPago = new ArrayList<cbPago>();
-		
 
 		if (!file.isEmpty()) {
 
@@ -57,7 +56,6 @@ public class FileUploadController {
 
 					String[] result = new String(bytes).split(new String(delimiter));
 					Calendar cal = GregorianCalendar.getInstance();
-					
 
 					/* inicia en uno por el encabezado */
 
@@ -69,40 +67,46 @@ public class FileUploadController {
 						for (int j = 0; j < a.length; j++) {
 							/* 0 Cuenta */
 							if (j == 0) {
-								obj.setcCuenta(a[j].replaceAll("\\s", ""));
+								obj.setcCuenta(a[j].replaceAll("\\s", "").trim());
 							} else if (j == 1) { /* fecha */
-								vcFecha = a[j].replaceAll("\\s", "");
-							} else if (j == 2) { /* hora  */							
-								vcHora = a[j].replaceAll("\\s", "");
+								vcFecha = a[j].replaceAll("\\s", "").trim();
+							} else if (j == 2) { /* hora */
+								vcHora = a[j].replaceAll("\\s", "").trim();
 							} else if (j == 3) {/* sucursal */
-								obj.setcSucursal(a[j].replaceAll("\\s", ""));
+								obj.setcSucursal(a[j].replaceAll("\\s", "").trim());
 							} else if (j == 4) { /* Descripcion */
-								obj.setcDescripcion(a[j].replaceAll("\\s", ""));
+								obj.setcDescripcion(a[j].replaceAll("\\s", "").trim());
 							} else if (j == 5) { /* Cargo/Abono */
-								
+								vcTipo = a[j].replaceAll("\\s", "").trim();
 							} else if (j == 6) { /* Importe */
-								obj.setDeMontoPago(new BigDecimal(a[j].replaceAll("\\s", "")));
+								obj.setDeMontoPago(new BigDecimal(a[j].replaceAll("\\s", "").trim()));
 							} else if (j == 7) { /* Saldo */
-								
+
 							} else if (j == 8) { /* Referencia */
-								obj.setcReferencia(a[j].replaceAll("\\s", ""));
-							} else if (j == 9) { /* Concepto/ ReferenciaInterbancaria	 */
-								obj.setcConcepto(a[j].replaceAll("\\s", ""));
-
+								obj.setcReferencia(a[j].replaceAll("\\s", "").trim());
+								/* Concepto ReferenciaInterbancaria */
+							} else if (j == 9) {
+								obj.setcConcepto(a[j].replaceAll("\\s", "").trim());
 							}
-
 						}
-						
-						
-						cal.set(Calendar.DAY_OF_MONTH,  Integer.parseInt( vcFecha.substring(1, 2)));// I might have the wrong
-						cal.set(Calendar.MONTH,         Integer.parseInt( vcFecha.substring(3, 4)));// -1 as month is zero-based
-						cal.set(Calendar.YEAR,          Integer.parseInt( vcFecha.substring(5, 8)));
-						cal.set(Calendar.HOUR, 12);
-						cal.set(Calendar.MINUTE, 20);
-						
-						obj.setDtFechaPago( new Timestamp(cal.getTimeInMillis()));
-						
-						listPago.add(obj);
+
+						/* conversion de fecha */
+
+						cal.set(Calendar.DAY_OF_MONTH, Integer.parseInt(vcFecha.substring(1, 3)));
+						cal.set(Calendar.MONTH, Integer.parseInt(vcFecha.substring(3, 5)) - 1);// -1
+						cal.set(Calendar.YEAR, Integer.parseInt(vcFecha.substring(5, 9)));
+						cal.set(Calendar.HOUR_OF_DAY, Integer.parseInt(vcHora.substring(1, 3)));
+						cal.set(Calendar.MINUTE, Integer.parseInt(vcHora.substring(3, 5)));
+
+						obj.setDtFechaPago(new Timestamp(cal.getTimeInMillis()));
+
+						/* conversion de fecha */
+
+						/* filtro */
+						/* solo abonos y que la */
+						if ((vcTipo.contains("+")) || (!obj.getcReferencia().contains("00000000"))) {
+							listPago.add(obj);
+						}
 
 					}
 
@@ -112,6 +116,7 @@ public class FileUploadController {
 
 				} catch (Exception e) {
 					e.printStackTrace();
+					vcMensaje = "ERROR - Cargar El Archivo" + e.getMessage();
 				}
 
 				vcMensaje = "Archivo Cargado con éxito ";
