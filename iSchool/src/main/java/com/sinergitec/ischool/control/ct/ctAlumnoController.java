@@ -94,8 +94,7 @@ public class ctAlumnoController {
 			return miModelo;
 
 		} else {
-			System.out.println("else Empty ");
-			System.out.println(vcError);	
+			
 			redirectAttrs.addFlashAttribute("errors", vcError);
 			return new ModelAndView(vcError);
 		}

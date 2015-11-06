@@ -1,5 +1,6 @@
 package com.sinergitec.ischool.pdf;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import java.util.Map;
@@ -41,12 +42,12 @@ public class PDFBuilder extends AbstractITextPdfView {
 		PdfPTable tablaPDF = new PdfPTable(1); // 1 columns.
 
 		Font fuenteTitulo = new Font(Font.FontFamily.COURIER, 20, Font.BOLD);
-		Font fuenteForm = new Font(Font.FontFamily.HELVETICA, 16);
+		Font fuenteForm = new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD);
 		Font fuentetSub = new Font(Font.FontFamily.UNDEFINED, 16, Font.BOLD);
 		Font fuenteTabla = new Font(Font.FontFamily.UNDEFINED, 13, Font.BOLD);
 
-		PdfPCell cellTitulo = new PdfPCell(new Paragraph("Seminario del Taller Coreografico Universitario", fuenteTitulo));
-		PdfPCell cellForm = new PdfPCell(new Paragraph("Inscripcion", fuenteForm));
+		PdfPCell cellTitulo = new PdfPCell(new Paragraph("Seminario del Taller Coreográfico Universitario", fuenteTitulo));
+		PdfPCell cellForm = new PdfPCell(new Paragraph("Inscripción", fuenteForm));
 		PdfPCell cellSub1 = new PdfPCell(new Paragraph("Datos Del Alumno:", fuentetSub));
 		PdfPCell cellSub2 = new PdfPCell(new Paragraph("Domicilio:", fuentetSub));
 		PdfPCell cellSub3 = new PdfPCell(new Paragraph("Cursos:", fuentetSub));
@@ -65,44 +66,44 @@ public class PDFBuilder extends AbstractITextPdfView {
 		tablaDatos.addCell(obj.getcApellido());
 		tablaDatos.addCell(new Phrase("Edad: "));
 		tablaDatos.addCell(obj.getcEdad());		
-		tablaDatos.addCell(new Phrase("Telefono: "));
-		tablaDatos.addCell(obj.getcTel());
-		tablaDatos.addCell(new Phrase("Telefono de emergencias: "));
-		tablaDatos.addCell(obj.getcTelEmergencia());
-		tablaDatos.addCell(new Phrase("Sexo: "));
-		tablaDatos.addCell(obj.getcGenero());
-		tablaDatos.addCell(new Phrase("Correo: "));
-		tablaDatos.addCell(obj.getcCorreo());		
-		
-		tablaDatos.addCell(new Phrase("Alergias: "));
-		if (obj.getlAlergia())
-			tablaDatos.addCell(obj.getcAlergia());
-		else
-			tablaDatos.addCell("No");
-		
-		tablaDatos.addCell(new Phrase("Medicamentos: "));
-		if(obj.getlMedicamento())
-			tablaDatos.addCell(obj.getcMedicamento());
-		else
-			tablaDatos.addCell("No");
-		
-		tablaDatos.addCell(new Phrase("Lesiones: "));
-		if(obj.getlLesion())
-			tablaDatos.addCell(obj.getcLesion());
-		else
-			tablaDatos.addCell("No");
-		
-		tablaDatos.addCell(new Phrase("Tratamientos: "));
-		if(obj.getlTratamiento())
-			tablaDatos.addCell(obj.getcTratamiento());
-		else
-			tablaDatos.addCell("No");
-		
-		tablaDatos.addCell(new Phrase("Seguro: "));
-		if(obj.getlSeguro())
-			tablaDatos.addCell("Si");
-		else
-			tablaDatos.addCell("No");
+//		tablaDatos.addCell(new Phrase("Telefono: "));
+//		tablaDatos.addCell(obj.getcTel());
+//		tablaDatos.addCell(new Phrase("Telefono de emergencias: "));
+//		tablaDatos.addCell(obj.getcTelEmergencia());
+//		tablaDatos.addCell(new Phrase("Sexo: "));
+//		tablaDatos.addCell(obj.getcGenero());
+//		tablaDatos.addCell(new Phrase("Correo: "));
+//		tablaDatos.addCell(obj.getcCorreo());		
+//		
+//		tablaDatos.addCell(new Phrase("Alergias: "));
+//		if (obj.getlAlergia())
+//			tablaDatos.addCell(obj.getcAlergia());
+//		else
+//			tablaDatos.addCell("No");
+//		
+//		tablaDatos.addCell(new Phrase("Medicamentos: "));
+//		if(obj.getlMedicamento())
+//			tablaDatos.addCell(obj.getcMedicamento());
+//		else
+//			tablaDatos.addCell("No");
+//		
+//		tablaDatos.addCell(new Phrase("Lesiones: "));
+//		if(obj.getlLesion())
+//			tablaDatos.addCell(obj.getcLesion());
+//		else
+//			tablaDatos.addCell("No");
+//		
+//		tablaDatos.addCell(new Phrase("Tratamientos: "));
+//		if(obj.getlTratamiento())
+//			tablaDatos.addCell(obj.getcTratamiento());
+//		else
+//			tablaDatos.addCell("No");
+//		
+//		tablaDatos.addCell(new Phrase("Seguro: "));
+//		if(obj.getlSeguro())
+//			tablaDatos.addCell("Si");
+//		else
+//			tablaDatos.addCell("No");
 		
 		tablaDatos.addCell(new Phrase("Descuento: "));
 		tablaDatos.addCell(obj.getDeDescuento().toString());
@@ -110,21 +111,21 @@ public class PDFBuilder extends AbstractITextPdfView {
 		tablaDatos.addCell(obj.getcMotivoDesc());
 		
 
-		PdfPTable tablaDomicilio = new PdfPTable(2);
-		tablaDomicilio.addCell(new Phrase("Calle: "));
-		tablaDomicilio.addCell(obj.getcCalle());
-		tablaDomicilio.addCell(new Phrase("Num. Ext: "));
-		tablaDomicilio.addCell(obj.getcNumExt());
-		tablaDomicilio.addCell(new Phrase("Num. Int: "));
-		tablaDomicilio.addCell(obj.getcNumInt());
-		tablaDomicilio.addCell(new Phrase("Colonia: "));
-		tablaDomicilio.addCell(obj.getcColonia());
-		tablaDomicilio.addCell(new Phrase("CP: "));
-		tablaDomicilio.addCell(obj.getcCP());
-		tablaDomicilio.addCell(new Phrase("Municipio: "));
-		tablaDomicilio.addCell(obj.getcMunicipio());
-		tablaDomicilio.addCell(new Phrase("Estado: "));
-		tablaDomicilio.addCell(obj.getcEstado());
+//		PdfPTable tablaDomicilio = new PdfPTable(2);
+//		tablaDomicilio.addCell(new Phrase("Calle: "));
+//		tablaDomicilio.addCell(obj.getcCalle());
+//		tablaDomicilio.addCell(new Phrase("Num. Ext: "));
+//		tablaDomicilio.addCell(obj.getcNumExt());
+//		tablaDomicilio.addCell(new Phrase("Num. Int: "));
+//		tablaDomicilio.addCell(obj.getcNumInt());
+//		tablaDomicilio.addCell(new Phrase("Colonia: "));
+//		tablaDomicilio.addCell(obj.getcColonia());
+//		tablaDomicilio.addCell(new Phrase("CP: "));
+//		tablaDomicilio.addCell(obj.getcCP());
+//		tablaDomicilio.addCell(new Phrase("Municipio: "));
+//		tablaDomicilio.addCell(obj.getcMunicipio());
+//		tablaDomicilio.addCell(new Phrase("Estado: "));
+//		tablaDomicilio.addCell(obj.getcEstado());
 		
 		PdfPTable tituloAlumno = new PdfPTable(1);
 		tituloAlumno.addCell(cellSub1);
@@ -152,6 +153,8 @@ public class PDFBuilder extends AbstractITextPdfView {
 			vdeTotal += objGrupo.getCurso().getDePrecio().doubleValue();
 		}
 		
+		DecimalFormat df = new DecimalFormat("#.##");
+		vdeTotal = Double.valueOf(df.format(vdeTotal));
 		PdfPTable tablaBanco = new PdfPTable(2);
 		tablaBanco.addCell(new Phrase("Banco: "));
 		tablaBanco.addCell(obj.getcBanco());
@@ -161,6 +164,8 @@ public class PDFBuilder extends AbstractITextPdfView {
 		tablaBanco.addCell(obj.getcReferencia());
 		tablaBanco.addCell(new Phrase("Fecha de vencimiento: "));
 		tablaBanco.addCell(obj.getcFechaV());
+		tablaBanco.addCell(new Phrase("Total a pagar: "));
+		tablaBanco.addCell(Double.toString(vdeTotal));
 
 		PdfPCell cellTotal = new PdfPCell(new Paragraph(Double.toString(vdeTotal), fuenteTabla));
 		cellTotal.setHorizontalAlignment(Element.ALIGN_RIGHT);
@@ -175,7 +180,7 @@ public class PDFBuilder extends AbstractITextPdfView {
 		tablaPDF.setWidthPercentage(100);
 		tablaDatos.setWidthPercentage(100);
 		tituloDom.setWidthPercentage(100);
-		tablaDomicilio.setWidthPercentage(100);
+//		tablaDomicilio.setWidthPercentage(100);
 		tituloCurso.setWidthPercentage(100);
 		tablaCurso.setWidthPercentage(100);
 		tablaTotal.setWidthPercentage(100);
@@ -188,8 +193,8 @@ public class PDFBuilder extends AbstractITextPdfView {
 		doc.add(tablaBanco);
 		doc.add(tituloAlumno);
 		doc.add(tablaDatos);
-		doc.add(tituloDom);
-		doc.add(tablaDomicilio);
+//		doc.add(tituloDom);
+//		doc.add(tablaDomicilio);
 		doc.add(tituloCurso);
 		doc.add(tablaCurso);
 		doc.add(tablaTotal);
