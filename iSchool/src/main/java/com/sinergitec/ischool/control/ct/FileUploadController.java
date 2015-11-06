@@ -3,6 +3,11 @@ package com.sinergitec.ischool.control.ct;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.sinergitec.ischool.model.ct.Cobro;
+import com.sinergitec.ischool.model.cb.cbPago;
 
 /**
  * Handles requests for the application file upload requests
@@ -38,7 +43,9 @@ public class FileUploadController {
 	// MultipartFile file) {
 	public String uploadFileHandler(@RequestParam("file") MultipartFile file, Model model) {
 
-		String vlMensaje;
+		String vcMensaje  ,vcFecha = null ,vcHora = null;
+		ArrayList<cbPago> listPago = new ArrayList<cbPago>();
+		
 
 		if (!file.isEmpty()) {
 
@@ -49,39 +56,73 @@ public class FileUploadController {
 				try {
 
 					String[] result = new String(bytes).split(new String(delimiter));
+					Calendar cal = GregorianCalendar.getInstance();
+					
 
-					for (int i = 0; i < result.length; i++) {
-						// String[] a = new String(result[i]).split(new
-						// String(",".getBytes()));
+					/* inicia en uno por el encabezado */
 
-						Cobro cobro = new Cobro(new String(result[i]).split(new String(",".getBytes())));
-						cobro.setFecha(cobro.getFecha().replaceAll("\\s", ""));
-						cobro.setCuenta(cobro.getCuenta().replaceAll("\\s", ""));
-						cobro.setHora(cobro.getHora().replaceAll("\\s", ""));
-						cobro.setSucursal(cobro.getSucursal().replaceAll("\\s", ""));
-						cobro.setDescripcion(cobro.getDescripcion().replaceAll("\\s", ""));
-						cobro.setCargoAbono(cobro.getCargoAbono().replaceAll("\\s", ""));
-						cobro.setImporte(cobro.getImporte().replaceAll("\\s", ""));
-						cobro.setSaldo(cobro.getSaldo().replaceAll("\\s", ""));
-						cobro.setReferencia(cobro.getReferencia().replaceAll("\\s", ""));
-						cobro.setConcepto(cobro.getConcepto().replaceAll("\\s", ""));
-						System.out.println(cobro.toString());
+					for (int i = 1; i < result.length; i++) {
+						String[] a = new String(result[i]).split(new String(",".getBytes()));
 
+						cbPago obj = new cbPago();
+
+						for (int j = 0; j < a.length; j++) {
+							/* 0 Cuenta */
+							if (j == 0) {
+								obj.setcCuenta(a[j].replaceAll("\\s", ""));
+							} else if (j == 1) { /* fecha */
+								vcFecha = a[j].replaceAll("\\s", "");
+							} else if (j == 2) { /* hora  */							
+								vcHora = a[j].replaceAll("\\s", "");
+							} else if (j == 3) {/* sucursal */
+								obj.setcSucursal(a[j].replaceAll("\\s", ""));
+							} else if (j == 4) { /* Descripcion */
+								obj.setcDescripcion(a[j].replaceAll("\\s", ""));
+							} else if (j == 5) { /* Cargo/Abono */
+								
+							} else if (j == 6) { /* Importe */
+								obj.setDeMontoPago(new BigDecimal(a[j].replaceAll("\\s", "")));
+							} else if (j == 7) { /* Saldo */
+								
+							} else if (j == 8) { /* Referencia */
+								obj.setcReferencia(a[j].replaceAll("\\s", ""));
+							} else if (j == 9) { /* Concepto/ ReferenciaInterbancaria	 */
+								obj.setcConcepto(a[j].replaceAll("\\s", ""));
+
+							}
+
+						}
+						
+						
+						cal.set(Calendar.DAY_OF_MONTH,  Integer.parseInt( vcFecha.substring(1, 2)));// I might have the wrong
+						cal.set(Calendar.MONTH,         Integer.parseInt( vcFecha.substring(3, 4)));// -1 as month is zero-based
+						cal.set(Calendar.YEAR,          Integer.parseInt( vcFecha.substring(5, 8)));
+						cal.set(Calendar.HOUR, 12);
+						cal.set(Calendar.MINUTE, 20);
+						
+						obj.setDtFechaPago( new Timestamp(cal.getTimeInMillis()));
+						
+						listPago.add(obj);
+
+					}
+
+					for (cbPago lista : listPago) {
+						System.out.println(lista.toString());
 					}
 
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 
-				vlMensaje = "Archivo Cargado con éxito ";
+				vcMensaje = "Archivo Cargado con éxito ";
 			} catch (Exception e) {
-				vlMensaje = "Error al Cargar El Archivo" + e.getMessage();
+				vcMensaje = "ERROR - Cargar El Archivo" + e.getMessage();
 			}
 		} else {
-			vlMensaje = "El archivo se encuentra vacío.";
+			vcMensaje = "ERROR - El archivo se encuentra vacío.";
 		}
-		
-		model.addAttribute("vlMensaje" ,vlMensaje );
+
+		model.addAttribute("vlMensaje", vcMensaje);
 
 		return "Mensaje";
 	}
