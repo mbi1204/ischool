@@ -107,7 +107,7 @@ public class PDFBuilder extends AbstractITextPdfView {
 //			tablaDatos.addCell("No");
 		
 		tablaDatos.addCell(new Phrase("Descuento: "));
-		tablaDatos.addCell(obj.getDeDescuento().toString());
+		tablaDatos.addCell(obj.getDeDescuento().toString() + " %");
 		tablaDatos.addCell(new Phrase("Motivo: "));
 		tablaDatos.addCell(obj.getcMotivoDesc());
 		
@@ -151,7 +151,7 @@ public class PDFBuilder extends AbstractITextPdfView {
 			tablaCurso.addCell(objGrupo.getcNombre());
 			tablaCurso.addCell(objGrupo.getcHorario());
 			tablaCurso.addCell(objGrupo.getCurso().getDePrecio().toString());
-			vdeTotal += objGrupo.getCurso().getDePrecio().doubleValue();
+			vdeTotal += objGrupo.getCurso().getDePrecio().setScale(2,BigDecimal.ROUND_DOWN).doubleValue();
 		}
 		
 		BigDecimal vbdTotal = new BigDecimal(vdeTotal);
@@ -165,9 +165,9 @@ public class PDFBuilder extends AbstractITextPdfView {
 		tablaBanco.addCell(new Phrase("Fecha de vencimiento: "));
 		tablaBanco.addCell(obj.getcFechaV());
 		tablaBanco.addCell(new Phrase("Total a pagar: "));
-		tablaBanco.addCell(vbdTotal.setScale(2,BigDecimal.ROUND_UP).toString());
+		tablaBanco.addCell(vbdTotal.setScale(2,BigDecimal.ROUND_DOWN).toString());
 
-		PdfPCell cellTotal = new PdfPCell(new Paragraph(vbdTotal.setScale(2,BigDecimal.ROUND_UP).toString(), fuenteTabla));
+		PdfPCell cellTotal = new PdfPCell(new Paragraph(vbdTotal.setScale(2,BigDecimal.ROUND_DOWN).toString(), fuenteTabla));
 		cellTotal.setHorizontalAlignment(Element.ALIGN_RIGHT);
 		PdfPTable tablaTotal = new PdfPTable(2);
 		tablaTotal.addCell(new Phrase("Total($):", fuenteTabla));
