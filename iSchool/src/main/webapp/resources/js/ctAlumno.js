@@ -385,8 +385,8 @@ function validaCampos() {
 function factura() {
 
 	if ($('#lFactura').is(':checked')) {
-		$('#formFactura').show();
-		 $('#textAlergia').text()
+		alert($('#textAlergia').text());
+		$('#formFactura').show();		 
 	} else {
 		$('#formFactura').hide();
 	}
