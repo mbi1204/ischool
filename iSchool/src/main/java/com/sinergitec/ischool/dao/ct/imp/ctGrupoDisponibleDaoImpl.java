@@ -77,7 +77,7 @@ public List<ctGrupo> list_ctGrupo() throws Open4GLException, IOException{
 						ctCurso obj_nctCurso = new ctCurso();
 						obj_nctCurso.setiIdCurso(obj_ctCurso.getiIdCurso());
 						obj_nctCurso.setcNombre(obj_ctCurso.getcNombre());
-						obj_nctCurso.setDePrecio(BigDecimal.valueOf(obj_ctCurso.getDePrecio().doubleValue() + (obj_ctCurso.getDePrecio().doubleValue() * 0.16) ).setScale(2,BigDecimal.ROUND_UP));
+						obj_nctCurso.setDePrecio(obj_ctCurso.getDeTotal());
 						obj.setCurso(obj_nctCurso);
 					}
 				}
@@ -138,7 +138,7 @@ public List<ctGrupo> list_ctGrupo() throws Open4GLException, IOException{
 					ctCurso obj_nctCurso = new ctCurso();
 					obj_nctCurso.setiIdCurso(obj_ctCurso.getiIdCurso());
 					obj_nctCurso.setcNombre(obj_ctCurso.getcNombre());
-					obj_nctCurso.setDePrecio(BigDecimal.valueOf(obj_ctCurso.getDePrecio().doubleValue() + (obj_ctCurso.getDePrecio().doubleValue() * 0.16) ).setScale(2,BigDecimal.ROUND_UP));
+					obj_nctCurso.setDePrecio(obj_ctCurso.getDeTotal());
 					obj.setCurso(obj_nctCurso);
 					}
 			}

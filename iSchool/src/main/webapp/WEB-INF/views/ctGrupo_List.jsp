@@ -53,7 +53,7 @@ th {
 						<td><c:out value="${ctGrupo.iIdGrupo}" /></td>
 						<td><c:out value="${ctGrupo.cNombre}" /></td>
 						<td><c:out value="${ctGrupo.curso.cNombre}" /></td>
-						<td><c:out value="${ctGrupo.curso.dePrecio}" /></td>					
+						<td><c:out value="${ctGrupo.curso.deTotal}" /></td>					
 						<td><c:out value="${ctGrupo.profesor.cNombreApellido}" /></td>
 						<td><c:out value="${ctGrupo.cDias}" /></td>
 						<td><c:out value="${ctGrupo.cHorario}" /></td>

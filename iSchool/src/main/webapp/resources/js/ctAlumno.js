@@ -373,6 +373,11 @@ function validaCampos() {
 		alert("Debe Inscribrise Por Lo Menos En Un Grupo");
 		return false;
 	}
+	
+	if ($('#checkAlergia').is(':checked') && $('#textAlergia').text() != ""){
+		alert("Debe describir la alergia");
+		return false;
+	}
 
 	return true;
 }
@@ -381,6 +386,7 @@ function factura() {
 
 	if ($('#lFactura').is(':checked')) {
 		$('#formFactura').show();
+		 $('#textAlergia').text()
 	} else {
 		$('#formFactura').hide();
 	}
