@@ -41,13 +41,13 @@ th {
 			<thead>
 				<tr>
 					<th width="4%">No.</th>
-					<th width="12%">Nombre del Curso</th>
-					<th width="12%">Estatus del Curso</th>
+					<th width="12%">Nombre</th>					
 					<th width="12%">Cupo Minimo</th>
 					<th width="12%">Cupo Maximo</th>
-					<th width="12%">Precio del curso</th>
+					<th width="12%">Precio</th>
 					<th width="12%">IVA</th>
 					<th width="12%">Total</th>
+					<th width="12%">Estatus</th>
 					<th width="36%"></th>
 				</tr>
 			</thead>
@@ -55,14 +55,14 @@ th {
 				<c:forEach items="${lista_ctCurso}" var="ctCurso">
 					<tr>
 						<td><c:out value="${ctCurso.iIdCurso}" /></td>
-						<td><c:out value="${ctCurso.cNombre}" /></td>
-						<td><c:if test="${ctCurso.lEstatus == true}"><c:out value="Activo" /></c:if>
-						<c:if test="${ctCurso.lEstatus == false}"><c:out value="Desactivo" /></c:if></td>
+						<td><c:out value="${ctCurso.cNombre}" /></td>						
 						<td><c:out value="${ctCurso.iMinCup}" /></td>
 						<td><c:out value="${ctCurso.iMaxCup}" /></td>
 						<td><c:out value="${ctCurso.dePrecio}" /></td>
 						<td><c:out value="${ctCurso.deIva}" /></td>
 						<td><c:out value="${ctCurso.deTotal}" /></td>
+						<td><c:if test="${ctCurso.lEstatus == true}"><c:out value="Activo" /></c:if>
+						<c:if test="${ctCurso.lEstatus == false}"><c:out value="Desactivo" /></c:if></td>
 
 						<td><nobr>
 

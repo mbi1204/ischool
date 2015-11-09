@@ -21,7 +21,7 @@
 				<td><form:label path="cNombre">
 						<spring:message text="Curso" />
 					</form:label></td>
-				<td><form:input path="cNombre" placeholder="Ej. Tango" onkeypress="return soloLetras(event)"/></td>
+				<td><form:input path="cNombre" placeholder="Ej. Tango" onkeypress="return soloLetras(event)" size="50"/></td>
 			</tr>
 
 			
@@ -43,7 +43,7 @@
 			
 			<tr>
 				<td><form:label path="dePrecio">
-						<spring:message text="Precio del Curso" />
+						<spring:message text="Precio sin IVA" />
 					</form:label></td>
 				<td><form:input path="dePrecio" id="currency" placeholder="Ej. 1000.00" onKeyDown="Decimal()"/></td>
 
@@ -54,7 +54,7 @@
 				<td><form:label path="lEstatus">
 						<spring:message text="Estatus" />
 					</form:label></td>
-				<td><form:checkbox path="lEstatus" /></td>
+				<td><form:checkbox path="lEstatus" checked="true"  /></td>
 
 			</tr>
 

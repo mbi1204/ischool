@@ -166,7 +166,7 @@ public List<ctGrupo> list_ctGrupo() throws Open4GLException, IOException{
 						ctCurso obj_nctCurso = new ctCurso();
 						obj_nctCurso.setiIdCurso(obj_ctCurso.getiIdCurso());
 						obj_nctCurso.setcNombre(obj_ctCurso.getcNombre());
-						obj_nctCurso.setDePrecio(obj_ctCurso.getDePrecio());
+						obj_nctCurso.setDeTotal(obj_ctCurso.getDeTotal());
 						obj.setCurso(obj_nctCurso);
 						}
 				}

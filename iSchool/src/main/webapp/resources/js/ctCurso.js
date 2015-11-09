@@ -107,10 +107,10 @@ $(document).ready(function() {
 		resizable : false,
 		width : 800,
 		buttons : {
-			"Save" : function() {
+			"Guardar" : function() {
 				$('#Form_ctCurso').submit();
 			},
-			"Cancel" : function() {
+			"Cancelar" : function() {
 				$(this).dialog('close');
 			}
 		},
