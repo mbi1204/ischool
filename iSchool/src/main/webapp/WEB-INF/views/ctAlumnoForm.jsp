@@ -386,13 +386,13 @@ th {
 
 					<tr>
 						<td><form:label path="cNumExt">
-								<spring:message text="NumExt" />
+								<spring:message text="Numero Ext" />
 							</form:label></td>
 						<td><form:input path="cNumExt" /></td>
 					</tr>
 					<tr>
 						<td><form:label path="cNumInt">
-								<spring:message text="NumInt" />
+								<spring:message text="Numero Int" />
 							</form:label></td>
 						<td><form:input path="cNumInt" /></td>
 					</tr>
