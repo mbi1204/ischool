@@ -394,7 +394,8 @@ function validaCampos() {
 		return false;
 	}
 	
-	if($('#Form_ctAlumno input#deDescuento').val() != "0" ||  $('#Form_ctAlumno input#deDescuento').val() != ""){
+	
+	if($('#Form_ctAlumno input#deDescuento').val() != "0"){
 		if($('#Form_ctAlumno textarea#cMotivoDesc').val() == ""){
 			alert("Debe describir el motivo del descuento");
 			$('#Form_ctAlumno textarea#cMotivoDesc').focus();
@@ -471,7 +472,7 @@ function factura() {
 
 function carga() {
 	
-	if($('#Form_ctAlumno input#cApellido').val() != "" && $('#Form_ctAlumno input#cEdad').val() != "" && $('#Form_ctAlumno input#cEdad').val() != "")
+	if($('#Form_ctAlumno input#cApellido').val() != "" && $('#Form_ctAlumno input#cNombre').val() != "" && $('#Form_ctAlumno input#cEdad').val() != "")
 		location.reload();
 
 	$('#formFactura').hide();
@@ -479,6 +480,7 @@ function carga() {
 	$('#textMedicamento').hide();
 	$('#textLesion').hide();
 	$('#textTratamiento').hide();
+	$('#Form_ctAlumno input#cNombre').focus();
 
 }
 
