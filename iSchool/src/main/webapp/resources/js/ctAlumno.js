@@ -374,7 +374,7 @@ function validaCampos() {
 		return false;
 	}
 	
-	if ($('#checkAlergia').is(':checked') && $('#textAlergia').text() != ""){
+	if ($('#checkAlergia').is(':checked') && $('#Form_ctAlumno textarea#cAlergia').val() != ""){
 		alert("Debe describir la alergia");
 		return false;
 	}
@@ -384,8 +384,7 @@ function validaCampos() {
 
 function factura() {
 
-	if ($('#lFactura').is(':checked')) {
-		alert($('#textAlergia').text());
+	if ($('#lFactura').is(':checked')) {		
 		$('#formFactura').show();		 
 	} else {
 		$('#formFactura').hide();
@@ -406,10 +405,10 @@ function carga() {
 
 }
 
-function showAlergia() {
+function showAlergia() {	
 
 	if ($('#checkAlergia').is(':checked'))
-		$('#textAlergia').show();
+		$('#textAlergia').show();		
 	else
 		$('#textAlergia').hide();
 
