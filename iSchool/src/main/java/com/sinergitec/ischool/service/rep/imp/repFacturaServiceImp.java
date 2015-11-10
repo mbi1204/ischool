@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.progress.open4gl.Open4GLException;
 import com.progress.open4gl.RunTime4GLException;
@@ -14,6 +15,7 @@ import com.sinergitec.ischool.dao.rep.repFacturaDao;
 import com.sinergitec.ischool.model.ft.ftFacturaAlumno;
 import com.sinergitec.ischool.service.rep.repFacturaService;
 
+@Service
 public class repFacturaServiceImp implements repFacturaService{
 	
 	@Autowired

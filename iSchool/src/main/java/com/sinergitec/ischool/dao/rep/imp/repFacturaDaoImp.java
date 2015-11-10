@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.progress.AppServer.AppServer;
 import com.progress.open4gl.BooleanHolder;
 import com.progress.open4gl.Open4GLException;
@@ -18,6 +20,7 @@ import com.sinergitec.ischool.dao.rep.repFacturaDao;
 import com.sinergitec.ischool.model.ft.ftFacturaAlumno;
 import com.sinergitec.ischool.util.DBConexion;
 
+@Repository
 public class repFacturaDaoImp implements repFacturaDao{
 
 	@Override
