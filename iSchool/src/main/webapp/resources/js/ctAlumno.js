@@ -374,8 +374,23 @@ function validaCampos() {
 		return false;
 	}
 	
-	if ($('#checkAlergia').is(':checked') && $('#Form_ctAlumno textarea#cAlergia').val() != ""){
+	if ($('#checkAlergia').is(':checked') && $('#Form_ctAlumno textarea#cAlergia').val() == ""){
 		alert("Debe describir la alergia");
+		return false;
+	}
+	
+	if ($('#checkMedicamento').is(':checked') && $('#Form_ctAlumno textarea#cMedicamento').val() == ""){
+		alert("Debe describir el medicamento");
+		return false;
+	}
+	
+	if ($('#checkLesion').is(':checked') && $('#Form_ctAlumno textarea#cLesion').val() == ""){
+		alert("Debe describir la lesion");
+		return false;
+	}
+	
+	if ($('#checkTratamiento').is(':checked') && $('#Form_ctAlumno textarea#cTratamiento').val() == ""){
+		alert("Debe describir el tratamiento");
 		return false;
 	}
 
