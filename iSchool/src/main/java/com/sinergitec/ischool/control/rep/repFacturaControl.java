@@ -18,7 +18,7 @@ import com.sinergitec.ischool.service.ct.ctGrupoService;
 import com.sinergitec.ischool.service.rep.repFacturaService;
 
 @Controller
-public class repFactura {
+public class repFacturaControl {
 	
 	List<ftFacturaAlumno> list;
 	

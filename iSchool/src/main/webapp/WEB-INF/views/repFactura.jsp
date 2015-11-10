@@ -43,7 +43,7 @@ td {
 	<div style="width: 95%; margin: 0 auto;">
 	<h1>Reporte De Facturas</h1>
 	
-	<form:form id="repFactura" method="post" action="repFactura/pdf">
+	<form:form id="repFormFactura" method="post" action="repFactura/pdf">
 		<button type="submit" onclick="return getGrupo()">Imprimr Reporte</button>
 		<input id="grupo" name="grupo" type="hidden"/>
 	</form:form>		
