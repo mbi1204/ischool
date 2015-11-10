@@ -389,12 +389,14 @@ th {
 								<spring:message text="NumExt" />
 							</form:label></td>
 						<td><form:input path="cNumExt" /></td>
+					</tr>
+					<tr>
 						<td><form:label path="cNumInt">
 								<spring:message text="NumInt" />
 							</form:label></td>
 						<td><form:input path="cNumInt" /></td>
-
-
+					</tr>
+					<tr>
 						<td><form:label path="cCP">
 								<spring:message text="CP" />
 							</form:label></td>
@@ -407,14 +409,14 @@ th {
 								<spring:message text="Colonia" />
 							</form:label></td>
 						<td><form:input path="cColonia" /></td>
-
-
+					</tr>
+					<tr>
 						<td><form:label path="cMunicipio">
-								<spring:message text="Municipio" />
+								<spring:message text="Mpio/Deleg" />
 							</form:label></td>
-
-
 						<td><form:input path="cMunicipio" /></td>
+					</tr>
+					<tr>
 						<td><form:label path="cEstado">
 								<spring:message text="Estado" />
 							</form:label></td>
@@ -425,6 +427,12 @@ th {
 			
 			<fieldset id="formFactura"><legend>Datos para facturacion</legend>					
 				<table>
+				<tr>
+						<td><form:label path="cRfcFiscal">
+								<spring:message text="RFC"/>
+							</form:label></td>
+						<td><form:input path="cRfcFiscal"/></td>
+					</tr>
 					<tr>
 						<td><form:label path="cNombreFiscal">
 								<spring:message text="Razon Social" />
@@ -444,16 +452,10 @@ th {
 						<td><form:input path="cNumeroFiscal"/></td>
 					</tr>
 					<tr>
-						<td><form:label path="cColoniaFiscal">
-								<spring:message text="Colonia"/>
+						<td><form:label path="cNumeroIntFiscal">
+								<spring:message text="Numero Int"/>
 							</form:label></td>
-						<td><form:input path="cColoniaFiscal" id="cColoniaFiscal"/></td>
-					</tr>
-					<tr>
-						<td><form:label path="cMunicipioFiscal">
-								<spring:message text="Municipio"/>
-							</form:label></td>
-						<td><form:input path="cMunicipioFiscal" id="cMunicipioFiscal"/></td>
+						<td><form:input path="cNumeroIntFiscal"/></td>
 					</tr>
 					<tr>
 						<td><form:label path="cCPFiscal">
@@ -464,23 +466,24 @@ th {
 							onclick="get_localidadFactura();" class="btnAdd"></td>
 					</tr>
 					<tr>
-						<td><form:label path="cCiudadFiscal">
-								<spring:message text="Ciudad"/>
+						<td><form:label path="cColoniaFiscal">
+								<spring:message text="Colonia"/>
 							</form:label></td>
-						<td><form:input path="cCiudadFiscal"/></td>
+						<td><form:input path="cColoniaFiscal" id="cColoniaFiscal"/></td>
 					</tr>
+					<tr>
+						<td><form:label path="cMunicipioFiscal">
+								<spring:message text="Mpio/Deleg"/>
+							</form:label></td>
+						<td><form:input path="cMunicipioFiscal" id="cMunicipioFiscal"/></td>
+					</tr>				
 					<tr>
 						<td><form:label path="cEstadoFiscal">
 								<spring:message text="Estado"/>
 							</form:label></td>
 						<td><form:input path="cEstadoFiscal" id="cEstadoFiscal"/></td>
 					</tr>
-					<tr>
-						<td><form:label path="cRfcFiscal">
-								<spring:message text="RFC"/>
-							</form:label></td>
-						<td><form:input path="cRfcFiscal"/></td>
-					</tr>
+					
 				</table>
 			</fieldset>
 

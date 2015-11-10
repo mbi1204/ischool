@@ -368,29 +368,91 @@ function validaCampos() {
 		$('#Form_ctAlumno input#cEdad').focus();
 		return false;
 
-	}
-	if ($("#cGrupo").val() == "" || $("#cGrupo").val() == "[]") {
-		alert("Debe Inscribrise Por Lo Menos En Un Grupo");
-		return false;
-	}
+	}	
 	
 	if ($('#checkAlergia').is(':checked') && $('#Form_ctAlumno textarea#cAlergia').val() == ""){
 		alert("Debe describir la alergia");
+		$('#Form_ctAlumno textarea#cAlergia').focus();
 		return false;
 	}
 	
 	if ($('#checkMedicamento').is(':checked') && $('#Form_ctAlumno textarea#cMedicamento').val() == ""){
 		alert("Debe describir el medicamento");
+		$('#Form_ctAlumno textarea#cMedicamento').focus();
 		return false;
 	}
 	
 	if ($('#checkLesion').is(':checked') && $('#Form_ctAlumno textarea#cLesion').val() == ""){
 		alert("Debe describir la lesion");
+		$('#Form_ctAlumno textarea#cLesion').focus();
 		return false;
 	}
 	
 	if ($('#checkTratamiento').is(':checked') && $('#Form_ctAlumno textarea#cTratamiento').val() == ""){
 		alert("Debe describir el tratamiento");
+		$('#Form_ctAlumno textarea#cTratamiento').focus();
+		return false;
+	}
+	
+	if($('#Form_ctAlumno input#deDescuento').val() != "0" ||  $('#Form_ctAlumno input#deDescuento').val() != ""){
+		if($('#Form_ctAlumno textarea#cMotivoDesc').val() == ""){
+			alert("Debe describir el motivo del descuento");
+			$('#Form_ctAlumno textarea#cMotivoDesc').focus();
+			return false;	
+		}			
+	}
+	
+	if($('#lFactura').is(':checked')){
+		
+		if($('#Form_ctAlumno input#cRfcFiscal').val() == ""){
+			alert("Es necesario ingresar el RFC");
+			$('#Form_ctAlumno input#cRfcFiscal').focus();
+			return false;
+			
+		}if($('#Form_ctAlumno input#cNombreFiscal').val() == ""){
+			alert("Es necesario ingresar la razon social");
+			$('#Form_ctAlumno input#cNombreFiscal').focus();
+			return false;
+			
+		}if($('#Form_ctAlumno input#cCalleFiscal').val() == ""){
+			alert("Es necesario ingresar la calle");
+			$('#Form_ctAlumno input#cCalleFiscal').focus();
+			return false;
+			
+		}if($('#Form_ctAlumno input#cNumeroFiscal').val() == ""){
+			alert("Es necesario ingresar el numero exterior");
+			$('#Form_ctAlumno input#cNumeroFiscal').focus();
+			return false;
+			
+		}if($('#Form_ctAlumno input#cNumeroIntFiscal').val() == ""){
+			alert("Es necesario ingresar el numero interior");
+			$('#Form_ctAlumno input#cNumeroIntFiscal').focus();
+			return false;
+			
+		}if($('#Form_ctAlumno input#cCPFiscal').val() == ""){
+			alert("Es necesario ingresar el codigo postal");
+			$('#Form_ctAlumno input#cCPFiscal').focus();
+			return false;
+			
+		}if($('#Form_ctAlumno input#cColoniaFiscal').val() == ""){
+			alert("Es necesario ingresar la colonia");
+			$('#Form_ctAlumno input#cColoniaFiscal').focus();
+			return false;
+			
+		}if($('#Form_ctAlumno input#cMunicipioFiscal').val() == ""){
+			alert("Es necesario ingresar el municipio");
+			$('#Form_ctAlumno input#cMunicipioFiscal').focus();
+			return false;
+			
+		}if($('#Form_ctAlumno input#cEstadoFiscal').val() == ""){
+			alert("Es necesario ingresar el estado");
+			$('#Form_ctAlumno input#cEstadoFiscal').focus();
+			return false;
+		}		
+	}
+	
+	if ($("#cGrupo").val() == "" || $("#cGrupo").val() == "[]") {
+		alert("Debe Inscribrise Por Lo Menos En Un Grupo");
 		return false;
 	}
 

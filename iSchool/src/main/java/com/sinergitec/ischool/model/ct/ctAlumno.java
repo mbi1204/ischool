@@ -28,6 +28,7 @@ public class ctAlumno {
 	private String cNombreFiscal;
 	private String cCalleFiscal;
 	private String cNumeroFiscal;
+	private String cNumeroIntFiscal;
 	private String cColoniaFiscal;
 	private String cMunicipioFiscal;
 	private String cCPFiscal;
@@ -77,6 +78,7 @@ public class ctAlumno {
 		vector.add(this.getcNombreFiscal());
 		vector.add(this.getcCalleFiscal());
 		vector.add(this.getcNumeroFiscal());
+		vector.add(this.getcNumeroIntFiscal());
 		vector.add(this.getcColoniaFiscal());
 		vector.add(this.getcMunicipioFiscal());
 		vector.add(this.getcCPFiscal());
@@ -264,6 +266,14 @@ public class ctAlumno {
 
 	public void setcNumeroFiscal(String cNumeroFiscal) {
 		this.cNumeroFiscal = cNumeroFiscal;
+	}	
+
+	public String getcNumeroIntFiscal() {
+		return cNumeroIntFiscal;
+	}
+
+	public void setcNumeroIntFiscal(String cNumeroIntFiscal) {
+		this.cNumeroIntFiscal = cNumeroIntFiscal;
 	}
 
 	public String getcColoniaFiscal() {
