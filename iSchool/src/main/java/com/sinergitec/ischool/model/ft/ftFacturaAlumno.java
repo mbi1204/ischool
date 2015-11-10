@@ -24,11 +24,11 @@ public class ftFacturaAlumno {
 		Vector vector = new Vector();		
 		
 		vector.add(this.getiFolio());
-		vector.add(this.getDtFecha());
+		vector.add(this.getDtFecha());	
 		vector.add(this.getDeSubtotal());
 		vector.add(this.getDeIVA());
 		vector.add(this.getDeTotal());
-		vector.add(this.getDeDescPorc());
+		vector.add(this.getDeDescPorc());		
 		vector.add(this.getDeDescMonto());		
 		vector.add(this.getiIdAlumno());
 		vector.add(this.getcNombre());
@@ -101,11 +101,7 @@ public class ftFacturaAlumno {
 
 	public void setDeDescMonto(BigDecimal deDescMonto) {
 		this.deDescMonto = deDescMonto;
-	}
-
-	public BigDecimal getDeSubTotal() {
-		return deSubtotal;
-	}
+	}	
 
 	public void setDeSubtotal(BigDecimal deSubtotal) {
 		this.deSubtotal = deSubtotal;

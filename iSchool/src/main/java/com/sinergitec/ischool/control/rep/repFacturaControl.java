@@ -41,6 +41,10 @@ public class repFacturaControl {
 	public @ResponseBody List<ftFacturaAlumno> list_repAlumnoGrupo(int iIdGrupo) {
 		
 		list = this.repService.list_ftFactura(iIdGrupo);
+		for (ftFacturaAlumno ftFacturaAlumno : list) {
+			System.out.println("control");
+			System.out.println(ftFacturaAlumno.getDeSubtotal());
+		}
 
 		return list;
 	}

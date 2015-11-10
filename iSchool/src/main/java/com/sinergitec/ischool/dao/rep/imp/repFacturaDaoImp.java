@@ -58,7 +58,10 @@ public class repFacturaDaoImp implements repFacturaDao{
 				obj.setcNombre(rs_tt_ftFactura.getString("cNombre"));
 				obj.setcApellido(rs_tt_ftFactura.getString("cApellido"));
 				obj.setcSerie(rs_tt_ftFactura.getString("cSerie"));
-				obj.setId(rs_tt_ftFactura.getBytes("Id"));				
+				obj.setId(rs_tt_ftFactura.getBytes("Id"));
+				
+				System.out.println("dao");
+				System.out.println(obj.getDeSubtotal());
 
 				Lista.add(obj);
 			}
