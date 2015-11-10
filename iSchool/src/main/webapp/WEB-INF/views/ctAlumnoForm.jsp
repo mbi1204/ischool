@@ -488,7 +488,7 @@ th {
 			</fieldset>
 
 			<fieldset>
-				<legend>Cursos Grupos Disponibles</legend>
+				<legend>Grupos Disponibles</legend>
 
 				<form:label path="grupo.iIdGrupo">
 					<spring:message text="Seleccione Grupo " />
