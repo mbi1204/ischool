@@ -24,7 +24,7 @@ function carga_repAlumno(viIdGrupo) {
 						+ '<td>' + data[item].iFolio + '</td>'
 						+ '<td>' + data[item].dtFecha + '</td>'
 						+ '<td>' + data[item].deDescPorc + '</td>'
-						+ '<td>' + data[item].deDeSubtotal + '</td>'
+						+ '<td>' + data[item].deSubtotal + '</td>'
 						+ '<td>' + data[item].deDescMonto + '</td>'
 						+ '<td>' + data[item].deIVA + '</td>'
 						+ '<td>' + data[item].deTotal + '</td>'

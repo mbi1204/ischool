@@ -40,11 +40,7 @@ public class repFacturaControl {
 	@RequestMapping(value = "/repFactura/getAlumnos", headers = "Accept=application/json")
 	public @ResponseBody List<ftFacturaAlumno> list_repAlumnoGrupo(int iIdGrupo) {
 		
-		list = this.repService.list_ftFactura(iIdGrupo);
-		for (ftFacturaAlumno ftFacturaAlumno : list) {
-			System.out.println("control");
-			System.out.println(ftFacturaAlumno.getDeSubtotal());
-		}
+		list = this.repService.list_ftFactura(iIdGrupo);		
 
 		return list;
 	}
