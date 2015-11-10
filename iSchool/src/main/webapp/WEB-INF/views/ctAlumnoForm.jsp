@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
-<%@ page session="false"%>
+<%@ page session="true"%>
 <html>
 <head>
 <style>
@@ -224,6 +224,8 @@ th {
 
 
 <body onload="carga();">
+	<%@ include file="/WEB-INF/views/templates/menu.jsp"%>
+
 
 
 	<div id="Localidades_Dialog" style="display: none;">

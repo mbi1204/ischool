@@ -117,6 +117,11 @@ public class FileUploadController {
 						if ((vcTipo.contains("+")) || (!obj.getcReferencia().contains("00000000"))) {
 							listPago.add(obj);
 						}
+						
+						for (cbPago objx: listPago){
+							System.out.println(objx.toString());
+							
+						}
 
 					}
 
