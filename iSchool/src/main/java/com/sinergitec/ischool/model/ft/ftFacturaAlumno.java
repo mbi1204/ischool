@@ -5,18 +5,22 @@ import java.sql.Timestamp;
 import java.util.Vector;
 
 public class ftFacturaAlumno {
-
-	private Integer iIdAlumno;
-	private String cNombre;
-	private String cApellido;
-	private String cSerie;
+	
 	private Integer iFolio;
+	private Integer iSerie;
 	private Timestamp dtFecha;
-	private BigDecimal deDescPorc;
-	private BigDecimal deDescMonto;
+	private Boolean lActivo;
 	private BigDecimal deSubtotal;
 	private BigDecimal deIVA;
 	private BigDecimal deTotal;
+	private BigDecimal deDescPorc;
+	private BigDecimal deDescMonto;
+	private Integer iIdAlumno;
+	private Timestamp dtFechaCancel;
+	private BigDecimal deSaldo;
+	private String cNombre;
+	private String cApellido;
+	private String cSerie;	
 	private byte[] Id;
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -24,13 +28,17 @@ public class ftFacturaAlumno {
 		Vector vector = new Vector();		
 		
 		vector.add(this.getiFolio());
+		vector.add(this.getiSerie());
 		vector.add(this.getDtFecha());
+		vector.add(this.getlActivo());
 		vector.add(this.getDeSubtotal());
 		vector.add(this.getDeIVA());
 		vector.add(this.getDeTotal());
-		vector.add(this.getDeDescPorc());
+		vector.add(this.getDeDescPorc());		
 		vector.add(this.getDeDescMonto());		
 		vector.add(this.getiIdAlumno());
+		vector.add(this.getDtFechaCancel());
+		vector.add(this.getDeSaldo());
 		vector.add(this.getcNombre());
 		vector.add(this.getcApellido());
 		vector.add(this.getcSerie());
@@ -101,11 +109,7 @@ public class ftFacturaAlumno {
 
 	public void setDeDescMonto(BigDecimal deDescMonto) {
 		this.deDescMonto = deDescMonto;
-	}
-
-	public BigDecimal getDeSubTotal() {
-		return deSubtotal;
-	}
+	}	
 
 	public void setDeSubtotal(BigDecimal deSubtotal) {
 		this.deSubtotal = deSubtotal;
@@ -138,5 +142,39 @@ public class ftFacturaAlumno {
 	public BigDecimal getDeSubtotal() {
 		return deSubtotal;
 	}
+
+	public Integer getiSerie() {
+		return iSerie;
+	}
+
+	public void setiSerie(Integer iSerie) {
+		this.iSerie = iSerie;
+	}
+
+	public Boolean getlActivo() {
+		return lActivo;
+	}
+
+	public void setlActivo(Boolean lActivo) {
+		this.lActivo = lActivo;
+	}
+
+	public Timestamp getDtFechaCancel() {
+		return dtFechaCancel;
+	}
+
+	public void setDtFechaCancel(Timestamp dtFechaCancel) {
+		this.dtFechaCancel = dtFechaCancel;
+	}
+
+	public BigDecimal getDeSaldo() {
+		return deSaldo;
+	}
+
+	public void setDeSaldo(BigDecimal deSaldo) {
+		this.deSaldo = deSaldo;
+	}
+	
+	
 
 }

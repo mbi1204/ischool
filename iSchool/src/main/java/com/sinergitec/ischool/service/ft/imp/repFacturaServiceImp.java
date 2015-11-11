@@ -1,4 +1,4 @@
-package com.sinergitec.ischool.service.rep.imp;
+package com.sinergitec.ischool.service.ft.imp;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -11,9 +11,9 @@ import org.springframework.stereotype.Service;
 import com.progress.open4gl.Open4GLException;
 import com.progress.open4gl.RunTime4GLException;
 import com.progress.open4gl.SystemErrorException;
-import com.sinergitec.ischool.dao.rep.repFacturaDao;
+import com.sinergitec.ischool.dao.ft.repFacturaDao;
 import com.sinergitec.ischool.model.ft.ftFacturaAlumno;
-import com.sinergitec.ischool.service.rep.repFacturaService;
+import com.sinergitec.ischool.service.ft.repFacturaService;
 
 @Service
 public class repFacturaServiceImp implements repFacturaService{

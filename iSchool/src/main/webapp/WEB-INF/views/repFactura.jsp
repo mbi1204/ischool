@@ -37,16 +37,11 @@ td {
 </style>
 
 </head>
-<body>
+<body onload="carga();">
 
 <%@ include file="/WEB-INF/views/templates/menu.jsp"%>
 	<div style="width: 95%; margin: 0 auto;">
-	<h1>Reporte De Facturas</h1>
-	
-	<form:form id="repFormFactura" method="post" action="repFactura/pdf">
-		<button type="submit" onclick="return getGrupo()">Imprimr Reporte</button>
-		<input id="grupo" name="grupo" type="hidden"/>
-	</form:form>		
+	<h1>Reporte De Facturas</h1>		
 
 	<c:url var="actionUrl" value="repFactura" />
 
