@@ -1,4 +1,4 @@
-package com.sinergitec.ischool.dao.rep.imp;
+package com.sinergitec.ischool.dao.ft.imp;
 
 import java.io.IOException;
 import java.sql.ResultSet;
@@ -16,7 +16,7 @@ import com.progress.open4gl.RunTime4GLException;
 import com.progress.open4gl.StringHolder;
 import com.progress.open4gl.SystemErrorException;
 import com.progress.open4gl.javaproxy.Connection;
-import com.sinergitec.ischool.dao.rep.repFacturaDao;
+import com.sinergitec.ischool.dao.ft.repFacturaDao;
 import com.sinergitec.ischool.model.ft.ftFacturaAlumno;
 import com.sinergitec.ischool.util.DBConexion;
 

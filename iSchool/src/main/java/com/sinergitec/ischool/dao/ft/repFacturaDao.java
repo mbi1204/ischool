@@ -1,4 +1,4 @@
-package com.sinergitec.ischool.dao.rep;
+package com.sinergitec.ischool.dao.ft;
 
 import java.io.IOException;
 import java.sql.SQLException;

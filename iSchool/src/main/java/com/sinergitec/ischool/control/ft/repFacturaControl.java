@@ -1,4 +1,4 @@
-package com.sinergitec.ischool.control.rep;
+package com.sinergitec.ischool.control.ft;
 
 import java.io.IOException;
 import java.util.List;
@@ -15,7 +15,7 @@ import com.sinergitec.ischool.model.ct.ctAlumno;
 import com.sinergitec.ischool.model.ct.ctGrupo;
 import com.sinergitec.ischool.model.ft.ftFacturaAlumno;
 import com.sinergitec.ischool.service.ct.ctGrupoService;
-import com.sinergitec.ischool.service.rep.repFacturaService;
+import com.sinergitec.ischool.service.ft.repFacturaService;
 
 @Controller
 public class repFacturaControl {

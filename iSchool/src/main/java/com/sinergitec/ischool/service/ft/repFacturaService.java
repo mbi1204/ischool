@@ -1,4 +1,4 @@
-package com.sinergitec.ischool.service.rep;
+package com.sinergitec.ischool.service.ft;
 
 import java.util.List;
 
