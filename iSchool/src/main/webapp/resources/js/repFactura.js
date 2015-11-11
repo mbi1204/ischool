@@ -28,8 +28,11 @@ function carga_repAlumno(viIdGrupo) {
 						+ '<td>' + data[item].deDescMonto + '</td>'
 						+ '<td>' + data[item].deIVA + '</td>'
 						+ '<td>' + data[item].deTotal + '</td>'
+						+ '<td>' + data[item].deSaldo + '</td>'
 						+ '<td>' + '<button class="pure-button pure-button-primary" onclick="get_detalle('+ data[item].iFolio + ', ' + data[item].iSerie + ');">'
-						+ '<i class="fa fa-pencil"></i> Ver detalle </button> </td>'
+						+ 'Detalle </button> </td>'
+						+ '<td>' + '<button class="pure-button pure-button-primary" ">'
+						+ 'CFDI </button> </td>'
 						+ '</tr>');
 
 			}
@@ -58,7 +61,6 @@ function carga() {
 }
 
 function get_detalle(viFolio, viSerie){
-	alert("Folio " + viFolio + " serie " + viSerie);	
 
 	$.ajax({
 		type : "GET",
@@ -75,19 +77,18 @@ function get_detalle(viFolio, viSerie){
 
 				$("#tableDet > tbody").empty();
 
-				for ( var item in data) {
-					
-					alert(data[item].cConcepto);
+				for ( var item in data) {					
 
 					$('#tableDet > tbody').append(
-							'<tr>' + '<td class ="cConcepto">'
+							 		'<tr>' 
+									+ '<td class ="cConcepto">'
 									+ data[item].cConcepto + '</td>'
 									+ '<td class = "deCantidad">'
 									+ data[item].deCantidad + '</td>'
 									+ '<td class = "deSubTotal">'
-									+ data[item].deSubTotal + '</td>'
+									+ data[item].deSubtotal + '</td>'
 									+ '<td class = "deMonto">'
-									+ data[item].deMonto + '</td>' + '<td>'
+									+ data[item].deMonto + '</td>'
 									+ '</tr>');
 				}
 				$('#Detalle_Dialog').dialog("option", "title", 'Detalle Factura');
@@ -101,6 +102,31 @@ function get_detalle(viFolio, viSerie){
 
 	});
 }
+
+$(document).ready(
+		function() {
+			
+			$('#Detalle_Dialog').dialog({
+
+				autoOpen : false,
+				position : 'center',
+				modal : true,
+				resizable : false,
+				width : 800,
+				buttons : {
+					"Cancel" : function() {
+						$(this).dialog('close');
+					}
+				},
+				close : function() {
+
+					$(this).dialog('close');
+				}
+
+			});
+			
+		});
+		
 
 
 

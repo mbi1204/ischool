@@ -51,11 +51,7 @@ public class repFacturaControl {
 	}
 	
 	@RequestMapping(value = "/repFactura/detalle", headers = "Accept=application/json")
-	public @ResponseBody List<ftDetFactura> list_ftDetFactura(int iFolio, int iSerie){
-		
-		System.out.println("control");
-		System.out.println("folio " + iFolio);
-		System.out.println("serie " + iSerie);
+	public @ResponseBody List<ftDetFactura> list_ftDetFactura(int iFolio, int iSerie){		
 		
 		List<ftDetFactura> lista = new ArrayList<ftDetFactura>();
 		lista = repDetService.list_ftDetFactura(iFolio, iSerie);
