@@ -28,6 +28,8 @@ function carga_repAlumno(viIdGrupo) {
 						+ '<td>' + data[item].deDescMonto + '</td>'
 						+ '<td>' + data[item].deIVA + '</td>'
 						+ '<td>' + data[item].deTotal + '</td>'
+						+ '<td>' + '<button class="pure-button pure-button-primary" onclick="get_detalle('+ data[item].iFolio + ', ' + data[item].iSerie + ');">'
+						+ '<i class="fa fa-pencil"></i> Ver detalle </button> </td>'
 						+ '</tr>');
 
 			}
@@ -52,6 +54,49 @@ function getGrupo(){
 function carga() {
 	$(document).ready(function() {
 		carga_repAlumno($('select option:selected').val());
+	});
+}
+
+function get_detalle(viFolio, viSerie){
+	alert("Folio " + viFolio + " serie " + viSerie);	
+
+	$.ajax({
+		type : "GET",
+		url : "repFactura/detalle",
+		dataType : "json",
+		contentType : "application/json; charset=utf-8",
+		data : {
+			iFolio : viFolio,
+			iSerie : viSerie
+		},
+		success : function(data, textStatus, jqXHR) {
+			
+			if (data.length > 0) {
+
+				$("#tableDet > tbody").empty();
+
+				for ( var item in data) {
+
+					$('#tableDet > tbody').append(
+							'<tr>' + '<td class ="cGrupo">'
+									+ data[item].cGrupo + '</td>'
+									+ '<td class = "deCantidad">'
+									+ data[item].deCantidad + '</td>'
+									+ '<td class = "deSubTotal">'
+									+ data[item].deSubTotal + '</td>'
+									+ '<td class = "deMonto">'
+									+ data[item].deMonto + '</td>' + '<td>'
+									+ '</tr>');
+				}
+				
+				$('#Detalle_Dialog').dialog('open');
+			}
+
+		},
+		error : function() {
+			alert("erro creando detalle" + textStatus);
+		}
+
 	});
 }
 

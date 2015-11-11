@@ -1,6 +1,7 @@
 package com.sinergitec.ischool.control.ft;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +12,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.progress.open4gl.Open4GLException;
-import com.sinergitec.ischool.model.ct.ctAlumno;
 import com.sinergitec.ischool.model.ct.ctGrupo;
+import com.sinergitec.ischool.model.ft.ftDetFactura;
 import com.sinergitec.ischool.model.ft.ftFacturaAlumno;
 import com.sinergitec.ischool.service.ct.ctGrupoService;
+import com.sinergitec.ischool.service.ft.repDetFacturaService;
 import com.sinergitec.ischool.service.ft.repFacturaService;
 
 @Controller
@@ -24,6 +26,9 @@ public class repFacturaControl {
 	
 	@Autowired
 	private repFacturaService repService;
+	
+	@Autowired
+	private repDetFacturaService repDetService;
 	
 	@Autowired
 	private ctGrupoService ctGrupoService;
@@ -43,6 +48,14 @@ public class repFacturaControl {
 		list = this.repService.list_ftFactura(iIdGrupo);		
 
 		return list;
+	}
+	
+	@RequestMapping(value = "/repFactura/detalle", headers = "Accept=application/json")
+	public @ResponseBody List<ftDetFactura> list_ftDetFactura(int iFolio, int iSerie){
+		
+		List<ftDetFactura> lista = new ArrayList<ftDetFactura>();
+		lista = repDetService.list_ftDetFactura(iFolio, iSerie);
+		return lista;		
 	}
 
 }
