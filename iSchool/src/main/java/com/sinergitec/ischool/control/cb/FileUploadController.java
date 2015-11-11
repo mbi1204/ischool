@@ -126,6 +126,10 @@ public class FileUploadController {
 					}
 
 					vcMensaje = cobPagoServ.add_cbPagos(listPago);
+					
+					if (vcMensaje ==  "") {
+						vcMensaje = "Cobranza cargada con éxito";	
+					}
 
 				} catch (Exception e) {
 					e.printStackTrace();
