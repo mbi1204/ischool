@@ -76,10 +76,12 @@ function get_detalle(viFolio, viSerie){
 				$("#tableDet > tbody").empty();
 
 				for ( var item in data) {
+					
+					alert(data[item].cConcepto);
 
 					$('#tableDet > tbody').append(
-							'<tr>' + '<td class ="cGrupo">'
-									+ data[item].cGrupo + '</td>'
+							'<tr>' + '<td class ="cConcepto">'
+									+ data[item].cConcepto + '</td>'
 									+ '<td class = "deCantidad">'
 									+ data[item].deCantidad + '</td>'
 									+ '<td class = "deSubTotal">'
@@ -88,13 +90,13 @@ function get_detalle(viFolio, viSerie){
 									+ data[item].deMonto + '</td>' + '<td>'
 									+ '</tr>');
 				}
-				
+				$('#Detalle_Dialog').dialog("option", "title", 'Detalle Factura');
 				$('#Detalle_Dialog').dialog('open');
 			}
 
 		},
 		error : function() {
-			alert("erro creando detalle" + textStatus);
+			alert("error creando detalle" + textStatus);
 		}
 
 	});
