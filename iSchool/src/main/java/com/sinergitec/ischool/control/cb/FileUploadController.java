@@ -127,7 +127,7 @@ public class FileUploadController {
 
 					vcMensaje = cobPagoServ.add_cbPagos(listPago);
 					
-					if (vcMensaje ==  "") {
+					if (vcMensaje ==  "" || vcMensaje.isEmpty() || vcMensaje == null) {
 						vcMensaje = "Cobranza cargada con éxito";	
 					}
 
