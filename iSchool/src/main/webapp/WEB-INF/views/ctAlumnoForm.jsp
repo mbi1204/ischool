@@ -3,7 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
-<%@ page session="true"%>
 <html>
 <head>
 <style>
@@ -218,27 +217,27 @@ th {
 
 <script type="text/javascript"
 	src='<c:url value="/resources/js/ctAlumno.js"/>'></script>
-
-
 </head>
 
-
-<body onload="carga();">
-	<%@ include file="/WEB-INF/views/templates/menu.jsp"%>
+<body  onload="carga();">
 
 
+  
 
 	<div id="Localidades_Dialog" style="display: none;">
 		<%@ include file="ctLocalidades_Form.jsp"%>
 	</div>
-	
+
 	<div id="LocalidadesFac_Dialog" style="display: none;">
 		<%@ include file="ctLocalidadesFactura_Form.jsp"%>
 	</div>
-
+	
+	
 
 
 	<div class="contenedor">
+	
+
 		<header> </header>
 
 		<c:url var="addAction" value="/ctAlumno/agregar"></c:url>
@@ -252,8 +251,8 @@ th {
 						<td><form:label path="cNombre">
 								<spring:message text="Nombre" />
 							</form:label></td>
-						<td><form:input path="cNombre" cssClass="textoLargo"  /></td>
-					</tr>					
+						<td><form:input path="cNombre" cssClass="textoLargo" /></td>
+					</tr>
 					<tr>
 
 						<td><form:label path="cApellido">
@@ -266,7 +265,7 @@ th {
 						<td><form:label path="cEdad">
 								<spring:message text="Edad" />
 							</form:label></td>
-						<td><form:input path="cEdad" type="number" min="0"/></td>
+						<td><form:input path="cEdad" type="number" min="0" /></td>
 					</tr>
 					<tr>
 						<td><form:label path="cTel">
@@ -276,102 +275,102 @@ th {
 					</tr>
 					<tr>
 						<td><form:label path="cTelEmergencia">
-								<spring:message text="Telefono de emergencias"/>
+								<spring:message text="Telefono de emergencias" />
 							</form:label>
-						<td><form:input path="cTelEmergencia"/>
+						<td><form:input path="cTelEmergencia" />
 					</tr>
 					<tr>
 						<td><form:label path="cCorreo">
 								<spring:message text="Correo" />
 							</form:label></td>
 						<td><form:input path="cCorreo" /></td>
-					</tr>					
+					</tr>
 					<tr>
 						<td><form:label path="cGenero">
 								<spring:message text="Sexo"></spring:message>
 							</form:label></td>
-						<td>							
-							<form:radiobutton path="cGenero" value="Hombre" checked="true"/>Hombre
-								
-							<form:radiobutton path="cGenero" value="Mujer"/>Mujer
-								
-						</td>
-					</tr>					
+						<td><form:radiobutton path="cGenero" value="Hombre"
+								checked="true" />Hombre <form:radiobutton path="cGenero"
+								value="Mujer" />Mujer</td>
+					</tr>
 					<tr>
 						<td><form:label path="lAlergia">
 								<spring:message text="¿Tiene alergias?" />
 							</form:label></td>
-						<td><form:checkbox path="lAlergia" id="checkAlergia" onclick="showAlergia();"/></td>						
+						<td><form:checkbox path="lAlergia" id="checkAlergia"
+								onclick="showAlergia();" /></td>
 					</tr>
 					<tr id="textAlergia">
 						<td><form:label path="cAlergia">
 								<spring:message text="Describa" />
 							</form:label></td>
-						<td><form:textarea path="cAlergia" cols="45" rows="5"/></td>
+						<td><form:textarea path="cAlergia" cols="45" rows="5" /></td>
 					</tr>
 					<tr>
 						<td><form:label path="lMedicamento">
 								<spring:message text="¿Usa Medicamento controlado?" />
 							</form:label></td>
-						<td><form:checkbox path="lMedicamento" id="checkMedicamento" onclick="showMedicamento();"/></td>						
+						<td><form:checkbox path="lMedicamento" id="checkMedicamento"
+								onclick="showMedicamento();" /></td>
 					</tr>
 					<tr id="textMedicamento">
 						<td><form:label path="cMedicamento">
 								<spring:message text="Describa" />
 							</form:label></td>
-						<td><form:textarea path="cMedicamento" cols="45" rows="5"/></td>
+						<td><form:textarea path="cMedicamento" cols="45" rows="5" /></td>
 					</tr>
 					<tr>
 						<td><form:label path="lLesion">
 								<spring:message text="¿Tiene alguna lesion?" />
 							</form:label></td>
-						<td><form:checkbox path="lLesion" id="checkLesion" onclick="showLesion();"/></td>						
+						<td><form:checkbox path="lLesion" id="checkLesion"
+								onclick="showLesion();" /></td>
 					</tr>
 					<tr id="textLesion">
 						<td><form:label path="cLesion">
 								<spring:message text="Describa" />
 							</form:label></td>
-						<td><form:textarea path="cLesion" cols="45" rows="5"/></td>
+						<td><form:textarea path="cLesion" cols="45" rows="5" /></td>
 					</tr>
 					<tr>
 						<td><form:label path="lTratamiento">
 								<spring:message text="¿Esta en algun tratamiento?" />
 							</form:label></td>
-						<td><form:checkbox path="lTratamiento" id="checkTratamiento" onclick="showTratamiento();"/></td>						
+						<td><form:checkbox path="lTratamiento" id="checkTratamiento"
+								onclick="showTratamiento();" /></td>
 					</tr>
 					<tr id="textTratamiento">
 						<td><form:label path="cTratamiento">
 								<spring:message text="Describa" />
 							</form:label></td>
-						<td><form:textarea path="cTratamiento" cols="45" rows="5"/></td>
+						<td><form:textarea path="cTratamiento" cols="45" rows="5" /></td>
 					</tr>
 					<tr>
 						<td><form:label path="lSeguro">
 								<spring:message text="¿Tiene seguro?" />
 							</form:label></td>
-						<td>
-							<form:checkbox path="lSeguro" />
-						</td>
+						<td><form:checkbox path="lSeguro" /></td>
 					</tr>
 					<tr>
 						<td><form:label path="lFactura">
 								<spring:message text="¿Requiere factura?" />
 							</form:label></td>
-						<td><form:checkbox path="lFactura" onclick="factura();" id="lFactura" /></td>
+						<td><form:checkbox path="lFactura" onclick="factura();"
+								id="lFactura" /></td>
 					</tr>
 					<tr>
 						<td><form:label path="deDescuento">
-								<spring:message text="Descuento"/>
+								<spring:message text="Descuento" />
 							</form:label></td>
-						<td><form:input path="deDescuento" value="0" type="number" min="0" max="100"/> %
+						<td><form:input path="deDescuento" value="0" type="number"
+								min="0" max="100" /> %
 					</tr>
 					<tr>
 						<td><form:label path="cMotivoDesc">
-								<spring:message text="Motivo"/>
+								<spring:message text="Motivo" />
 							</form:label></td>
-						<td><form:textarea path="cMotivoDesc" cols="45" rows="5"/>
+						<td><form:textarea path="cMotivoDesc" cols="45" rows="5" />
 					<tr>
-
 				</table>
 			</fieldset>
 
@@ -426,66 +425,67 @@ th {
 					</tr>
 				</table>
 			</fieldset>
-			
-			<fieldset id="formFactura"><legend>Datos para facturacion</legend>					
+
+			<fieldset id="formFactura">
+				<legend>Datos para facturacion</legend>
 				<table>
-				<tr>
+					<tr>
 						<td><form:label path="cRfcFiscal">
-								<spring:message text="RFC"/>
+								<spring:message text="RFC" />
 							</form:label></td>
-						<td><form:input path="cRfcFiscal"/></td>
+						<td><form:input path="cRfcFiscal" /></td>
 					</tr>
 					<tr>
 						<td><form:label path="cNombreFiscal">
 								<spring:message text="Razon Social" />
 							</form:label></td>
-						<td><form:input path="cNombreFiscal" cssClass="textoLargo"/></td>							
+						<td><form:input path="cNombreFiscal" cssClass="textoLargo" /></td>
 					</tr>
 					<tr>
 						<td><form:label path="cCalleFiscal">
 								<spring:message text="Calle" />
 							</form:label></td>
-						<td><form:input path="cCalleFiscal" cssClass="textoLargo"/>
+						<td><form:input path="cCalleFiscal" cssClass="textoLargo" />
 					</tr>
 					<tr>
 						<td><form:label path="cNumeroFiscal">
-								<spring:message text="Numero Ext"/>
+								<spring:message text="Numero Ext" />
 							</form:label></td>
-						<td><form:input path="cNumeroFiscal"/></td>
+						<td><form:input path="cNumeroFiscal" /></td>
 					</tr>
 					<tr>
 						<td><form:label path="cNumeroIntFiscal">
-								<spring:message text="Numero Int"/>
+								<spring:message text="Numero Int" />
 							</form:label></td>
-						<td><form:input path="cNumeroIntFiscal"/></td>
+						<td><form:input path="cNumeroIntFiscal" /></td>
 					</tr>
 					<tr>
 						<td><form:label path="cCPFiscal">
-								<spring:message text="CP"/>
+								<spring:message text="CP" />
 							</form:label></td>
-						<td><form:input path="cCPFiscal"/>
-							<input type="button" name="AddLocalidadFac" value="Buscar Domicilio"
+						<td><form:input path="cCPFiscal" /> <input type="button"
+							name="AddLocalidadFac" value="Buscar Domicilio"
 							onclick="get_localidadFactura();" class="btnAdd"></td>
 					</tr>
 					<tr>
 						<td><form:label path="cColoniaFiscal">
-								<spring:message text="Colonia"/>
+								<spring:message text="Colonia" />
 							</form:label></td>
-						<td><form:input path="cColoniaFiscal" id="cColoniaFiscal"/></td>
+						<td><form:input path="cColoniaFiscal" id="cColoniaFiscal" /></td>
 					</tr>
 					<tr>
 						<td><form:label path="cMunicipioFiscal">
-								<spring:message text="Mpio/Deleg"/>
+								<spring:message text="Mpio/Deleg" />
 							</form:label></td>
-						<td><form:input path="cMunicipioFiscal" id="cMunicipioFiscal"/></td>
-					</tr>				
+						<td><form:input path="cMunicipioFiscal" id="cMunicipioFiscal" /></td>
+					</tr>
 					<tr>
 						<td><form:label path="cEstadoFiscal">
-								<spring:message text="Estado"/>
+								<spring:message text="Estado" />
 							</form:label></td>
-						<td><form:input path="cEstadoFiscal" id="cEstadoFiscal"/></td>
+						<td><form:input path="cEstadoFiscal" id="cEstadoFiscal" /></td>
 					</tr>
-					
+
 				</table>
 			</fieldset>
 
@@ -522,7 +522,8 @@ th {
 				<form:input type="hidden" path="cGrupo" disabled="false" />
 			</fieldset>
 
-			<button type="submit" class="botonAceptar" onclick="return validaCampos()">Registrar</button>
+			<button type="submit" class="botonAceptar"
+				onclick="return validaCampos()">Registrar</button>
 
 		</form:form>
 	</div>
