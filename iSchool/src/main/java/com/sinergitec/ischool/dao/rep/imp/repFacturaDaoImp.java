@@ -47,14 +47,18 @@ public class repFacturaDaoImp implements repFacturaDao{
 
 				ftFacturaAlumno obj = new ftFacturaAlumno();			
 				
-				obj.setiFolio((rs_tt_ftFactura.getInt("iFolio")));				
+				obj.setiFolio((rs_tt_ftFactura.getInt("iFolio")));
+				obj.setiSerie((rs_tt_ftFactura.getInt("iSerie")));
 				obj.setDtFecha((rs_tt_ftFactura.getTimestamp("dtFecha")));
+				obj.setlActivo((rs_tt_ftFactura.getBoolean("lActivo")));
 				obj.setDeSubtotal(rs_tt_ftFactura.getBigDecimal("deSubtotal"));
 				obj.setDeIVA(rs_tt_ftFactura.getBigDecimal("deIVA"));
 				obj.setDeTotal(rs_tt_ftFactura.getBigDecimal("deTotal"));
 				obj.setDeDescPorc((rs_tt_ftFactura.getBigDecimal("deDescPorc")));
 				obj.setDeDescMonto(rs_tt_ftFactura.getBigDecimal("deDescMonto"));
 				obj.setiIdAlumno((rs_tt_ftFactura.getInt("iIdAlumno")));
+				obj.setDtFechaCancel((rs_tt_ftFactura.getTimestamp("dtFechaCancel")));
+				obj.setDeSaldo((rs_tt_ftFactura.getBigDecimal("deSaldo")));
 				obj.setcNombre(rs_tt_ftFactura.getString("cNombre"));
 				obj.setcApellido(rs_tt_ftFactura.getString("cApellido"));
 				obj.setcSerie(rs_tt_ftFactura.getString("cSerie"));
