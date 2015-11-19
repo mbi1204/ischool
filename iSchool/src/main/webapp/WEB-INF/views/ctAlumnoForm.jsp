@@ -510,7 +510,7 @@ th {
 								<th>Horario</th>
 								<th>Precio</th>
 								<th>Descuento</th>
-								<th>Total</th>
+								<th>Total</th>							
 							</tr>
 						</thead>
 						<tbody></tbody>

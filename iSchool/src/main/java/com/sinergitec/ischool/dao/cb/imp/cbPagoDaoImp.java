@@ -1,6 +1,9 @@
 package com.sinergitec.ischool.dao.cb.imp;
 
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Vector;
 
@@ -57,6 +60,60 @@ public class cbPagoDaoImp implements cbPagoDao {
 
 		
 		return vcMensaje;
+	}
+
+	@Override
+	public List<cbPago> list_cbPagoReporte(String ipcCaso, GregorianCalendar ipdtFechaIni,
+			GregorianCalendar ipdtFechaFin, String ipcReferencia, String ipcConcepto)
+					throws Open4GLException, IOException {
+		// TODO Auto-generated method stub
+		
+		ResultSetHolder tt_cbPago = new ResultSetHolder();
+
+		StringHolder opcError = new StringHolder();
+		BooleanHolder oplError = new BooleanHolder();
+		List<cbPago> lista = new ArrayList<cbPago>();
+
+		Connection conexion = DBConexion.getConnection();
+		AppServer app = new AppServer(conexion);
+		
+		try {
+			app.as_cbPagoReporte(ipcCaso, ipdtFechaIni, ipdtFechaFin, ipcReferencia, ipcConcepto, tt_cbPago, oplError, opcError);
+			
+			ResultSet rs_tt_cbPago = tt_cbPago.getResultSetValue();
+			
+			while (rs_tt_cbPago.next()) {
+				cbPago obj = new cbPago();
+				obj.setiIdPago(rs_tt_cbPago.getInt("iIdPago"));
+				obj.setDeMontoPago(rs_tt_cbPago.getBigDecimal("deMontoPago"));
+				obj.setlEstado(rs_tt_cbPago.getBoolean("lEstado"));
+				obj.setcObs(rs_tt_cbPago.getString("cObs"));
+				obj.setDtFechaPago(rs_tt_cbPago.getTimestamp("dtFechaPago"));
+				obj.setDtFechaAplicacion(rs_tt_cbPago.getTimestamp("dtFechaAplicacion"));
+				obj.setDeMontoXAplicar(rs_tt_cbPago.getBigDecimal("deMontoXAplicar"));
+				obj.setiIdAlumno(rs_tt_cbPago.getInt("iIdAlumno"));
+				obj.setcReferencia(rs_tt_cbPago.getString("cReferencia"));
+				obj.setcConcepto(rs_tt_cbPago.getString("cConcepto"));
+				obj.setcDescripcion(rs_tt_cbPago.getString("cDescripcion"));
+				obj.setcSucursal(rs_tt_cbPago.getString("cSucursal"));
+				obj.setcCuenta(rs_tt_cbPago.getString("cCuenta"));
+				obj.setId(rs_tt_cbPago.getBytes("Id"));
+				
+				lista.add(obj);			
+				
+			}
+			
+			System.out.println(opcError.getStringValue());
+			
+		} catch (Exception e) {
+			System.out.print(e);
+			lista = null;
+		}finally{
+			app._release();
+			DBConexion.closeConnection(conexion);
+		}
+		
+		return lista;
 	}
 
 }

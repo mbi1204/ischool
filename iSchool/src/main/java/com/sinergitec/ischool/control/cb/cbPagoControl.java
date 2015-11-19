@@ -8,6 +8,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,11 +28,13 @@ import com.sinergitec.ischool.service.cb.cbPagosService;
  * Handles requests for the application file upload requests
  */
 @Controller
-public class FileUploadController {
+public class cbPagoControl {
 
-	private static final Logger logger = LoggerFactory.getLogger(FileUploadController.class);
+	private static final Logger logger = LoggerFactory.getLogger(cbPagoControl.class);
 	@Autowired
-	private cbPagosService cobPagoServ;
+	private cbPagosService cbPagoServ;
+	
+	List<cbPago> list;
 
 	/**
 	 * Upload single file using Spring Controller
@@ -120,7 +123,7 @@ public class FileUploadController {
 
 					}
 
-					vcMensaje = cobPagoServ.add_cbPagos(listPago);
+					vcMensaje = cbPagoServ.add_cbPagos(listPago);
 
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -178,4 +181,15 @@ public class FileUploadController {
 		}
 		return message;
 	}
+	
+	@RequestMapping(value = "/cbPagoReporte", headers = "Accept=application/json")
+	public @ResponseBody List<cbPago> list_repAlumnoGrupo(String ipcCaso, GregorianCalendar ipdtFechaIni, GregorianCalendar ipdtFechaFin, String ipcReferencia, String ipcConcepto) {
+		
+		list = this.cbPagoServ.list_cbPagoReporte(ipcCaso, ipdtFechaIni, ipdtFechaFin, ipcReferencia, ipcConcepto);	
+
+		return list;
+	}
+	
+	
+	
 }
