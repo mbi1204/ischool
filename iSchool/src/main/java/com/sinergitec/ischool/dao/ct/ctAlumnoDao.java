@@ -1,6 +1,7 @@
 package com.sinergitec.ischool.dao.ct;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 import com.progress.open4gl.Open4GLException;
@@ -17,4 +18,6 @@ public interface ctAlumnoDao {
 	public void update_ctAlumno(ctAlumno obj) throws Open4GLException, IOException;
 
 	public void remove_ctAlumno(int id) throws RunTime4GLException, SystemErrorException, Open4GLException, IOException;
+	
+	public ctAlumno get_ctAlumno(int id) throws RunTime4GLException, SystemErrorException, Open4GLException, IOException, SQLException;
 }

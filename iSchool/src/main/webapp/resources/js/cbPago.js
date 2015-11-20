@@ -14,12 +14,12 @@ function carga_reporte() {
 
 	$.ajax({
 		type : "GET",
-		url : "cbPagoReporte",
+		url : "cbPagoReporte/pagos",
 		dataType : "json",
 		contentType : "application/json; charset=utf-8",
 		data : {
 			
-			ipcCaso : ipcCaso,			
+			ipcCaso : vcCaso,			
 			ipdtFechaIni : vdtFechaIni,
 			ipdtFechaFin : vdtFechaFin,
 			ipcReferencia : vcReferencia,

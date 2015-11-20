@@ -3,6 +3,7 @@ package com.sinergitec.ischool.control.cb;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -21,7 +22,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.progress.open4gl.Open4GLException;
 import com.sinergitec.ischool.model.cb.cbPago;
+import com.sinergitec.ischool.model.ct.ctGrupo;
 import com.sinergitec.ischool.service.cb.cbPagosService;
 
 /**
@@ -182,8 +185,17 @@ public class cbPagoControl {
 		return message;
 	}
 	
-	@RequestMapping(value = "/cbPagoReporte", headers = "Accept=application/json")
+	@RequestMapping(value = "/cbPagoReporte", method = RequestMethod.GET)
+	public String grupo(Model model) throws Open4GLException, IOException {		
+		
+
+		return "cbPagoReporte";
+	}
+	
+	@RequestMapping(value = "/cbPagoReporte/pagos", headers = "Accept=application/json")
 	public @ResponseBody List<cbPago> list_repAlumnoGrupo(String ipcCaso, GregorianCalendar ipdtFechaIni, GregorianCalendar ipdtFechaFin, String ipcReferencia, String ipcConcepto) {
+		
+		System.out.print("en control");
 		
 		list = this.cbPagoServ.list_cbPagoReporte(ipcCaso, ipdtFechaIni, ipdtFechaFin, ipcReferencia, ipcConcepto);	
 

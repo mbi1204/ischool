@@ -43,6 +43,10 @@ td {
 		<%@ include file="repDetFactura.jsp"%>
 </div>
 
+<div id="Alumno_Dialog" style="display: none;">
+		<%@ include file="dialogoAlumno.jsp"%>
+</div>
+
 <%@ include file="/WEB-INF/views/templates/menu.jsp"%>
 	<div style="width: 95%; margin: 0 auto;">
 	<h1>Facturas</h1>		
@@ -75,6 +79,7 @@ td {
 				<th width="12%">IVA</th>
 				<th width="12%">Total</th>
 				<th width="12%">Por pagar</th>
+				<th width="12%"></th>
 				<th width="12%"></th>
 				<th width="48%"></th>
 			</tr>

@@ -1,6 +1,7 @@
 package com.sinergitec.ischool.control.ft;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,9 +13,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.progress.open4gl.Open4GLException;
+import com.progress.open4gl.RunTime4GLException;
+import com.progress.open4gl.SystemErrorException;
+import com.sinergitec.ischool.model.ct.ctAlumno;
 import com.sinergitec.ischool.model.ct.ctGrupo;
 import com.sinergitec.ischool.model.ft.ftDetFactura;
 import com.sinergitec.ischool.model.ft.ftFacturaAlumno;
+import com.sinergitec.ischool.service.ct.ctAlumnoService;
 import com.sinergitec.ischool.service.ct.ctGrupoService;
 import com.sinergitec.ischool.service.ft.repDetFacturaService;
 import com.sinergitec.ischool.service.ft.repFacturaService;
@@ -32,6 +37,10 @@ public class repFacturaControl {
 	
 	@Autowired
 	private ctGrupoService ctGrupoService;
+	
+	@Autowired
+	private ctAlumnoService alumnoService;
+	
 	
 	@RequestMapping(value = "/repFactura", method = RequestMethod.GET)
 	public String grupo(Model model) throws Open4GLException, IOException {
@@ -57,5 +66,14 @@ public class repFacturaControl {
 		lista = repDetService.list_ftDetFactura(iFolio, iSerie);
 		return lista;		
 	}
+	
+	@RequestMapping(value = "/repFactura/alumno", headers = "Accept=application/json")
+	public @ResponseBody ctAlumno get_alumno(int iAlumno) throws RunTime4GLException, SystemErrorException, Open4GLException, IOException, SQLException{
+		
+		ctAlumno obj = alumnoService.get_ctAlumno(iAlumno);			
+		return obj;		
+	}
+	
+	
 
 }

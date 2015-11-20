@@ -29,6 +29,8 @@ function carga_repAlumno(viIdGrupo) {
 						+ '<td>' + data[item].deIVA + '</td>'
 						+ '<td>' + data[item].deTotal + '</td>'
 						+ '<td>' + data[item].deSaldo + '</td>'
+						+ '<td>' + '<button class="pure-button pure-button-primary" id="editar" onclick="alumno_dialogo('+ data[item].iIdAlumno + ');"">'
+						+ 'Editar </button> </td>'
 						+ '<td>' + '<button class="pure-button pure-button-primary" onclick="get_detalle('+ data[item].iFolio + ', ' + data[item].iSerie + ');">'
 						+ 'Detalle </button> </td>'
 						+ '<td>' + '<button class="pure-button pure-button-primary" ">'
@@ -103,29 +105,113 @@ function get_detalle(viFolio, viSerie){
 	});
 }
 
-$(document).ready(
-		function() {
+$(document).ready(function() {	
 			
-			$('#Detalle_Dialog').dialog({
-
-				autoOpen : false,
-				position : 'center',
-				modal : true,
-				resizable : false,
-				width : 800,
-				buttons : {
-					"Cancel" : function() {
-						$(this).dialog('close');
-					}
-				},
-				close : function() {
-
+		$('#Detalle_Dialog').dialog({
+	
+			autoOpen : false,
+			position : 'center',
+			modal : true,
+			resizable : false,
+			width : 800,
+			buttons : {
+				"Cancel" : function() {
 					$(this).dialog('close');
 				}
-
-			});
-			
+			},
+			close : function() {
+	
+				$(this).dialog('close');
+			}
+	
 		});
+		
+		/* abre el dialgo del alumno*/
+		$('#Alumno_Dialog').dialog({			
+			
+			autoOpen : false,
+			position : 'center',
+			modal : true,
+			resizable : false,
+			width : 800,
+			buttons : {
+				"Cancel" : function() {
+					$(this).dialog('close');
+				}
+			},
+			close : function() {
+
+				$(this).dialog('close');
+			}
+			
+			
+
+		});	
+		
+		
+		
+			
+});
+
+function alumno_dialogo(ipiAlumno){
+	
+	$('#Alumno_Dialog').dialog("option", "title", 'Editar alumno');
+	$('#Alumno_Dialog').dialog('open');
+	
+	get_alumno(ipiAlumno);
+	
+}
+
+function get_alumno(ipiAlumno){
+
+	$.ajax({
+		type : "GET",
+		url : "repFactura/alumno",
+		dataType : "json",
+		contentType : "application/json; charset=utf-8",
+		data : {
+			iAlumno : ipiAlumno
+		},
+		success : function(data, textStatus, jqXHR) {
+			
+			$("#mytable> tbody").empty();
+			
+			for ( var item in data) {
+				$('#mytable > tbody').append(
+						'<tr>'
+						+ '<td>' + data[item].iIdAlumno + '</td>'  
+						+ '<td>' + data[item].cNombre + '</td>'
+						+ '<td>' + data[item].cApellido + '</td>'						
+						+ '<td>' + data[item].cSerie + '</td>'
+						+ '<td>' + data[item].iFolio + '</td>'
+						+ '<td>' + data[item].dtFecha + '</td>'
+						+ '<td>' + data[item].deDescPorc + '</td>'
+						+ '<td>' + data[item].deSubtotal + '</td>'
+						+ '<td>' + data[item].deDescMonto + '</td>'
+						+ '<td>' + data[item].deIVA + '</td>'
+						+ '<td>' + data[item].deTotal + '</td>'
+						+ '<td>' + data[item].deSaldo + '</td>'
+						+ '<td>' + '<button class="pure-button pure-button-primary" id="editar" onclick="alumno_dialogo('+ data[item].iIdAlumno + ');"">'
+						+ 'Editar </button> </td>'
+						+ '<td>' + '<button class="pure-button pure-button-primary" onclick="get_detalle('+ data[item].iFolio + ', ' + data[item].iSerie + ');">'
+						+ 'Detalle </button> </td>'
+						+ '<td>' + '<button class="pure-button pure-button-primary" ">'
+						+ 'CFDI </button> </td>'
+						+ '</tr>');
+
+			}
+
+
+			
+
+		},
+		error : function() {
+			alert("erro al ejecutar el BuscaMenu" + textStatus);
+		}
+
+	});
+	
+}
 		
 
 
