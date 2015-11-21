@@ -68,9 +68,10 @@ public class repFacturaControl {
 	}
 	
 	@RequestMapping(value = "/repFactura/alumno", headers = "Accept=application/json")
-	public @ResponseBody ctAlumno get_alumno(int iAlumno) throws RunTime4GLException, SystemErrorException, Open4GLException, IOException, SQLException{
+	public @ResponseBody ctAlumno get_alumno(int iAlumno) throws RunTime4GLException, SystemErrorException, Open4GLException, IOException, SQLException{		
 		
-		ctAlumno obj = alumnoService.get_ctAlumno(iAlumno);			
+		ctAlumno obj = alumnoService.get_ctAlumno(iAlumno);
+		System.out.println(obj.getcNombre());
 		return obj;		
 	}
 	

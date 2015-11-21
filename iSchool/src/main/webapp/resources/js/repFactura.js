@@ -163,6 +163,8 @@ function alumno_dialogo(ipiAlumno){
 }
 
 function get_alumno(ipiAlumno){
+	
+	alert(ipiAlumno);
 
 	$.ajax({
 		type : "GET",
@@ -172,37 +174,14 @@ function get_alumno(ipiAlumno){
 		data : {
 			iAlumno : ipiAlumno
 		},
-		success : function(data, textStatus, jqXHR) {
-			
-			$("#mytable> tbody").empty();
+		success : function(data, textStatus, jqXHR) {			
 			
 			for ( var item in data) {
-				$('#mytable > tbody').append(
-						'<tr>'
-						+ '<td>' + data[item].iIdAlumno + '</td>'  
-						+ '<td>' + data[item].cNombre + '</td>'
-						+ '<td>' + data[item].cApellido + '</td>'						
-						+ '<td>' + data[item].cSerie + '</td>'
-						+ '<td>' + data[item].iFolio + '</td>'
-						+ '<td>' + data[item].dtFecha + '</td>'
-						+ '<td>' + data[item].deDescPorc + '</td>'
-						+ '<td>' + data[item].deSubtotal + '</td>'
-						+ '<td>' + data[item].deDescMonto + '</td>'
-						+ '<td>' + data[item].deIVA + '</td>'
-						+ '<td>' + data[item].deTotal + '</td>'
-						+ '<td>' + data[item].deSaldo + '</td>'
-						+ '<td>' + '<button class="pure-button pure-button-primary" id="editar" onclick="alumno_dialogo('+ data[item].iIdAlumno + ');"">'
-						+ 'Editar </button> </td>'
-						+ '<td>' + '<button class="pure-button pure-button-primary" onclick="get_detalle('+ data[item].iFolio + ', ' + data[item].iSerie + ');">'
-						+ 'Detalle </button> </td>'
-						+ '<td>' + '<button class="pure-button pure-button-primary" ">'
-						+ 'CFDI </button> </td>'
-						+ '</tr>');
+				
+				alert(data[item].cNombre);
+							
 
-			}
-
-
-			
+			}		
 
 		},
 		error : function() {

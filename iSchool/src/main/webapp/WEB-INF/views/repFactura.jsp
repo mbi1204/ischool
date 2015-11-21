@@ -44,7 +44,7 @@ td {
 </div>
 
 <div id="Alumno_Dialog" style="display: none;">
-		<%@ include file="dialogoAlumno.jsp"%>
+		<%@ include file="ctAlumno_dialog.jsp"%>
 </div>
 
 <%@ include file="/WEB-INF/views/templates/menu.jsp"%>
