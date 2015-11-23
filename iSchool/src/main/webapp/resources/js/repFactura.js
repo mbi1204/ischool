@@ -153,13 +153,17 @@ $(document).ready(function() {
 			
 });
 
+
+
 function alumno_dialogo(ipiAlumno){
 	
-	$('#Alumno_Dialog').dialog("option", "title", 'Editar alumno');
-	$('#Alumno_Dialog').dialog('open');
-	
-	get_alumno(ipiAlumno);
-	
+	$.get("/repFactura/alumno/" + ipiAlumno, function(result) {
+		$("#ctAlumnoDialog").html(result);
+		$("#ctAlumnoDialog").dialog("option", "title", 'Editar Grupo');
+		$("#ctAlumnoDialog").dialog('open');
+
+		// initializeDatePicker();
+	});	
 }
 
 function get_alumno(ipiAlumno){

@@ -4,31 +4,20 @@
 
 <c:url var="actionUrl" value="/ctAlumno/editar" />
 
-<form:form id="Form_ctAlumno" commandName="ctAlumno" method="post"
+<form:form id="ctAlumnoDialog" commandName="ctAlumno" method="post"
 	action="${actionUrl}" class="pure-form pure-form-aligned">
-
-	<fieldset>
-		<legend></legend>
-
+	
+	<fieldset><legend></legend>
 		<table>
 			<tr>
 				<td><form:label path="iIdAlumno">
 						<spring:message text="ID" />
 					</form:label></td>
-				<td><form:input path="iIdAlumno"  readonly="true" /></td>
+				<td><form:input path="iIdAlumno"/></td>
 			</tr>
-			<tr>
-				<td><form:label path="cNombre">
-						<spring:message text="Alumno" />
-					</form:label></td>
-				<td><form:input path="cNombre" /></td>
-			</tr>
-
-			
-			
-
 		</table>
-
 	</fieldset>
+
+	
 	
 </form:form>
