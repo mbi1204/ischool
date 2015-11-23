@@ -151,7 +151,7 @@ function alumno_dialogo(ipiAlumno){
 	
 	alert(ipiAlumno);
 	
-	$.get("/repFactura/alumno/" + ipiAlumno, function(result) {
+	$.get("repFactura/alumno/" + ipiAlumno, function(result) {
 		$("#ctAlumnoDialog").html(result);
 		$("#ctAlumnoDialog").dialog("option", "title", 'Editar Alumno');
 		$("#ctAlumnoDialog").dialog('open');		
