@@ -183,7 +183,7 @@ public class ctAlumnoDaoImpl implements ctAlumnoDao {
 
 	@Override
 	public ctAlumno get_ctAlumno(int id)
-			throws RunTime4GLException, SystemErrorException, Open4GLException, IOException, SQLException {
+			throws RunTime4GLException, SystemErrorException, Open4GLException, IOException {
 		// TODO Auto-generated method stub
 		
 		BooleanHolder oplResultado = new BooleanHolder();

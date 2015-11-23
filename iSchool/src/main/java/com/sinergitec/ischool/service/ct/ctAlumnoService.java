@@ -15,6 +15,6 @@ public interface ctAlumnoService {
 
 	public AlumnoError add_ctAlumno(ctAlumno obj, List<ctGrupo> listaGrupo);
 	
-	public ctAlumno get_ctAlumno(int id)throws RunTime4GLException, SystemErrorException, Open4GLException, IOException, SQLException;
+	public ctAlumno get_ctAlumno(int id);
 
 }

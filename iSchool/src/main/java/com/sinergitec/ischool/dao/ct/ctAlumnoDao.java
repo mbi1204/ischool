@@ -19,5 +19,5 @@ public interface ctAlumnoDao {
 
 	public void remove_ctAlumno(int id) throws RunTime4GLException, SystemErrorException, Open4GLException, IOException;
 	
-	public ctAlumno get_ctAlumno(int id) throws RunTime4GLException, SystemErrorException, Open4GLException, IOException, SQLException;
+	public ctAlumno get_ctAlumno(int id) throws Open4GLException, IOException;
 }

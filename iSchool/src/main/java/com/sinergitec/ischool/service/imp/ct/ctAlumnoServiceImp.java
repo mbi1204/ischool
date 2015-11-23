@@ -41,11 +41,19 @@ public class ctAlumnoServiceImp implements ctAlumnoService {
 	}
 
 	@Override
-	public ctAlumno get_ctAlumno(int id) throws RunTime4GLException, SystemErrorException, Open4GLException, IOException, SQLException{
+	public ctAlumno get_ctAlumno(int id){
 		// TODO Auto-generated method stub
 		
 		ctAlumno obj = new ctAlumno();
-		obj = ctAlumnoDao.get_ctAlumno(id);
+		try {
+			obj = ctAlumnoDao.get_ctAlumno(id);
+		} catch (Open4GLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return obj;
 	}
 
