@@ -68,7 +68,7 @@ public class repFacturaControl {
 		return lista;		
 	}
 	
-	@RequestMapping(value = "/repFactura/alumno/{iAlumno}")
+	@RequestMapping(value = "/repFactura/alumno/{iAlumno}", method = RequestMethod.POST)
 	public String get_alumno(@PathVariable("iAlumno") int iAlumno, Model model) throws Open4GLException, IOException, SQLException{
 		
 		System.out.println("control");
