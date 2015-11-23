@@ -2,7 +2,6 @@ package com.sinergitec.ischool.dao.ct.imp;
 
 import java.io.IOException;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
@@ -181,7 +180,6 @@ public class ctAlumnoDaoImpl implements ctAlumnoDao {
 		}
 	}
 
-	@Override
 	public ctAlumno get_ctAlumno(int id)
 			throws RunTime4GLException, SystemErrorException, Open4GLException, IOException {
 		// TODO Auto-generated method stub
