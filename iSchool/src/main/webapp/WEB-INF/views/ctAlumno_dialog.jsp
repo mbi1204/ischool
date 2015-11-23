@@ -10,10 +10,7 @@
 	<fieldset><legend></legend>
 		<table>
 			<tr>
-				<td><form:label path="iIdAlumno">
-						<spring:message text="ID" />
-					</form:label></td>
-				<td><form:input path="iIdAlumno"/></td>
+				
 			</tr>
 		</table>
 	</fieldset>	

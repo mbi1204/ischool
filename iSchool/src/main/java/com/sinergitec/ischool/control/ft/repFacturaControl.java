@@ -68,10 +68,12 @@ public class repFacturaControl {
 		return lista;		
 	}
 	
-	@RequestMapping("/repFactura/alumno/{iAlumno}")
-	public String get_alumno(@PathVariable("iAlumno") int iAlumno, Model model) throws Open4GLException, IOException, SQLException{		
+	@RequestMapping(value = "/repFactura/alumno/{iAlumno}")
+	public String get_alumno(@PathVariable("iAlumno") int iAlumno, Model model) throws Open4GLException, IOException, SQLException{
 		
-		model.addAttribute("ctAlumno", this.ctAlumnoService.get_ctAlumno(iAlumno));
+		System.out.println("control");
+		
+		model.addAttribute("ctAlumno", this.ctAlumnoService.get_ctAlumno(iAlumno));		
 		return "ctAlumno_dialog";
 	}	
 

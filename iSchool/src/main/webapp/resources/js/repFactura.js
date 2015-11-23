@@ -143,23 +143,17 @@ $(document).ready(function() {
 
 				$(this).dialog('close');
 			}
-			
-			
-
-		});	
-		
-		
-		
-			
+		});				
 });
-
 
 
 function alumno_dialogo(ipiAlumno){
 	
+	alert(ipiAlumno);
+	
 	$.get("/repFactura/alumno/" + ipiAlumno, function(result) {
 		$("#ctAlumnoDialog").html(result);
-		$("#ctAlumnoDialog").dialog("option", "title", 'Editar Grupo');
+		$("#ctAlumnoDialog").dialog("option", "title", 'Editar Alumno');
 		$("#ctAlumnoDialog").dialog('open');		
 	});	
 }
