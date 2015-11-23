@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -39,7 +40,7 @@ public class repFacturaControl {
 	private ctGrupoService ctGrupoService;
 	
 	@Autowired
-	private ctAlumnoService alumnoService;
+	private ctAlumnoService ctAlumnoService;
 	
 	
 	@RequestMapping(value = "/repFactura", method = RequestMethod.GET)
@@ -67,13 +68,11 @@ public class repFacturaControl {
 		return lista;		
 	}
 	
-	@RequestMapping(value = "/repFactura/alumno/{id}", headers = "Accept=application/json")
-	public @ResponseBody ctAlumno get_alumno(int iAlumno) throws RunTime4GLException, SystemErrorException, Open4GLException, IOException, SQLException{		
+	@RequestMapping("/repFactura/alumno/{iAlumno}")
+	public String get_alumno(@PathVariable("iAlumno") int iAlumno, Model model) throws Open4GLException, IOException, SQLException{		
 		
-		ctAlumno obj = alumnoService.get_ctAlumno(iAlumno);		
-		return obj;		
-	}
-	
-	
+		model.addAttribute("ctAlumno", this.ctAlumnoService.get_ctAlumno(iAlumno));
+		return "ctAlumno_dialog";
+	}	
 
 }

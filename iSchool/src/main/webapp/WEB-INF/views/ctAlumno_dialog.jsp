@@ -16,8 +16,5 @@
 				<td><form:input path="iIdAlumno"/></td>
 			</tr>
 		</table>
-	</fieldset>
-
-	
-	
+	</fieldset>	
 </form:form>

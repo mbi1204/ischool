@@ -160,9 +160,7 @@ function alumno_dialogo(ipiAlumno){
 	$.get("/repFactura/alumno/" + ipiAlumno, function(result) {
 		$("#ctAlumnoDialog").html(result);
 		$("#ctAlumnoDialog").dialog("option", "title", 'Editar Grupo');
-		$("#ctAlumnoDialog").dialog('open');
-
-		// initializeDatePicker();
+		$("#ctAlumnoDialog").dialog('open');		
 	});	
 }
 
