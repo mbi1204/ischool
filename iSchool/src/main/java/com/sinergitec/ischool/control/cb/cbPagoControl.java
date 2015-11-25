@@ -195,8 +195,6 @@ public class cbPagoControl {
 	@RequestMapping(value = "/cbPagoReporte/pagos", headers = "Accept=application/json")
 	public @ResponseBody List<cbPago> list_repAlumnoGrupo(String ipcCaso, GregorianCalendar ipdtFechaIni, GregorianCalendar ipdtFechaFin, String ipcReferencia, String ipcConcepto) {
 		
-		System.out.print("en control");
-		
 		list = this.cbPagoServ.list_cbPagoReporte(ipcCaso, ipdtFechaIni, ipdtFechaFin, ipcReferencia, ipcConcepto);	
 
 		return list;

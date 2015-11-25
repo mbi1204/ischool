@@ -1,6 +1,6 @@
 function carga_reporte() {
 	
-	vcCaso = "Todos";
+	vcCaso = $('input:radio[name=caso]:checked').val();
 	
 	vdtFechaIni = null;
 	
@@ -37,6 +37,8 @@ function carga_reporte() {
 						+ '<td>' + data[item].iIdPago + '</td>'  
 						+ '<td>' + data[item].deMontoPago + '</td>'
 						+ '<td>' + data[item].dtFechaPago + '</td>'						
+						+ '<td>' + data[item].deMontoXAplicar + '</td>'
+						+ '<td>' + data[item].dtFechaAplicacion + '</td>'
 						+ '<td>' + data[item].cReferencia + '</td>'
 						+ '<td>' + data[item].cConcepto + '</td>'
 						+ '<td>' + data[item].lEstado + '</td>'							

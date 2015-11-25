@@ -16,12 +16,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.progress.open4gl.Open4GLException;
 import com.sinergitec.ischool.model.ct.ctAlumno;
 import com.sinergitec.ischool.model.ct.ctGrupo;
+import com.sinergitec.ischool.model.ct.ctLocalidad;
 import com.sinergitec.ischool.model.ft.ftDetFactura;
 import com.sinergitec.ischool.model.ft.ftFacturaAlumno;
 import com.sinergitec.ischool.service.ct.ctAlumnoService;
 import com.sinergitec.ischool.service.ct.ctGrupoService;
 import com.sinergitec.ischool.service.ft.repDetFacturaService;
 import com.sinergitec.ischool.service.ft.repFacturaService;
+import com.sinergitec.ischool.service.imp.ct.ctLocalidadServiceImp;
 
 @Controller
 public class repFacturaControl {
@@ -39,6 +41,9 @@ public class repFacturaControl {
 	
 	@Autowired
 	private ctAlumnoService ctAlumnoService;
+	
+	@Autowired
+	private ctLocalidadServiceImp localidadService;
 	
 	
 	@RequestMapping(value = "/repFactura", method = RequestMethod.GET)
@@ -85,6 +90,14 @@ public class repFacturaControl {
 		ctAlumnoService.update_ctAlumno(obj);
 		
 		return "redirect:/repFactura";
+	}
+	
+	@RequestMapping(value = "/repFactura/getLocalidad")
+	public @ResponseBody List<ctLocalidad> get_Localidad(String cCP) {
+		List<ctLocalidad> lista = new ArrayList<ctLocalidad>();
+		lista = this.localidadService.list_ctLocalidades(cCP);
+		return lista;
+
 	}
 
 }

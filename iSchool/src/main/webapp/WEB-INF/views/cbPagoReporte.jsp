@@ -46,7 +46,8 @@ td {
 
 	<c:url var="actionUrl" value="cbPagoReporte" />
 	
-	<input type="radio" value="Todos" checked/>Todos
+	<p/><input type="radio" name="caso" value="Todos" checked="checked"/>Todos
+	<p/><input type="radio" name="caso" value="NoIdentificados" />No identificados
 
 	<button type="button" onclick="carga_reporte();">Buscar</button>
 
@@ -55,7 +56,9 @@ td {
 			<tr>
 				<th width="4%">ID</th>
 				<th width="12%">Monto</th>
-				<th width="12%">Fecha de pago</th>				
+				<th width="12%">Fecha de pago</th>
+				<th width="12%">Monto x aplicar</th>
+				<th width="12%">Fecha de aplicacion</th>					
 				<th width="12%">Referencia</th>
 				<th width="12%">Concepto</th>				
 				<th width="12%">Estatus</th>								

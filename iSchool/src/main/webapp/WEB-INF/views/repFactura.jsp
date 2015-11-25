@@ -47,6 +47,11 @@ td {
 		<%@ include file="ctAlumno_dialog.jsp"%>
 </div>
 
+<div id=ctLocalidadesRepFact_Dialog style="display: none;">
+	<%@ include file="ctLocalidadesRepFact_Form.jsp"%>
+</div>
+
+
 <%@ include file="/WEB-INF/views/templates/menu.jsp"%>
 	<div style="width: 95%; margin: 0 auto;">
 	<h1>Facturas</h1>		

@@ -136,7 +136,8 @@ $(document).ready(function() {
 			width : 800,
 			buttons : {
 				"Guardar" : function() {
-					$('#ctAlumnoDialog').submit();
+					validaCampos();
+//					$('#ctAlumnoDialog').submit();
 				},
 				"Cancelar" : function() {
 					$(this).dialog('close');
@@ -145,8 +146,52 @@ $(document).ready(function() {
 			close : function() {
 
 				$(this).dialog('close');
+			},
+			open : function(){
+				cargaDialogo();
 			}
-		});				
+		});
+		
+		//dialogo de localidades
+		$('#ctLocalidadesRepFact_Dialog').dialog({
+			
+			autoOpen : false,
+			position : 'bottom',
+			modal : true,
+			resizable : false,
+			width : 800,
+			buttons : {
+				"Cancel" : function() {
+					$(this).dialog('close');
+				}
+			},
+			close : function() {
+	
+				$(this).dialog('close');
+			}
+	
+		});
+		
+		$('#tableLoc').on(
+				'dblclick',
+				'tr',
+				function() {
+					$(this).addClass('selected').siblings().removeClass(
+							'selected');
+					// var value = $(this).find('td:fisrt').html();
+
+					$('#ctAlumnoDialog input#cColoniaFiscal').val(
+							$(this).closest("tr").find(".cLocalidad")
+									.text());
+					$('#ctAlumnoDialog input#cMunicipioFiscal').val(
+							$(this).closest("tr").find(".cNomMunicipio")
+									.text());
+					$('#ctAlumnoDialog input#cEstadoFiscal').val(
+							$(this).closest("tr").find(".cNomEstado")
+									.text());
+					$("#ctLocalidadesRepFact_Dialog").dialog('close');
+
+				});
 });
 
 
@@ -163,10 +208,131 @@ function alumno_dialogo(ipiAlumno){
 	
 }
 
-function showFactura(){	
+function showFactura(){
 	
-	alert($('input:radio[id=cliente]:checked').val());
+	if(!$('input:radio[id=cliente]:checked').val()){
+		$('.factura').hide();		
+	}else{
+		$('.factura').show();
+	}
 	
+}
+
+function validaCampos(){
+	
+	if($('input:radio[id=cliente]:checked').val()){
+		
+		if($('#ctAlumnoDialog input#cRfcFiscal').val() == ""){
+			alert("Es necesario ingresar el RFC");
+			$('#ctAlumnoDialog input#cRfcFiscal').focus();
+			return false;
+			
+		}if($('#ctAlumnoDialog input#cNombreFiscal').val() == ""){
+			alert("Es necesario ingresar la razon social");
+			$('#ctAlumnoDialog input#cNombreFiscal').focus();
+			return false;
+			
+		}if($('#ctAlumnoDialog input#cCalleFiscal').val() == ""){
+			alert("Es necesario ingresar la calle");
+			$('#ctAlumnoDialog input#cCalleFiscal').focus();
+			return false;
+			
+		}if($('#ctAlumnoDialog input#cNumeroFiscal').val() == ""){
+			alert("Es necesario ingresar el numero exterior");
+			$('#ctAlumnoDialog input#cNumeroFiscal').focus();
+			return false;
+			
+		}if($('#ctAlumnoDialog input#cNumeroIntFiscal').val() == ""){
+			alert("Es necesario ingresar el numero interior");
+			$('#ctAlumnoDialog input#cNumeroIntFiscal').focus();
+			return false;
+			
+		}if($('#ctAlumnoDialog input#cCPFiscal').val() == ""){
+			alert("Es necesario ingresar el codigo postal");
+			$('#ctAlumnoDialog input#cCPFiscal').focus();
+			return false;
+			
+		}if($('#ctAlumnoDialog input#cColoniaFiscal').val() == ""){
+			alert("Es necesario ingresar la colonia");
+			$('#ctAlumnoDialog input#cColoniaFiscal').focus();
+			return false;
+			
+		}if($('#ctAlumnoDialog input#cMunicipioFiscal').val() == ""){
+			alert("Es necesario ingresar el municipio");
+			$('#ctAlumnoDialog input#cMunicipioFiscal').focus();
+			return false;
+			
+		}if($('#ctAlumnoDialog input#cEstadoFiscal').val() == ""){
+			alert("Es necesario ingresar el estado");
+			$('#ctAlumnoDialog input#cEstadoFiscal').focus();
+			return false;
+		}		
+	}
+
+	$('#ctAlumnoDialog').submit();
+}
+
+function cargaDialogo(){
+	
+	if(!$('input:radio[id=cliente]:checked').val()){
+		$('.factura').hide();		
+	}else{
+		$('.factura').show();
+	}
+	
+}
+
+function get_localidad() {
+	
+	vcCp = $('#ctAlumnoDialog input#cCPFiscal').val();
+
+	$.ajax({
+		type : "GET",
+		url : "repFactura/getLocalidad",
+		dataType : "json",
+		contentType : "application/json; charset=utf-8",
+		data : {
+			cCP : vcCp
+		},
+		success : function(data, textStatus, jqXHR) {
+
+			if (data.length == 1) {
+				for ( var item in data) {
+					$('#ctAlumnoDialog input#cColoniaFiscal').val(
+							data[item].cLocalidad);
+					$('#ctAlumnoDialog input#cMunicipioFiscal').val(
+							data[item].cNomMunicipio);
+					$('#ctAlumnoDialog input#cEstadoFiscal')
+							.val(data[item].cNomEstado);
+				}
+
+			} else if (data.length > 1) {
+
+				$("#tableLoc > tbody").empty();
+
+				for ( var item in data) {
+
+					$('#tableLoc > tbody').append(
+							'<tr>' + '<td class ="cLocalidad">'
+									+ data[item].cLocalidad + '</td>'
+									+ '<td class = "cNomMunicipio">'
+									+ data[item].cNomMunicipio + '</td>'
+									+ '<td class = "cNomEstado">'
+									+ data[item].cNomEstado + '</td>' + '<td>'
+									+ '</tr>');
+				}
+
+				$('#ctLocalidadesRepFact_Dialog').dialog("option", "title", 'Localidades (Doble clic Seleccionar)');
+				$('#ctLocalidadesRepFact_Dialog').dialog('open');
+			}
+
+		},
+		error : function() {
+			alert("erro al ejecutar el BuscaMenu" + textStatus);
+		}
+
+	});
+
 }
 
 
