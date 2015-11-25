@@ -1,21 +1,19 @@
 package com.sinergitec.ischool.control.ft;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.progress.open4gl.Open4GLException;
-import com.progress.open4gl.RunTime4GLException;
-import com.progress.open4gl.SystemErrorException;
 import com.sinergitec.ischool.model.ct.ctAlumno;
 import com.sinergitec.ischool.model.ct.ctGrupo;
 import com.sinergitec.ischool.model.ft.ftDetFactura;
@@ -48,6 +46,7 @@ public class repFacturaControl {
 
 		model.addAttribute("ctGrupo", new ctGrupo());
 		model.addAttribute("lista_ctGrupo", this.ctGrupoService.list_ctGrupo());
+		model.addAttribute("ctAlumno", new ctAlumno());		
 
 		return "repFactura";
 	}
@@ -68,13 +67,24 @@ public class repFacturaControl {
 		return lista;		
 	}
 	
-	@RequestMapping(value = "/repFactura/alumno/{iAlumno}", method = RequestMethod.POST)
-	public String get_alumno(@PathVariable("iAlumno") int iAlumno, Model model) throws Open4GLException, IOException, SQLException{
+	@RequestMapping(value = "/repFactura/alumno/{iAlumno}", method = RequestMethod.GET)
+	public String get_alumno(@PathVariable("iAlumno") int iAlumno, Model model) throws Open4GLException, IOException{		
 		
-		System.out.println("control");
+		ctAlumno obj = new ctAlumno();
+				
+		obj=this.ctAlumnoService.get_ctAlumno(iAlumno);	
 		
-		model.addAttribute("ctAlumno", this.ctAlumnoService.get_ctAlumno(iAlumno));		
+		model.addAttribute("ctAlumno", obj);
+		
 		return "ctAlumno_dialog";
-	}	
+	}
+	
+	@RequestMapping(value = "/repFactura/editar", method = RequestMethod.POST)
+	public String update_alumno(@ModelAttribute("ctAlumno") ctAlumno obj) throws Open4GLException, IOException{
+		
+		ctAlumnoService.update_ctAlumno(obj);
+		
+		return "redirect:/repFactura";
+	}
 
 }

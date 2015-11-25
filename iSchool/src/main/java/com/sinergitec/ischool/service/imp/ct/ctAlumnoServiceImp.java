@@ -54,4 +54,9 @@ public class ctAlumnoServiceImp implements ctAlumnoService {
 		return obj;
 	}
 
+	@Override
+	public void update_ctAlumno(ctAlumno obj) throws Open4GLException, IOException {
+		this.ctAlumnoDao.update_ctAlumno(obj);		
+	}
+
 }

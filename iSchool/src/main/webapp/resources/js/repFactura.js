@@ -127,7 +127,7 @@ $(document).ready(function() {
 		});
 		
 		/* abre el dialgo del alumno*/
-		$('#Alumno_Dialog').dialog({			
+		$('#ctAlumnoDialog').dialog({			
 			
 			autoOpen : false,
 			position : 'center',
@@ -135,7 +135,10 @@ $(document).ready(function() {
 			resizable : false,
 			width : 800,
 			buttons : {
-				"Cancel" : function() {
+				"Guardar" : function() {
+					$('#ctAlumnoDialog').submit();
+				},
+				"Cancelar" : function() {
 					$(this).dialog('close');
 				}
 			},
@@ -150,42 +153,23 @@ $(document).ready(function() {
 function alumno_dialogo(ipiAlumno){
 	
 	$.get("repFactura/alumno/" + ipiAlumno, function(result) {
+		
+		//alert (result);	
+		
 		$("#ctAlumnoDialog").html(result);
 		$("#ctAlumnoDialog").dialog("option", "title", 'Editar Alumno');
 		$("#ctAlumnoDialog").dialog('open');		
 	});	
-}
-
-function get_alumno(ipiAlumno){
-	
-	alert(ipiAlumno);
-
-	$.ajax({
-		type : "GET",
-		url : "repFactura/alumno",
-		dataType : "json",
-		contentType : "application/json; charset=utf-8",
-		data : {
-			iAlumno : ipiAlumno
-		},
-		success : function(data, textStatus, jqXHR) {			
-			
-			for ( var item in data) {
-				
-				alert(data[item].cNombre);
-							
-
-			}		
-
-		},
-		error : function() {
-			alert("erro al ejecutar el BuscaMenu" + textStatus);
-		}
-
-	});
 	
 }
-		
+
+function showFactura(){	
+	
+	alert($('input:radio[id=cliente]:checked').val());
+	
+}
+
+
 
 
 

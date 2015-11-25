@@ -203,7 +203,7 @@ public class ctAlumnoDaoImpl implements ctAlumnoDao {
 				
 				obj.setiIdAlumno(rs_tt_ctAlumno.getInt("iIdAlumno"));
 				obj.setcNombre(rs_tt_ctAlumno.getString("cNombre"));
-				obj.setcApellido(rs_tt_ctAlumno.getString("cApellido"));
+				obj.setcApellido(rs_tt_ctAlumno.getString("cApellido"));				
 				obj.setcNombreFiscal(rs_tt_ctAlumno.getString("cNombreFiscal"));
 				obj.setcCalleFiscal(rs_tt_ctAlumno.getString("cCalleFiscal"));
 				obj.setcNumeroFiscal(rs_tt_ctAlumno.getString("cNumeroFiscal"));
@@ -215,6 +215,7 @@ public class ctAlumnoDaoImpl implements ctAlumnoDao {
 				obj.setcEstadoFiscal(rs_tt_ctAlumno.getString("cEstadoFiscal"));
 				obj.setcRfcFiscal(rs_tt_ctAlumno.getString("cRFCFiscal"));
 				obj.setcEdad(rs_tt_ctAlumno.getString("cEdad"));
+				obj.setlFactura(rs_tt_ctAlumno.getBoolean("lFactura"));
 				obj.setId(rs_tt_ctAlumno.getBytes("Id"));
 			}		
 			
