@@ -32,16 +32,22 @@ function carga_reporte() {
 			$("#mytable> tbody").empty();
 			
 			for ( var item in data) {
+				
+				var estatus;
+				if(data[item].lEstado) estatus = "Si";
+				else estatus = "No";
+				
 				$('#mytable > tbody').append(
 						'<tr>'
-						+ '<td>' + data[item].iIdPago + '</td>'  
+						+ '<td>' + data[item].iIdPago + '</td>'
+						+ '<td>' + data[item].dtFechaPago + '</td>'
 						+ '<td>' + data[item].deMontoPago + '</td>'
-						+ '<td>' + data[item].dtFechaPago + '</td>'						
-						+ '<td>' + data[item].deMontoXAplicar + '</td>'
-						+ '<td>' + data[item].dtFechaAplicacion + '</td>'
 						+ '<td>' + data[item].cReferencia + '</td>'
 						+ '<td>' + data[item].cConcepto + '</td>'
-						+ '<td>' + data[item].lEstado + '</td>'							
+						+ '<td>' + data[item].dtFechaAplicacion + '</td>'
+						+ '<td>' + data[item].deMontoXAplicar + '</td>'						
+						+ '<td>' + data[item].cObs + '</td>'						
+						+ '<td>' + estatus + '</td>'							
 						+ '</tr>');
 
 			}

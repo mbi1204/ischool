@@ -55,13 +55,14 @@ td {
 		<thead>
 			<tr>
 				<th width="4%">ID</th>
-				<th width="12%">Monto</th>
 				<th width="12%">Fecha de pago</th>
-				<th width="12%">Monto x aplicar</th>
-				<th width="12%">Fecha de aplicacion</th>					
+				<th width="12%">Monto</th>
 				<th width="12%">Referencia</th>
-				<th width="12%">Concepto</th>				
-				<th width="12%">Estatus</th>								
+				<th width="12%">Concepto</th>
+				<th width="12%">Fecha de aplicacion</th>
+				<th width="12%">Monto x aplicar</th>				
+				<th width="12%">Observaciones</th>								
+				<th width="12%">Activo?</th>								
 				<th width="12%"></th>
 				<th width="48%"></th>
 			</tr>
