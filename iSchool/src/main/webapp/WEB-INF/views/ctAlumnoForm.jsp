@@ -245,7 +245,7 @@ th {
 		<form:form action="${addAction}" method="POST" commandName="ctAlumno"
 			id="Form_ctAlumno">
 			<fieldset>
-				<legend>Datos del alumno</legend>
+				<legend>Datos del Alumno</legend>
 				<table border="0">
 					<tr>
 						<td><form:label path="cNombre">
@@ -275,30 +275,18 @@ th {
 					</tr>
 					<tr>
 						<td><form:label path="cTelEmergencia">
-<<<<<<< HEAD
-<<<<<<< HEAD
-								<spring:message text="Telefono de emergencias" />
-=======
 								<spring:message text="Telefono de emergencia" />
->>>>>>> branch 'master' of https://github.com/mbi1204/ischool.git
-=======
-								<spring:message text="Telefono de emergencia" />
->>>>>>> branch 'master' of https://github.com/mbi1204/ischool.git
 							</form:label>
 						<td><form:input path="cTelEmergencia" />
 					</tr>
 					<tr>
 						<td><form:label path="cCorreo">
 								<spring:message text="Correo" />
-							</form:label></td> <<<<<<< HEAD <<<<<<< HEAD
-						<td><form:input path="cCorreo" /></td>
-					</tr>
-					======= ======= >>>>>>> branch 'master' of
-					https://github.com/mbi1204/ischool.git
-					<td><form:input path="cCorreo" cssClass="textoLargo" /></td>
-					</tr>
-					>>>>>>> branch 'master' of https://github.com/mbi1204/ischool.git
+							</form:label></td>
+						<td><form:input path="cCorreo" cssClass="textoLargo" /></td>
 					<tr>
+					
+
 						<td><form:label path="cGenero">
 								<spring:message text="Sexo"></spring:message>
 							</form:label></td>
@@ -385,8 +373,7 @@ th {
 								<spring:message text="Procedencia del descuento" />
 							</form:label></td>
 						<td><form:textarea path="cMotivoDesc" cols="45" rows="5" />
-							</p>
-							<strong>El descuento será sometido a una comprobación</strong> </td>
+							</p> <strong>El descuento será sometido a una comprobación</strong></td>
 					<tr>
 					<tr>
 				</table>
@@ -420,7 +407,7 @@ th {
 								<spring:message text="CP" />
 							</form:label></td>
 						<td><form:input path="cCP" /> <!--  <a href="#" onclick="get_localidad();"  class="btnAdd"> Buscar</a>-->
-							<input type="button" name="AddLocalidad" value="Buscar Domicilio"
+							<input type="button" name="AddLocalidad" value="Buscar Localidad"
 							onclick="get_localidad();" class="btnAdd"></td>
 					</tr>
 					<tr>
@@ -482,7 +469,7 @@ th {
 								<spring:message text="CP" />
 							</form:label></td>
 						<td><form:input path="cCPFiscal" /> <input type="button"
-							name="AddLocalidadFac" value="Buscar Domicilio"
+							name="AddLocalidadFac" value="Buscar Localidad"
 							onclick="get_localidadFactura();" class="btnAdd"></td>
 					</tr>
 					<tr>
