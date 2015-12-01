@@ -245,25 +245,25 @@ th {
 		<form:form action="${addAction}" method="POST" commandName="ctAlumno"
 			id="Form_ctAlumno">
 			<fieldset>
-				<legend>Datos Personales</legend>
+				<legend>Datos del alumno</legend>
 				<table border="0">
 					<tr>
 						<td><form:label path="cNombre">
-								<spring:message text="Nombre" />
+								<spring:message text="Nombre *" />
 							</form:label></td>
 						<td><form:input path="cNombre" cssClass="textoLargo" /></td>
 					</tr>
 					<tr>
 
 						<td><form:label path="cApellido">
-								<spring:message text="Apellidos" />
+								<spring:message text="Apellidos *" />
 							</form:label></td>
 						<td><form:input path="cApellido" cssClass="textoLargo" /></td>
 					</tr>
 
 					<tr>
 						<td><form:label path="cEdad">
-								<spring:message text="Edad" />
+								<spring:message text="Edad *" />
 							</form:label></td>
 						<td><form:input path="cEdad" type="number" min="0" /></td>
 					</tr>
@@ -275,7 +275,11 @@ th {
 					</tr>
 					<tr>
 						<td><form:label path="cTelEmergencia">
+<<<<<<< HEAD
 								<spring:message text="Telefono de emergencias" />
+=======
+								<spring:message text="Telefono de emergencia"/>
+>>>>>>> branch 'master' of https://github.com/mbi1204/ischool.git
 							</form:label>
 						<td><form:input path="cTelEmergencia" />
 					</tr>
@@ -283,8 +287,13 @@ th {
 						<td><form:label path="cCorreo">
 								<spring:message text="Correo" />
 							</form:label></td>
+<<<<<<< HEAD
 						<td><form:input path="cCorreo" /></td>
 					</tr>
+=======
+						<td><form:input path="cCorreo" cssClass="textoLargo" /></td>
+					</tr>					
+>>>>>>> branch 'master' of https://github.com/mbi1204/ischool.git
 					<tr>
 						<td><form:label path="cGenero">
 								<spring:message text="Sexo"></spring:message>
@@ -308,7 +317,7 @@ th {
 					</tr>
 					<tr>
 						<td><form:label path="lMedicamento">
-								<spring:message text="¿Usa Medicamento controlado?" />
+								<spring:message text="¿Usa medicamento controlado?" />
 							</form:label></td>
 						<td><form:checkbox path="lMedicamento" id="checkMedicamento"
 								onclick="showMedicamento();" /></td>
@@ -359,17 +368,23 @@ th {
 								id="lFactura" /></td>
 					</tr>
 					<tr>
-						<td><form:label path="deDescuento">
-								<spring:message text="Descuento" />
+						<td><form:label path="deDescuento" title="El descuento será sometido a una comprobación">
+								<spring:message text="Descuento"/>
+
 							</form:label></td>
-						<td><form:input path="deDescuento" value="0" type="number"
-								min="0" max="100" /> %
+						<td><form:input path="deDescuento" value="0" type="number" min="0" max="50"/> %
+
 					</tr>
 					<tr>
-						<td><form:label path="cMotivoDesc">
-								<spring:message text="Motivo" />
+						<td><form:label path="cMotivoDesc" >
+								<spring:message text="Procedencia del descuento"/>
+
 							</form:label></td>
-						<td><form:textarea path="cMotivoDesc" cols="45" rows="5" />
+
+
+
+						<td><form:textarea path="cMotivoDesc" cols="45" rows="5" /></p><strong>El descuento será sometido a una comprobación</strong>
+
 					<tr>
 				</table>
 			</fieldset>
@@ -490,7 +505,7 @@ th {
 			</fieldset>
 
 			<fieldset>
-				<legend>Grupos Disponibles</legend>
+				<legend>Grupos disponibles</legend>
 
 				<form:label path="grupo.iIdGrupo">
 					<spring:message text="Seleccione Grupo " />
@@ -512,7 +527,7 @@ th {
 								<th>Horario</th>
 								<th>Precio</th>
 								<th>Descuento</th>
-								<th>Total</th>
+								<th>Total</th>							
 							</tr>
 						</thead>
 						<tbody></tbody>

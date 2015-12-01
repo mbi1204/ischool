@@ -39,52 +39,30 @@ td {
 </head>
 <body onload="carga();">
 
-<div id="Detalle_Dialog" style="display: none;">
-		<%@ include file="repDetFactura.jsp"%>
-</div>
-
-<div id="Alumno_Dialog" style="display: none;">
-		<%@ include file="ctAlumno_dialog.jsp"%>
-</div>
-
-<div id=ctLocalidadesRepFact_Dialog style="display: none;">
-	<%@ include file="ctLocalidadesRepFact_Form.jsp"%>
-</div>
-
 
 <%@ include file="/WEB-INF/views/templates/menu.jsp"%>
 	<div style="width: 95%; margin: 0 auto;">
-	<h1>Facturas</h1>		
+	<h1>Pagos</h1>		
 
-	<c:url var="actionUrl" value="repFactura" />
+	<c:url var="actionUrl" value="cbPagoReporte" />
+	
+	<p/><input type="radio" name="caso" value="Todos" checked="checked"/>Todos
+	<p/><input type="radio" name="caso" value="NoIdentificados" />No identificados
 
-	<form:form id="Form_ctGrupo" commandName="ctGrupo" method="post"  
-		action="${actionUrl}"  class="pure-form pure-form-aligned">
-
-		<form:label path="cNombre">
-			<spring:message text="Grupo" />
-		</form:label>
-		<form:select path="cNombre" items="${lista_ctGrupo}" 
-			itemValue="iIdGrupo" itemLabel="cNombre"
-			onchange="carga_repAlumno(value);" />		
-	</form:form>	
+	<button type="button" onclick="carga_reporte();">Buscar</button>
 
 	<table id="mytable" class="pure-table pure-table-bordered  ">
 		<thead>
 			<tr>
 				<th width="4%">ID</th>
-				<th width="12%">Nombre</th>
-				<th width="12%">Apellido</th>				
-				<th width="12%">Serie</th>
-				<th width="12%">Folio</th>				
-				<th width="12%">Fecha de creacion</th>
-				<th width="12%">% Desc</th>
-				<th width="12%">Subtotal</th>
-				<th width="12%">Descuento</th>
-				<th width="12%">IVA</th>
-				<th width="12%">Total</th>
-				<th width="12%">Por pagar</th>
-				<th width="12%"></th>
+				<th width="12%">Fecha de pago</th>
+				<th width="12%">Monto</th>
+				<th width="12%">Referencia</th>
+				<th width="12%">Concepto</th>
+				<th width="12%">Fecha de aplicacion</th>
+				<th width="12%">Monto x aplicar</th>				
+				<th width="12%">Observaciones</th>								
+				<th width="12%">Activo?</th>								
 				<th width="12%"></th>
 				<th width="48%"></th>
 			</tr>
@@ -107,7 +85,7 @@ td {
 
 
 	<script type="text/javascript"
-		src='<c:url value="/resources/js/repFactura.js"/>'></script>
+		src='<c:url value="/resources/js/cbPago.js"/>'></script>
 
 </body>
 </html>

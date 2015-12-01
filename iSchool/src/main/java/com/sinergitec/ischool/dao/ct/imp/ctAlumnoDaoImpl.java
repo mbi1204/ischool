@@ -179,4 +179,53 @@ public class ctAlumnoDaoImpl implements ctAlumnoDao {
 			DBConexion.closeConnection(conexion);
 		}
 	}
+
+	public ctAlumno get_ctAlumno(int id)
+			throws RunTime4GLException, SystemErrorException, Open4GLException, IOException {
+		// TODO Auto-generated method stub
+		
+		BooleanHolder oplResultado = new BooleanHolder();
+		StringHolder opcTexto = new StringHolder();
+		
+		Connection conexion = DBConexion.getConnection();
+		AppServer app = new AppServer(conexion);
+		
+		ResultSetHolder tt_ctAlumno = new ResultSetHolder();
+		ctAlumno obj = new ctAlumno();
+		
+		try {
+			
+			app.as_ctAlumno_get("SISIMB", id, tt_ctAlumno, oplResultado, opcTexto);
+			
+			ResultSet rs_tt_ctAlumno = tt_ctAlumno.getResultSetValue();
+			
+			while(rs_tt_ctAlumno.next()){
+				
+				obj.setiIdAlumno(rs_tt_ctAlumno.getInt("iIdAlumno"));
+				obj.setcNombre(rs_tt_ctAlumno.getString("cNombre"));
+				obj.setcApellido(rs_tt_ctAlumno.getString("cApellido"));				
+				obj.setcNombreFiscal(rs_tt_ctAlumno.getString("cNombreFiscal"));
+				obj.setcCalleFiscal(rs_tt_ctAlumno.getString("cCalleFiscal"));
+				obj.setcNumeroFiscal(rs_tt_ctAlumno.getString("cNumeroFiscal"));
+				obj.setcNumeroIntFiscal(rs_tt_ctAlumno.getString("cNumeroIntFiscal"));
+				obj.setcColoniaFiscal(rs_tt_ctAlumno.getString("cColoniaFiscal"));
+				obj.setcMunicipioFiscal(rs_tt_ctAlumno.getString("cMunicipioFiscal"));
+				obj.setcCPFiscal(rs_tt_ctAlumno.getString("cCPFiscal"));
+				obj.setcCiudadFiscal(rs_tt_ctAlumno.getString("cCiudadFiscal"));
+				obj.setcEstadoFiscal(rs_tt_ctAlumno.getString("cEstadoFiscal"));
+				obj.setcRfcFiscal(rs_tt_ctAlumno.getString("cRFCFiscal"));
+				obj.setcEdad(rs_tt_ctAlumno.getString("cEdad"));
+				obj.setlFactura(rs_tt_ctAlumno.getBoolean("lFactura"));
+				obj.setId(rs_tt_ctAlumno.getBytes("Id"));
+			}		
+			
+		} catch (Exception e) {
+			System.err.println(e);
+		} finally {
+			app._release();
+			DBConexion.closeConnection(conexion);
+		}
+		
+		return obj;
+	}
 }

@@ -141,6 +141,11 @@ var generaJson = function() {
 
 	});
 	var sJson = JSON.stringify(dataArray);
+	if (sJson == "" || sJson == "[]") {
+		$('#Form_ctAlumno input#deDescuento').prop('readonly', false);		
+	}else{
+		$('#Form_ctAlumno input#deDescuento').prop('readonly', true);
+	}
 	$("#cGrupo").val(sJson);
 
 };

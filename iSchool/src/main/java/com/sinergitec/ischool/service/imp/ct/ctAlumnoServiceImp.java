@@ -37,4 +37,26 @@ public class ctAlumnoServiceImp implements ctAlumnoService {
 		return alumnoError;
 	}
 
+	@Override
+	public ctAlumno get_ctAlumno(int id){
+		// TODO Auto-generated method stub
+		
+		ctAlumno obj = new ctAlumno();
+		try {
+			obj = ctAlumnoDao.get_ctAlumno(id);
+		} catch (Open4GLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return obj;
+	}
+
+	@Override
+	public void update_ctAlumno(ctAlumno obj) throws Open4GLException, IOException {
+		this.ctAlumnoDao.update_ctAlumno(obj);		
+	}
+
 }
