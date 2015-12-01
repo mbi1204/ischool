@@ -381,8 +381,6 @@ th {
 
 							</form:label></td>
 
-
-
 						<td><form:textarea path="cMotivoDesc" cols="45" rows="5" /></p><strong>El descuento será sometido a una comprobación</strong>
 
 					<tr>
