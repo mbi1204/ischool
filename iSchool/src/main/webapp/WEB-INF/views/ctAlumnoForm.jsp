@@ -219,10 +219,10 @@ th {
 	src='<c:url value="/resources/js/ctAlumno.js"/>'></script>
 </head>
 
-<body  onload="carga();">
+<body onload="carga();">
 
 
-  
+
 
 	<div id="Localidades_Dialog" style="display: none;">
 		<%@ include file="ctLocalidades_Form.jsp"%>
@@ -231,12 +231,12 @@ th {
 	<div id="LocalidadesFac_Dialog" style="display: none;">
 		<%@ include file="ctLocalidadesFactura_Form.jsp"%>
 	</div>
-	
-	
+
+
 
 
 	<div class="contenedor">
-	
+
 
 		<header> </header>
 
@@ -276,9 +276,13 @@ th {
 					<tr>
 						<td><form:label path="cTelEmergencia">
 <<<<<<< HEAD
+<<<<<<< HEAD
 								<spring:message text="Telefono de emergencias" />
 =======
-								<spring:message text="Telefono de emergencia"/>
+								<spring:message text="Telefono de emergencia" />
+>>>>>>> branch 'master' of https://github.com/mbi1204/ischool.git
+=======
+								<spring:message text="Telefono de emergencia" />
 >>>>>>> branch 'master' of https://github.com/mbi1204/ischool.git
 							</form:label>
 						<td><form:input path="cTelEmergencia" />
@@ -286,14 +290,14 @@ th {
 					<tr>
 						<td><form:label path="cCorreo">
 								<spring:message text="Correo" />
-							</form:label></td>
-<<<<<<< HEAD
+							</form:label></td> <<<<<<< HEAD <<<<<<< HEAD
 						<td><form:input path="cCorreo" /></td>
 					</tr>
-=======
-						<td><form:input path="cCorreo" cssClass="textoLargo" /></td>
-					</tr>					
->>>>>>> branch 'master' of https://github.com/mbi1204/ischool.git
+					======= ======= >>>>>>> branch 'master' of
+					https://github.com/mbi1204/ischool.git
+					<td><form:input path="cCorreo" cssClass="textoLargo" /></td>
+					</tr>
+					>>>>>>> branch 'master' of https://github.com/mbi1204/ischool.git
 					<tr>
 						<td><form:label path="cGenero">
 								<spring:message text="Sexo"></spring:message>
@@ -368,21 +372,22 @@ th {
 								id="lFactura" /></td>
 					</tr>
 					<tr>
-						<td><form:label path="deDescuento" title="El descuento será sometido a una comprobación">
-								<spring:message text="Descuento"/>
+						<td><form:label path="deDescuento"
+								title="El descuento será sometido a una comprobación">
+								<spring:message text="Descuento" />
 
 							</form:label></td>
-						<td><form:input path="deDescuento" value="0" type="number" min="0" max="50"/> %
-
+						<td><form:input path="deDescuento" value="0" type="number"
+								min="0" max="50" /> %
 					</tr>
 					<tr>
-						<td><form:label path="cMotivoDesc" >
-								<spring:message text="Procedencia del descuento"/>
-
+						<td><form:label path="cMotivoDesc">
+								<spring:message text="Procedencia del descuento" />
 							</form:label></td>
-
-						<td><form:textarea path="cMotivoDesc" cols="45" rows="5" /></p><strong>El descuento será sometido a una comprobación</strong>
-
+						<td><form:textarea path="cMotivoDesc" cols="45" rows="5" />
+							</p>
+							<strong>El descuento será sometido a una comprobación</strong> </td>
+					<tr>
 					<tr>
 				</table>
 			</fieldset>
@@ -525,7 +530,7 @@ th {
 								<th>Horario</th>
 								<th>Precio</th>
 								<th>Descuento</th>
-								<th>Total</th>							
+								<th>Total</th>
 							</tr>
 						</thead>
 						<tbody></tbody>
