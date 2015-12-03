@@ -14,7 +14,8 @@ function carga_repAlumno(viIdGrupo) {
 			
 			$("#mytable> tbody").empty();
 			
-			for ( var item in data) {
+			for ( var item in data) {			
+				
 				$('#mytable > tbody').append(
 						'<tr>'
 						+ '<td>' + data[item].iIdAlumno + '</td>'  
@@ -33,8 +34,15 @@ function carga_repAlumno(viIdGrupo) {
 						+ 'Editar </button> </td>'
 						+ '<td>' + '<button class="pure-button pure-button-primary" onclick="get_detalle('+ data[item].iFolio + ', ' + data[item].iSerie + ');">'
 						+ 'Detalle </button> </td>'
-						+ '<td>' + '<button class="pure-button pure-button-primary" ">'
+						+ '<td>' + '<button class="pure-button pure-button-primary" onclick="get_GeneraCFDI('+ data[item].iFolio + ', ' + data[item].iSerie + ');">'
 						+ 'CFDI </button> </td>'
+						+ '<td>' + '<a class="pure-button pure-button-primary" href= "GeneraCfdi/getPDF/' +  data[item].iFolio  + '&' +   data[item].iSerie + '" >'
+						+ '<i class="fa fa-times"></i>PDF'
+						+ '</a> </td>'
+						+ '<td>' + '<a class="pure-button pure-button-primary" href= "GeneraCfdi/getXML/' +  data[item].iFolio  + '&' +   data[item].iSerie + '" >'
+						+ '<i class="fa fa-times"></i>XML'
+						+ '</a> </td>'
+						
 						+ '</tr>');
 
 			}
@@ -104,6 +112,76 @@ function get_detalle(viFolio, viSerie){
 
 	});
 }
+
+
+function get_GeneraCFDI(viFolio, viSerie){
+	
+	$.ajax({
+		type : "GET",
+		url : "GeneraCfdi/add",	
+		data : {
+			viFolio : viFolio,
+			viSerie : viSerie
+		},
+		success : function(reponse) {
+			alert(reponse );	
+			
+
+		},
+		error : function(xhr, status, error) {
+			alert(xhr.responseText);
+		}
+
+	});
+	
+}
+
+
+function get_PDF(viFolio, viSerie){
+	$.ajax({
+		type : "GET",
+		url : "GeneraCfdi/getPDF",	
+		data : {
+			viFolio : viFolio,
+			viSerie : viSerie
+		},
+		success : function(response) {
+		/*	alert(response );*/
+			
+			 var blob=new Blob([response]);
+			    var link=document.createElement('a');
+			    link.href=window.URL.createObjectURL(blob);
+			    link.download="output.pdf";
+			    link.click();
+		},
+		error : function(xhr, status, error) {
+			alert(xhr.responseText);
+		}
+
+	});
+	
+}
+
+function get_XML(viFolio, viSerie){
+	$.ajax({
+		type : "POST",
+		url : "GeneraCfdi/getXML",	
+		data : {
+			viFolio : viFolio,
+			viSerie : viSerie
+		},
+		success : function(reponse) {
+			alert(reponse );	
+
+		},
+		error : function(xhr, status, error) {
+			alert(xhr.responseText);
+		}
+
+	});
+	
+}
+
 
 $(document).ready(function() {	
 			

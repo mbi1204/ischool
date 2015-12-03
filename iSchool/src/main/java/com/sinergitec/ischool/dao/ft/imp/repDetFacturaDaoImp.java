@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
 import com.progress.AppServer.AppServer;
 import com.progress.open4gl.BooleanHolder;
@@ -20,7 +20,7 @@ import com.sinergitec.ischool.dao.ft.repDetFacturaDao;
 import com.sinergitec.ischool.model.ft.ftDetFactura;
 import com.sinergitec.ischool.util.DBConexion;
 
-@Service
+@Repository
 public class repDetFacturaDaoImp implements repDetFacturaDao {
 
 	@Override
