@@ -44,6 +44,10 @@ public class GeneraCfdiControl {
 		obj = service.getCFDI(viSerie, viFolio, "pdf");
 		
 		byte[] contents = obj.getPDF();
+		
+//		if(contents == null){
+//			return null;
+//		}
 
 	    HttpHeaders headers = new HttpHeaders();
 	    headers.setContentType(MediaType.parseMediaType("application/pdf"));

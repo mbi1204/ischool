@@ -34,13 +34,11 @@ function carga_repAlumno(viIdGrupo) {
 						+ 'Editar </button> </td>'
 						+ '<td>' + '<button class="pure-button pure-button-primary" onclick="get_detalle('+ data[item].iFolio + ', ' + data[item].iSerie + ');">'
 						+ 'Detalle </button> </td>'
-						+ '<td>' + '<button class="pure-button pure-button-primary" onclick="get_GeneraCFDI('+ data[item].iFolio + ', ' + data[item].iSerie + ');">'
+						+ '<td>' + '<button class="pure-button pure-button-primary" onclick="get_GeneraCFDI('+ data[item].iFolio + ', ' + data[item].iSerie + ', ' + data[item].deSaldo + ');">'
 						+ 'CFDI </button> </td>'
-						+ '<td>' + '<a class="pure-button pure-button-primary" href= "GeneraCfdi/getPDF/' +  data[item].iFolio  + '&' +   data[item].iSerie + '" >'
-						+ '<i class="fa fa-times"></i>PDF'
+						+ '<td>' + '<a class="pure-button pure-button-primary" href= "GeneraCfdi/getPDF/' +  data[item].iFolio  + '&' +   data[item].iSerie + '" >'	+ 'PDF'
 						+ '</a> </td>'
-						+ '<td>' + '<a class="pure-button pure-button-primary" href= "GeneraCfdi/getXML/' +  data[item].iFolio  + '&' +   data[item].iSerie + '" >'
-						+ '<i class="fa fa-times"></i>XML'
+						+ '<td>' + '<a class="pure-button pure-button-primary" href= "GeneraCfdi/getXML/' +  data[item].iFolio  + '&' +   data[item].iSerie + '" >'	+ 'XML'
 						+ '</a> </td>'
 						
 						+ '</tr>');
@@ -114,7 +112,19 @@ function get_detalle(viFolio, viSerie){
 }
 
 
-function get_GeneraCFDI(viFolio, viSerie){
+function get_GeneraCFDI(viFolio, viSerie, vdeSaldo){
+	
+	var opcion = confirm("Desea generar el CFDI?");
+	
+	if(!opcion)return;
+	
+	if(vdeSaldo !== 0){
+		alert("El CFDI no se puede generar mientras tenga saldo existente");
+		return;		
+	}
+	
+	
+	
 	
 	$.ajax({
 		type : "GET",

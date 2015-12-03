@@ -144,6 +144,7 @@ public class ctAlumnoDaoImpl implements ctAlumnoDao {
 		vecTabla1 = new Vector();
 
 		for (ctAlumno obj : Lista_Update) {
+			obj.setcRfcFiscal(obj.getcRfcFiscal().toUpperCase());
 			vecRow1 = obj.getVectorDatos();
 			vecTabla1.add(vecRow1);
 		}
