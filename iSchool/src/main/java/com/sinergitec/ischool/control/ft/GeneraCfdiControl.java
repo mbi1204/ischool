@@ -45,6 +45,7 @@ public class GeneraCfdiControl {
 		
 		byte[] contents = obj.getPDF();
 
+
 	    HttpHeaders headers = new HttpHeaders();
 	    headers.setContentType(MediaType.parseMediaType("application/pdf"));
 	    String filename = obj.getUUID() + ".pdf";

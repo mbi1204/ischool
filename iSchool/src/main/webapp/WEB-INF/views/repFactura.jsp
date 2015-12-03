@@ -77,13 +77,15 @@ td {
 				<th width="12%">Apellido</th>				
 				<th width="12%">Serie</th>
 				<th width="12%">Folio</th>				
-				<th width="12%">Fecha de creacion</th>
+				<th width="24%">Fecha de creacion</th>
 				<th width="12%">% Desc</th>
 				<th width="12%">Subtotal</th>
 				<th width="12%">Descuento</th>
 				<th width="12%">IVA</th>
 				<th width="12%">Total</th>
 				<th width="12%">Por pagar</th>
+				<th width="12%"></th>
+				<th width="12%"></th>
 				<th width="12%"></th>
 				<th width="12%"></th>
 				<th width="48%"></th>
