@@ -19,65 +19,68 @@ import com.sinergitec.ischool.service.ft.GeneraCfdiService;
 public class GeneraCfdiControl {
 	@Autowired
 	private GeneraCfdiService service;
-	
-			
-	@RequestMapping(value = "/GeneraCfdi/add" )
-	public  @ResponseBody String    getGeneraCfdi(int viFolio, int viSerie){	
-						
-		String  response  = null;		
-		response   = service.generaCfdi(viSerie, viFolio);
-		
-		if (response.isEmpty()  || response == null ) {
+
+	@RequestMapping(value = "/GeneraCfdi/add")
+	public @ResponseBody String getGeneraCfdi(int viFolio, int viSerie) {
+
+		String response = null;
+		response = service.generaCfdi(viSerie, viFolio);
+
+		if (response.isEmpty() || response == null) {
 			response = "Factura generada";
-			
-		}	
-		
-		return response ;			
+
+		}
+
+		return response;
 	}
-	
-		
-	@RequestMapping(value="GeneraCfdi/getPDF/{viFolio}&{viSerie}")
-	public ResponseEntity<byte[]> getPDF(@PathVariable("viFolio") int viFolio, @PathVariable("viSerie")int viSerie) {	
-		
-		CFDI obj = new CFDI ();
-		
+
+	@RequestMapping(value = "GeneraCfdi/getPDF/{viFolio}&{viSerie}")
+	public ResponseEntity<byte[]> getPDF(@PathVariable("viFolio") int viFolio, @PathVariable("viSerie") int viSerie) {
+
+		CFDI obj = new CFDI();
+
 		obj = service.getCFDI(viSerie, viFolio, "pdf");
-		
-		byte[] contents = obj.getPDF();
 
+		if (obj.getPDF() != null) {
+			byte[] contents = obj.getPDF();
 
-	    HttpHeaders headers = new HttpHeaders();
-	    headers.setContentType(MediaType.parseMediaType("application/pdf"));
-	    String filename = obj.getUUID() + ".pdf";
-	    headers.setContentDispositionFormData(filename, filename);
-	    headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
-	    ResponseEntity<byte[]> response = new ResponseEntity<byte[]>(contents, headers, HttpStatus.OK);
-	    return response;
-		
-		
-		
+			HttpHeaders headers = new HttpHeaders();
+			headers.setContentType(MediaType.parseMediaType("application/pdf"));
+			String filename = obj.getUUID() + ".pdf";
+			headers.setContentDispositionFormData(filename, filename);
+			headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
+			ResponseEntity<byte[]> response = new ResponseEntity<byte[]>(contents, headers, HttpStatus.OK);
+			return response;
+
+		} else {
+			
+			return null;
+		}
+
 	}
-	
-	
-	@RequestMapping(value="GeneraCfdi/getXML/{viFolio}&{viSerie}")
-	public ResponseEntity<byte[]> getXML(@PathVariable("viFolio") int viFolio, @PathVariable("viSerie")int viSerie) {	
-		
-		CFDI obj = new CFDI ();
-		
-		obj = service.getCFDI(viSerie, viFolio, "xml");
-		
-		byte[] contents = obj.getXML();
 
-	    HttpHeaders headers = new HttpHeaders();
-	    headers.setContentType(MediaType.parseMediaType("application/xml"));
-	    String filename = obj.getUUID() + ".xml";
-	    headers.setContentDispositionFormData(filename, filename);
-	    headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
-	    ResponseEntity<byte[]> response = new ResponseEntity<byte[]>(contents, headers, HttpStatus.OK);
-	    return response;
-		
-		
-		
+	@RequestMapping(value = "GeneraCfdi/getXML/{viFolio}&{viSerie}")
+	public ResponseEntity<byte[]> getXML(@PathVariable("viFolio") int viFolio, @PathVariable("viSerie") int viSerie) {
+
+		CFDI obj = new CFDI();
+
+		obj = service.getCFDI(viSerie, viFolio, "xml");
+		if (obj.getXML() != null) {
+			byte[] contents = obj.getXML();
+
+			HttpHeaders headers = new HttpHeaders();
+			headers.setContentType(MediaType.parseMediaType("application/xml"));
+			String filename = obj.getUUID() + ".xml";
+			headers.setContentDispositionFormData(filename, filename);
+			headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
+			ResponseEntity<byte[]> response = new ResponseEntity<byte[]>(contents, headers, HttpStatus.OK);
+			return response;
+
+		} else {				
+			
+			return null;
+		}
+
 	}
 
 }
