@@ -43,23 +43,29 @@ public class GeneraCfdiControl {
 		
 		obj = service.getCFDI(viSerie, viFolio, "pdf");
 		
-		byte[] contents = obj.getPDF();
-		
-//		if(contents == null){
-//			return null;
-//		}
+		if  (obj.getPDF() != null) {
+			byte[] contents = obj.getPDF();
+			
+//			if(contents == null){
+//				return null;
+//			}
 
-	    HttpHeaders headers = new HttpHeaders();
-	    headers.setContentType(MediaType.parseMediaType("application/pdf"));
-	    String filename = obj.getUUID() + ".pdf";
-	    headers.setContentDispositionFormData(filename, filename);
-	    headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
-	    ResponseEntity<byte[]> response = new ResponseEntity<byte[]>(contents, headers, HttpStatus.OK);
-	    return response;
+		    HttpHeaders headers = new HttpHeaders();
+		    headers.setContentType(MediaType.parseMediaType("application/pdf"));
+		    String filename = obj.getUUID() + ".pdf";
+		    headers.setContentDispositionFormData(filename, filename);
+		    headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
+		    ResponseEntity<byte[]> response = new ResponseEntity<byte[]>(contents, headers, HttpStatus.OK);
+		    return response;
+			
+		}else{
+			return null;
+			
+		}
 		
-		
-		
+				
 	}
+	
 	
 	
 	@RequestMapping(value="GeneraCfdi/getXML/{viFolio}&{viSerie}")
@@ -77,10 +83,7 @@ public class GeneraCfdiControl {
 	    headers.setContentDispositionFormData(filename, filename);
 	    headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
 	    ResponseEntity<byte[]> response = new ResponseEntity<byte[]>(contents, headers, HttpStatus.OK);
-	    return response;
-		
-		
-		
+	    return response;		
 	}
 
 }

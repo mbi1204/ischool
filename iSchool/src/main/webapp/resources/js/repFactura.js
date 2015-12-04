@@ -116,7 +116,8 @@ function get_GeneraCFDI(viFolio, viSerie, vdeSaldo){
 	
 	var opcion = confirm("Desea generar el CFDI?");
 	
-	if(!opcion)return;
+	if(!opcion)
+		return;
 	
 	if(vdeSaldo !== 0){
 		alert("El CFDI no se puede generar mientras tenga saldo existente");
