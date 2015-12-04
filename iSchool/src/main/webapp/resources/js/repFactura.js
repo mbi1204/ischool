@@ -123,6 +123,9 @@ function get_GeneraCFDI(viFolio, viSerie, vdeSaldo){
 		return;		
 	}
 	
+	 $('#loading').html('<img <c:url value="/resources/imagenes/loader.gif"/> > loading...');
+	                   
+	
 	$.ajax({
 		type : "GET",
 		url : "GeneraCfdi/add",	
@@ -131,6 +134,8 @@ function get_GeneraCFDI(viFolio, viSerie, vdeSaldo){
 			viSerie : viSerie
 		},
 		success : function(reponse) {
+			
+			$('#loading').html();
 			alert(reponse );	
 			
 
@@ -138,6 +143,8 @@ function get_GeneraCFDI(viFolio, viSerie, vdeSaldo){
 		error : function(xhr, status, error) {
 			alert(xhr.responseText);
 		}
+		
+		
 
 	});
 	

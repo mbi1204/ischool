@@ -67,7 +67,9 @@ td {
 		<form:select path="cNombre" items="${lista_ctGrupo}" 
 			itemValue="iIdGrupo" itemLabel="cNombre"
 			onchange="carga_repAlumno(value);" />		
-	</form:form>	
+	</form:form>
+	
+	<div id="loading"></div>	
 
 	<table id="mytable" class="pure-table pure-table-bordered  ">
 		<thead>
