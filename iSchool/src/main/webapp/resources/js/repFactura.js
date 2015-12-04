@@ -123,8 +123,9 @@ function get_GeneraCFDI(viFolio, viSerie, vdeSaldo){
 		return;		
 	}
 	
-	 $('#loading').html('<img <c:url value="/resources/imagenes/loader.gif"/> > loading...');
-	                   
+	
+	            
+	$("#dialog").dialog("open");
 	
 	$.ajax({
 		type : "GET",
@@ -136,12 +137,16 @@ function get_GeneraCFDI(viFolio, viSerie, vdeSaldo){
 		success : function(reponse) {
 			
 			$('#loading').html();
+			$("#dialog").dialog("close");
 			alert(reponse );	
+			
 			
 
 		},
 		error : function(xhr, status, error) {
+			$("#dialog").dialog("close");
 			alert(xhr.responseText);
+			
 		}
 		
 		
@@ -284,6 +289,14 @@ $(document).ready(function() {
 					$("#ctLocalidadesRepFact_Dialog").dialog('close');
 
 				});
+		
+		
+		$("#dialog").dialog({
+			autoOpen: false,
+			modal: true  ,
+			open: function(event, ui) { $(".ui-dialog-titlebar-close", ui.dialog).hide();}
+				
+		});
 });
 
 

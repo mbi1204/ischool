@@ -51,6 +51,12 @@ td {
 	<%@ include file="ctLocalidadesRepFact_Form.jsp"%>
 </div>
 
+<div id="dialog">
+  <p><img src="<c:url value="/resources/imagenes/loader.gif" />" /> Procesando </p>
+          
+</div>
+
+
 
 <%@ include file="/WEB-INF/views/templates/menu.jsp"%>
 	<div style="width: 95%; margin: 0 auto;">
