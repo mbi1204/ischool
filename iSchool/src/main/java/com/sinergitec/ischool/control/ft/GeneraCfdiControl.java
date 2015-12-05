@@ -40,6 +40,8 @@ public class GeneraCfdiControl {
 		CFDI obj = new CFDI();
 
 		obj = service.getCFDI(viSerie, viFolio, "pdf");
+		
+		System.out.println("entro");
 
 		if (obj.getPDF() != null) {
 			byte[] contents = obj.getPDF();
