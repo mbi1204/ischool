@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Facturas</title>
 
 <link rel="stylesheet"
 	href='<c:url value="/resources/css/pure-0.4.2.css"/>'>
@@ -51,6 +51,12 @@ td {
 	<%@ include file="ctLocalidadesRepFact_Form.jsp"%>
 </div>
 
+<div id="dialog">
+  <p><img src="<c:url value="/resources/imagenes/loader.gif" />" /> Procesando </p>
+          
+</div>
+
+
 
 <%@ include file="/WEB-INF/views/templates/menu.jsp"%>
 	<div style="width: 95%; margin: 0 auto;">
@@ -67,7 +73,9 @@ td {
 		<form:select path="cNombre" items="${lista_ctGrupo}" 
 			itemValue="iIdGrupo" itemLabel="cNombre"
 			onchange="carga_repAlumno(value);" />		
-	</form:form>	
+	</form:form>
+	
+	<div id="loading"></div>	
 
 	<table id="mytable" class="pure-table pure-table-bordered  ">
 		<thead>

@@ -33,7 +33,7 @@ function carga_repAlumno(viIdGrupo) {
 						+ '<td>' + '<button class="pure-button pure-button-primary" id="editar" onclick="alumno_dialogo('+ data[item].iIdAlumno + ');"">'
 						+ 'Editar </button> </td>'
 						+ '<td>' + '<button class="pure-button pure-button-primary" onclick="get_detalle('+ data[item].iFolio + ', ' + data[item].iSerie + ');">'
-						+ 'Detalle </button> </td>'
+						+ 'Detalle </button> </td>'						
 						+ '<td>' + '<button class="pure-button pure-button-primary" onclick="get_GeneraCFDI('+ data[item].iFolio + ', ' + data[item].iSerie + ', ' + data[item].deSaldo + ');">'
 						+ 'CFDI </button> </td>'
 						+ '<td>' + '<a class="pure-button pure-button-primary" href= "GeneraCfdi/getPDF/' +  data[item].iFolio  + '&' +   data[item].iSerie + '" >'	+ 'PDF'
@@ -125,7 +125,8 @@ function get_GeneraCFDI(viFolio, viSerie, vdeSaldo){
 	}
 	
 	
-	
+	            
+	$("#dialog").dialog("open");
 	
 	$.ajax({
 		type : "GET",
@@ -135,13 +136,21 @@ function get_GeneraCFDI(viFolio, viSerie, vdeSaldo){
 			viSerie : viSerie
 		},
 		success : function(reponse) {
+			
+			$('#loading').html();
+			$("#dialog").dialog("close");
 			alert(reponse );	
+			
 			
 
 		},
 		error : function(xhr, status, error) {
+			$("#dialog").dialog("close");
 			alert(xhr.responseText);
+			
 		}
+		
+		
 
 	});
 	
@@ -281,6 +290,14 @@ $(document).ready(function() {
 					$("#ctLocalidadesRepFact_Dialog").dialog('close');
 
 				});
+		
+		
+		$("#dialog").dialog({
+			autoOpen: false,
+			modal: true  ,
+			open: function(event, ui) { $(".ui-dialog-titlebar-close", ui.dialog).hide();}
+				
+		});
 });
 
 
