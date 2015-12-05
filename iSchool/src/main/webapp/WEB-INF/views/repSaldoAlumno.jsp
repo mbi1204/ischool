@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Reporte Saldo de Alumnos</title>
 
 <link rel="stylesheet"
 	href='<c:url value="/resources/css/pure-0.4.2.css"/>'>
