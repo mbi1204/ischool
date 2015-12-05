@@ -96,6 +96,7 @@ public class repFacturaControl {
 	public @ResponseBody List<ctLocalidad> get_Localidad(String cCP) {
 		List<ctLocalidad> lista = new ArrayList<ctLocalidad>();
 		lista = this.localidadService.list_ctLocalidades(cCP);
+		System.out.println("entro");
 		return lista;
 
 	}
