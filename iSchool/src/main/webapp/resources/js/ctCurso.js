@@ -53,7 +53,7 @@ function Decimal()
       event.returnValue=false;
    else{
       var p=new String(currency.value+k).indexOf(".");
-      if((p<currency.value.length-2 || isDot) && p>-1 && (!isException))
+      if((p<currency.value.length-3|| isDot) && p>-1 && (!isException))
          event.returnValue=false;
       else if(currency.value.length>=15 && (!isException))
          event.returnValue=false;
