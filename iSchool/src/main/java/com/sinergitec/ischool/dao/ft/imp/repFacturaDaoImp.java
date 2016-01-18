@@ -52,11 +52,11 @@ public class repFacturaDaoImp implements repFacturaDao{
 				obj.setiSerie((rs_tt_ftFactura.getInt("iSerie")));
 				obj.setDtFecha((rs_tt_ftFactura.getTimestamp("dtFecha")));
 				obj.setlActivo((rs_tt_ftFactura.getBoolean("lActivo")));
-				obj.setDeSubtotal(rs_tt_ftFactura.getBigDecimal("deSubtotal").setScale(0, RoundingMode.HALF_UP));
-				obj.setDeIVA(rs_tt_ftFactura.getBigDecimal("deIVA").setScale(0, RoundingMode.HALF_UP));
+				obj.setDeSubtotal(rs_tt_ftFactura.getBigDecimal("deSubtotal").setScale(2, RoundingMode.CEILING));
+				obj.setDeIVA(rs_tt_ftFactura.getBigDecimal("deIVA").setScale(2, RoundingMode.CEILING));
 				obj.setDeTotal(rs_tt_ftFactura.getBigDecimal("deTotal").setScale(0, RoundingMode.HALF_UP));
 				obj.setDeDescPorc((rs_tt_ftFactura.getBigDecimal("deDescPorc")));
-				obj.setDeDescMonto(rs_tt_ftFactura.getBigDecimal("deDescMonto").setScale(0, RoundingMode.HALF_UP));
+				obj.setDeDescMonto(rs_tt_ftFactura.getBigDecimal("deDescMonto").setScale(2, RoundingMode.CEILING));
 				obj.setiIdAlumno((rs_tt_ftFactura.getInt("iIdAlumno")));
 				obj.setDtFechaCancel((rs_tt_ftFactura.getTimestamp("dtFechaCancel")));
 				obj.setDeSaldo((rs_tt_ftFactura.getBigDecimal("deSaldo").setScale(0, RoundingMode.HALF_UP)));
