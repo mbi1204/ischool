@@ -1,6 +1,7 @@
 package com.sinergitec.ischool.dao.ct.imp;
 
 import java.io.IOException;
+import java.math.RoundingMode;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -143,9 +144,9 @@ public class ctCursoDaoImpl implements ctCursoDao {
 				obj.setlEstatus(rs_tt_ctCurso.getBoolean("lEstatus"));
 				obj.setiMinCup(rs_tt_ctCurso.getInt("iMinCup"));
 				obj.setiMaxCup(rs_tt_ctCurso.getInt("iMaxCup"));
-				obj.setDePrecio(rs_tt_ctCurso.getBigDecimal("dePrecio"));
-				obj.setDeIva(rs_tt_ctCurso.getBigDecimal("deIva"));
-				obj.setDeTotal(rs_tt_ctCurso.getBigDecimal("deTotal"));
+				obj.setDePrecio(rs_tt_ctCurso.getBigDecimal("dePrecio").setScale(0, RoundingMode.HALF_UP));
+				obj.setDeIva(rs_tt_ctCurso.getBigDecimal("deIva").setScale(0, RoundingMode.HALF_UP));
+				obj.setDeTotal(rs_tt_ctCurso.getBigDecimal("deTotal").setScale(0, RoundingMode.HALF_UP));
 				obj.setId(rs_tt_ctCurso.getBytes("id"));
 				
 
@@ -182,13 +183,15 @@ public class ctCursoDaoImpl implements ctCursoDao {
 			
 			ResultSet rs_tt_ctCurso = tt_ctCurso.getResultSetValue();
 
-			while (rs_tt_ctCurso.next()) {
+			while (rs_tt_ctCurso.next()) {				
 				
 				obj.setiIdCurso(rs_tt_ctCurso.getInt("iIdCurso"));
 				obj.setcNombre(rs_tt_ctCurso.getString("cNombre"));
 				obj.setiMinCup(rs_tt_ctCurso.getInt("iMinCup"));
 				obj.setiMaxCup(rs_tt_ctCurso.getInt("iMaxCup"));
 				obj.setDePrecio(rs_tt_ctCurso.getBigDecimal("dePrecio"));
+				obj.setDeIva(rs_tt_ctCurso.getBigDecimal("deIva"));
+				obj.setDeTotal(rs_tt_ctCurso.getBigDecimal("deTotal").setScale(0, RoundingMode.HALF_EVEN));
 				obj.setId(rs_tt_ctCurso.getBytes("id"));
 
 			}
