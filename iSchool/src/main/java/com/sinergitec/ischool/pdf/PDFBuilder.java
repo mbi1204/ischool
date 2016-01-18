@@ -49,7 +49,7 @@ public class PDFBuilder extends AbstractITextPdfView {
 		Font fuenteBanco = new Font(Font.FontFamily.UNDEFINED, 11, Font.BOLD);
 
 		PdfPCell cellTitulo = new PdfPCell(new Paragraph("Seminario del Taller Coreográfico Universitario", fuenteTitulo));
-		PdfPCell cellForm = new PdfPCell(new Paragraph("Inscripción", fuenteForm));
+		PdfPCell cellForm = new PdfPCell(new Paragraph("Referencia para pago", fuenteForm));
 		PdfPCell cellSub1 = new PdfPCell(new Paragraph("Datos Del Alumno:", fuentetSub));
 		PdfPCell cellSub2 = new PdfPCell(new Paragraph("Domicilio:", fuentetSub));
 		PdfPCell cellSub3 = new PdfPCell(new Paragraph("Cursos:", fuentetSub));

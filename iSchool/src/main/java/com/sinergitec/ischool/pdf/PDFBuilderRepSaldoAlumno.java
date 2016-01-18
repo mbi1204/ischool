@@ -1,5 +1,6 @@
 package com.sinergitec.ischool.pdf;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Map;
 import com.sinergitec.ischool.model.cb.cbAlumnoSaldo;
@@ -63,7 +64,7 @@ public class PDFBuilderRepSaldoAlumno extends AbstractITextPdfView {
 			tablaPDF.addCell(new Phrase(cbAlumno.getcApellido(), fuenteCelda));			
 			tablaPDF.addCell(new Phrase(cbAlumno.getcTel(), fuenteCelda));
 			tablaPDF.addCell(new Phrase(cbAlumno.getcCorreo(), fuenteCelda));
-			tablaPDF.addCell(new Phrase(Double.toString(cbAlumno.getDeSaldo()), fuenteCelda));
+			tablaPDF.addCell(new Phrase(cbAlumno.getDeSaldo().toString(), fuenteCelda));
 		}
 		
 		tablaPDF.setWidthPercentage(100);

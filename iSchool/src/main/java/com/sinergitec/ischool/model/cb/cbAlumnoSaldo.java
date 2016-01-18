@@ -1,5 +1,6 @@
 package com.sinergitec.ischool.model.cb;
 
+import java.math.BigDecimal;
 import java.util.Vector;
 
 public class cbAlumnoSaldo {
@@ -9,7 +10,7 @@ public class cbAlumnoSaldo {
 	private String cApellido;
 	private String cTel;
 	private String cCorreo;
-	private Double deSaldo;
+	private BigDecimal deSaldo;
 	byte[] Id;
 
 	public int getiIdAlumno() {
@@ -52,11 +53,11 @@ public class cbAlumnoSaldo {
 		this.cCorreo = cCorreo;
 	}
 
-	public Double getDeSaldo() {
+	public BigDecimal getDeSaldo() {
 		return deSaldo;
 	}
 
-	public void setDeSaldo(Double deSaldo) {
+	public void setDeSaldo(BigDecimal deSaldo) {
 		this.deSaldo = deSaldo;
 	}
 

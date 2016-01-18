@@ -1,6 +1,7 @@
 package com.sinergitec.ischool.dao.rep.imp;
 
 import java.io.IOException;
+import java.math.RoundingMode;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -52,7 +53,7 @@ public class repSaldoAlumnoDaoImp implements repSaldoAlumnoDao {
 				obj.setcApellido(rs_tt_cbAlumno.getString("cApellido"));
 				obj.setcTel(rs_tt_cbAlumno.getString("cTel"));
 				obj.setcCorreo(rs_tt_cbAlumno.getString("cEmail"));
-				obj.setDeSaldo(rs_tt_cbAlumno.getDouble("deSaldo"));				
+				obj.setDeSaldo(rs_tt_cbAlumno.getBigDecimal("deSaldo").setScale(2, RoundingMode.HALF_UP));				
 
 				Lista.add(obj);
 			}
