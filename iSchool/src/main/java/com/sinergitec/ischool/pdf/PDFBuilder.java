@@ -143,13 +143,15 @@ public class PDFBuilder extends AbstractITextPdfView {
 
 		double vdeTotal = 0;
 		PdfPTable tablaCurso = new PdfPTable(4);
-		tablaCurso.addCell(new Phrase("Curso", fuenteTabla));
+//		tablaCurso.addCell(new Phrase("Curso", fuenteTabla));
 		tablaCurso.addCell(new Phrase("Grupo", fuenteTabla));
+		tablaCurso.addCell(new Phrase("Dias", fuenteTabla));
 		tablaCurso.addCell(new Phrase("Horario", fuenteTabla));
 		tablaCurso.addCell(new Phrase("Precio", fuenteTabla));
 		for (ctGrupo objGrupo : listaGrupo) {
-			tablaCurso.addCell(objGrupo.getCurso().getcNombre());
+//			tablaCurso.addCell(objGrupo.getCurso().getcNombre());
 			tablaCurso.addCell(objGrupo.getcNombre());
+			tablaCurso.addCell(objGrupo.getcDias());
 			tablaCurso.addCell(objGrupo.getcHorario());
 			tablaCurso.addCell(objGrupo.getCurso().getDePrecio().toString());
 			vdeTotal += objGrupo.getCurso().getDePrecio().setScale(2,BigDecimal.ROUND_DOWN).doubleValue();

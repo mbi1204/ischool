@@ -27,18 +27,18 @@ function Add_curso() {
 	else
 		descuento = 0;
 
-	$
-			.ajax({
+	$.ajax({
 				type : "GET",
 				url : "ctAlumno/getGrupo",
 				data : {
 					id : vid
 				},
 				success : function(data, textStatus, jqXHR) {
+					
+					var cDias = data.cDias;
 
-					$('#mytable > tbody')
-							.append(
-									'<tr>' + '<td class="id_Grupo">'
+					$('#mytable > tbody').append('<tr>' 
+											+ '<td class="id_Grupo">'
 											+ data.iIdGrupo
 											+ '</td>'
 											+ '<td class="cNombre_Grupo">'
@@ -54,20 +54,13 @@ function Add_curso() {
 											+ data.cHorario
 											+ '</td>'
 											+ '<td class="dePrecio">'
-											+ parseFloat(data.curso.dePrecio)
-													.toFixed(2)
+											+ parseFloat(data.curso.dePrecio).toFixed(2)
 											+ '</td>'
 											+ '<td class="deDescuento">'
-											+ parseFloat(
-													data.curso.dePrecio
-															* (descuento / 100))
-													.toFixed(2)
+											+ parseFloat(data.curso.dePrecio * (descuento / 100)).toFixed(2)
 											+ '</td>'
 											+ '<td class="dePrecioReal">'
-											+ parseFloat(
-													data.curso.dePrecio
-															- (data.curso.dePrecio * (descuento / 100)))
-													.toFixed(2)
+											+ parseFloat(data.curso.dePrecio - (data.curso.dePrecio * (descuento / 100))).toFixed(2)
 											+ '</td>'
 											+ '<td>'
 											+ '<button class="btnDelete" onclick="Borrar();" style="background-color:#FF4000; color:black;">Quitar</button>'
@@ -81,7 +74,7 @@ function Add_curso() {
 									+ vdetotal.toFixed(2) + '</TH> </TR>');
 
 					/* agregar json curso */
-					generaJson();
+					generaJson(cDias);
 
 				},
 				error : function() {
@@ -117,18 +110,19 @@ function Borrar() {
 
 }
 
-var generaJson = function() {
+var generaJson = function(cDias) {
 
 	var dataArray = new Array();
 
 	function dataRow(id_Grupo, cNombre_Grupo, id_Curso, cNombre_Curso,
-			cHorario, dePrecio) {
+			cHorario, dePrecio, cDias) {
 		this.id_Grupo = id_Grupo;
 		this.cNombre_Grupo = cNombre_Grupo;
 		this.cNombre_Curso = cNombre_Curso;
 		this.cHorario = cHorario;
 		this.dePrecio = dePrecio;
 		this.id_Curso = id_Curso;
+		this.cDias = cDias;	
 	}
 
 	$.each($("#mytable tbody").find("tr"), function() {
@@ -137,7 +131,8 @@ var generaJson = function() {
 				$(this).closest("tr").find(".id_Curso").text(), $(this)
 						.closest("tr").find(".cNombre_Curso").text(), $(this)
 						.closest("tr").find(".cHorario").text(), $(this)
-						.closest("tr").find(".dePrecioReal").text()));
+						.closest("tr").find(".dePrecioReal").text(),
+						cDias));
 
 	});
 	var sJson = JSON.stringify(dataArray);
