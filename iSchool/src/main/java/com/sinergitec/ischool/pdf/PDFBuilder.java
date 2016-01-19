@@ -149,8 +149,8 @@ public class PDFBuilder extends AbstractITextPdfView {
 		tablaCurso.addCell(new Phrase("Horario", fuenteTabla));
 		tablaCurso.addCell(new Phrase("Precio", fuenteTabla));
 		for (ctGrupo objGrupo : listaGrupo) {
-//			tablaCurso.addCell(objGrupo.getCurso().getcNombre());
-			tablaCurso.addCell(objGrupo.getcNombre());
+//			tablaCurso.addCell();
+			tablaCurso.addCell(objGrupo.getCurso().getcNombre() + " " + objGrupo.getcNombre());
 			tablaCurso.addCell(objGrupo.getcDias());
 			tablaCurso.addCell(objGrupo.getcHorario());
 			tablaCurso.addCell(objGrupo.getCurso().getDePrecio().toString());
